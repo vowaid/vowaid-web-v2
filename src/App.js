@@ -6,8 +6,7 @@ import './styles';
 import Header from './components/Layout/Header';
 
 import Landing from './pages/Landing';
-
-const NotFound = () => <div>Not Found</div>;
+import NotFound from './pages/NotFound';
 
 const App = (props) => {
   return (
