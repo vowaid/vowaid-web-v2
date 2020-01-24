@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { Typography } from '@material-ui/core';
+
 const Landing = (props) => {
   return (
     <main>
-      <h1>Welcome</h1>
+      <Typography variant='h1'>Welcome</Typography>
     </main>
   )
 };

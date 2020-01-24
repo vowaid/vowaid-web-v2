@@ -5,7 +5,7 @@ import { pxToEm } from './converters';
  *
  * @enum {number}
  */
-export const baseFontSize = 16;
+const baseFontSize = 16;
 
 /**
  * The base container width as a 'vw' percentage property.
