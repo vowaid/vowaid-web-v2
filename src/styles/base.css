@@ -1,0 +1,33 @@
+html {
+  color: #424242;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+  overflow-x: hidden;
+}
+
+* {
+  -moz-osx-font-smoothing: grayscale !important;
+  -webkit-font-smoothing: antialiased !important;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F5F5F5;
+  color: #424242;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+a,
+label,
+button {
+  cursor: pointer;
+}
+
+input,
+select {
+  font-family: inherit;
+}

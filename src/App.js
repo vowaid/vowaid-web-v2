@@ -1,6 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+import './styles';
+
+import Header from './components/Layout/Header';
+
 import Landing from './pages/Landing';
 
 const NotFound = () => <div>Not Found</div>;
@@ -8,7 +12,7 @@ const NotFound = () => <div>Not Found</div>;
 const App = (props) => {
   return (
     <Router>
-      <header>VOWAID</header>
+      <Header />
 
       <Switch>
         <Route exact path='/'>
