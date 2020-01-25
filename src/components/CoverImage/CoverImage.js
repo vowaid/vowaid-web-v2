@@ -4,6 +4,22 @@ import styled from 'styled-components';
 
 import { pxToEm } from '../../styles/utils';
 
+const ImageContainer = styled.div`
+  height: ${(props) => (props.imageHeight)};
+  min-height: ${pxToEm(500)};
+  overflow: hidden;
+  position: absolute;
+  width: 100vw;
+  z-index: -1;
+`;
+
+const Img = styled.img`
+  height: ${(props) => (props.imageHeight)};
+  min-height: ${pxToEm(500)};
+  object-fit: cover;
+  width: 100vw;
+`;
+
 /**
  * Description.
  *
@@ -11,14 +27,14 @@ import { pxToEm } from '../../styles/utils';
  * @param {} props.imageHeight
  * @param {} props.src
  */
-const CoverImage = ({ alt, imageHeight, src }) => (
+const CoverImage = ({ alt = '', imageHeight, src }) => (
   <ImageContainer
     className='image--container'
     imageHeight={imageHeight}
   >
-    <img
+    <Img
       alt={alt}
-      className='image'
+      imageHeight={imageHeight}
       src={src}
     />
   </ImageContainer>
@@ -35,19 +51,5 @@ CoverImage.propTypes = {
   imageHeight: PropTypes.string,
   src: PropTypes.string,
 };
-
-const ImageContainer = styled.div`
-  height: ${(props) => (props.imageHeight)};
-  overflow: hidden;
-  position: absolute;
-  width: 100vw;
-  z-index: -1;
-
-  .image {
-    height: ${(props) => (props.imageHeight)};
-    object-fit: cover;
-    width: 100vw;
-  }
-`;
 
 export default CoverImage;

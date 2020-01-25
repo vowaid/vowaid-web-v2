@@ -5,7 +5,7 @@ import Color from 'color';
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
-import { createTransitionForProperties, gutter } from '../../../styles/utils';
+import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';
 
 import CoverImage from '../../CoverImage/CoverImage';
@@ -55,7 +55,8 @@ const LandingHero = () => (
 const sectionHeight = '50vh';
 
 const StyledHero = styled.article`
-  min-height: ${sectionHeight};
+  height: ${sectionHeight};
+  min-height: ${pxToEm(500)};
   overflow: hidden;
   position: relative;
 `;
@@ -65,7 +66,8 @@ const RightPanel = styled.section`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  min-height: ${sectionHeight};
+  height: ${sectionHeight};
+  min-height: ${pxToEm(500)};
   justify-content: center;
   padding: 0 ${gutter.XXL};
   position: absolute;
