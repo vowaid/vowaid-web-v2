@@ -1,11 +1,17 @@
 import React from 'react';
 
-import { Typography } from '@material-ui/core';
+import SEO from '../components/seo';
+import LandingHero from '../components/heros/LandingHero/LandingHero';
 
 const Landing = (props) => {
   return (
     <main>
-      <Typography variant='h1'>Welcome</Typography>
+      <SEO
+        keywords={['vowaid', 'veteran', 'nonprofit', 'charity', 'react']}
+        title='Home'
+      />
+
+      <LandingHero />
     </main>
   )
 };
