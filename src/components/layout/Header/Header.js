@@ -3,13 +3,21 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { ReactSVG } from 'react-svg';
-import { AppBar, Slide, Toolbar, useScrollTrigger } from '@material-ui/core';
+import { AppBar, Slide, Toolbar, useScrollTrigger, useMediaQuery } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 import NavList from '../../nav/NavList/NavList';
+import NavDrawer from '../../nav/NavDrawer/NavDrawer';
 import VowaidLogo from '../../../assets/svg/logo-horizontal-header.svg';
 
 const StyledReactSVG = styled(ReactSVG)`
+  > * {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
   svg {
     height: 50px;
     width: auto;
@@ -46,22 +54,32 @@ const StyledToolbar = styled(Toolbar)`
   justify-content: space-between;
 `;
 
+const LeftContainer = styled.div`
+  align-content: center;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+`;
+
 const Header = (props) => {
   return (
     <>
       <HideOnScroll>
         <AppBar color='default'>
           <StyledToolbar>
-            <h1>
-              <Link className='link--reset' to='/'>
-                <StyledReactSVG src={VowaidLogo} />
-                <span className='noshow'>Veterans of War Aid Foundation</span>
-              </Link>
-            </h1>
+            <LeftContainer>
+              {useMediaQuery('(max-width:700px)') && <NavDrawer />}
 
-            <nav>
-              <NavList />
-            </nav>
+              <h1>
+                <Link className='link--reset' to='/'>
+                  <StyledReactSVG src={VowaidLogo} />
+                  <span className='noshow'>Veterans of War Aid Foundation</span>
+                </Link>
+              </h1>
+            </LeftContainer>
+
+            {useMediaQuery('(min-width:700px)') && <NavList />}
           </StyledToolbar>
         </AppBar>
       </HideOnScroll>

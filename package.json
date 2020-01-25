@@ -1,9 +1,51 @@
 {
-  "name": "vowaid-v2",
-  "version": "0.1.0",
+  "name": "vowaid",
   "private": true,
+  "version": "2.0.0",
+  "license": "LicenseRef-LICENSE",
+  "description": "The Veterans of War Aid Foundation (VOW AID) creates, unites, and supports businesses that fight for American combat veterans and uses contacts and revenues to deliver targeted assistance to American Heroes in need.",
+  "contributors": [
+    "Holly Springsteen <holly@vowaidfoundation.org>",
+    "Hunter Nunnery <hunter@vowaidfoundation.org> (https://www.codehunter.io/)"
+  ],
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blakenoll/gatsby-starter-styled-components"
+  },
+  "bugs": {
+    "url": "https://github.com/blakenoll/gatsby-starter-styled-components/issues"
+  },
+  "keywords": [
+    "vowaid",
+    "nonprofit",
+    "veteran",
+    "war",
+    "aid",
+    "foundation"
+  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
     "@material-ui/core": "^4.9.0",
+    "@material-ui/icons": "^4.5.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -16,28 +58,8 @@
     "react-svg": "^11.0.7",
     "styled-components": "^5.0.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
-  },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.8",
