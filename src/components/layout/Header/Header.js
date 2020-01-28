@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import NavList from '../../nav/NavList/NavList';
 import NavDrawer from '../../nav/NavDrawer/NavDrawer';
 import VowaidLogo from '../../../assets/svg/logo-horizontal-header.svg';
+import VowaidLogoLight from '../../../assets/svg/logo-horizontal-header-light.svg';
 
 const StyledReactSVG = styled(ReactSVG)`
   > * {
@@ -63,6 +64,9 @@ const LeftContainer = styled.div`
 `;
 
 const Header = (props) => {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const mode = (prefersDarkMode) ? 'dark' : 'light';
+
   return (
     <>
       <HideOnScroll>
@@ -73,7 +77,7 @@ const Header = (props) => {
 
               <h1>
                 <Link className='link--reset' to='/'>
-                  <StyledReactSVG src={VowaidLogo} />
+                  <StyledReactSVG src={(mode === 'light') ? VowaidLogo : VowaidLogoLight} />
                   <span className='noshow'>Veterans of War Aid Foundation</span>
                 </Link>
               </h1>
