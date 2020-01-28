@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Color from 'color';
+// import Color from 'color';
 
-import { Button } from '@material-ui/core';
+import { Button, Typography, useMediaQuery } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
@@ -12,45 +12,44 @@ import CoverImage from '../../CoverImage/CoverImage';
 
 import Image from '../../../assets/images/covers/DSC01178.jpg';
 
-const hexToRgb = (hex) => (
-  Color(hex).rgb()
-);
-
-console.log(hexToRgb('#FFF'));
-
 /**
  * Description.
  */
-const LandingHero = () => (
-  <StyledHero>
-    <CoverImage
-      alt='Desert Ops'
-      imageHeight={sectionHeight}
-      src={Image}
-    />
+const LandingHero = () => {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const mode = (prefersDarkMode) ? 'dark' : 'light';
 
-    <RightPanel>
-      <Mission>
-        <h1>Our Mission</h1>
-        <p className='font-size--4'>The Veterans of War Aid Foundation (VOWAID) creates, unites, and supports businesses that fight for American combat veterans and uses contacts and revenues to deliver targeted assistance to American Heroes in need.</p>
-      </Mission>
+  return (
+    <StyledHero>
+      <CoverImage
+        alt='Desert Ops'
+        imageHeight={sectionHeight}
+        src={Image}
+      />
 
-      <ButtonGroup>
-        <Link className='link--reset' to='/about'>
-          <Button
-            className='MuiToolbar-regular'
-            color={vowaidColors.blue['50']}
-            buttonStyle='secondary'
-          >Learn&nbsp;More</Button>
-        </Link>
+      <RightPanel mode={mode}>
+        <Mission>
+          <Typography variant='h2' component='h1'>Our Mission</Typography>
+          <Typography variant='h5' component='p'>The Veterans of War Aid Foundation (VOWAID) creates, unites, and supports businesses that fight for American combat veterans and uses contacts and revenues to deliver targeted assistance to American Heroes in need.</Typography>
+        </Mission>
 
-        <Link className='link--reset' to='/donate'>
-        <Button className='MuiToolbar-regular' color='secondary' variant='contained'>Donate</Button>
-        </Link>
-      </ButtonGroup>
-    </RightPanel>
-  </StyledHero>
-);
+        <ButtonGroup>
+          <StyledLink className='link--reset' to='/about'>
+            <Button
+              className='MuiToolbar-regular'
+              color={vowaidColors.blue['50']}
+              buttonStyle='secondary'
+            >Learn&nbsp;More</Button>
+          </StyledLink>
+
+          <StyledLink className='link--reset' to='/donate'>
+            <Button className='MuiToolbar-regular' color='secondary' variant='contained'>Donate</Button>
+          </StyledLink>
+        </ButtonGroup>
+      </RightPanel>
+    </StyledHero>
+  );
+};
 
 const sectionHeight = '50vh';
 
@@ -62,32 +61,35 @@ const StyledHero = styled.article`
 `;
 
 const RightPanel = styled.section`
-  background: rgba(220, 220, 220, 0.7);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  height: ${sectionHeight};
-  min-height: ${pxToEm(500)};
-  justify-content: center;
-  padding: 0 ${gutter.XXL};
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 41.66667vw;
-  z-index: 1;
-  ${createTransitionForProperties(['width'])};
+  ${({ mode }) => `
+    background: ${(mode === 'light') ? 'rgba(220, 220, 220, 0.7)' : 'rgba(30, 30, 30, 0.7)'};
+    box-sizing: border-box;
+    color: ${(mode === 'light') ? vowaidColors.grayscale[10] : vowaidColors.grayscale[90]};
+    display: flex;
+    flex-direction: column;
+    height: ${sectionHeight};
+    min-height: ${pxToEm(500)};
+    justify-content: center;
+    padding: 0 ${gutter.XXL};
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 41.66667vw;
+    z-index: 1;
+    ${createTransitionForProperties(['width'])};
 
-  @media only screen and (max-width: 1000px) {
-    width: 60vw;
-  }
+    @media only screen and (max-width: 1000px) {
+      width: 60vw;
+    }
 
-  @media only screen and (max-width: 800px) {
-    width: 80vw;
-  }
+    @media only screen and (max-width: 800px) {
+      width: 80vw;
+    }
 
-  @media only screen and (max-width: 600px) {
-    width: 100vw;
-  }
+    @media only screen and (max-width: 600px) {
+      width: 100vw;
+    }
+  `};
 `;
 
 const Mission = styled.div`
@@ -100,7 +102,7 @@ const ButtonGroup = styled.div`
 
   button {
     font-weight: 700;
-    max-width: 45%;
+    width: 100%;
     ${createTransitionForProperties(['background', 'box-shadow', 'margin', 'width'])};
   }
 
@@ -109,13 +111,20 @@ const ButtonGroup = styled.div`
 
     button {
       margin: 0 5%;
-      max-width: 90%;
-      width: 90%;
 
       &:first-child {
         margin-bottom: ${gutter.M};
       }
     }
+  }
+`;
+
+const StyledLink = styled(Link)`
+  display: inline-block;
+  width: 40%;
+
+  @media only screen and (max-width: 1000px) {
+    width: 85%;
   }
 `;
 
