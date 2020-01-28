@@ -9,6 +9,8 @@ import Header from './components/layout/Header/Header';
 import Landing from './pages/Landing';
 import NotFound from './pages/NotFound';
 
+import ThemeProvider from './theme/ThemeProvider';
+
 const routes = [{
   exact: true,
   path: '/',
@@ -33,21 +35,23 @@ const RouteWithSubRoutes = (route) => {
 
 const App = (props) => {
   return (
-    <Router>
-      <Header />
+    <ThemeProvider>
+      <Router>
+        <Header />
 
-      <Switch>
-        {routes.map((route) => (
-          <RouteWithSubRoutes key={uuid()} {...route} />
-        ))}
+        <Switch>
+          {routes.map((route) => (
+            <RouteWithSubRoutes key={uuid()} {...route} />
+          ))}
 
-        <Route path="*">
-          <NotFound />
-        </Route>
-      </Switch>
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
 
-      <footer>&copy;2020</footer>
-    </Router>
+        <footer>&copy;2020</footer>
+      </Router>
+    </ThemeProvider>
   );
 };
 

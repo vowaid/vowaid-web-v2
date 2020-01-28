@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { styled } from '@material-ui/core/styles';
 
 import { Button, Divider, Drawer, List, ListItem } from '@material-ui/core';
 import { ArrowBackIos, Menu } from '@material-ui/icons';

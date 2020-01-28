@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { styled as muiStyled } from '@material-ui/core/styles';
 import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
@@ -42,7 +43,7 @@ const StyledNav = styled.nav`
   height: 100%;
 `;
 
-const StyledButtonGroup = styled(ButtonGroup)`
+const StyledButtonGroup = muiStyled(ButtonGroup)`
   height: 100%;
 
   button {
@@ -52,7 +53,7 @@ const StyledButtonGroup = styled(ButtonGroup)`
   }
 `;
 
-const NavLink = styled(Link)`
+const NavLink = muiStyled(Link)`
   height: 100%;
   width: 100%;
 `;

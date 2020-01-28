@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from '@material-ui/core/styles';
 import Color from 'color';
 import uuid from 'uuid/v4';
 
