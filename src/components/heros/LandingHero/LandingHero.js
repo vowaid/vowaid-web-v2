@@ -37,7 +37,7 @@ const LandingHero = () => {
           <StyledLink className='link--reset' to='/about'>
             <Button
               className='MuiToolbar-regular'
-              color={vowaidColors.blue['50']}
+              color='primary'
               buttonStyle='secondary'
             >Learn&nbsp;More</Button>
           </StyledLink>

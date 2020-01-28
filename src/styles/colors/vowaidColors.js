@@ -1,5 +1,6 @@
 export default {
   red: {
+    default: '#aa2531',
     5: '#110304',
     10: '#220709',
     15: '#330b0e',
@@ -133,6 +134,7 @@ export default {
   },
 
   grayscale: {
+    0: '#000000',
     5: '#0D0D0D',
     10: '#1A1A1A',
     15: '#262626',
@@ -152,5 +154,6 @@ export default {
     85: '#E5E5E5',
     90: '#F2F2F2',
     95: '#FCFCFC',
+    100: '#FFFFFF',
   },
 };

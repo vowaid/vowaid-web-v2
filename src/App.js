@@ -5,6 +5,7 @@ import uuid from 'uuid/v4';
 import './styles';
 
 import Header from './components/layout/Header/Header';
+import Footer from './components/layout/Footer/Footer';
 
 import Landing from './pages/Landing';
 import NotFound from './pages/NotFound';
@@ -49,7 +50,7 @@ const App = (props) => {
           </Route>
         </Switch>
 
-        <footer>&copy;2020</footer>
+        <Footer />
       </Router>
     </ThemeProvider>
   );
