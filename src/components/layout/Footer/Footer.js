@@ -161,7 +161,7 @@ const StyledFooter = styled(Footer)`
     ${createTransitionForProperties(['color'])};
 
     &:hover {
-      color: ${vowaidColors.red[90]};
+      color: ${vowaidColors.red[80]};
     }
   }
 

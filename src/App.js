@@ -7,8 +7,26 @@ import './styles';
 import Header from './components/layout/Header/Header';
 import Footer from './components/layout/Footer/Footer';
 
+import About from './pages/About';
+// import Faqs from './pages/About/Faqs';
+// import Partners from './pages/About/Partners';
+// import Team from './pages/About/Team';
+// import TeamMember from './pages/About/Team/Member';
+
+// import Events from './pages/Events';
+
+// import Privacy from './pages/Legal/Privacy';
+// import Terms from './pages/Legal/Terms';
+
+// import Services from './pages/Services';
+// import Swc from './pages/Services/Swc';
+// import Twc from './pages/Services/Twc';
+
+// import Contact from './pages/Contact';
+// import Donate from './pages/Donate';
 import Landing from './pages/Landing';
 import NotFound from './pages/NotFound';
+// // import Signup from './pages/Signup';
 
 import ThemeProvider from './theme/ThemeProvider';
 
@@ -16,6 +34,10 @@ const routes = [{
   exact: true,
   path: '/',
   component: Landing,
+}, {
+  exact: true,
+  path: '/about',
+  component: About,
 }];
 
 /**

@@ -37,13 +37,17 @@ const LandingHero = () => {
           <StyledLink className='link--reset' to='/about'>
             <Button
               className='MuiToolbar-regular'
-              color='primary'
-              buttonStyle='secondary'
+              color={(mode === 'dark') ? 'default' : 'primary'}
+              variant='outlined'
             >Learn&nbsp;More</Button>
           </StyledLink>
 
           <StyledLink className='link--reset' to='/donate'>
-            <Button className='MuiToolbar-regular' color='secondary' variant='contained'>Donate</Button>
+            <Button
+              className='MuiToolbar-regular'
+              color='secondary'
+              variant='contained'
+            >Donate</Button>
           </StyledLink>
         </ButtonGroup>
       </RightPanel>

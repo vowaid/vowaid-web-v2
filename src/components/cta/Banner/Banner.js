@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Color from 'color';
 
 import { Link } from 'react-router-dom';
-import { Button, useMediaQuery } from '@material-ui/core';
+import { Button, Typography, useMediaQuery } from '@material-ui/core';
 
 import { isEmpty } from 'lodash';
 
@@ -72,15 +72,13 @@ const Banner = ({ background, color }) => {
   return (
     <StyledBanner background={background} color={colorState} mode={mode}>
       <section>
-        <h1>Get Involved</h1>
-        <p className='font-size--4'>Sign up for our email newsletter and get the latest info on events, fundraisers and ways to make an impact.</p>
+        <Typography variant='h2' component='h1'>Get Involved</Typography>
+        <Typography variant='h5' component='p'>Sign up for our email newsletter and get the latest info on events, fundraisers and ways to make an impact.</Typography>
       </section>
 
       <Link className='link--reset' to='/signup'>
         <Button
-          background={background}
-          color={colorState}
-          buttonStyle='secondary'
+          className='MuiToolbar-regular'
           variant='outlined'
         >Sign&nbsp;Up</Button>
       </Link>
@@ -89,7 +87,7 @@ const Banner = ({ background, color }) => {
 };
 
 Banner.defaultProps = {
-  background: vowaidColors.red[55],
+  background: vowaidColors.red[50],
   color: vowaidColors.grayscale[95],
 };
 
