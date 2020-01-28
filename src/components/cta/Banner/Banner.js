@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Color from 'color';
 
 import { Link } from 'react-router-dom';
-import { Button } from '@material-ui/core';
+import { Button, useMediaQuery } from '@material-ui/core';
 
 import { isEmpty } from 'lodash';
 
@@ -13,7 +13,7 @@ import { vowaidColors } from '../../../styles/colors';
 
 const StyledBanner = styled.article`
   align-items: center;
-  background: ${(props) => props.background};
+  background: ${(props) => (props.mode === 'light') ? props.background : Color(props.background).darken(0.05).hex()};
   color: ${(props) => (props.color)};
   display: flex;
   justify-content: space-between;
@@ -61,13 +61,16 @@ const StyledBanner = styled.article`
 const Banner = ({ background, color }) => {
   const [colorState, setColorState] = React.useState(color);
 
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const mode = (prefersDarkMode) ? 'dark' : 'light';
+
   React.useEffect(() => {
     let textColor = (isEmpty(colorState)) ? Color(background).negate().hex() : colorState;
     setColorState(textColor);
   }, [background, colorState, setColorState]);
 
   return (
-    <StyledBanner background={background} color={colorState}>
+    <StyledBanner background={background} color={colorState} mode={mode}>
       <section>
         <h1>Get Involved</h1>
         <p className='font-size--4'>Sign up for our email newsletter and get the latest info on events, fundraisers and ways to make an impact.</p>
