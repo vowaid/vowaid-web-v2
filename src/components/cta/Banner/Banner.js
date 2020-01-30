@@ -13,7 +13,7 @@ import { vowaidColors } from '../../../styles/colors';
 
 const StyledBanner = styled.article`
   align-items: center;
-  background: ${(props) => (props.mode === 'light') ? props.background : Color(props.background).darken(0.05).hex()};
+  background: ${(props) => (!props.prefersDarkMode) ? props.background : Color(props.background).darken(0.05).hex()};
   color: ${(props) => (props.color)};
   display: flex;
   justify-content: space-between;
@@ -59,10 +59,8 @@ const StyledBanner = styled.article`
  * @class
  */
 const Banner = ({ background, color }) => {
-  const [colorState, setColorState] = React.useState(color);
-
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const mode = (prefersDarkMode) ? 'dark' : 'light';
+  const [colorState, setColorState] = React.useState(color);
 
   React.useEffect(() => {
     let textColor = (isEmpty(colorState)) ? Color(background).negate().hex() : colorState;
@@ -70,9 +68,9 @@ const Banner = ({ background, color }) => {
   }, [background, colorState, setColorState]);
 
   return (
-    <StyledBanner background={background} color={colorState} mode={mode}>
+    <StyledBanner background={background} color={colorState} prefersDarkMode={prefersDarkMode}>
       <section>
-        <Typography variant='h2' component='h1'>Get Involved</Typography>
+        <Typography variant='h3' component='h1'>Get Involved</Typography>
         <Typography variant='h5' component='p'>Sign up for our email newsletter and get the latest info on events, fundraisers and ways to make an impact.</Typography>
       </section>
 

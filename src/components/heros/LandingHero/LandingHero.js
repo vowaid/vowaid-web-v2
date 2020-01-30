@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-// import Color from 'color';
 
 import { Button, Typography, useMediaQuery } from '@material-ui/core';
 import { Link } from 'react-router-dom';
@@ -17,7 +16,6 @@ import Image from '../../../assets/images/covers/DSC01178.jpg';
  */
 const LandingHero = () => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const mode = (prefersDarkMode) ? 'dark' : 'light';
 
   return (
     <StyledHero>
@@ -27,7 +25,7 @@ const LandingHero = () => {
         src={Image}
       />
 
-      <RightPanel mode={mode}>
+      <RightPanel prefersDarkMode={prefersDarkMode}>
         <Mission>
           <Typography variant='h2' component='h1'>Our Mission</Typography>
           <Typography variant='h5' component='p'>The Veterans of War Aid Foundation (VOWAID) creates, unites, and supports businesses that fight for American combat veterans and uses contacts and revenues to deliver targeted assistance to American Heroes in need.</Typography>
@@ -37,7 +35,7 @@ const LandingHero = () => {
           <StyledLink className='link--reset' to='/about'>
             <Button
               className='MuiToolbar-regular'
-              color={(mode === 'dark') ? 'default' : 'primary'}
+              color={(prefersDarkMode) ? 'default' : 'primary'}
               variant='outlined'
             >Learn&nbsp;More</Button>
           </StyledLink>
@@ -65,10 +63,10 @@ const StyledHero = styled.article`
 `;
 
 const RightPanel = styled.section`
-  ${({ mode }) => `
-    background: ${(mode === 'light') ? 'rgba(220, 220, 220, 0.7)' : 'rgba(30, 30, 30, 0.7)'};
+  ${({ prefersDarkMode }) => `
+    background: ${(!prefersDarkMode) ? 'rgba(220, 220, 220, 0.7)' : 'rgba(30, 30, 30, 0.7)'};
     box-sizing: border-box;
-    color: ${(mode === 'light') ? vowaidColors.grayscale[10] : vowaidColors.grayscale[90]};
+    color: ${(!prefersDarkMode) ? vowaidColors.grayscale[10] : vowaidColors.grayscale[90]};
     display: flex;
     flex-direction: column;
     height: ${sectionHeight};

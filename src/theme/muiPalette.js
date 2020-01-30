@@ -1,6 +1,7 @@
 import { vowaidColors } from '../styles/colors';
 
-const palette = {
+const getPalette = (type = 'light') => ({
+  type,
   primary: {
     // light: will be calculated from palette.primary.main,
     main: vowaidColors.blue[50],
@@ -20,13 +21,7 @@ const palette = {
   // two indexes within its tonal palette.
   // E.g., shift from Red 500 to Red 300 or Red 700.
   tonalOffset: 0.2,
-};
-
-const getPalette = (type = 'light') => {
-  palette.type = type;
-
-  return palette;
-}
+});
 
 export {
   getPalette,

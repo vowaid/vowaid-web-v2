@@ -19,7 +19,7 @@ import { Button, ButtonGroup } from '@material-ui/core';
  */
 const NavList = ({ className, showAuthModal }) => (
   <StyledNav>
-    <StyledButtonGroup className={className}>
+    <StyledButtonGroup className={className} variant='text'>
       <Button className='MuiToolbar-regular'>
         <NavLink className='link--reset' to='/about'>About</NavLink>
       </Button>

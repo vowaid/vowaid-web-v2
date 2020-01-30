@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { styled as muiStyled } from '@material-ui/core/styles';
 
+import { Typography } from '@material-ui/core';
 import CoverImage from '../../CoverImage/CoverImage';
 
-import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
+import { gutter, pxToEm } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';
 
 import Image from '../../../assets/images/covers/flags.jpg';
@@ -25,40 +27,42 @@ const Hero = () => (
 
     <Overlay>
       <Mission>
-        <h1>Who We Are</h1>
+        <header>
+          <Typography variant='h2' component='h1'>Who We Are</Typography>
+        </header>
 
-        <p className='font-size--3'>A nonprofit founded by U.S. Service Members. We understand the needs of transitioning warriors. Dedicated to helping socially responsible businesses team up with combat veterans in order to promote stability, growth, and self-empowerment.</p>
+        <Typography variant='h5' component='p'>A nonprofit founded by U.S. Service Members. We understand the needs of transitioning warriors. Dedicated to helping socially responsible businesses team up with combat veterans in order to promote stability, growth, and self-empowerment.</Typography>
 
-        <p className='font-size--3'>We create opportunities for assistance and we maximize these opportunities at every step of the process.</p>
+        <Typography variant='h5' component='p'>We create opportunities for assistance and we maximize these opportunities at every step of the process.</Typography>
       </Mission>
     </Overlay>
   </StyledHero>
 );
 
-const StyledHero = styled.article`
-  height: ${sectionHeight};
-  overflow: hidden;
-  position: relative;
-`;
+const StyledHero = muiStyled('article')({
+  height: sectionHeight,
+  overflow: 'hidden',
+  position: 'relative',
+});
 
-const Overlay = styled.section`
-  background: rgba(0, 0, 0, 0.7s);
-  box-sizing: border-box;
-  color: ${vowaidColors.grayscale[100]};
-  display: flex;
-  flex-direction: column;
-  height: ${sectionHeight};
-  justify-content: center;
-  padding: 0 15vw;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-  ${createTransitionForProperties(['width'])};
-`;
+const Overlay = muiStyled('section')({
+  background: 'rgba(0, 0, 0, 0.7)',
+  boxSizing: 'border-box',
+  color: vowaidColors.grayscale[90],
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100%',
+  justifyContent: 'center',
+  padding: '0 15vw',
+  position: 'absolute',
+  right: '0',
+  top: '0',
+  width: '100%',
+  zIndex: '1',
+  transition: 'width 0.3s ease',
+});
 
-const Mission = styled.div`
+const Mission = styled('div')`
   max-width: 50%;
 
   h1 {

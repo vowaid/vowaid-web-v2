@@ -122,7 +122,7 @@ const Footer = ({ className }) => (
         <li>
           <Link
             className='link--reset'
-            href='https://www.charitynavigator.org/index.cfm?bay=search.profile&ein=472465494'
+            to='https://www.charitynavigator.org/index.cfm?bay=search.profile&ein=472465494'
           >
             <img src={CharityNavigatorSeal} alt='Charity Navigator' />
           </Link>
@@ -130,7 +130,7 @@ const Footer = ({ className }) => (
         <li>
           <Link
             className='link--reset'
-            href='https://www.guidestar.org/profile/47-2465494'
+            to='https://www.guidestar.org/profile/47-2465494'
           >
             <img src={GuideStarSeal} alt='Guide Star' />
           </Link>
@@ -138,7 +138,7 @@ const Footer = ({ className }) => (
         <li>
           <Link
             className='link--reset'
-            href=''
+            to=''
           >
             <img src={BbbSeal} alt='Better Business Bureau' />
           </Link>
@@ -150,14 +150,14 @@ const Footer = ({ className }) => (
 
 const StyledFooter = styled(Footer)`
   background: ${vowaidColors.grayscale[0]};
-  color: ${vowaidColors.grayscale[100]};
+  color: ${vowaidColors.grayscale[90]};
   display: flex;
   flex-grow: 2;
   justify-content: space-between;
   padding: ${gutter.XXL} 3.5vw;
 
   a {
-    color: ${vowaidColors.grayscale[100]};
+    color: ${vowaidColors.grayscale[90]};
     ${createTransitionForProperties(['color'])};
 
     &:hover {

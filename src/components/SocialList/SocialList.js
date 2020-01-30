@@ -15,8 +15,6 @@ import InstagramIcon from '../../assets/icons/social/instagram.svg';
 import LinkedInIcon from '../../assets/icons/social/linkedin-logo.svg';
 import TwitterIcon from '../../assets/icons/social/twitter.svg';
 
-console.log(FacebookIcon, GitHubIcon, InstagramIcon, LinkedInIcon, TwitterIcon);
-
 /**
  * React component for the application global header. The header transitions between the 'full'
  * (desktop) version and the mobile version. The nav type is based on the full header width compared
@@ -53,7 +51,7 @@ const SocialList = (props) => {
         <li className={socialMedia} key={uuidv4()}>
           <Link
             className='link--reset'
-            href={socialLinks[socialMedia]}
+            to={socialLinks[socialMedia]}
             target='_blank'
           >
             {fetchSocialIcon(socialMedia)}

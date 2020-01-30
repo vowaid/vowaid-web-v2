@@ -156,4 +156,9 @@ export default {
     95: '#FCFCFC',
     100: '#FFFFFF',
   },
+
+  fontColor: {
+    light: '#404040',
+    dark: '#F2F2F2',
+  },
 };

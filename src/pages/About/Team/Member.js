@@ -20,7 +20,7 @@ export default class BioPage extends Component {
     teamMember: {},
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const query = queryString.parse(this.props.location.search);
     console.log('this.props.location.search', this.props.location.search);
     console.log('query', query);

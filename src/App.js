@@ -7,7 +7,7 @@ import './styles';
 import Header from './components/layout/Header/Header';
 import Footer from './components/layout/Footer/Footer';
 
-import About from './pages/About';
+import About from './pages/About/About';
 // import Faqs from './pages/About/Faqs';
 // import Partners from './pages/About/Partners';
 // import Team from './pages/About/Team';
@@ -44,40 +44,34 @@ const routes = [{
  * A special wrapper for <Route> that knows how to handle "sub"-routes by passing them in a `routes`
  * prop to the component it renders.
  */
-const RouteWithSubRoutes = (route) => {
-  return (
-    <Route
-      path={route.path}
-      render={props => (
-        // pass the sub-routes down to keep nesting
-        <route.component {...props} routes={route.routes} />
-      )}
-    />
-  );
-}
+const RouteWithSubRoutes = (route) => (
+  <Route
+    path={route.path}
+    render={props => (
+      // pass the sub-routes down to keep nesting
+      <route.component {...props} routes={route.routes} />
+    )}
+  />
+);
 
-const App = (props) => {
-  return (
-    <ThemeProvider>
-      <Router>
-        <Header />
+const App = (props) => (
+  <ThemeProvider>
+    <Router>
+      <Header />
 
-        <Switch>
-          {routes.map((route) => (
-            <RouteWithSubRoutes key={uuid()} {...route} />
-          ))}
+      <Switch>
+        {routes.map((route) => (
+          <RouteWithSubRoutes key={uuid()} {...route} />
+        ))}
 
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
+        <Route path="*">
+          <NotFound />
+        </Route>
+      </Switch>
 
-        <Footer />
-      </Router>
-    </ThemeProvider>
-  );
-};
-
-
+      <Footer />
+    </Router>
+  </ThemeProvider>
+);
 
 export default App;
