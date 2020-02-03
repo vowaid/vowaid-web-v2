@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { styled as muiStyled } from '@material-ui/core/styles';
 import uuidv4 from 'uuid/v4';
-// import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 
 import { Button, Container, Typography } from '@material-ui/core';
-
+import Content from '../../components/Content/Content';
 import Link from '../../components/Link/Link';
 import AboutHero from '../../components/heros/AboutHero/AboutHero';
 import Banner from '../../components/cta/Banner/Banner';
@@ -14,7 +12,6 @@ import Programs from '../../components/Programs/Programs';
 import SEO from '../../components/seo';
 
 import { gutter } from '../../styles/utils';
-import { vowaidColors } from '../../styles/colors';
 
 import { faqs } from '../../data/faqs';
 
@@ -76,20 +73,13 @@ const AboutPage = (props) => (
           )))}
         </FaqList>
 
-        <Link to='/about/faqs'>See More</Link>
+        <Link to='/about/faqs' underline='hover'>See More</Link>
       </FaqSection>
     </Content>
 
     <Banner />
   </main>
 );
-
-const Content = muiStyled('article')(({ theme }) => ({
-  background: (theme.palette.type === 'light') ? vowaidColors.grayscale[90] : vowaidColors.grayscale[10],
-  color: (theme.palette.type === 'light') ? vowaidColors.grayscale[10] : vowaidColors.grayscale[90],
-}), {
-  withTheme: true
-});
 
 const AboutSection = styled(Container)`
   padding-top: ${gutter.XXL};

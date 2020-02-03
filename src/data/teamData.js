@@ -1,13 +1,15 @@
 import AustinThomasPhoto from 'assets/images/team/austinThomas.jpg';
+import BritneyGrouxPhoto from 'assets/images/team/britneyGroux.jpeg';
 import CandyBrazilPhoto from 'assets/images/team/candyBrazil.jpg';
 import HunterNunneryPhoto from 'assets/images/team/hunterNunnery.jpg';
 import JacobTaylorPhoto from 'assets/images/team/jacobTaylor.jpg';
 import LisaHemmiePhoto from 'assets/images/team/lisaHemmie.jpg';
 import NateAcevedoPhoto from 'assets/images/team/nateAcevedo.jpg';
 import AliceWardPhoto from 'assets/images/team/aliceWard.jpg';
+import HollySpringsteenPhoto from 'assets/images/team/hollySpringsteen.jpg';
 
-const malePlaceholder = 'https://www.openreality.co.uk/wp-content/uploads/2019/04/Male-Placeholder-Headshot.jpg';
-const femalePlaceholder = 'https://www.openreality.co.uk/wp-content/uploads/2019/04/Female-Placeholder-Headshot.jpg';
+// const malePlaceholder = 'https://www.openreality.co.uk/wp-content/uploads/2019/04/Male-Placeholder-Headshot.jpg';
+// const femalePlaceholder = 'https://www.openreality.co.uk/wp-content/uploads/2019/04/Female-Placeholder-Headshot.jpg';
 
 const teamMembers = [
   {
@@ -139,7 +141,7 @@ const teamMembers = [
       branch: 'Marine Corps',
       status: 'veteran',
     },
-    image: 'https://media.licdn.com/dms/image/C4E03AQGn7AsZiNR72w/profile-displayphoto-shrink_200_200/0?e=1568851200&v=beta&t=y5tHaLwRJ4sjRzFjwHe_Y6YCh_QfxJ1vTlZojnhlZTg',
+    image: HollySpringsteenPhoto,
     bio: `<p>Born and raised in New York, Holly comes with the never slow down determined attitude that everyone knows and loves ... maybe. Holly joined the Marine Corps at 18 and spent 5 years serving on active duty. During which time, she was afforded many fantastic opportunities, such as leading approximately 120 Marines across several divisions to prepare equipment for the 2011 Tōhoku earthquake relief missions.</p>
 
     <p>After the military Holly began work as a designer and photographer for several years having been published in What Digital Camera as well as several smaller publications. After building her first website for a client her passion for web and technology was sparked. Holly enrolled at Full Sail University, where she began her journey towards getting a degree in Web Design and Development.</p>
@@ -185,7 +187,7 @@ const teamMembers = [
       branch: 'Marine Corps',
       status: 'veteran',
     },
-    image: 'https://media.licdn.com/dms/image/C4E03AQHVctBG3v0AdA/profile-displayphoto-shrink_800_800/0?e=1568851200&v=beta&t=l60BalBDD6U2qg4RU1HCLqIJTNYMjM0-VWuXwdIVVYA',
+    image: BritneyGrouxPhoto,
     bio: `<p>I was born and raised in Everett, Mass., a small city just outside of Boston. I am the middle child with an older brother and a little sister. During my senior year of high school I had no idea what I wanted to do. I knew almost nothing about the Armed Services, but I felt like I needed to join the military in order to get anywhere in life (at the time). I made the decision to enlist in the United Stated Marine Corps at the end of my Senior year and that was the first, best decision I ever made for myself. I was always athletic, an All-Star cheerleader, coach, and very competitive!</p>
 
     <p>During my Four years Active Duty, I began as a Private and received an Honorable Discharge as a Corporal. I held the billet of Regimental Armory Chief for majority of my enlistment and, overall, I grew as a disciplined, hard-working, and more motivated individual.</p>
@@ -214,7 +216,7 @@ const teamMembers = [
     },
     service: {
       branch: 'Army',
-      status: 'veteran',
+      status: 'retired',
     },
     image: AustinThomasPhoto,
     bio: `<p>Sergeant 1st Class Thomas is a native of South Central Los Angeles, CA. He originally enlisted into the United States Army August of 1988 straight out of high school, as a Field Artillery Fire Finder Radar Operator. Thomas had a love for Art and Animation from a very early age and this was his opportunity to pay for college and pursue a Art Degree. After 3 years in 1991 and a deployment in support of Desert Shield/Storm Thomas’s initial enlist was up and he got out, had a Family, and worked to support them but he never lost his love for Animation. Finally In 2003, with the support of his family Thomas enlisted in the National Guard for one year to begin training as a 25M or Multimedia Illustrator at the Defense Information School (DINFOS) at Fort Meade, MD. With a solid portfolio and the GI Bill Thomas enrolled at the Art Institute of Seattle to study Computer Animation. After graduation in 2006 the job market crashed and work in the computer graphics and animation industry were few and far between in the Seattle area. So Thomas did what had to be done, he worked in construction and as a low voltage electrician for a few months to support his family until with his families support Thomas re-enlisted back onto Active Duty as a Multimedia Illustrator in 2007. Shortly after re-enlisting Thomas used his previous combat experience and new computer animation skills to quickly advance in rank and responsibility. Thomas became an Instructor at the Non-Commissioned Officers Academy on Fort Meade and developed training curriculum and taught advanced leadership, animation and motion graphic techniques. Upon completion of this assignment he deployed to Kuwait and Afghanistan in support of Operation Enduring Freedom as a Photojournalist and Combat Cameraman. After re-deployment Thomas was selected to be in charge of the historic 3d U.S. Infantry Regiment (The Old Guard) Public Affairs section and Graphics department in Washington D.C., from there, he was promoted to Deputy Command Information Chief/Command Photographer for Joint Force Headquarters National Capital Region-Military District of Washington during the 58 th Presidential Inauguration. His final assignment as an Army recruiter took him back home to Los Angeles. Sergeant 1st Class Thomas served honorable for 16 years on Active Duty before being medically retired October 25 th 2019.</p>

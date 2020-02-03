@@ -46,7 +46,7 @@ const Programs = () => {
 
 const ProgramsList = styled.ul`
   ${({ mode }) => `
-    margin: ${gutter.XXL} 0;
+    padding: ${gutter.XXL} 0;
     display: flex;
     justify-content: space-around;
 

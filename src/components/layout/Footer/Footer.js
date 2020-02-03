@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { ReactSVG } from 'react-svg';
+
+import { Typography } from '@material-ui/core';
+import Link from '../../Link/Link';
+import SocialList from '../../SocialList/SocialList';
+import Logo from '../../../assets/svg/logo.svg';
 
 import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';
-
-import SocialList from '../../SocialList/SocialList';
-import Logo from '../../../assets/svg/logo.svg';
 
 import BbbSeal from '../../../assets/images/bbb-charity-seal.png';
 import CharityNavigatorSeal from '../../../assets/images/charity-navigator.png';
@@ -26,10 +27,10 @@ const Footer = ({ className }) => (
       <FooterLogo src={Logo} />
 
       <Address>
-        <a href="tel:+7816061737">781.606.1737</a>
+        <Link href="tel:+7816061737">781.606.1737</Link>
 
-        <p>2307 S. Rural Road</p>
-        <p>Tempe, Arizona 85282</p>
+        <Typography component='p' variant='body1'>2307 S. Rural Road</Typography>
+        <Typography component='p' variant='body1'>Tempe, Arizona 85282</Typography>
       </Address>
     </Section>
 
@@ -40,18 +41,21 @@ const Footer = ({ className }) => (
             <Link
              className='link--reset'
              to='/about'
+             underline='hover'
             >About</Link>
           </li>
           <li>
             <Link
              className='link--reset'
              to='/services'
+             underline='hover'
             >Services</Link>
           </li>
           <li>
             <Link
              className='link--reset'
              to='/about/team'
+             underline='hover'
             >Team</Link>
           </li>
         </ul>
@@ -61,18 +65,21 @@ const Footer = ({ className }) => (
             <Link
              className='link--reset'
              to='/about/faqs'
+             underline='hover'
             >FAQs</Link>
           </li>
           <li>
             <Link
              className='link--reset'
              to='/about/partners'
+             underline='hover'
             >Partners</Link>
           </li>
           <li>
             <Link
              className='link--reset'
              to='/contact'
+             underline='hover'
             >Contact</Link>
           </li>
         </ul>
@@ -81,12 +88,14 @@ const Footer = ({ className }) => (
             <Link
              className='link--reset'
              to='/donate'
+             underline='hover'
             >Donate</Link>
           </li>
           <li>
             <Link
              className='link--reset'
              to='/store'
+             underline='hover'
             >Store</Link>
           </li>
         </ul>
@@ -95,6 +104,7 @@ const Footer = ({ className }) => (
             <Link
              className='link--reset'
              to='/sitemap.xml'
+             underline='hover'
             >
               <small>Sitemap</small>
             </Link>
@@ -103,11 +113,11 @@ const Footer = ({ className }) => (
       </FooterNav>
 
       <CharityInfo>
-        <small>
-          <span>&copy;2019 Veterans of War Aid Foundation</span>
-          <span>Charity #3729691</span>
-          <span>EIN #: 47-2465494</span>
-        </small>
+        <Typography component='small'>
+          <Typography component='span'>&copy;2019 Veterans of War Aid Foundation</Typography>
+          <Typography component='span'>Charity #3729691</Typography>
+          <Typography component='span'>EIN #: 47-2465494</Typography>
+        </Typography>
       </CharityInfo>
     </CenterSection>
 
@@ -123,6 +133,7 @@ const Footer = ({ className }) => (
           <Link
             className='link--reset'
             to='https://www.charitynavigator.org/index.cfm?bay=search.profile&ein=472465494'
+            target='_blank'
           >
             <img src={CharityNavigatorSeal} alt='Charity Navigator' />
           </Link>
@@ -131,6 +142,7 @@ const Footer = ({ className }) => (
           <Link
             className='link--reset'
             to='https://www.guidestar.org/profile/47-2465494'
+            target='_blank'
           >
             <img src={GuideStarSeal} alt='Guide Star' />
           </Link>
@@ -138,7 +150,8 @@ const Footer = ({ className }) => (
         <li>
           <Link
             className='link--reset'
-            to=''
+            to='https://www.bbb.org/'
+            target='_blank'
           >
             <img src={BbbSeal} alt='Better Business Bureau' />
           </Link>
@@ -155,15 +168,6 @@ const StyledFooter = styled(Footer)`
   flex-grow: 2;
   justify-content: space-between;
   padding: ${gutter.XXL} 3.5vw;
-
-  a {
-    color: ${vowaidColors.grayscale[90]};
-    ${createTransitionForProperties(['color'])};
-
-    &:hover {
-      color: ${vowaidColors.red[80]};
-    }
-  }
 
   @media only screen and (max-width: 1050px) {
     flex-wrap: wrap;

@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
+import { makeStyles } from '@material-ui/core/styles';
 import uuidv4 from 'uuid/v4';
 
-import { Link } from 'react-router-dom';
 import { ReactSVG } from 'react-svg';
+import Link from '../Link/Link';
 
-import { createTransitionForProperties } from '../../styles/utils';
+import { createTransitionForProperties, gutter } from '../../styles/utils';
+import { vowaidColors } from '../../styles/colors';
 
 import FacebookIcon from '../../assets/icons/social/facebook.svg';
 import GitHubIcon from '../../assets/icons/social/github-logo.svg';
@@ -23,24 +24,25 @@ import TwitterIcon from '../../assets/icons/social/twitter.svg';
  * @class
  */
 const SocialList = (props) => {
+  const { socialLinks } = props;
+  const classes = useStyles(props);
+
   const fetchSocialIcon = (socialMedia) => {
     switch(socialMedia) {
       case 'facebook':
-        return <ReactSVG src={FacebookIcon} />;
+        return <StyledSvg src={FacebookIcon} className={classes.root} />;
       case 'github':
-        return <ReactSVG src={GitHubIcon} />;
+        return <StyledSvg src={GitHubIcon} className={classes.root} />;
       case 'instagram':
-        return <ReactSVG src={InstagramIcon} />;
+        return <StyledSvg src={InstagramIcon} className={classes.root} />;
       case 'linkedin':
-        return <ReactSVG src={LinkedInIcon} />;
+        return <StyledSvg src={LinkedInIcon} className={classes.root} />;
       case 'twitter':
-        return <ReactSVG src={TwitterIcon} />;
+        return <StyledSvg src={TwitterIcon} className={classes.root} />;
       default:
         return;
     }
   };
-
-  const { socialLinks } = props;
 
   return (
     <StyledSocialList
@@ -93,3 +95,23 @@ const StyledSocialList = styled.ul`
     }
   }
 `;
+
+const StyledSvg = styled(ReactSVG)`
+  .injected-svg {
+    height: ${gutter.L};
+    width: auto;
+    ${createTransitionForProperties(['fill'])};
+
+    * {
+      ${createTransitionForProperties(['fill'])};
+    }
+  }
+`;
+
+const useStyles = makeStyles((theme) => ({
+  root: (props) => ({
+    '& .injected-svg:not(:hover) *': {
+      fill: vowaidColors.fontColor[theme.palette.type],
+    }
+  }),
+}));
