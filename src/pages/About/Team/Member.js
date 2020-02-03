@@ -1,28 +1,30 @@
-import { _, Component, Link, queryString, React, ReactHtmlParser, styled } from 'appReact';
+import React from 'react';
+import styled from 'styled-components';
+import ReactHtmlParser from 'react-html-parser';
+import isEmpty from 'lodash/isEmpty';
+import queryString from 'query-string';
 
-import Layout from 'components/layout/Layout';
-import SEO from 'components/seo';
+import { Button, Typography } from '@material-ui/core';
+import Link from '../../../components/Link/Link';
+import Content from '../../../components/Content/Content';
+import SEO from '../../../components/seo';
+import SocialList from '../../../components/SocialList/SocialList';
 
-import Button from 'components/buttons/Button';
-import SocialList from 'components/social/SocialList';
+import { teamMembers } from '../../../data/teamData';
 
-import { teamMembers } from 'data/teamData';
-
-import { colors, createTransitionForProperties, gutter, pxToEm } from 'styles/util';
+import { gutter, pxToEm } from '../../../styles/utils';
 
 /**
  * Description.
  *
  * @class
  */
-export default class BioPage extends Component {
-  state = {
-    teamMember: {},
-  }
+const BioPage = (props) => {
+  const [teamMember, setTeamMember] = React.useState({});
 
-  componentDidMount() {
-    const query = queryString.parse(this.props.location.search);
-    console.log('this.props.location.search', this.props.location.search);
+  React.useEffect(() => {
+    const query = queryString.parse(props.location.search);
+    console.log('props.location.search', props.location.search);
     console.log('query', query);
 
     const teamMember = teamMembers.filter((member) => (
@@ -31,69 +33,62 @@ export default class BioPage extends Component {
 
     console.log(teamMember);
 
-    this.setState({
-      teamMember,
-    });
-  }
+    setTeamMember(teamMember);
+  }, [teamMember, props.location.search]);
 
-  render() {
-    const { teamMember } = this.state;
+  return (!isEmpty(teamMember)) ? (
+    <main>
+      <SEO
+        keywords={['vowaid', 'veteran', 'nonprofit', 'charity', 'react']}
+        title={`Team: ${teamMember.name}`}
+      />
 
-    return (teamMember) ? (
-      <Layout>
-        <SEO
-          keywords={['vowaid', 'veteran', 'nonprofit', 'charity', 'react']}
-          title={`Team: ${teamMember.name}`}
-        />
+      <FlexContainer>
+        <Aside>
+          <img
+            src={teamMember.image}
+            alt={teamMember.name}
+          />
 
-        <FlexContainer>
-          <Aside>
-            <img
-              src={teamMember.image}
-              alt={teamMember.name}
-            />
+          <SocialList socialLinks={teamMember.social} />
 
-            <SocialList socialLinks={teamMember.social} />
+          <Typography component='p' variant='body1'>
+            <Link to={`mailto:${teamMember.email}`} underline='hover'>{teamMember.email}</Link>
+          </Typography>
+        </Aside>
 
-            <p>
-              <a href={`mailto:${teamMember.email}`}>{teamMember.email}</a>
-            </p>
-          </Aside>
+        <MemberInfo>
+          <header>
+            <Typography component='h1' variant='h2'>{teamMember.name}</Typography>
+            <Typography component='h2' variant='h3'>{teamMember.title?.full} {(!isEmpty(teamMember.title?.abbr)) && `(${teamMember.title?.abbr})`}</Typography>
+          </header>
 
-          <MemberInfo>
-            <header>
-              <h1>{teamMember.name}</h1>
-              <h2>{teamMember.title.full} {(!_.isEmpty(teamMember.title.abbr)) && `(${teamMember.title.abbr})`}</h2>
-            </header>
+          <Typography>{ReactHtmlParser(teamMember.bio)}</Typography>
 
-            {ReactHtmlParser(teamMember.bio)}
+          <Link to='/about/team'>
+            <Button variant='outlined'>Back To Team</Button>
+          </Link>
+        </MemberInfo>
+      </FlexContainer>
+    </main>
+  ) : (
+    <main>
+      <SEO
+        keywords={['vowaid', 'veteran', 'nonprofit', 'charity', 'react']}
+        title={'Team: '}
+      />
 
-            <Link className='link--reset' to='/about/team'>
-              <Button>Back To Team</Button>
-            </Link>
-          </MemberInfo>
-        </FlexContainer>
-      </Layout>
-    ) : (
-      <Layout>
-        <SEO
-          keywords={['vowaid', 'veteran', 'nonprofit', 'charity', 'react']}
-          title={'Team: '}
-        />
+      <FlexContainer>
+        <p> </p>
+      </FlexContainer>
+    </main>
+  );
+};
 
-        <FlexContainer>
-          <p> </p>
-        </FlexContainer>
-      </Layout>
-    );
-  }
-}
-
-const FlexContainer = styled.div`
+const FlexContainer = styled(Content)`
   display: flex;
   justify-content: space-between;
-  margin: ${gutter.XXL} auto;
-  width: 90vw;
+  padding: ${gutter.XXL} 5vw;
 
   @media only screen and (max-width: 800px) {
     flex-direction: column;
@@ -115,17 +110,6 @@ const Aside = styled.aside`
     svg {
       height: ${pxToEm(30)};
       width: auto;
-      ${createTransitionForProperties(['fill'])};
-
-      &:not(:hover) {
-        * {
-          fill: ${colors.blackText.hex};
-        }
-      }
-
-      * {
-        ${createTransitionForProperties(['fill'])};
-      }
     }
   }
 
@@ -163,3 +147,5 @@ const MemberInfo = styled.section`
     }
   }
 `;
+
+export default BioPage;

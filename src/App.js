@@ -11,7 +11,7 @@ import About from './pages/About/About';
 // import Faqs from './pages/About/Faqs';
 import Partners from './pages/About/Partners';
 import Team from './pages/About/Team/Team';
-// import TeamMember from './pages/About/Team/Member';
+import TeamMember from './pages/About/Team/Member';
 
 // import Events from './pages/Events';
 
@@ -42,6 +42,10 @@ const routes = [{
   exact: true,
   path: '/about/team',
   component: Team,
+}, {
+  exact: true,
+  path: '/about/team/member',
+  component: TeamMember,
 }, {
   exact: true,
   path: '/about/partners',
