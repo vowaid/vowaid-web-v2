@@ -14,7 +14,6 @@ import Phone from '../assets/icons/google/phone-call-button.svg';
 import Envelope from '../assets/icons/google/envelope-email-symbol.svg';
 
 import { createTransitionForProperties, gutter } from '../styles/utils';
-import { vowaidColors } from '../styles/colors';
 
 /**
  * Description.
@@ -27,7 +26,7 @@ const ContactPage = () => (
       <Header>
         <Typography component='h1' variant='h2'>Reach Out</Typography>
 
-        <Typography component='p' variant='body1' paragraph>Have a question? Can’t find the information that you’re looking for?</Typography>
+        <Typography component='p' variant='h5' paragraph>Have a question? Can’t find the information that you’re looking for?</Typography>
         <Typography component='p' variant='body1' paragraph>Drop us a line and one of our team members will be in touch&nbsp;shortly.</Typography>
       </Header>
 
@@ -80,8 +79,9 @@ const ContactPage = () => (
 
         <Link className='link--reset' to='/about/faqs'>
           <Button
-            buttonStyle='secondary'
-            color={vowaidColors.blue.default}
+            className='MuiToolbar-regular'
+            color='default'
+            variant='text'
           >FAQs</Button>
         </Link>
       </FaqSection>
