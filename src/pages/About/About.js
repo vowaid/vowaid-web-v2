@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { styled as muiStyled } from '@material-ui/core/styles';
 import uuidv4 from 'uuid/v4';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 
 import { Button, Container, Typography } from '@material-ui/core';
 
+import Link from '../../components/Link/Link';
 import AboutHero from '../../components/heros/AboutHero/AboutHero';
 import Banner from '../../components/cta/Banner/Banner';
 import Programs from '../../components/Programs/Programs';

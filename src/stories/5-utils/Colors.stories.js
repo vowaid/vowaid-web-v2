@@ -20,7 +20,7 @@ for (let index = 5; index <= 95; index += 5) {
   ColorVariants.push(index);
 }
 
-const ColorList = styled.ul`
+const ColorList = styled('ul')`
   display: grid;
   list-style: none;
   padding: 0;
@@ -42,14 +42,14 @@ const ColorList = styled.ul`
   }
 `;
 
-const ColorBlock = styled.div`
+const ColorBlock = styled('div')`
   background: ${({ background }) => background};
   height: 100px;
   position: relative;
   width: 100%;
 `;
 
-const TextBlock = styled.div`
+const TextBlock = styled('div')`
   padding: 0 3%;
 
   p {
@@ -57,7 +57,7 @@ const TextBlock = styled.div`
   }
 `;
 
-const ColorTitle = styled.h4`
+const ColorTitle = styled('h4')`
   bottom: 0.1em;
   color: ${({ color }) => color};
   left: 3%;
