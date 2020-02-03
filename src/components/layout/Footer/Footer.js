@@ -91,13 +91,6 @@ const Footer = ({ className }) => (
              underline='hover'
             >Donate</Link>
           </li>
-          <li>
-            <Link
-             className='link--reset'
-             to='/store'
-             underline='hover'
-            >Store</Link>
-          </li>
         </ul>
         <ul>
           <li>

@@ -37,7 +37,7 @@ const MemberCard = ({ teamMember }) => (
         <Button
           variant='contained'
           color='secondary'
-          disabled={isEmpty(teamMember.bio)}
+          disabled={isEmpty(teamMember.bio())}
         >Read Bio</Button>
       </Link>
 

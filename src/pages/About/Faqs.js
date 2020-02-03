@@ -1,45 +1,55 @@
-import { _, React, ReactHtmlParser, styled, uuidv4 } from 'appReact';
+import React from 'react';
+import styled from 'styled-components';
+import isEmpty from 'lodash/isEmpty';
+import uuidv4 from 'uuid/v4';
 
-import Layout from 'components/layout/Layout';
-import SEO from 'components/seo';
-import Banner from 'components/cta/Banner';
+import { Typography } from '@material-ui/core';
+import Content from '../../components/Content/Content';
+import SEO from '../../components/seo';
+import Banner from '../../components/cta/Banner/Banner';
 
-import { gutter, pxToEm } from 'styles/util';
+import { gutter, pxToEm } from '../../styles/utils';
 
-import { faqs } from 'data/faqs';
+import { faqs } from '../../data/faqs';
 
 /**
  * Description.
  */
 const FaqsPage = () => (
-  <Layout>
+  <main>
     <SEO title='FAQs' />
 
-    <Header>
-      <h1>FAQs</h1>
-    </Header>
+    <Content>
+      <Header>
+        <Typography component='h1' variant='h2'>FAQs</Typography>
+      </Header>
 
-    <FaqList>
-      {faqs.map((faq) => {
-        if (!_.isEmpty(faq.question) && !_.isEmpty(faq.answer)) {
-          return (
-            <li key={uuidv4()}>
-              <div>
-                <h2>{faq.question}</h2>
-                {ReactHtmlParser(faq.answer)}
-              </div>
-            </li>
-          );
-        }
-      })}
-    </FaqList>
+      <FaqList>
+        {faqs.map((faq) => {
+          if (!isEmpty(faq.question) && !isEmpty(faq.answer())) {
+            return (
+              <li key={uuidv4()}>
+                <div>
+                  <Typography component='h2' variant='h3'>{faq.question}</Typography>
+                  <Typography>
+                    {faq.answer()}
+                  </Typography>
+                </div>
+              </li>
+            );
+          }
+
+          return null;
+        })}
+      </FaqList>
+    </Content>
 
     <Banner />
-  </Layout>
+  </main>
 );
 
 const Header = styled.header`
-  margin: ${gutter.XXL} 0;
+  padding: ${gutter.XXL} 0;
   text-align: center;
 `;
 
@@ -49,7 +59,8 @@ const FaqList = styled.ol`
   > li {
     counter-increment: faq-counter;
     display: flex;
-    margin: ${gutter.M} auto ${gutter.XL};
+    margin: 0 auto;
+    padding: ${gutter.M} 0 ${gutter.XL};
     width: 70vw;
 
     &::before {

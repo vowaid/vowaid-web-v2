@@ -1,92 +1,100 @@
-import { Formik, Link, React, styled } from 'appReact';
+import React from 'react';
+import styled from 'styled-components';
 
-import Layout from 'components/layout/Layout';
-import SEO from 'components/seo';
-import Button from 'components/buttons/Button';
-import Banner from 'components/cta/Banner';
-import ContactForm from 'components/forms/ContactForm';
+import { Button, Typography } from '@material-ui/core';
+import { ReactSVG } from 'react-svg';
+import Link from '../components/Link/Link';
+import Content from '../components/Content/Content';
+import SEO from '../components/seo';
+import Banner from '../components/cta/Banner/Banner';
+import ContactForm from '../components/forms/ContactForm/ContactForm';
 
-import MapMarker from 'assets/icons/google/map-placeholder.svg';
-import Phone from 'assets/icons/google/phone-call-button.svg';
-import Envelope from 'assets/icons/google/envelope-email-symbol.svg';
+import MapMarker from '../assets/icons/google/map-placeholder.svg';
+import Phone from '../assets/icons/google/phone-call-button.svg';
+import Envelope from '../assets/icons/google/envelope-email-symbol.svg';
 
-import { colors, createTransitionForProperties, gutter, pxToEm } from 'styles/util';
+import { createTransitionForProperties, gutter } from '../styles/utils';
+import { vowaidColors } from '../styles/colors';
 
 /**
  * Description.
  */
 const ContactPage = () => (
-  <Layout>
+  <main>
     <SEO title='Contact' />
 
-    <Header>
-      <h1>Reach Out</h1>
+    <Content>
+      <Header>
+        <Typography component='h1' variant='h2'>Reach Out</Typography>
 
-      <p>Have a question? Can’t find the information that you’re looking for?</p>
-      <p>Drop us a line and one of our team members will be in touch&nbsp;shortly.</p>
-    </Header>
+        <Typography component='p' variant='body1' paragraph>Have a question? Can’t find the information that you’re looking for?</Typography>
+        <Typography component='p' variant='body1' paragraph>Drop us a line and one of our team members will be in touch&nbsp;shortly.</Typography>
+      </Header>
 
-    <Article>
-      <Section>
-        <header>
-          <Envelope />
-          <h2>General Inquiries:</h2>
-        </header>
+      <Article>
+        <Section>
+          <header>
+            <ReactSVG src={Envelope} />
+            <Typography component='h2' variant='h3'>General Inquiries:</Typography>
+          </header>
 
-        <a
-          className='font-size--4'
-          href='mailto:contact@vowaidfoundation.org'
-        >contact@vowaidfoundation.org</a>
-      </Section>
+          <Link
+            className='font-size--4'
+            to='mailto:contact@vowaidfoundation.org'
+            underline='hover'
+          >contact@vowaidfoundation.org</Link>
+        </Section>
 
-      <Section>
-        <header>
-          <Phone />
-          <h2>Phone:</h2>
-        </header>
+        <Section>
+          <header>
+            <ReactSVG src={Phone} />
+            <Typography component='h2' variant='h3'>Phone:</Typography>
+          </header>
 
-        <a
-          className='font-size--4'
-          href='tel:781-486-3408'
-        >(781) 486-3408</a>
-      </Section>
+          <Link
+            className='font-size--4'
+            to='tel:781-486-3408'
+            underline='hover'
+          >(781) 486-3408</Link>
+        </Section>
 
-      <Section>
-        <header>
-          <MapMarker />
-          <h2>Address:</h2>
-        </header>
+        <Section>
+          <header>
+            <ReactSVG src={MapMarker} />
+            <Typography component='h2' variant='h3'>Address:</Typography>
+          </header>
 
-        <address className='font-size--4'>
-          <span>2307 S. Rural Road</span>
-          <span>Tempe, Arizona 85282</span>
-        </address>
-      </Section>
-    </Article>
+          <address className='font-size--4'>
+            <span>2307 S. Rural Road</span>
+            <span>Tempe, Arizona 85282</span>
+          </address>
+        </Section>
+      </Article>
 
-    <Article>
-      <ContactForm />
-    </Article>
+      <Article>
+        <ContactForm />
+      </Article>
 
-    <FaqSection>
-      <p>Or, find your answers here:</p>
+      <FaqSection>
+        <Typography component='p' variant='body1'>Or, find your answers here:</Typography>
 
-      <Link className='link--reset' to='/about/faqs'>
-        <Button
-          buttonStyle='secondary'
-          color={colors.blue.default.hex}
-        >FAQs</Button>
-      </Link>
-    </FaqSection>
+        <Link className='link--reset' to='/about/faqs'>
+          <Button
+            buttonStyle='secondary'
+            color={vowaidColors.blue.default}
+          >FAQs</Button>
+        </Link>
+      </FaqSection>
+    </Content>
 
     <Banner />
-  </Layout>
+  </main>
 );
 
 const Header = styled.header`
   text-align: center;
-  padding: 0 10vw;
-  margin: ${gutter.XXL} 0 0;
+  padding: ${gutter.XXL} 10vw;
+  margin: 0;
 
   h1 {
     margin-bottom: ${gutter.M};
@@ -128,7 +136,7 @@ const Section = styled.section`
   margin-top: ${gutter.XXL};
 
   &:last-of-type {
-    margin-bottom: ${gutter.XXL};
+    padding-bottom: ${gutter.XXL};
   }
 
   header {

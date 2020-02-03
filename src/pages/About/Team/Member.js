@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import ReactHtmlParser from 'react-html-parser';
 import isEmpty from 'lodash/isEmpty';
 import queryString from 'query-string';
 
@@ -63,7 +62,7 @@ const BioPage = (props) => {
             <Typography component='h2' variant='h3'>{teamMember.title?.full} {(!isEmpty(teamMember.title?.abbr)) && `(${teamMember.title?.abbr})`}</Typography>
           </header>
 
-          <Typography>{ReactHtmlParser(teamMember.bio)}</Typography>
+          <Typography>{teamMember.bio()}</Typography>
 
           <Link to='/about/team'>
             <Button variant='outlined'>Back To Team</Button>

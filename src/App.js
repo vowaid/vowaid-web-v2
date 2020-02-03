@@ -8,7 +8,7 @@ import Header from './components/layout/Header/Header';
 import Footer from './components/layout/Footer/Footer';
 
 import About from './pages/About/About';
-// import Faqs from './pages/About/Faqs';
+import Faqs from './pages/About/Faqs';
 import Partners from './pages/About/Partners';
 import Team from './pages/About/Team/Team';
 import TeamMember from './pages/About/Team/Member';
@@ -22,7 +22,7 @@ import Services from './pages/Services/Services';
 // import Swc from './pages/Services/Swc';
 // import Twc from './pages/Services/Twc';
 
-// import Contact from './pages/Contact';
+import Contact from './pages/Contact';
 // import Donate from './pages/Donate';
 import Landing from './pages/Landing';
 import NotFound from './pages/NotFound';
@@ -40,6 +40,10 @@ const routes = [{
   component: About,
 }, {
   exact: true,
+  path: '/about/faqs',
+  component: Faqs,
+}, {
+  exact: true,
   path: '/about/team',
   component: Team,
 }, {
@@ -54,6 +58,10 @@ const routes = [{
   exact: true,
   path: '/services',
   component: Services,
+}, {
+  exact: true,
+  path: '/contact',
+  component: Contact,
 }];
 
 /**
