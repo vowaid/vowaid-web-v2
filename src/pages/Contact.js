@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Button, Typography } from '@material-ui/core';
 import { ReactSVG } from 'react-svg';
-import { H1, P } from '../../components/Typography/Typography';
+import { H1, H2, P } from '../components/Typography/Typography';
 import Link from '../components/Link/Link';
 import Content from '../components/Content/Content';
 import SEO from '../components/Seo/Seo';
