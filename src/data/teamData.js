@@ -28,7 +28,7 @@ const teamMembers = [
       abbr: '',
     },
     social: {
-      linkedin: 'https://www.linkedin.com/in/ticiane-ward-a675a288/',
+      linkedin: 'https://www.linkedin.com/in/Alice-ward-a675a288/',
       instagram: 'https://www.instagram.com/vowaidfounder/',
       twitter: 'https://twitter.com/vow_aid',
     },

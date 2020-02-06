@@ -6,7 +6,7 @@ import queryString from 'query-string';
 import { Button, Typography } from '@material-ui/core';
 import Link from '../../../components/Link/Link';
 import Content from '../../../components/Content/Content';
-import SEO from '../../../components/seo';
+import SEO from '../../../components/Seo/Seo';
 import SocialList from '../../../components/SocialList/SocialList';
 
 import { teamMembers } from '../../../data/teamData';

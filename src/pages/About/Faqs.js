@@ -5,7 +5,7 @@ import uuidv4 from 'uuid/v4';
 
 import { Typography } from '@material-ui/core';
 import Content from '../../components/Content/Content';
-import SEO from '../../components/seo';
+import SEO from '../../components/Seo/Seo';
 import Banner from '../../components/cta/Banner/Banner';
 
 import { gutter, pxToEm } from '../../styles/utils';

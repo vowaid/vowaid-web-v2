@@ -1,7 +1,7 @@
 import { Link, React } from 'appReact';
 
 import Layout from 'components/layout/Layout';
-import SEO from 'components/seo';
+import SEO from 'components/Seo/Seo';
 import Hero from 'components/services/SwcHero.js';
 import Banner from 'components/cta/Banner';
 

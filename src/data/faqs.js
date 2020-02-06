@@ -19,7 +19,7 @@ const faqs = [
     question: 'How was the organization founded and by whom?',
     answer: () => (
       <>
-        <P>The organization was founded by Ticiane Ward. Ticiane is a Marine Corps Veteran. She founded VOWAID to take action to help Veterans, especially under-served Female Veterans going through a difficult transition post military service.</P>
+        <P>The organization was founded by Alice Ward. Alice is a Marine Corps Veteran. She founded VOWAID to take action to help Veterans, especially under-served Female Veterans going through a difficult transition post military service.</P>
       </>
     ),
   },

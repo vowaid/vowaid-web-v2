@@ -1,7 +1,7 @@
 import React from 'react';
 
-import SEO from '../components/seo';
-import LandingHero from '../components/heros/LandingHero/LandingHero';
+import SEO from '../components/Seo/Seo';
+import LandingHero from '../components/heroes/LandingHero/LandingHero';
 import Banner from '../components/cta/Banner/Banner';
 
 const Landing = () => {

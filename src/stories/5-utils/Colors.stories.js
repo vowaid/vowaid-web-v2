@@ -1,6 +1,5 @@
 import React from 'react';
 import { styled } from '@material-ui/core/styles';
-import Color from 'color';
 import uuid from 'uuid/v4';
 
 // Storybook
@@ -10,7 +9,8 @@ import { StoryArticle, StoryHeader, StorySection } from '../../utils/storybook/S
 
 // Utils
 import { createStory } from '../../utils/storybook/storybookUtils';
-import Colors from 'styles/colors/vowaidColors';
+import { hexToRgb } from '../../styles/utils';
+import Colors from '../../styles/colors/vowaidColors';
 
 const colorNames = Object.keys(Colors);
 
@@ -78,7 +78,7 @@ const generateColorSection = (colorName) => (
         const titleColor = (color.isLight()) ? Colors.grayscale[20] : Colors.grayscale[90];
 
         const hex = color.hex();
-        const rgb = color.rgb().array().join(', ');
+        const rgb = hexToRgb(color);
         let hsl = color.hsl().array();
 
         hsl.forEach((value, index) => {

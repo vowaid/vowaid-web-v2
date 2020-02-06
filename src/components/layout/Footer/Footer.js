@@ -155,7 +155,7 @@ const Footer = ({ className }) => (
 );
 
 const StyledFooter = styled(Footer)`
-  background: ${vowaidColors.grayscale[0]};
+  background: ${vowaidColors.black};
   color: ${vowaidColors.grayscale[90]};
   display: flex;
   flex-grow: 2;
@@ -235,7 +235,7 @@ const FooterLogo = styled(ReactSVG)`
   width: ${pxToEm(145)};
 
   * {
-    fill: ${vowaidColors.grayscale[100]};
+    fill: ${vowaidColors.white};
   }
 `;
 
@@ -308,7 +308,7 @@ const LinkSection = styled(Section)`
 
       &:not(:hover) {
         * {
-          fill: ${vowaidColors.grayscale[100]};
+          fill: ${vowaidColors.white};
         }
       }
 

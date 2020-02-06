@@ -1,3 +1,4 @@
+import Color from 'color';
 import { baseFontSize } from './constants';
 
 /**
@@ -35,7 +36,23 @@ const truncateText = (text = '', length = 250, ellipsis = '...') => (
     : text
 );
 
+/**
+ * Convert hex values to an rgb string.
+ *
+ * ex.
+ *   #000000 => 0, 0, 0
+ *   #FFFFFF => 255, 255, 255
+ *
+ * @param {string} hex The hex value to be converted.
+ *
+ * @return {string} Returns the rgb string value from the provided hex.
+ */
+const hexToRgb = (hex) => (
+  Color(hex).rgb().array().join(', ')
+);
+
 export {
+  hexToRgb,
   pxToEm,
   truncateText,
 };

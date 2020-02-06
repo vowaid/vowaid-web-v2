@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Color from 'color';
 
 import CoverImage from '../../CoverImage/CoverImage';
 
-import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
+import { createTransitionForProperties, gutter, hexToRgb, pxToEm } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';
 
 import Image from '../../../assets/images/covers/shaking-hands.jpg';
@@ -38,9 +37,9 @@ const StyledHero = styled.article`
 `;
 
 const Overlay = styled.section`
-  background: rgba(${Color(vowaidColors.grayscale[0]).rgb().array().join(', ')}, 0.7);
+  background: rgba(${hexToRgb(vowaidColors.black)}, 0.7);
   box-sizing: border-box;
-  color: ${vowaidColors.grayscale[100]};
+  color: ${vowaidColors.white};
   display: flex;
   flex-direction: column;
   height: ${sectionHeight};

@@ -89,7 +89,7 @@ const StyledMemberCard = styled(Card)`
     width: 60%;
 
     &:after {
-      border-color: transparent transparent ${vowaidColors.grayscale[100]} transparent;
+      border-color: transparent transparent ${vowaidColors.white} transparent;
       border-style: solid;
       border-width: 0 0 ${pxToEm(200)} ${gutter.XXL};
       content: '';

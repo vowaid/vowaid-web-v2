@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Color from 'color';
+import { withStyles } from '@material-ui/core/styles';
 
 import { Link } from 'react-router-dom';
 import { Button, Typography, useMediaQuery } from '@material-ui/core';
@@ -53,6 +54,17 @@ const StyledBanner = styled.article`
   }
 `;
 
+const ColoredButton = withStyles((theme) => {
+  const color = theme.palette.getContrastText(vowaidColors.red.default);
+
+  return {
+    root: {
+      color,
+      borderColor: color,
+    },
+  };
+})(Button);
+
 /**
  * Description.
  *
@@ -75,10 +87,10 @@ const Banner = ({ background, color }) => {
       </section>
 
       <Link className='link--reset' to='/signup'>
-        <Button
+        <ColoredButton
           className='MuiToolbar-regular'
           variant='outlined'
-        >Sign&nbsp;Up</Button>
+        >Sign&nbsp;Up</ColoredButton>
       </Link>
     </StyledBanner>
   );

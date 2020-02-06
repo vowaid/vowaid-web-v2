@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import uuidv4 from 'uuid/v4';
-import ReactHtmlParser from 'react-html-parser';
 
 import { Button, Container, Typography } from '@material-ui/core';
 import Content from '../../components/Content/Content';
 import Link from '../../components/Link/Link';
-import AboutHero from '../../components/heros/AboutHero/AboutHero';
+import AboutHero from '../../components/heroes/AboutHero/AboutHero';
 import Banner from '../../components/cta/Banner/Banner';
 import Programs from '../../components/Programs/Programs';
-import SEO from '../../components/seo';
+import SEO from '../../components/Seo/Seo';
 
 import { gutter } from '../../styles/utils';
 
@@ -68,7 +67,7 @@ const AboutPage = (props) => (
           {faqs.map((faq, index) => ((index < 3) && (
             <li key={uuidv4()}>
               <Typography variant='h4' component='h2'>{faq.question}</Typography>
-              {ReactHtmlParser(faq.answer)}
+              {faq.answer()}
             </li>
           )))}
         </FaqList>

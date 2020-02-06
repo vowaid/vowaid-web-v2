@@ -5,7 +5,7 @@ import { Button, Typography } from '@material-ui/core';
 import { ReactSVG } from 'react-svg';
 import Link from '../components/Link/Link';
 import Content from '../components/Content/Content';
-import SEO from '../components/seo';
+import SEO from '../components/Seo/Seo';
 import Banner from '../components/cta/Banner/Banner';
 import ContactForm from '../components/forms/ContactForm/ContactForm';
 
