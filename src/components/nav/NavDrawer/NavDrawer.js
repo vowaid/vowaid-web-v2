@@ -76,15 +76,11 @@ const NavDrawer = ({ showAuthModal }) => {
           <Divider />
 
           <ListOption className='left'>
-            <Button variant='text'>
-              <Link className='link--reset' to='/about'>About</Link>
-            </Button>
+            <Button variant='text' component={Link} to='/about'>About</Button>
           </ListOption>
 
           <ListOption className='left'>
-            <Button variant='text'>
-              <Link className='link--reset' to='/services'>Services</Link>
-            </Button>
+            <Button variant='text' component={Link} to='/services'>Services</Button>
           </ListOption>
 
           <ListOption>
@@ -92,7 +88,7 @@ const NavDrawer = ({ showAuthModal }) => {
           </ListOption>
 
           <ListOption>
-            <Button className='MuiToolbar-regular' onClick={showAuthModal}>Sign&nbsp;In</Button>
+            <Button className='MuiToolbar-regular' component={Link} to='/signin'>Sign&nbsp;In</Button>
           </ListOption>
         </StyledList>
       </StyledDrawer>

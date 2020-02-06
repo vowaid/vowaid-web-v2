@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { styled as muiStyled } from '@material-ui/core/styles';
 
-import { Typography } from '@material-ui/core';
+import { H1, P } from '../../Typography/Typography';
 import CoverImage from '../../CoverImage/CoverImage';
 
 import { gutter, pxToEm } from '../../../styles/utils';
@@ -28,12 +28,12 @@ const Hero = () => (
     <Overlay>
       <Mission>
         <header>
-          <Typography variant='h2' component='h1'>Who We Are</Typography>
+          <H1>Who We Are</H1>
         </header>
 
-        <Typography variant='h5' component='p'>A nonprofit founded by U.S. Service Members. We understand the needs of transitioning warriors. Dedicated to helping socially responsible businesses team up with combat veterans in order to promote stability, growth, and self-empowerment.</Typography>
+        <P variant='h5'>A nonprofit founded by U.S. Service Members. We understand the needs of transitioning warriors. Dedicated to helping socially responsible businesses team up with combat veterans in order to promote stability, growth, and self-empowerment.</P>
 
-        <Typography variant='h5' component='p'>We create opportunities for assistance and we maximize these opportunities at every step of the process.</Typography>
+        <P variant='h5'>We create opportunities for assistance and we maximize these opportunities at every step of the process.</P>
       </Mission>
     </Overlay>
   </StyledHero>

@@ -1,7 +1,7 @@
-import { React } from 'appReact';
+import React from 'react';
 
-import Layout from 'components/layout/Layout';
-import SEO from 'components/Seo/Seo';
+import { H1 } from '../components/Typography/Typography';
+import SEO from '../components/Seo/Seo';
 
 /**
  * Description.
@@ -10,7 +10,7 @@ const DonatePage = () => (
   <Layout>
     <SEO title='Donate' />
 
-    <h1>Donate</h1>
+    <H1>Donate</H1>
   </Layout>
 );
 

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import uuidv4 from 'uuid/v4';
 
 import { Button, Container, Typography } from '@material-ui/core';
+import { H1, H2 } from '../../components/Typography/Typography';
 import Content from '../../components/Content/Content';
 import Link from '../../components/Link/Link';
 import AboutHero from '../../components/heroes/AboutHero/AboutHero';
@@ -26,48 +27,48 @@ const AboutPage = (props) => (
     <Content>
       <AboutSection component='section'>
         <header>
-          <Typography variant='h2' component='h1'>How We Help</Typography>
+          <H1>How We Help</H1>
         </header>
 
         <Programs />
 
         <LinkGroup>
-          <Link className='link--reset' to='/about/team'>
-            <Button
-              className='MuiToolbar-regular'
-              variant='contained'
-              color='primary'
-            >Our Team</Button>
-          </Link>
+          <Button
+            className='MuiToolbar-regular'
+            variant='contained'
+            color='primary'
+            component={Link}
+            to='/about/team'
+          >Our Team</Button>
 
-          <Link className='link--reset' to='/services'>
-            <Button
-              className='MuiToolbar-regular'
-              variant='contained'
-              color='secondary'
-            >Our Services</Button>
-          </Link>
+          <Button
+            className='MuiToolbar-regular'
+            variant='contained'
+            color='secondary'
+            component={Link}
+            to='/services'
+          >Our Services</Button>
 
-          <Link className='link--reset' to='/about/partners'>
-            <Button
-              className='MuiToolbar-regular'
-              variant='contained'
-              color='primary'
-            >Our Partners</Button>
-          </Link>
+          <Button
+            className='MuiToolbar-regular'
+            variant='contained'
+            color='primary'
+            component={Link}
+            to='/about/partners'
+          >Our Partners</Button>
         </LinkGroup>
       </AboutSection>
 
       <FaqSection component='section'>
         <header>
-          <Typography variant='h2' component='h1'>Common Questions</Typography>
+          <H1>Common Questions</H1>
         </header>
 
         <FaqList>
           {faqs.map((faq, index) => ((index < 3) && (
             <li key={uuidv4()}>
-              <Typography variant='h4' component='h2'>{faq.question}</Typography>
-              {faq.answer()}
+              <H2 variant='h4'>{faq.question}</H2>
+              <Typography>{faq.answer()}</Typography>
             </li>
           )))}
         </FaqList>

@@ -1,17 +1,17 @@
-import { React } from 'appReact';
+import React from 'react';
 
-import Layout from 'components/layout/Layout';
-import SEO from 'components/Seo/Seo';
+import { H1 } from '../../components/Typography/Typography';
+import SEO from '../../components/Seo/Seo';
 
 /**
  * Description.
  */
 const TermsPage = () => (
-  <Layout>
+  <main>
     <SEO title='Terms of Service' />
 
-    <h1>Terms of Service</h1>
-  </Layout>
+    <H1>Terms of Service</H1>
+  </main>
 );
 
 export default TermsPage;

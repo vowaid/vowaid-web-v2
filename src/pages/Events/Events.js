@@ -1,17 +1,17 @@
-import { React } from 'appReact';
+import React from 'react';
 
-import Layout from 'components/layout/Layout';
 import SEO from 'components/Seo/Seo';
+import { H1 } from '../../components/Typography/Typography';
 
 /**
  * Description.
  */
 const EventsPage = () => (
-  <Layout>
+  <main>
     <SEO title='Events' />
 
-    <h1>Events</h1>
-  </Layout>
+    <H1>Events</H1>
+  </main>
 );
 
 export default EventsPage;

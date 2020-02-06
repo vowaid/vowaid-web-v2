@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Typography } from '@material-ui/core';
+import { H1, H2, H3, P } from '../../components/Typography/Typography';
 import Content from '../../components/Content/Content';
 import Link from '../../components/Link/Link'
 import SEO from '../../components/Seo/Seo';
@@ -30,22 +31,22 @@ const ServicesPage = () => (
 
       <Contact>
         <header>
-          <Typography variant='h2' component='h1'>How Can I Find Help?</Typography>
-          <Typography variant='h3' component='h2'>Our clubs are here to support you!</Typography>
+          <H1>How Can I Find Help?</H1>
+          <H2>Our clubs are here to support you!</H2>
         </header>
 
-        <Typography variant='h4' component='p'>Take a look at our veteran support clubs above, and get the right support for you.</Typography>
+        <P variant='h4'>Take a look at our veteran support clubs above, and get the right support for you.</P>
 
         <SignIn>
-          <Typography variant='body1' component='p'>Already signed up with us?</Typography>
+          <P variant='body1'>Already signed up with us?</P>
           <Link underline='hover' to="/">Sign In Here</Link>
         </SignIn>
 
-        <Typography variant='h4' component='h3'>Don’t see what you’re looking for? Please reach out to us.</Typography>
+        <H3>Don’t see what you’re looking for? Please reach out to us.</H3>
 
         <ContactInfo>
           <li>
-            <Typography variant='h5' component='p'>Send us an email</Typography>
+            <P variant='h5'>Send us an email</P>
             <Link underline='hover' to='mailto:contact@vowaidfoundation.org'>contact@vowaidfoundation.org</Link>
           </li>
 

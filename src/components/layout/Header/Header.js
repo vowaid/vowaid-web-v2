@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 import { ReactSVG } from 'react-svg';
 import { AppBar, Slide, Toolbar, useScrollTrigger, useMediaQuery } from '@material-ui/core';
-import { Link } from 'react-router-dom';
-
+import { H1 } from '../../Typography/Typography';
+import Link from '../../Link/Link';
 import NavList from '../../nav/NavList/NavList';
 import NavDrawer from '../../nav/NavDrawer/NavDrawer';
 import VowaidLogo from '../../../assets/svg/logo-horizontal-header.svg';
@@ -79,12 +79,12 @@ const Header = (props) => {
             <LeftContainer>
               {displayMobile && <NavDrawer />}
 
-              <h1>
+              <H1>
                 <Link className='link--reset' to='/'>
                   <StyledReactSVG src={(!prefersDarkMode) ? VowaidLogo : VowaidLogoLight} />
                   <span className='noshow'>Veterans of War Aid Foundation</span>
                 </Link>
-              </h1>
+              </H1>
             </LeftContainer>
 
             {!displayMobile && <NavList showAuthModal={showAuthModal} />}

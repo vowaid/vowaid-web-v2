@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { Button, Typography } from '@material-ui/core';
 import { ReactSVG } from 'react-svg';
+import { H1, P } from '../../components/Typography/Typography';
 import Link from '../components/Link/Link';
 import Content from '../components/Content/Content';
 import SEO from '../components/Seo/Seo';
@@ -24,17 +25,17 @@ const ContactPage = () => (
 
     <Content>
       <Header>
-        <Typography component='h1' variant='h2'>Reach Out</Typography>
+        <H1>Reach Out</H1>
 
-        <Typography component='p' variant='h5' paragraph>Have a question? Can’t find the information that you’re looking for?</Typography>
-        <Typography component='p' variant='body1' paragraph>Drop us a line and one of our team members will be in touch&nbsp;shortly.</Typography>
+        <P variant='h5' paragraph>Have a question? Can’t find the information that you’re looking for?</P>
+        <P variant='body1' paragraph>Drop us a line and one of our team members will be in touch&nbsp;shortly.</P>
       </Header>
 
       <Article>
         <Section>
           <header>
             <ReactSVG src={Envelope} />
-            <Typography component='h2' variant='h3'>General Inquiries:</Typography>
+            <H2>General Inquiries:</H2>
           </header>
 
           <Link
@@ -47,7 +48,7 @@ const ContactPage = () => (
         <Section>
           <header>
             <ReactSVG src={Phone} />
-            <Typography component='h2' variant='h3'>Phone:</Typography>
+            <H2>Phone:</H2>
           </header>
 
           <Link
@@ -77,13 +78,13 @@ const ContactPage = () => (
       <FaqSection>
         <Typography component='p' variant='body1'>Or, find your answers here:</Typography>
 
-        <Link className='link--reset' to='/about/faqs'>
-          <Button
-            className='MuiToolbar-regular'
-            color='default'
-            variant='text'
-          >FAQs</Button>
-        </Link>
+        <Button
+          className='MuiToolbar-regular'
+          color='default'
+          variant='text'
+          component={Link}
+          to='/about/faqs'
+        >FAQs</Button>
       </FaqSection>
     </Content>
 
@@ -160,7 +161,7 @@ const FaqSection = styled(Section)`
   clear: both;
   text-align: center;
 
-  button {
+  a {
     margin: ${gutter.S} auto 0;
   }
 `;

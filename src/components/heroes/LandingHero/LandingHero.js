@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button, Typography, useMediaQuery } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Button, useMediaQuery } from '@material-ui/core';
+import { H1, P } from '../../Typography/Typography';
+import Link from '../../Link/Link';
 
 import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';
@@ -27,8 +28,8 @@ const LandingHero = () => {
 
       <RightPanel prefersDarkMode={prefersDarkMode}>
         <Mission>
-          <Typography variant='h2' component='h1'>Our Mission</Typography>
-          <Typography variant='h5' component='p'>The Veterans of War Aid Foundation (VOWAID) creates, unites, and supports businesses that fight for American combat veterans and uses contacts and revenues to deliver targeted assistance to American Heroes in need.</Typography>
+          <H1>Our Mission</H1>
+          <P variant='h5'>The Veterans of War Aid Foundation (VOWAID) creates, unites, and supports businesses that fight for American combat veterans and uses contacts and revenues to deliver targeted assistance to American Heroes in need.</P>
         </Mission>
 
         <ButtonGroup>

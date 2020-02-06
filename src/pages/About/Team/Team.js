@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import uuidv4 from 'uuid/v4';
 
-import { Typography } from '@material-ui/core';
+import { H1 } from '../../../components/Typography/Typography';
 import Content from '../../../components/Content/Content';
 import SEO from '../../../components/Seo/Seo';
 import Banner from '../../../components/cta/Banner/Banner';
@@ -25,7 +25,7 @@ const TeamPage = () => (
 
     <Wrapper>
       <Header>
-        <Typography variant='h2' component='h1'>Who we are</Typography>
+        <H1>Who we are</H1>
       </Header>
 
       <StyledTeamList>

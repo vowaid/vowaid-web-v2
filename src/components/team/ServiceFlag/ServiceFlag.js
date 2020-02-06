@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import { ReactSVG } from 'react-svg';
-import { Typography } from '@material-ui/core';
+import { P } from '../../Typography/Typography';
 
 import { createTransitionForProperties, pxToEm } from '../../../styles/utils';
 import { serviceColors } from '../../../styles/colors';
@@ -90,7 +90,7 @@ const ServiceFlag = ({ service }) => {
       title={serviceString}
     >
       {fetchBranchImage()}
-      <Typography component='p' className='noshow'>{serviceString}</Typography>
+      <P className='noshow'>{serviceString}</P>
     </CardFlag>
   );
 };

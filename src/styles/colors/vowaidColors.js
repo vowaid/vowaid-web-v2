@@ -1,4 +1,4 @@
-export default {
+const Colors = {
   red: {
     default: '#aa2531',
     5: '#110304',
@@ -156,9 +156,13 @@ export default {
     95: '#FCFCFC',
     100: '#FFFFFF',
   },
-
-  fontColor: {
-    light: '#404040',
-    dark: '#F2F2F2',
-  },
 };
+
+Colors.fontColor = {
+  light: Colors.grayscale[25],
+  dark: Colors.grayscale[90],
+};
+Colors.black = Colors.grayscale[5];
+Colors.white = Colors.grayscale[100];
+
+export default Colors;

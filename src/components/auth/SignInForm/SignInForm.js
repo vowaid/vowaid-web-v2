@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import noop from 'lodash/noop';
 
 import { Formik } from 'formik';
-import { Button, Typography } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import { H1, P } from '../../Typography/Typography';
 import Link from '../../Link/Link';
 
 import { createTransitionForProperties, gutter, hexToRgb, pxToEm } from '../../../styles/util';
@@ -40,7 +41,7 @@ const SignInForm = (props) => {
         render={(props) => (
           <Form onSubmit={props.handleSubmit}>
             <header>
-              <Typography component='h1' variant='h2'>Sign In</Typography>
+              <H1>Sign In</H1>
             </header>
 
             <section>
@@ -83,14 +84,14 @@ const SignInForm = (props) => {
       />
 
       <SignUp>
-        <Typography component='p' variant='body1'>Not a member?</Typography>
+        <P>Not a member?</P>
 
-        <Link className='link--reset' to='/signup'>
-          <Button
-            color='primary'
-            variant='outlined'
-          >Sign&nbsp;Up</Button>
-        </Link>
+        <Button
+          color='primary'
+          variant='outlined'
+          component={Link}
+          to='/signup'
+        >Sign&nbsp;Up</Button>
       </SignUp>
     </>
   );
@@ -103,7 +104,7 @@ SignInForm.propTypes = {
 
 SignInForm.defaultProps = {
   isVisible: false,
-  onClose: _.noop,
+  onClose: noop,
 };
 
 const Form = styled.form`

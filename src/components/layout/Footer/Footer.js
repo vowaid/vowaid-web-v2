@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ReactSVG } from 'react-svg';
 
 import { Typography } from '@material-ui/core';
+import { P } from '../../Typography/Typography';
 import Link from '../../Link/Link';
 import SocialList from '../../SocialList/SocialList';
 import Logo from '../../../assets/svg/logo.svg';
@@ -29,8 +30,8 @@ const Footer = ({ className }) => (
       <Address>
         <Link href="tel:+7816061737">781.606.1737</Link>
 
-        <Typography component='p' variant='body1'>2307 S. Rural Road</Typography>
-        <Typography component='p' variant='body1'>Tempe, Arizona 85282</Typography>
+        <P>2307 S. Rural Road</P>
+        <P>Tempe, Arizona 85282</P>
       </Address>
     </Section>
 

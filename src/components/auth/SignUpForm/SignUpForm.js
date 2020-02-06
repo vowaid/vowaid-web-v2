@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import noop from 'lodash/noop';
 
 import { Formik } from 'formik';
-import { Button, Typography } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import { H1, P } from '../../Typography/Typography';
 import Link from '../../Link/Link';
 import Select from '../../forms/Select/Select';
 
@@ -109,7 +110,7 @@ const SignUpForm = (props) => {
         render={(props) => (
           <Form onSubmit={props.handleSubmit}>
             <header>
-              <Typography component='h1' variant='h2'>Sign In</Typography>
+              <H1>Sign In</H1>
             </header>
 
             <section>
@@ -218,29 +219,29 @@ const SignUpForm = (props) => {
 
                   <ul>
                     <li>
-                      <Typography component='p' variant='body1'>DD-214 with an honorable discharge (must be able to provide a copy of DD-214)</Typography>
+                      <P>DD-214 with an honorable discharge (must be able to provide a copy of DD-214)</P>
                     </li>
 
                     <li>
-                      <Typography component='p' paragraph variant='body1'>Be enrolled in VA healthcare (must be able to provide a copy of VA card)</Typography>
-                      <Typography component='p' paragraph variant='body1'>or</Typography>
-                      <Typography component='p' paragraph variant='body1'>Be active duty and with no disciplinary action pending (must be able to provide a copy of Leave and Earning Statement)</Typography>
+                      <P>Be enrolled in VA healthcare (must be able to provide a copy of VA card)</P>
+                      <P>or</P>
+                      <P>Be active duty and with no disciplinary action pending (must be able to provide a copy of Leave and Earning Statement)</P>
                   </li>
 
                     <li>
-                      <Typography component='p' variant='body1'>Be in the process of transitioning out of active duty service (must be able to provide a one paragraph statement of plan of transition out of service)</Typography>
+                      <P>Be in the process of transitioning out of active duty service (must be able to provide a one paragraph statement of plan of transition out of service)</P>
                     </li>
 
                     <li>
-                      <Typography component='p' variant='body1'>Military Spouse (must be able to provide a copy of military spouse ID)</Typography>
+                      <P>Military Spouse (must be able to provide a copy of military spouse ID)</P>
                     </li>
 
                     <li>
-                      <Typography component='p' variant='body1'>Military child or dependent (must be able to provide a copy of dependent ID)</Typography>
+                      <P>Military child or dependent (must be able to provide a copy of dependent ID)</P>
                     </li>
 
                     <li>
-                      <Typography component='p' variant='body1'>All ID's must be current and not expired. Please block out Social Security numbers.</Typography>
+                      <P>All ID's must be current and not expired. Please block out Social Security numbers.</P>
                     </li>
                   </ul>
                 </label>

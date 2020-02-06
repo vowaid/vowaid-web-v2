@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Typography } from '@material-ui/core';
+import { H1, P } from '../../Typography/Typography';
 import CoverImage from '../../CoverImage/CoverImage';
 
 import { createTransitionForProperties, gutter, hexToRgb, pxToEm } from '../../../styles/utils';
@@ -24,8 +24,8 @@ const ServicesHero = () => (
 
     <Overlay>
       <Mission>
-        <Typography variant='h2' component='h1'>Veteran Services</Typography>
-        <Typography variant='h4' component='p'>Recover. Transition. Thrive. We focus on innovative and effective programs that make a difference. </Typography>
+        <H1>Veteran Services</H1>
+        <P variant='h4'>Recover. Transition. Thrive. We focus on innovative and effective programs that make a difference.</P>
       </Mission>
     </Overlay>
   </StyledHero>

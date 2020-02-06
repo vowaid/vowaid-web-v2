@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { H1, P } from '../../Typography/Typography';
 import CoverImage from '../../CoverImage/CoverImage';
 
 import { createTransitionForProperties, gutter, hexToRgb, pxToEm } from '../../../styles/utils';
@@ -23,8 +24,8 @@ const PartnersHero = () => (
 
     <Overlay>
       <Mission>
-        <h1>Our Partners</h1>
-        <p className='font-size--3'>Our partners are our lifeblood.</p>
+        <H1>Our Partners</H1>
+        <P variant='h4'>Our partners are our lifeblood.</P>
       </Mission>
     </Overlay>
   </StyledHero>

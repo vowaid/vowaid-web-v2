@@ -4,6 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 import uuidv4 from 'uuid/v4';
 
 import { Typography } from '@material-ui/core';
+import { H1, H2 } from '../../components/Typography/Typography';
 import Content from '../../components/Content/Content';
 import SEO from '../../components/Seo/Seo';
 import Banner from '../../components/cta/Banner/Banner';
@@ -21,7 +22,7 @@ const FaqsPage = () => (
 
     <Content>
       <Header>
-        <Typography component='h1' variant='h2'>FAQs</Typography>
+        <H1>FAQs</H1>
       </Header>
 
       <FaqList>
@@ -30,10 +31,8 @@ const FaqsPage = () => (
             return (
               <li key={uuidv4()}>
                 <div>
-                  <Typography component='h2' variant='h3'>{faq.question}</Typography>
-                  <Typography>
-                    {faq.answer()}
-                  </Typography>
+                  <H2>{faq.question}</H2>
+                  <Typography>{faq.answer()}</Typography>
                 </div>
               </li>
             );

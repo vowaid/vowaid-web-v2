@@ -25,7 +25,7 @@ const StyledBanner = styled.article`
     max-width: 34.75vw;
   }
 
-  button {
+  a {
     height: ${pxToEm(70)};
     padding: ${pxToEm(25)} ${pxToEm(75)};
   }
@@ -48,7 +48,7 @@ const StyledBanner = styled.article`
       width: 93vw;
     }
 
-    > button {
+    > a {
       width: 80vw;
     }
   }
@@ -86,12 +86,12 @@ const Banner = ({ background, color }) => {
         <Typography variant='h5' component='p'>Sign up for our email newsletter and get the latest info on events, fundraisers and ways to make an impact.</Typography>
       </section>
 
-      <Link className='link--reset' to='/signup'>
-        <ColoredButton
-          className='MuiToolbar-regular'
-          variant='outlined'
-        >Sign&nbsp;Up</ColoredButton>
-      </Link>
+      <ColoredButton
+        className='MuiToolbar-regular'
+        variant='outlined'
+        component={Link}
+        to='/signup'
+      >Sign&nbsp;Up</ColoredButton>
     </StyledBanner>
   );
 };

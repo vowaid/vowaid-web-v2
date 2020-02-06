@@ -4,6 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 import queryString from 'query-string';
 
 import { Button, Typography } from '@material-ui/core';
+import { H1, H2, P } from '../../../components/Typography/Typography';
 import Link from '../../../components/Link/Link';
 import Content from '../../../components/Content/Content';
 import SEO from '../../../components/Seo/Seo';
@@ -51,22 +52,20 @@ const BioPage = (props) => {
 
           <SocialList socialLinks={teamMember.social} />
 
-          <Typography component='p' variant='body1'>
+          <P>
             <Link to={`mailto:${teamMember.email}`} underline='hover'>{teamMember.email}</Link>
-          </Typography>
+          </P>
         </Aside>
 
         <MemberInfo>
           <header>
-            <Typography component='h1' variant='h2'>{teamMember.name}</Typography>
-            <Typography component='h2' variant='h3'>{teamMember.title?.full} {(!isEmpty(teamMember.title?.abbr)) && `(${teamMember.title?.abbr})`}</Typography>
+            <H1>{teamMember.name}</H1>
+            <H2>{teamMember.title?.full} {(!isEmpty(teamMember.title?.abbr)) && `(${teamMember.title?.abbr})`}</H2>
           </header>
 
           <Typography>{teamMember.bio()}</Typography>
 
-          <Link to='/about/team'>
-            <Button variant='outlined'>Back To Team</Button>
-          </Link>
+          <Button variant='outlined' component={Link} to='/about/team'>Back To Team</Button>
         </MemberInfo>
       </FlexContainer>
     </main>
@@ -78,7 +77,7 @@ const BioPage = (props) => {
       />
 
       <FlexContainer>
-        <p> </p>
+        <P> </P>
       </FlexContainer>
     </main>
   );
@@ -134,7 +133,7 @@ const MemberInfo = styled.section`
     margin-bottom: 2.5ex;
   }
 
-  button {
+  a {
     padding: ${pxToEm(10)} ${pxToEm(50)};
   }
 

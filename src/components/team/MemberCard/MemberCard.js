@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 import isEmpty from 'lodash/isEmpty';
 
-import { Button, Card, Typography } from '@material-ui/core';
+import { Button, Card } from '@material-ui/core';
+import { H1, H2 } from '../../Typography/Typography';
 import Link from '../../Link/Link';
 import SocialList from '../../SocialList/SocialList';
 import ServiceFlag from '../../team/ServiceFlag/ServiceFlag';
@@ -29,17 +30,17 @@ const MemberCard = ({ teamMember }) => (
 
     <section className="card--content">
       <header>
-        <Typography component='h1' variant='h2'>{teamMember.name}</Typography>
-        <Typography component='h2' variant='h3'>{teamMember.title.full}</Typography>
+        <H1>{teamMember.name}</H1>
+        <H2>{teamMember.title.full}</H2>
       </header>
 
-      <Link className='link--reset' to={`/about/team/member?id=${teamMember.id}`}>
-        <Button
-          variant='contained'
-          color='secondary'
-          disabled={isEmpty(teamMember.bio())}
-        >Read Bio</Button>
-      </Link>
+      <Button
+        variant='contained'
+        color='secondary'
+        disabled={isEmpty(teamMember.bio())}
+        component={Link}
+        to={`/about/team/member?id=${teamMember.id}`}
+      >Read Bio</Button>
 
       <SocialList socialLinks={teamMember.social} />
     </section>

@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button, Typography } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
+import { H2 } from '../Typography/Typography';
+import Link from '../Link/Link';
 
 import { gutter } from '../../styles/utils';
 import { vowaidColors } from '../../styles/colors';
@@ -18,27 +19,27 @@ const Programs = () => {
   return (
     <ProgramsList mode={mode}>
       <li>
-        <Typography variant='h4' component='h2'>Transition Assistance Resources</Typography>
+        <H2 variant='h4'>Transition Assistance Resources</H2>
 
-        <Link className='link--reset' to='/services/twc'>
-          <Button
-            className='MuiToolbar-regular'
-            variant='contained'
-            color='secondary'
-          >Transitioning Warrior Club</Button>
-        </Link>
+        <Button
+          className='MuiToolbar-regular'
+          variant='contained'
+          color='secondary'
+          component={Link}
+          to='/services/twc'
+        >Transitioning Warrior Club</Button>
       </li>
 
       <li>
-        <Typography variant='h4' component='h2'>Domestic Violence Recovery Support</Typography>
+        <H2 variant='h4'>Domestic Violence Recovery Support</H2>
 
-        <Link className='link--reset' to='/services/swc'>
-          <Button
-            className='MuiToolbar-regular'
-            variant='contained'
-            color='primary'
-          >Survivor Warrior Club</Button>
-        </Link>
+        <Button
+          className='MuiToolbar-regular'
+          variant='contained'
+          color='primary'
+          component={Link}
+          to='/services/swc'
+        >Survivor Warrior Club</Button>
       </li>
     </ProgramsList>
   );
@@ -57,7 +58,7 @@ const ProgramsList = styled.ul`
       text-align: center;
       width: 35vw;
 
-      button {
+      a {
         margin: ${gutter.L} auto 0;
         padding: ${gutter.XS} ${gutter.L};
       }
@@ -79,7 +80,7 @@ const ProgramsList = styled.ul`
       > div {
         width: 90vw;
 
-        button {
+        a {
           padding: ${gutter.M} ${gutter.XL};
         }
       }

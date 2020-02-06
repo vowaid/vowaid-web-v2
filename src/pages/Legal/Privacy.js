@@ -1,17 +1,17 @@
-import { React } from 'appReact';
+import React from 'react';
 
-import Layout from 'components/layout/Layout';
-import SEO from 'components/Seo/Seo';
+import { H1 } from '../../components/Typography/Typography';
+import SEO from '../../components/Seo/Seo';
 
 /**
  * Description.
  */
 const PrivacyPolicyPage = () => (
-  <Layout>
+  <main>
     <SEO title='Privacy Policy' />
 
-    <h1>Privacy Policy</h1>
-  </Layout>
+    <H1>Privacy Policy</H1>
+  </main>
 );
 
 export default PrivacyPolicyPage;
