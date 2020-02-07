@@ -1,5 +1,6 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+
+import { P } from '../components/Typography/Typography';
 
 import AustinThomasPhoto from '../assets/images/team/austinThomas.jpg';
 import BritneyGrouxPhoto from '../assets/images/team/britneyGroux.jpeg';
@@ -13,10 +14,6 @@ import HollySpringsteenPhoto from '../assets/images/team/hollySpringsteen.jpg';
 
 // const malePlaceholder = 'https://www.openreality.co.uk/wp-content/uploads/2019/04/Male-Placeholder-Headshot.jpg';
 // const femalePlaceholder = 'https://www.openreality.co.uk/wp-content/uploads/2019/04/Female-Placeholder-Headshot.jpg';
-
-const P = (props) => (
-  <Typography component='p' variant='body1' {...props} />
-);
 
 const teamMembers = [
   {

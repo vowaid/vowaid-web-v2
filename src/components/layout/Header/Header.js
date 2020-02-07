@@ -63,10 +63,6 @@ const LeftContainer = styled.div`
   justify-content: space-between;
 `;
 
-const showAuthModal = (event) => {
-  console.log('show auth modal');
-};
-
 const Header = (props) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const displayMobile = useMediaQuery('(max-width:700px)');
@@ -80,14 +76,14 @@ const Header = (props) => {
               {displayMobile && <NavDrawer />}
 
               <H1>
-                <Link className='link--reset' to='/'>
+                <Link to='/'>
                   <StyledReactSVG src={(!prefersDarkMode) ? VowaidLogo : VowaidLogoLight} />
                   <span className='noshow'>Veterans of War Aid Foundation</span>
                 </Link>
               </H1>
             </LeftContainer>
 
-            {!displayMobile && <NavList showAuthModal={showAuthModal} />}
+            {!displayMobile && <NavList />}
           </StyledToolbar>
         </AppBar>
       </HideOnScroll>

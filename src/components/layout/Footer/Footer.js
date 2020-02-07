@@ -28,7 +28,7 @@ const Footer = ({ className }) => (
       <FooterLogo src={Logo} />
 
       <Address>
-        <Link href="tel:+7816061737">781.606.1737</Link>
+        <Link to="tel:+7816061737">781.606.1737</Link>
 
         <P>2307 S. Rural Road</P>
         <P>Tempe, Arizona 85282</P>
@@ -40,21 +40,18 @@ const Footer = ({ className }) => (
         <ul>
           <li>
             <Link
-             className='link--reset'
              to='/about'
              underline='hover'
             >About</Link>
           </li>
           <li>
             <Link
-             className='link--reset'
              to='/services'
              underline='hover'
             >Services</Link>
           </li>
           <li>
             <Link
-             className='link--reset'
              to='/about/team'
              underline='hover'
             >Team</Link>
@@ -64,21 +61,18 @@ const Footer = ({ className }) => (
         <ul>
           <li>
             <Link
-             className='link--reset'
              to='/about/faqs'
              underline='hover'
             >FAQs</Link>
           </li>
           <li>
             <Link
-             className='link--reset'
              to='/about/partners'
              underline='hover'
             >Partners</Link>
           </li>
           <li>
             <Link
-             className='link--reset'
              to='/contact'
              underline='hover'
             >Contact</Link>
@@ -87,7 +81,6 @@ const Footer = ({ className }) => (
         <ul>
           <li>
             <Link
-             className='link--reset'
              to='/donate'
              underline='hover'
             >Donate</Link>
@@ -96,7 +89,6 @@ const Footer = ({ className }) => (
         <ul>
           <li>
             <Link
-             className='link--reset'
              to='/sitemap.xml'
              underline='hover'
             >
@@ -125,7 +117,6 @@ const Footer = ({ className }) => (
       <CharityList>
         <li>
           <Link
-            className='link--reset'
             to='https://www.charitynavigator.org/index.cfm?bay=search.profile&ein=472465494'
             target='_blank'
           >
@@ -134,7 +125,6 @@ const Footer = ({ className }) => (
         </li>
         <li>
           <Link
-            className='link--reset'
             to='https://www.guidestar.org/profile/47-2465494'
             target='_blank'
           >
@@ -143,7 +133,6 @@ const Footer = ({ className }) => (
         </li>
         <li>
           <Link
-            className='link--reset'
             to='https://www.bbb.org/'
             target='_blank'
           >
@@ -242,6 +231,7 @@ const FooterLogo = styled(ReactSVG)`
 
 const Address = styled.address`
   a {
+    color: inherit;
     display: inline-block;
     margin-bottom: ${gutter.XS};
   }
@@ -272,6 +262,7 @@ const FooterNav = styled.nav`
   }
 
   a {
+    color: inherit;
     white-space: nowrap;
   }
 `;

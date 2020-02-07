@@ -1,11 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { styled } from '@material-ui/core/styles';
 
 import { Button, Divider, Drawer, List, ListItem } from '@material-ui/core';
 import { ArrowBackIos, Menu } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
-import NavList from '../NavList/NavList';
+import Link from '../../Link/Link';
 
 const StyledDrawer = styled(Drawer)`
   .MuiDrawer-paperAnchorLeft {
@@ -56,7 +54,7 @@ const ListOption = styled(ListItem)`
   }
 `;
 
-const NavDrawer = ({ showAuthModal }) => {
+const NavDrawer = (props) => {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = () => {
@@ -76,28 +74,43 @@ const NavDrawer = ({ showAuthModal }) => {
           <Divider />
 
           <ListOption className='left'>
-            <Button variant='text' component={Link} to='/about'>About</Button>
+            <Button
+              variant='text'
+              component={Link}
+              to='/about'
+              type='nav'
+            >About</Button>
           </ListOption>
 
           <ListOption className='left'>
-            <Button variant='text' component={Link} to='/services'>Services</Button>
+            <Button
+              variant='text'
+              component={Link}
+              to='/services'
+              type='nav'
+            >Services</Button>
           </ListOption>
 
           <ListOption>
-            <Button className='MuiToolbar-regular' color='secondary' variant='contained'>Donate</Button>
+            <Button
+              className='MuiToolbar-regular'
+              color='secondary'
+              variant='contained'
+            >Donate</Button>
           </ListOption>
 
           <ListOption>
-            <Button className='MuiToolbar-regular' component={Link} to='/signin'>Sign&nbsp;In</Button>
+            <Button
+              className='MuiToolbar-regular'
+              component={Link}
+              to='/signin'
+              type='nav'
+            >Sign&nbsp;In</Button>
           </ListOption>
         </StyledList>
       </StyledDrawer>
     </>
   );
-};
-
-NavList.propTypes = {
-  showAuthModal: PropTypes.func.isRequired,
 };
 
 export default NavDrawer;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import uuidv4 from 'uuid/v4';
 
-import { Button, Container, Typography } from '@material-ui/core';
+import { Button, Container } from '@material-ui/core';
 import { H1, H2 } from '../../components/Typography/Typography';
 import Content from '../../components/Content/Content';
 import Link from '../../components/Link/Link';
@@ -68,7 +68,7 @@ const AboutPage = (props) => (
           {faqs.map((faq, index) => ((index < 3) && (
             <li key={uuidv4()}>
               <H2 variant='h4'>{faq.question}</H2>
-              <Typography>{faq.answer()}</Typography>
+              {faq.answer()}
             </li>
           )))}
         </FaqList>

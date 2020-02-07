@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import Color from 'color';
 import { withStyles } from '@material-ui/core/styles';
 
-import { Link } from 'react-router-dom';
 import { Button, Typography, useMediaQuery } from '@material-ui/core';
+import Link from '../../Link/Link';
 
 import { isEmpty } from 'lodash';
 

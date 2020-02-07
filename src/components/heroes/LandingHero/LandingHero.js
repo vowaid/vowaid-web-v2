@@ -33,21 +33,21 @@ const LandingHero = () => {
         </Mission>
 
         <ButtonGroup>
-          <StyledLink className='link--reset' to='/about'>
-            <Button
-              className='MuiToolbar-regular'
-              color={(prefersDarkMode) ? 'default' : 'primary'}
-              variant='outlined'
-            >Learn&nbsp;More</Button>
-          </StyledLink>
+          <Button
+            className='MuiToolbar-regular'
+            color={(prefersDarkMode) ? 'default' : 'primary'}
+            variant='outlined'
+            component={StyledLink}
+            to='/about'
+          >Learn&nbsp;More</Button>
 
-          <StyledLink className='link--reset' to='/donate'>
-            <Button
-              className='MuiToolbar-regular'
-              color='secondary'
-              variant='contained'
-            >Donate</Button>
-          </StyledLink>
+          <Button
+            className='MuiToolbar-regular'
+            color='secondary'
+            variant='contained'
+            component={StyledLink}
+            to='/donate'
+          >Donate</Button>
         </ButtonGroup>
       </RightPanel>
     </StyledHero>
@@ -103,31 +103,23 @@ const ButtonGroup = styled.div`
   display: flex;
   justify-content: space-between;
 
-  button {
-    font-weight: 700;
-    width: 100%;
-    ${createTransitionForProperties(['background', 'box-shadow', 'margin', 'width'])};
-  }
-
   @media only screen and (max-width: 1000px) {
     flex-wrap: wrap;
-
-    button {
-      margin: 0 5%;
-
-      &:first-child {
-        margin-bottom: ${gutter.M};
-      }
-    }
   }
 `;
 
 const StyledLink = styled(Link)`
-  display: inline-block;
+  font-weight: 700;
   width: 40%;
+  ${createTransitionForProperties(['background', 'box-shadow', 'margin', 'width'])};
 
   @media only screen and (max-width: 1000px) {
+    margin: 0 5%;
     width: 85%;
+
+    &:first-child {
+      margin-bottom: ${gutter.M};
+    }
   }
 `;
 

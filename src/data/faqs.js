@@ -1,10 +1,6 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
 import Link from '../components/Link/Link';
-
-const P = (props) => (
-  <Typography component='p' variant='body1' {...props} />
-);
+import { P } from '../components/Typography/Typography';
 
 const faqs = [
   {

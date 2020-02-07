@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import isEmpty from 'lodash/isEmpty';
 import queryString from 'query-string';
 
-import { Button, Typography } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { H1, H2, P } from '../../../components/Typography/Typography';
 import Link from '../../../components/Link/Link';
 import Content from '../../../components/Content/Content';
@@ -63,7 +63,7 @@ const BioPage = (props) => {
             <H2>{teamMember.title?.full} {(!isEmpty(teamMember.title?.abbr)) && `(${teamMember.title?.abbr})`}</H2>
           </header>
 
-          <Typography>{teamMember.bio()}</Typography>
+          {teamMember.bio()}
 
           <Button variant='outlined' component={Link} to='/about/team'>Back To Team</Button>
         </MemberInfo>

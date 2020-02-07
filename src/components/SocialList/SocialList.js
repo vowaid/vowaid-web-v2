@@ -52,7 +52,6 @@ const SocialList = (props) => {
       {Object.keys(socialLinks).map((socialMedia) => (
         <li className={socialMedia} key={uuidv4()}>
           <Link
-            className='link--reset'
             to={socialLinks[socialMedia]}
             target='_blank'
           >

@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { styled as muiStyled } from '@material-ui/core/styles';
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
 import { Button, ButtonGroup } from '@material-ui/core';
+import Link from '../../Link/Link';
 
 // import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
 
@@ -15,47 +14,55 @@ import { Button, ButtonGroup } from '@material-ui/core';
  * Description.
  *
  * @param {} props.className
- * @param {} props.showAuthModal
  */
-const NavList = ({ className, showAuthModal }) => (
+const NavList = ({ className }) => (
   <StyledNav>
     <StyledButtonGroup className={className} variant='text'>
-      <Button className='MuiToolbar-regular'>
-        <NavLink className='link--reset' to='/about'>About</NavLink>
-      </Button>
+      <Button
+        className='MuiToolbar-regular'
+        component={Link}
+        to='/about'
+        format='nav'
+      >About</Button>
 
-      <Button className='MuiToolbar-regular'>
-        <NavLink className='link--reset' to='/services'>Services</NavLink>
-      </Button>
+      <Button
+        className='MuiToolbar-regular'
+        component={Link}
+        to='/services'
+        format='nav'
+      >Services</Button>
 
-      <Button className='MuiToolbar-regular' color='secondary' variant='contained'>Donate</Button>
+      <Button
+        className='MuiToolbar-regular'
+        color='secondary'
+        variant='contained'
+      >Donate</Button>
 
-      <Button className='MuiToolbar-regular' onClick={showAuthModal}>Sign&nbsp;In</Button>
+      <Button
+        className='MuiToolbar-regular'
+        component={Link}
+        to='/signin'
+        format='nav'
+      >Sign&nbsp;In</Button>
     </StyledButtonGroup>
   </StyledNav>
 );
 
-NavList.propTypes = {
-  showAuthModal: PropTypes.func.isRequired,
-};
-
 const StyledNav = styled.nav`
   height: 100%;
-`;
 
-const StyledButtonGroup = muiStyled(ButtonGroup)`
-  height: 100%;
-
-  button {
-    border-radius: 0;
+  a {
     border: none;
+    border-radius: 0;
+    box-shadow: none;
+    box-sizing: border-box;
     height: 100%;
   }
 `;
 
-const NavLink = muiStyled(Link)`
+const StyledButtonGroup = muiStyled(ButtonGroup)`
+  box-sizing: border-box;
   height: 100%;
-  width: 100%;
 `;
 
 export default NavList;
