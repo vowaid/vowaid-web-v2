@@ -1,14 +1,13 @@
 import React from 'react';
 
-import { H1 } from '../components/Typography/Typography';
-import SEO from '../components/Seo/Seo';
+import { H1, Seo } from '../components';
 
 /**
  * Description.
  */
 const DonatePage = () => (
   <Layout>
-    <SEO title='Donate' />
+    <Seo title='Donate' />
 
     <H1>Donate</H1>
   </Layout>

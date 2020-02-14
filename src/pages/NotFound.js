@@ -1,14 +1,13 @@
 import React from 'react';
 
-import { H1, P } from '../components/Typography/Typography';
-import SEO from '../components/Seo/Seo';
+import { H1, P, Seo } from '../components';
 
 /**
  * Description.
  */
 const NotFoundPage = () => (
   <>
-    <SEO title='404 (Not found)' />
+    <Seo title='404 (Not found)' />
     <H1>NOT FOUND</H1>
     <P>You just hit a route that doesn&#39;t exist... the sadness.</P>
   </>

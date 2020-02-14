@@ -1,14 +1,13 @@
 import React from 'react';
 
-import SEO from 'components/Seo/Seo';
-import { H1 } from '../../components/Typography/Typography';
+import { H1, Seo } from '../../components';
 
 /**
  * Description.
  */
 const EventsPage = () => (
   <main>
-    <SEO title='Events' />
+    <Seo title='Events' />
 
     <H1>Events</H1>
   </main>

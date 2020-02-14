@@ -3,11 +3,7 @@ import styled from 'styled-components';
 
 import { Button } from '@material-ui/core';
 import { ReactSVG } from 'react-svg';
-import { H2, P } from '../../components/Typography/Typography';
-import Content from '../../components/Content/Content';
-import Link from '../../components/Link/Link';
-import SEO from '../../components/Seo/Seo';
-import Hero from '../../components/heroes/PartnersHero/PartnersHero';
+import { H2, P, Content, Link, Seo, PartnersHero } from '../../components';
 
 import ForwardArrow from '../../assets/icons/google/forward-arrow.svg';
 import DarkBladeLogo from '../../assets/images/partners/DarkBladeLogo_400.png';
@@ -19,9 +15,9 @@ import { gutter, pxToEm } from '../../styles/utils';
  */
 const PartnersPage = () => (
   <main>
-    <SEO title='Partners' />
+    <Seo title='Partners' />
 
-    <Hero />
+    <PartnersHero />
 
     <Content>
       <PartnersList>

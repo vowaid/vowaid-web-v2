@@ -3,10 +3,7 @@ import styled from 'styled-components';
 import isEmpty from 'lodash/isEmpty';
 import uuidv4 from 'uuid/v4';
 
-import { H1, H2 } from '../../components/Typography/Typography';
-import Content from '../../components/Content/Content';
-import SEO from '../../components/Seo/Seo';
-import Banner from '../../components/cta/Banner/Banner';
+import { H1, H2, Content, Seo, Banner } from '../../components';
 
 import { gutter, pxToEm } from '../../styles/utils';
 
@@ -17,7 +14,7 @@ import { faqs } from '../../data/faqs';
  */
 const FaqsPage = () => (
   <main>
-    <SEO title='FAQs' />
+    <Seo title='FAQs' />
 
     <Content>
       <Header>

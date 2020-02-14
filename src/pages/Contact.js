@@ -3,12 +3,7 @@ import styled from 'styled-components';
 
 import { Button, Typography } from '@material-ui/core';
 import { ReactSVG } from 'react-svg';
-import { H1, H2, P } from '../components/Typography/Typography';
-import Link from '../components/Link/Link';
-import Content from '../components/Content/Content';
-import SEO from '../components/Seo/Seo';
-import Banner from '../components/cta/Banner/Banner';
-import ContactForm from '../components/forms/ContactForm/ContactForm';
+import { H1, H2, P, Link, Content, Seo, Banner, ContactForm } from '../components';
 
 import MapMarker from '../assets/icons/google/map-placeholder.svg';
 import Phone from '../assets/icons/google/phone-call-button.svg';
@@ -21,7 +16,7 @@ import { createTransitionForProperties, gutter } from '../styles/utils';
  */
 const ContactPage = () => (
   <main>
-    <SEO title='Contact' />
+    <Seo title='Contact' />
 
     <Content>
       <Header>

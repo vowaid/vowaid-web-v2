@@ -2,11 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import uuidv4 from 'uuid/v4';
 
-import { H1 } from '../../../components/Typography/Typography';
-import Content from '../../../components/Content/Content';
-import SEO from '../../../components/Seo/Seo';
-import Banner from '../../../components/cta/Banner/Banner';
-import MemberCard from '../../../components/team/MemberCard/MemberCard';
+import { H1, Content, Seo, Banner, MemberCard } from '../../../components';
 
 import { gutter } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';
@@ -18,7 +14,7 @@ import { teamMembers } from '../../../data/teamData';
  */
 const TeamPage = () => (
   <main>
-    <SEO
+    <Seo
       keywords={['vowaid', 'veteran', 'nonprofit', 'charity', 'react']}
       title='Team'
     />

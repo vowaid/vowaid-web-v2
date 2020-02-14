@@ -1,14 +1,13 @@
 import React from 'react';
 
-import { H1 } from '../../components/Typography/Typography';
-import SEO from '../../components/Seo/Seo';
+import { H1, Seo } from '../../components';
 
 /**
  * Description.
  */
 const PrivacyPolicyPage = () => (
   <main>
-    <SEO title='Privacy Policy' />
+    <Seo title='Privacy Policy' />
 
     <H1>Privacy Policy</H1>
   </main>

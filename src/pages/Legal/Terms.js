@@ -1,14 +1,13 @@
 import React from 'react';
 
-import { H1 } from '../../components/Typography/Typography';
-import SEO from '../../components/Seo/Seo';
+import { H1, Seo } from '../../components';
 
 /**
  * Description.
  */
 const TermsPage = () => (
   <main>
-    <SEO title='Terms of Service' />
+    <Seo title='Terms of Service' />
 
     <H1>Terms of Service</H1>
   </main>

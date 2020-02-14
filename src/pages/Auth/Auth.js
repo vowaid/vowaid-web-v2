@@ -1,9 +1,6 @@
 import React from 'react';
 
-import Content from '../../components/Content/Content';
-import SignInForm from '../../components/auth/SignInForm/SignInForm';
-import SignUpForm from '../../components/auth/SignUpForm/SignUpForm';
-import SEO from '../../components/Seo/Seo';
+import { Content, SignInForm, SignUpForm, Seo } from '../../components';
 
 /**
  * Description.
@@ -13,7 +10,7 @@ const Auth = (props) => {
 
   return (
     <main>
-      <SEO title='Sign In' />
+      <Seo title='Sign In' />
 
       <Content>
         {(isSignIn) ? <SignInForm /> : <SignUpForm />}

@@ -1,13 +1,11 @@
 import React from 'react';
 
-import SEO from '../components/Seo/Seo';
-import LandingHero from '../components/heroes/LandingHero/LandingHero';
-import Banner from '../components/cta/Banner/Banner';
+import { Seo, LandingHero, Banner } from '../components';
 
 const Landing = () => {
   return (
     <main>
-      <SEO
+      <Seo
         keywords={['vowaid', 'veteran', 'nonprofit', 'charity', 'react']}
         title='Home'
       />

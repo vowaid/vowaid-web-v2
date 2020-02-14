@@ -2,14 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Typography } from '@material-ui/core';
-import { H1, H2, H3, P } from '../../components/Typography/Typography';
-import Content from '../../components/Content/Content';
-import Link from '../../components/Link/Link'
-import SEO from '../../components/Seo/Seo';
-
-import Banner from '../../components/cta/Banner/Banner';
-import Hero from '../../components/heroes/ServicesHero/ServicesHero';
-import Programs from '../../components/Programs/Programs';
+import { H1, H2, H3, P, Content, Link, Seo, Banner, Programs, ServicesHero } from '../../components';
 
 import { gutter } from '../../styles/utils';
 import { vowaidColors } from '../../styles/colors';
@@ -19,12 +12,12 @@ import { vowaidColors } from '../../styles/colors';
  */
 const ServicesPage = () => (
   <main>
-    <SEO
+    <Seo
       keywords={['vowaid', 'veteran', 'nonprofit', 'charity', 'react']}
       title='Services'
     />
 
-    <Hero />
+    <ServicesHero />
 
     <Content>
       <Programs />

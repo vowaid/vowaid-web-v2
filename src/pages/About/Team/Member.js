@@ -4,11 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 import queryString from 'query-string';
 
 import { Button } from '@material-ui/core';
-import { H1, H2, P } from '../../../components/Typography/Typography';
-import Link from '../../../components/Link/Link';
-import Content from '../../../components/Content/Content';
-import SEO from '../../../components/Seo/Seo';
-import SocialList from '../../../components/SocialList/SocialList';
+import { H1, H2, P, Link, Content, Seo, SocialList } from '../../../components';
 
 import { teamMembers } from '../../../data/teamData';
 
@@ -38,7 +34,7 @@ const BioPage = (props) => {
 
   return (!isEmpty(teamMember)) ? (
     <main>
-      <SEO
+      <Seo
         keywords={['vowaid', 'veteran', 'nonprofit', 'charity', 'react']}
         title={`Team: ${teamMember.name}`}
       />
@@ -71,7 +67,7 @@ const BioPage = (props) => {
     </main>
   ) : (
     <main>
-      <SEO
+      <Seo
         keywords={['vowaid', 'veteran', 'nonprofit', 'charity', 'react']}
         title={'Team: '}
       />
