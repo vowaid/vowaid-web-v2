@@ -1,3 +1,16 @@
+// General
+export { default as Banner } from './Banner/Banner';
+export { default as Content } from './Content/Content';
+export { default as CoverImage } from './CoverImage/CoverImage';
+export { default as Link } from './Link/Link';
+export { default as Programs } from './Programs/Programs';
+export { default as Seo } from './Seo/Seo';
+export { default as SocialList } from './SocialList/SocialList';
+
+// Sub components
+export { Wrapper } from './Styled/Styled';
+export { H1, H2, H3, H4, H5, H6, P } from './Typography/Typography';
+
 // Auth
 export { default as SignInForm } from './auth/SignInForm/SignInForm';
 export { default as SignUpForm } from './auth/SignUpForm/SignUpForm';
@@ -28,16 +41,3 @@ export { default as NavList } from './nav/NavList/NavList';
 // Team
 export { default as MemberCard } from './team/MemberCard/MemberCard';
 export { default as ServiceFlag } from './team/ServiceFlag/ServiceFlag';
-
-// General
-export { default as Banner } from './Banner/Banner';
-export { default as Content } from './Content/Content';
-export { default as CoverImage } from './CoverImage/CoverImage';
-export { default as Link } from './Link/Link';
-export { default as Programs } from './Programs/Programs';
-export { default as Seo } from './Seo/Seo';
-export { default as SocialList } from './SocialList/SocialList';
-
-// Sub components
-export { Wrapper } from './Styled/Styled';
-export { H1, H2, H3, H4, H5, H6, P } from './Typography/Typography';

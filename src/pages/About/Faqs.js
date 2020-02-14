@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import isEmpty from 'lodash/isEmpty';
 import uuidv4 from 'uuid/v4';
 
-import { H1, H2, Content, Seo, Banner } from '../../components';
+import { H1, H2, Seo, Banner, Wrapper } from '../../components';
 
 import { gutter, pxToEm } from '../../styles/utils';
 
@@ -16,7 +16,7 @@ const FaqsPage = () => (
   <main>
     <Seo title='FAQs' />
 
-    <Content>
+    <Wrapper>
       <Header>
         <H1>FAQs</H1>
       </Header>
@@ -37,7 +37,7 @@ const FaqsPage = () => (
           return null;
         })}
       </FaqList>
-    </Content>
+    </Wrapper>
 
     <Banner />
   </main>
@@ -54,9 +54,8 @@ const FaqList = styled.ol`
   > li {
     counter-increment: faq-counter;
     display: flex;
-    margin: 0 auto;
-    padding: ${gutter.M} 0 ${gutter.XL};
-    width: 70vw;
+    padding-top: ${gutter.M};
+    padding-bottom: ${gutter.XL};
 
     &::before {
       box-sizing: border-box;
