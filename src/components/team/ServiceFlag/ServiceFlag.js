@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import { ReactSVG } from 'react-svg';
-import { P } from '../../Typography/Typography';
+import { P } from '../../index';
 
 import { createTransitionForProperties, pxToEm } from '../../../styles/utils';
 import { serviceColors } from '../../../styles/colors';

@@ -4,10 +4,7 @@ import styled from 'styled-components';
 
 import { ReactSVG } from 'react-svg';
 import { AppBar, Slide, Toolbar, useScrollTrigger, useMediaQuery } from '@material-ui/core';
-import { H1 } from '../../Typography/Typography';
-import Link from '../../Link/Link';
-import NavList from '../../nav/NavList/NavList';
-import NavDrawer from '../../nav/NavDrawer/NavDrawer';
+import { H1, Link, NavList, NavDrawer } from '../../index';
 import VowaidLogo from '../../../assets/svg/logo-horizontal-header.svg';
 import VowaidLogoLight from '../../../assets/svg/logo-horizontal-header-light.svg';
 

@@ -2,14 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import uuidv4 from 'uuid/v4';
 
-import { Button, Container } from '@material-ui/core';
-import { H1, H2 } from '../../components/Typography/Typography';
-import Content from '../../components/Content/Content';
-import Link from '../../components/Link/Link';
-import AboutHero from '../../components/heroes/AboutHero/AboutHero';
-import Banner from '../../components/cta/Banner/Banner';
-import Programs from '../../components/Programs/Programs';
-import SEO from '../../components/Seo/Seo';
+import { Button } from '@material-ui/core';
+import {
+  Seo,
+  Banner,
+  AboutHero,
+  Content,
+  Link,
+  H1,
+  H2,
+  Programs,
+  Wrapper,
+} from '../../components';
 
 import { gutter } from '../../styles/utils';
 
@@ -20,7 +24,7 @@ import { faqs } from '../../data/faqs';
  */
 const AboutPage = (props) => (
   <main>
-    <SEO title='About' />
+    <Seo title='About' />
 
     <AboutHero />
 
@@ -81,7 +85,7 @@ const AboutPage = (props) => (
   </main>
 );
 
-const AboutSection = styled(Container)`
+const AboutSection = styled(Wrapper)`
   padding-top: ${gutter.XXL};
   text-align: center;
 
@@ -110,9 +114,7 @@ const FaqSection = styled(AboutSection)`
 `;
 
 const FaqList = styled.ul`
-  margin: 0 auto;
   text-align: left;
-  width: 70vw;
 
   li {
     margin-bottom: ${gutter.L};

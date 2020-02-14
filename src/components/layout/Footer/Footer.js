@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import { ReactSVG } from 'react-svg';
 
 import { Typography } from '@material-ui/core';
-import { P } from '../../Typography/Typography';
-import Link from '../../Link/Link';
-import SocialList from '../../SocialList/SocialList';
+import { P, Link, SocialList } from '../../index';
 import Logo from '../../../assets/svg/logo.svg';
 
 import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';

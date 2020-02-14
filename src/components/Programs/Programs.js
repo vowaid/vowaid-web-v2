@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 import { Button } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
-import { H2 } from '../Typography/Typography';
-import Link from '../Link/Link';
+import { H2, Link } from '../index';
 
 import { gutter } from '../../styles/utils';
 import { vowaidColors } from '../../styles/colors';

@@ -5,10 +5,7 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 
 import { Button, Card } from '@material-ui/core';
-import { H1, H2 } from '../../Typography/Typography';
-import Link from '../../Link/Link';
-import SocialList from '../../SocialList/SocialList';
-import ServiceFlag from '../../team/ServiceFlag/ServiceFlag';
+import { H1, H2, Link, SocialList, ServiceFlag } from '../../index';
 
 import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';

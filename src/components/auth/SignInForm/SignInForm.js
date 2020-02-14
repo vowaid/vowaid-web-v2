@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import isEmpty from 'lodash/isEmpty';
-
-import { Formik } from 'formik';
-import { Button, TextField } from '@material-ui/core';
-import { H1, P } from '../../Typography/Typography';
-import Link from '../../Link/Link';
 import * as Yup from 'yup';
+import { Formik } from 'formik';
+
+import { Button, TextField } from '@material-ui/core';
+import { H1, P, Link } from '../../index';
 
 import { gutter } from '../../../styles/utils';
 

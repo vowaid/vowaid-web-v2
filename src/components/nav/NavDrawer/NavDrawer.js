@@ -3,7 +3,7 @@ import { styled } from '@material-ui/core/styles';
 
 import { Button, Divider, Drawer, List, ListItem } from '@material-ui/core';
 import { ArrowBackIos, Menu } from '@material-ui/icons';
-import Link from '../../Link/Link';
+import { Link } from '../../index';
 
 const StyledDrawer = styled(Drawer)`
   .MuiDrawer-paperAnchorLeft {

@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import uuidv4 from 'uuid/v4';
 
 import { ReactSVG } from 'react-svg';
-import Link from '../Link/Link';
+import { Link } from '../index';
 
 import { createTransitionForProperties, gutter } from '../../styles/utils';
 import { vowaidColors } from '../../styles/colors';

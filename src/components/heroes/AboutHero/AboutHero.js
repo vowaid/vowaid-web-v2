@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { styled as muiStyled } from '@material-ui/core/styles';
 
-import { H1, P } from '../../Typography/Typography';
-import CoverImage from '../../CoverImage/CoverImage';
+import { H1, P, CoverImage } from '../../index';
 
 import { gutter, pxToEm } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';

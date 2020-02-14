@@ -3,7 +3,7 @@ import { styled as muiStyled } from '@material-ui/core/styles';
 import styled from 'styled-components';
 
 import { Button, ButtonGroup } from '@material-ui/core';
-import Link from '../../Link/Link';
+import { Link } from '../../index';
 
 // import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
 

@@ -1,22 +1,17 @@
 import React from 'react';
 
-import { H1, P } from '../../components/Typography/Typography';
-import Content from '../../components/Content/Content';
-import Link from '../../components/Link/Link';
-import SEO from '../../components/Seo/Seo';
-import SwcHero from '../../components/heroes/SwcHero/SwcHero.js';
-import Banner from '../../components/cta/Banner/Banner';
+import { H1, P , Link, Seo, SwcHero, Banner, Wrapper } from '../../components';
 
 /**
  * Description.
  */
 const SwcPage = () => (
   <main>
-    <SEO title='Survivor Warrior Club' />
+    <Seo title='Survivor Warrior Club' />
 
     <SwcHero />
 
-    <Content>
+    <Wrapper>
       <header>
         <H1>Survivor Warrior Club</H1>
       </header>
@@ -26,7 +21,7 @@ const SwcPage = () => (
 
         <P><strong>Are you a Veteran that is or has experienced Intimate Partner Violence and/or Military Sexual Trauma? <Link to='/signup' underline='hover'>Sign up here</Link> to join our Survivor Warrior Club.</strong></P>
       </section>
-    </Content>
+    </Wrapper>
 
     <Banner />
   </main>

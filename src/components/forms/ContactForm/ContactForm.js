@@ -5,7 +5,7 @@ import isEmpty from 'lodash/isEmpty'
 import * as Yup from 'yup';
 
 import { Button, TextField } from '@material-ui/core';
-import Select from '../../forms/Select/Select';
+import { Select } from '../../index';
 
 import { gutter } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';

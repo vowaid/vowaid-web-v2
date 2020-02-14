@@ -5,12 +5,12 @@ import Color from 'color';
 import { withStyles } from '@material-ui/core/styles';
 
 import { Button, Typography, useMediaQuery } from '@material-ui/core';
-import Link from '../../Link/Link';
+import { Link } from '../index';
 
 import { isEmpty } from 'lodash';
 
-import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
-import { vowaidColors } from '../../../styles/colors';
+import { createTransitionForProperties, gutter, pxToEm } from '../../styles/utils';
+import { vowaidColors } from '../../styles/colors';
 
 const StyledBanner = styled.article`
   align-items: center;

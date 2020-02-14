@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Button, useMediaQuery } from '@material-ui/core';
-import { H1, P } from '../../Typography/Typography';
-import Link from '../../Link/Link';
+import { H1, P, Link } from '../../index';
 
 import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';

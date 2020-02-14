@@ -1,22 +1,17 @@
 import React from 'react';
 
-import { H1, P } from '../../components/Typography/Typography';
-import Content from '../../components/Content/Content';
-import Link from '../../components/Link/Link';
-import SEO from '../../components/Seo/Seo';
-import TwcHero from '../../components/heroes/TwcHero/TwcHero.js';
-import Banner from '../../components/cta/Banner/Banner';
+import { H1, P , Link, Seo, TwcHero, Banner, Wrapper } from '../../components';
 
 /**
  * Description.
  */
 const TwcPage = () => (
   <main>
-    <SEO title='Transitioning Warrior Club' />
+    <Seo title='Transitioning Warrior Club' />
 
     <TwcHero />
 
-    <Content>
+    <Wrapper>
       <header>
         <H1>Transitioning Warrior Club</H1>
       </header>
@@ -26,7 +21,7 @@ const TwcPage = () => (
 
         <P><strong>Want to be part of our Transitioning Warrior Club? <Link to='/signup' underline='hover'>Sign up here</Link> to join our Event Ambassador Team.</strong></P>
       </section>
-    </Content>
+    </Wrapper>
 
     <Banner />
   </main>
