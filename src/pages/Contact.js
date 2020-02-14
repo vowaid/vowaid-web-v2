@@ -40,7 +40,7 @@ const ContactPage = () => (
 
           <Link
             className='font-size--4'
-            to='mailto:contact@vowaidfoundation.org'
+            href='mailto:contact@vowaidfoundation.org'
             underline='hover'
           >contact@vowaidfoundation.org</Link>
         </Section>
@@ -53,7 +53,7 @@ const ContactPage = () => (
 
           <Link
             className='font-size--4'
-            to='tel:781-486-3408'
+            href='tel:781-486-3408'
             underline='hover'
           >(781) 486-3408</Link>
         </Section>

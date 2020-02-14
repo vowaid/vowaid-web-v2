@@ -2,18 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { styled } from '@material-ui/core/styles';
+import { Link as MuiLink } from '@material-ui/core';
 
 import { Link as RouterLink, NavLink } from 'react-router-dom';
 
 const Link = React.forwardRef((props, ref) => {
   return (
-    (props.format === 'nav') ?
-      <NavLink
-        aria-current='page'
-        activeClassName='nav-link--active'
-        {...props}
-      /> :
-      <RouterLink {...props} />
+    (props.to && props.to !== '') ?
+      (props.format === 'nav') ?
+        <NavLink
+          aria-current='page'
+          activeClassName='nav-link--active'
+          {...props}
+        />
+      :
+        <RouterLink {...props} />
+    :
+      <MuiLink {...props} />
   );
 });
 

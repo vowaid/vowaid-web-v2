@@ -1,21 +1,36 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import noop from 'lodash/noop';
+import isEmpty from 'lodash/isEmpty';
 
 import { Formik } from 'formik';
-import { Button } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import { H1, P } from '../../Typography/Typography';
 import Link from '../../Link/Link';
+import * as Yup from 'yup';
 
-import { createTransitionForProperties, gutter, hexToRgb, pxToEm } from '../../../styles/util';
-import { vowaidColors } from '../../../styles/colors';
+import { gutter } from '../../../styles/utils';
+
+const initialValues = {
+  username: '',
+  password: '',
+};
+
+const ContactSchema = Yup.object().shape({
+  email: Yup.string()
+    .min(2, 'Too Short')
+    .email('Invalid email')
+    .required('Required'),
+  password: Yup.string()
+    .min(2, 'Too Short')
+    .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
+    .required('Required'),
+});
 
 /**
  * Description.
  */
 const SignInForm = (props) => {
-  const { isVisible, onClose } = props;
+  const [isSubmitting] = React.useState(false);
 
   /**
    * Description.
@@ -30,63 +45,112 @@ const SignInForm = (props) => {
     }, 1000);
   };
 
+  /**
+   * Description.
+   *
+   * @param {} values
+   */
+  const validateForm = (values) => {
+    if (isSubmitting) {
+      let errors = {};
+      const keys = Object.keys(initialValues);
+
+      for (let index = 0; index < keys.length; index++) {
+        const key = keys[index];
+
+        if (isEmpty(values[key])) {
+          errors[key] = 'Required'
+        }
+      }
+
+      if (!errors.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+        errors.email = 'Invalid email address';
+      }
+
+      return errors;
+    }
+  }
+
   return (
     <>
+      {console.log(props)}
       <Formik
-        initialValues={{
-          username: '',
-          password: '',
-        }}
+        initialValues={initialValues}
         onSubmit={onFormSubmit}
-        render={(props) => (
-          <Form onSubmit={props.handleSubmit}>
-            <header>
-              <H1>Sign In</H1>
-            </header>
 
-            <section>
-              <UsernameGroup className='input-group'>
-                <input
-                  type='text'
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.username}
-                  name='username'
-                  placeholder='email / username'
-                />
-                {props.errors.username && <div id="feedback">{props.errors.username}</div>}
-              </UsernameGroup>
+        validationSchema={ContactSchema}
+        validate={validateForm}
+        validateOnBlur={false}
+        validateOnChange={false}
 
-              <PasswordGroup className='input-group'>
-                <input
-                  type='password'
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.password}
-                  name='password'
-                  placeholder='password'
-                />
-                {props.errors.password && <div id="feedback">{props.errors.password}</div>}
+        render={(props) => {
+          const usernameError = (!isEmpty(props.touched) && props.touched.username && props.values.username === '');
+          const passwordError = (!isEmpty(props.touched) && props.touched.password && props.values.password === '');
 
-                <a href=''>Forgot Password</a>
-              </PasswordGroup>
-            </section>
+          // TODO: With wifi look up validation on Formik
+          console.log(props);
+          console.log('username', usernameError, props.touched.username);
+          console.log('password', passwordError);
 
-            <Button
-              color='primary'
-              variant='contained'
-              type='submit'
-            >
-              Sign In
-            </Button>
-          </Form>
-        )}
+          return (
+            <Form onSubmit={props.handleSubmit}>
+              <header>
+                <H1>Sign In</H1>
+              </header>
+
+              <section>
+                <UsernameGroup className='input-group'>
+                  <TextField
+                    type='text'
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
+                    value={props.values.username}
+                    name='username'
+                    placeholder='email / username'
+                    label='email / username'
+                    error={usernameError}
+                    helperText={props.errors.username}
+                  />
+                  {props.errors.username && <div id="feedback">{props.errors.username}</div>}
+                </UsernameGroup>
+
+                <PasswordGroup className='input-group'>
+                  <TextField
+                    type='password'
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
+                    value={props.values.password}
+                    name='password'
+                    placeholder='password'
+                    label='password'
+                    error={passwordError}
+                    helperText={props.errors.password}
+                  />
+                  {props.errors.password && <div id="feedback">{props.errors.password}</div>}
+
+                  <Link to='/auth/help'>Forgot Password</Link>
+                </PasswordGroup>
+              </section>
+
+              <Button
+                className='MuiToolbar-regular'
+                color='primary'
+                disabled={isSubmitting}
+                variant='contained'
+                type='submit'
+              >
+                Sign In
+              </Button>
+            </Form>
+          )
+        }}
       />
 
       <SignUp>
         <P>Not a member?</P>
 
         <Button
+          className='MuiToolbar-regular'
           color='primary'
           variant='outlined'
           component={Link}
@@ -95,16 +159,6 @@ const SignInForm = (props) => {
       </SignUp>
     </>
   );
-};
-
-SignInForm.propTypes = {
-  isVisible: PropTypes.bool,
-  onClose: PropTypes.func,
-};
-
-SignInForm.defaultProps = {
-  isVisible: false,
-  onClose: noop,
 };
 
 const Form = styled.form`
@@ -120,28 +174,6 @@ const Form = styled.form`
 
   header {
     margin-bottom: ${gutter.XXL};
-  }
-
-  .input-group {
-    margin-bottom: ${gutter.M};
-  }
-
-  input {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid ${vowaidColors.black};
-    box-shadow: inset 0 0 0 0 rgba(${hexToRgb(vowaidColors.blue[95])}, 0);
-    height: ${pxToEm(45)};
-    outline: none;
-    padding: ${gutter.XS} ${gutter.M};
-    position: relative;
-    width: 100%;
-    ${createTransitionForProperties(['border-bottom', 'padding'])};
-
-    &:focus {
-      border-bottom: 3px solid ${vowaidColors.blue[95]};
-      padding-bottom: ${pxToEm(8)};
-    }
   }
 `;
 
@@ -163,9 +195,9 @@ const SignUp = styled.section`
   flex-direction: column;
   padding-bottom: ${gutter.XXL};
 
-  button {
+  a {
     margin-top: ${gutter.S};
-    padding-bottom: ${gutter.S};
-    padding-top: ${gutter.S};
   }
 `;
+
+export default SignInForm;

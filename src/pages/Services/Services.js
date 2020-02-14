@@ -47,12 +47,12 @@ const ServicesPage = () => (
         <ContactInfo>
           <li>
             <P variant='h5'>Send us an email</P>
-            <Link underline='hover' to='mailto:contact@vowaidfoundation.org'>contact@vowaidfoundation.org</Link>
+            <Link underline='hover' href='mailto:contact@vowaidfoundation.org'>contact@vowaidfoundation.org</Link>
           </li>
 
           <li>
             <Typography variant='h5' component='p'>Give us a ring</Typography>
-            <Link underline='hover' to='tel:7816061737'>781.606.1737</Link>
+            <Link underline='hover' href='tel:7816061737'>781.606.1737</Link>
           </li>
         </ContactInfo>
       </Contact>

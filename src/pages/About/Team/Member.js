@@ -53,7 +53,7 @@ const BioPage = (props) => {
           <SocialList socialLinks={teamMember.social} />
 
           <P>
-            <Link to={`mailto:${teamMember.email}`} underline='hover'>{teamMember.email}</Link>
+            <Link href={`mailto:${teamMember.email}`} underline='hover'>{teamMember.email}</Link>
           </P>
         </Aside>
 

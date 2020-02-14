@@ -28,7 +28,7 @@ const Footer = ({ className }) => (
       <FooterLogo src={Logo} />
 
       <Address>
-        <Link to="tel:+7816061737">781.606.1737</Link>
+        <Link href='tel:+7816061737'>781.606.1737</Link>
 
         <P>2307 S. Rural Road</P>
         <P>Tempe, Arizona 85282</P>
@@ -117,7 +117,7 @@ const Footer = ({ className }) => (
       <CharityList>
         <li>
           <Link
-            to='https://www.charitynavigator.org/index.cfm?bay=search.profile&ein=472465494'
+            href='https://www.charitynavigator.org/index.cfm?bay=search.profile&ein=472465494'
             target='_blank'
           >
             <img src={CharityNavigatorSeal} alt='Charity Navigator' />
@@ -125,7 +125,7 @@ const Footer = ({ className }) => (
         </li>
         <li>
           <Link
-            to='https://www.guidestar.org/profile/47-2465494'
+            href='https://www.guidestar.org/profile/47-2465494'
             target='_blank'
           >
             <img src={GuideStarSeal} alt='Guide Star' />
@@ -133,7 +133,7 @@ const Footer = ({ className }) => (
         </li>
         <li>
           <Link
-            to='https://www.bbb.org/'
+            href='https://www.bbb.org/'
             target='_blank'
           >
             <img src={BbbSeal} alt='Better Business Bureau' />

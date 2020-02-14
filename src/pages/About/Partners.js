@@ -11,7 +11,6 @@ import Hero from '../../components/heroes/PartnersHero/PartnersHero';
 
 import ForwardArrow from '../../assets/icons/google/forward-arrow.svg';
 import DarkBladeLogo from '../../assets/images/partners/DarkBladeLogo_400.png';
-import PopoverKingLogo from '../../assets/images/partners/popover-king-logo.png';
 
 import { gutter, pxToEm } from '../../styles/utils';
 
@@ -26,24 +25,6 @@ const PartnersPage = () => (
 
     <Content>
       <PartnersList>
-        <Partner>
-          <header>
-            <img src={PopoverKingLogo} alt='Popover King Logo' />
-            <H2>Popover King</H2>
-          </header>
-
-          <Description>
-            <P>Our story begins we the fervent desire to bridge the very rich culinary history of New England with its re-imagined future. We strive to provide our customers and guests an authentic New England experience beginning with the venerable popover and a café/bistro menu that highlights the distinct and classic tastes of the region as well as our partnership with the enviable master roasters at Atomic Café of Boston’s North Shore.</P>
-          </Description>
-
-          <Button
-            color='primary'
-            component={Link}
-            to='https://www.popoverking.com/'
-            target='_blank'
-          >Visit Site <Svg src={ForwardArrow} /></Button>
-        </Partner>
-
         <Partner>
           <header>
             <img src={DarkBladeLogo} alt='Darkblade Systems Logo' />
@@ -61,7 +42,7 @@ const PartnersPage = () => (
           <Button
             color='primary'
             component={Link}
-            to='https://darkbladesystems.com/'
+            href='https://darkbladesystems.com/'
             target='_blank'
           >Visit Site <Svg src={ForwardArrow} /></Button>
         </Partner>

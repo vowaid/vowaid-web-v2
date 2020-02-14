@@ -19,14 +19,14 @@ import TeamMember from './pages/About/Team/Member';
 // import Terms from './pages/Legal/Terms';
 
 import Services from './pages/Services/Services';
-// import Swc from './pages/Services/Swc';
-// import Twc from './pages/Services/Twc';
+import Swc from './pages/Services/Swc';
+import Twc from './pages/Services/Twc';
 
 import Contact from './pages/Contact';
 // import Donate from './pages/Donate';
 import Landing from './pages/Landing';
 import NotFound from './pages/NotFound';
-// // import Signup from './pages/Signup';
+import Auth from './pages/Auth/Auth';
 
 import ThemeProvider from './theme/ThemeProvider';
 
@@ -60,8 +60,22 @@ const routes = [{
   component: Services,
 }, {
   exact: true,
+  path: '/services/twc',
+  component: Twc,
+}, {
+  exact: true,
+  path: '/services/swc',
+  component: Swc,
+}, {
+  exact: true,
   path: '/contact',
   component: Contact,
+}, {
+  path: '/signin',
+  component: Auth,
+}, {
+  path: '/signup',
+  component: Auth,
 }];
 
 /**

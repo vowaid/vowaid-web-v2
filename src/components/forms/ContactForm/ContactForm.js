@@ -52,12 +52,13 @@ const ContactSchema = Yup.object().shape({
     .max(50, 'Too Long')
     .required('Required'),
 });
-let isSubmitting = false;
 
 /**
  * Description.
  */
 const ContactForm = (props) => {
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
   /**
    * Description.
    *
@@ -65,6 +66,7 @@ const ContactForm = (props) => {
    * @param {} actions
    */
   const onFormSubmit = (values, actions) => {
+    console.log(values, actions);
     setTimeout(() => {
       alert(JSON.stringify(values, null, 2));
       actions.setSubmitting(false);
@@ -257,7 +259,7 @@ const ContactForm = (props) => {
             variant='contained'
             disabled={isSubmitting}
             onClick={() => {
-              isSubmitting = true;
+              setIsSubmitting(true);
               submitForm();
             }}
             type='submit'

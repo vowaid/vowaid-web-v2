@@ -52,7 +52,7 @@ const SocialList = (props) => {
       {Object.keys(socialLinks).map((socialMedia) => (
         <li className={socialMedia} key={uuidv4()}>
           <Link
-            to={socialLinks[socialMedia]}
+            href={socialLinks[socialMedia]}
             target='_blank'
           >
             {fetchSocialIcon(socialMedia)}

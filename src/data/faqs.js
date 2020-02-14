@@ -122,7 +122,7 @@ const faqs = [
     question: 'If I qualify for veteran benefits’ from the Department of Veterans Affairs (VA) does that mean that I am eligible for veterans’ preference in Federal Employment?',
     answer: () => (
         <>
-          <P paragraph><strong>Maybe.</strong>  Eligibility for veterans’ preference in Federal employment is dependent on military service dates or service-connected disability and having served honorably.  The Feds Hire Vets website (<Link underline='hover' to='https://www.fedshirevets.gov' target='_blank'>www.fedshirevets.gov</Link>) provides guidance on veterans’ preference and special hiring authorities for veterans.</P>
+          <P paragraph><strong>Maybe.</strong>  Eligibility for veterans’ preference in Federal employment is dependent on military service dates or service-connected disability and having served honorably.  The Feds Hire Vets website (<Link underline='hover' href='https://www.fedshirevets.gov' target='_blank'>www.fedshirevets.gov</Link>) provides guidance on veterans’ preference and special hiring authorities for veterans.</P>
         </>
       ),
   },
@@ -130,7 +130,7 @@ const faqs = [
     question: 'What is Schedule A for persons with disabilities?  ',
     answer: () => (
       <>
-        <P paragraph>Schedule A is a special appointing authority that agencies can use to non-competitively appoint individuals, including eligible veterans, who have a severe physical, psychiatric, or intellectual disability.  For more information visit <Link underline='hover' to='https://www.USAJOBS.gov' target='_blank'>www.USAJOBS.gov</Link>, Individuals with Disabilities page.</P>
+        <P paragraph>Schedule A is a special appointing authority that agencies can use to non-competitively appoint individuals, including eligible veterans, who have a severe physical, psychiatric, or intellectual disability.  For more information visit <Link underline='hover' href='https://www.USAJOBS.gov' target='_blank'>www.USAJOBS.gov</Link>, Individuals with Disabilities page.</P>
       </>
     ),
   },
@@ -170,7 +170,7 @@ const faqs = [
     question: 'I am a 30% or more disabled veteran; can I apply as a Schedule A eligible?',
     answer: () => (
       <>
-        <P><strong>It depends.</strong> If the applicant is eligible for both appointing authorities he or she should indicate their desire to receive consideration under both appointing authorities. However, the criteria for 30% or more disabled appointing authority are different from Schedule A Persons with Disabilities appointing authority. For additional information on the eligibility criteria visit <Link underline='hover' to='https://www.fedshirevets.gov/job/shav/index.aspx' target='_blank'>www.fedshirevets.gov/job/shav/index.aspx</Link>.</P>
+        <P><strong>It depends.</strong> If the applicant is eligible for both appointing authorities he or she should indicate their desire to receive consideration under both appointing authorities. However, the criteria for 30% or more disabled appointing authority are different from Schedule A Persons with Disabilities appointing authority. For additional information on the eligibility criteria visit <Link underline='hover' href='https://www.fedshirevets.gov/job/shav/index.aspx' target='_blank'>www.fedshirevets.gov/job/shav/index.aspx</Link>.</P>
       </>
     ),
   },
@@ -193,7 +193,7 @@ const faqs = [
     question: 'How do I obtain a copy of my SF-50? ',
     answer: () => (
       <>
-        <P>Visit the <Link underline='hover' to='https://www.archives.gov/st-louis/civilian-personnel' target='_blank'>National Archives website</Link> for information pertaining to replacement of the SF-50 or contact the agency’s Human Resources Office where you worked for assistance.</P>
+        <P>Visit the <Link underline='hover' href='https://www.archives.gov/st-louis/civilian-personnel' target='_blank'>National Archives website</Link> for information pertaining to replacement of the SF-50 or contact the agency’s Human Resources Office where you worked for assistance.</P>
       </>
     ),
   },
