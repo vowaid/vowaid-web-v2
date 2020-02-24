@@ -1,7 +1,8 @@
 # Veterans of War Aid Foundation
 
-[![GitHub version](https://badge.fury.io/gh/vowaid%2Fvowaid-web-v2.svg)](https://badge.fury.io/gh/vowaid%2Fvowaid-web-v2)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1e25da59-51d7-4d88-97ca-9aad9e7f1991/deploy-status)](https://app.netlify.com/sites/vowaid-v2/deploys)
+
+[![GitHub version](https://badge.fury.io/gh/vowaid%2Fvowaid-web-v2.svg)](https://badge.fury.io/gh/vowaid%2Fvowaid-web-v2)
 [![Coverage Status](https://coveralls.io/repos/github/vowaid/vowaid-web-v2/badge.svg)](https://coveralls.io/github/vowaid/vowaid-web-v2)
 [![Dependency Status](https://david-dm.org/vowaid/vowaid-web-v2.svg)](https://david-dm.org/vowaid/vowaid-web-v2)
 [![devDependency Status](https://david-dm.org/vowaid/vowaid-web-v2/dev-status.svg)](https://david-dm.org/vowaid/vowaid-web-v2#info=devDependencies)
