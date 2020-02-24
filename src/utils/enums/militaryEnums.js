@@ -416,22 +416,32 @@ const branchRanks = {
 //   navy: [],
 // }
 const buildRankFormOptions = (branch) => {
+  const formOptions = [];
+
+  if (!branch) {
+    return formOptions;
+  } else if (branch === 'N/A') {
+    formOptions.push({ value: 'N/A', label: 'N/A'})
+    return formOptions;
+  }
+
   const branchList = branchRanks[camelCase(branch)];
   const keys = Object.keys(branchList);
-  const formOptions = [];
 
   for (let index = 0; index < keys.length; index++) {
     const key = keys[index];
     const ranks = branchList[key];
 
-    for (let rankIndex = 0; rankIndex < ranks.length; rankIndex++) {
-      const rank = branchList[key][rankIndex];
-      const rankString = `${rank.rank} - ${rank.title} (${rank.abbr})`;
+    if (ranks && ranks.length) {
+      for (let rankIndex = 0; rankIndex < ranks.length; rankIndex++) {
+        const rank = branchList[key][rankIndex];
+        const rankString = `${rank.rank} - ${rank.title} (${rank.abbr})`;
 
-      formOptions.push({
-        value: rankString,
-        label: rankString,
-      });
+        formOptions.push({
+          value: rankString,
+          label: rankString,
+        });
+      }
     }
   }
 
@@ -451,11 +461,13 @@ const branches = {
  */
 const branchFormOptions = () => {
   const branchKeys = Object.keys(branches);
-  const branchOptions = [];
+  const branchOptions = [
+    { value: 'N/A', label: 'N/A'},
+  ];
 
   for (let index = 0; index < branchKeys.length; index++) {
     branchOptions.push({
-      value: branches[branchKeys[index]],
+      value: camelCase(branches[branchKeys[index]]),
       label: branches[branchKeys[index]],
     })
   }

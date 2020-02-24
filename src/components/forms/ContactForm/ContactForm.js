@@ -1,16 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Formik } from 'formik';
+import { styled as muiStyled } from '@material-ui/core/styles';
 import isEmpty from 'lodash/isEmpty'
 import * as Yup from 'yup';
 
+import { Formik, Field, ErrorMessage } from 'formik';
 import { Button, TextField } from '@material-ui/core';
 import { Select } from '../../index';
 
 import { gutter } from '../../../styles/utils';
-import { vowaidColors } from '../../../styles/colors';
 
-import { branchFormOptions } from '../../../utils/enums/militaryEnums';
+import { PhoneRegExp } from '../../../utils/enums/regExEnums';
+import { branchFormOptions, buildRankFormOptions } from '../../../utils/enums/militaryEnums';
 
 const initialValues = {
   name: '',
@@ -29,9 +30,10 @@ const ContactSchema = Yup.object().shape({
     .required('Required'),
   email: Yup.string()
     .min(2, 'Too Short')
-    .email('Invalid email')
+    .email('Invalid Email')
     .required('Required'),
   phone: Yup.string()
+    .matches(PhoneRegExp, 'Invalid Phone Number')
     .min(2, 'Too Short')
     .max(50, 'Too Long')
     .required('Required'),
@@ -57,7 +59,8 @@ const ContactSchema = Yup.object().shape({
  * Description.
  */
 const ContactForm = (props) => {
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const initRanks = buildRankFormOptions();
+  const [ranks, setRanks] = React.useState(initRanks);
 
   /**
    * Description.
@@ -66,7 +69,6 @@ const ContactForm = (props) => {
    * @param {} actions
    */
   const onFormSubmit = (values, actions) => {
-    console.log(values, actions);
     setTimeout(() => {
       alert(JSON.stringify(values, null, 2));
       actions.setSubmitting(false);
@@ -79,24 +81,22 @@ const ContactForm = (props) => {
    * @param {} values
    */
   const validateForm = (values) => {
-    if (isSubmitting) {
-      let errors = {};
-      const keys = Object.keys(initialValues);
+    let errors = {};
+    const keys = Object.keys(initialValues);
 
-      for (let index = 0; index < keys.length; index++) {
-        const key = keys[index];
+    for (let index = 0; index < keys.length; index++) {
+      const key = keys[index];
 
-        if (isEmpty(values[key])) {
-          errors[key] = 'Required'
-        }
+      if (isEmpty(values[key])) {
+        errors[key] = 'Required'
       }
-
-      if (!errors.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-        errors.email = 'Invalid email address';
-      }
-
-      return errors;
     }
+
+    if (!errors.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = 'Invalid email address';
+    }
+
+    return errors;
   }
 
   return (
@@ -104,25 +104,31 @@ const ContactForm = (props) => {
       initialValues={initialValues}
       validationSchema={ContactSchema}
       validate={validateForm}
-      validateOnBlur={false}
+      validateOnBlur
+      enableReinitialize
       validateOnChange={false}
       onSubmit={onFormSubmit}
-      render={({
+    >
+      {({
         errors,
         handleBlur,
         handleChange,
         handleSubmit,
         isSubmitting,
+        isValidating,
         setFieldTouched,
         setFieldValue,
         submitForm,
+        touched,
         values,
       }) => (
         <Form onSubmit={handleSubmit}>
           <section>
             <InputGroup>
-              <TextField
+              <Field
+                component={TextField}
                 name='name'
+                id='name'
                 onBlur={handleBlur}
                 onChange={handleChange}
                 label='Name'
@@ -131,12 +137,14 @@ const ContactForm = (props) => {
                 type='text'
                 value={values.name}
               />
-              {(errors.name) && <Feedback>{errors.name}</Feedback>}
+              {(touched.name && errors.name) && <Feedback><ErrorMessage name='name' /></Feedback>}
             </InputGroup>
 
             <InputGroup>
-              <TextField
+              <Field
+                component={TextField}
                 name='email'
+                id='email'
                 onBlur={handleBlur}
                 onChange={handleChange}
                 label='Email'
@@ -145,12 +153,14 @@ const ContactForm = (props) => {
                 type='email'
                 value={values.email}
               />
-              {(errors.email) && <Feedback>{errors.email}</Feedback>}
+              {(touched.email && errors.email) && <Feedback><ErrorMessage name='email' /></Feedback>}
             </InputGroup>
 
             <InputGroup>
-              <TextField
+              <Field
+                component={TextField}
                 name='phone'
+                id='phone'
                 onBlur={handleBlur}
                 onChange={handleChange}
                 label='Phone'
@@ -159,70 +169,51 @@ const ContactForm = (props) => {
                 type='tel'
                 value={values.phone}
               />
-              {(errors.phone) && <Feedback>{errors.phone}</Feedback>}
+              {(touched.phone && errors.phone) && <Feedback><ErrorMessage name='phone' /></Feedback>}
             </InputGroup>
 
             <InputGroup>
               <Select
                 name='branch'
+                id='branch'
                 onBlur={() => setFieldTouched('branch', true)}
-                onChange={value => setFieldValue('branch', value)}
+                onChange={value => {
+                  const newRanks = buildRankFormOptions(value);
+                  setRanks(newRanks);
+                  setFieldValue('branch', value);
+                }}
                 options={branchFormOptions()}
                 label='Branch'
                 placeholder='branch'
                 required
                 value={values.branch}
               />
-              {(errors.branch) && <Feedback>{errors.branch}</Feedback>}
+              {(touched.branch && errors.branch) && <Feedback><ErrorMessage name='branch' /></Feedback>}
             </InputGroup>
 
             <InputGroup>
               <Select
                 name='rank'
+                id='rank'
                 onBlur={() => setFieldTouched('rank', true)}
-                onChange={value => setFieldValue('rank', value)}
-                options={[
-                  { value: 'E1', label: 'E1' },
-                  { value: 'E2', label: 'E2' },
-                  { value: 'E3', label: 'E3' },
-                  { value: 'E4', label: 'E4' },
-                  { value: 'E5', label: 'E5' },
-                  { value: 'E6', label: 'E6' },
-                  { value: 'E7', label: 'E7' },
-                  { value: 'E8', label: 'E8' },
-                  { value: 'E9', label: 'E9' },
-
-                  { value: 'WO1', label: 'WO1' },
-                  { value: 'WO2', label: 'WO2' },
-                  { value: 'WO3', label: 'WO3' },
-                  { value: 'WO4', label: 'WO4' },
-                  { value: 'WO5', label: 'WO5' },
-
-                  { value: 'O1', label: 'O1' },
-                  { value: 'O2', label: 'O2' },
-                  { value: 'O3', label: 'O3' },
-                  { value: 'O4', label: 'O4' },
-                  { value: 'O5', label: 'O5' },
-                  { value: 'O6', label: 'O6' },
-                  { value: 'O7', label: 'O7' },
-                  { value: 'O8', label: 'O8' },
-                  { value: 'O9', label: 'O9' },
-                  { value: 'O10', label: 'O10' },
-                ]}
+                onChange={(value) => setFieldValue('rank', value)}
+                options={ranks}
                 label='Rank'
                 placeholder='rank'
                 required
                 value={values.rank}
               />
-              {(errors.rank) && <Feedback>{errors.rank}</Feedback>}
+              {(touched.rank && errors.rank) && <Feedback><ErrorMessage name='rank' /></Feedback>}
             </InputGroup>
 
             <InputGroup>
               <Select
                 name='discharge'
+                id='discharge'
                 onBlur={() => setFieldTouched('discharge', true)}
                 onChange={value => setFieldValue('discharge', value)}
                 options={[
+                  { value: 'Not Applicable', label: 'N/A'},
                   { value: 'honorable', label: 'Honorable' },
                   { value: 'general', label: 'General' },
                   { value: 'other than honorable conditions', label: 'Other Than Honorable Conditions' },
@@ -235,13 +226,15 @@ const ContactForm = (props) => {
                 required
                 value={values.discharge}
               />
-              {(errors.discharge) && <Feedback>{errors.discharge}</Feedback>}
+              {(touched.discharge && errors.discharge) && <Feedback><ErrorMessage name='discharge' /></Feedback>}
             </InputGroup>
 
             <InputGroup className='input-group--textarea'>
-              <TextField
+              <Field
+                component={TextField}
                 multiline
                 name='message'
+                id='message'
                 onBlur={handleBlur}
                 onChange={handleChange}
                 label='Message'
@@ -249,7 +242,7 @@ const ContactForm = (props) => {
                 required
                 value={values.message}
               />
-              {(errors.message) && <Feedback>{errors.message}</Feedback>}
+              {(touched.message && errors.message) && <Feedback><ErrorMessage name='message' /></Feedback>}
             </InputGroup>
           </section>
 
@@ -257,16 +250,15 @@ const ContactForm = (props) => {
             className='MuiToolbar-regular'
             color='primary'
             variant='contained'
-            disabled={isSubmitting}
+            disabled={isSubmitting || isValidating}
             onClick={() => {
-              setIsSubmitting(true);
               submitForm();
             }}
             type='submit'
           >Submit</Button>
         </Form>
       )}
-    />
+    </Formik>
   );
 };
 
@@ -287,10 +279,15 @@ const InputGroup = styled.div`
   }
 `;
 
-const Feedback = styled.small`
-  color: ${vowaidColors.red.default};
-  display: inline-block;
-  transform: translateY(-${gutter.M});
-`;
+const Feedback = muiStyled('small')(({ theme }) => {
+  const paletteColor = (theme.palette.type === 'dark') ? 'light' : 'dark';
+
+  return {
+    color: theme.palette.error[paletteColor],
+    display: 'inline-block',
+  };
+}, {
+  withTheme: true,
+});
 
 export default ContactForm;
