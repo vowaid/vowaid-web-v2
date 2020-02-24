@@ -27,7 +27,7 @@ const StyledLink = styled(Link)(({ theme }) => {
   const palette = mode === 'dark' ? 'light' : 'main';
 
   return {
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.text.primary,
     fontSize: theme.typography.fontSize,
     position: 'relative',
     textDecoration: 'none',

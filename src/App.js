@@ -1,3 +1,9 @@
+/**
+ * The main application where the theme and router are instantiated.
+ *
+ * TODO: Add restored scroll.
+ * TODO: Add animated transition between pages.
+ */
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import uuid from 'uuid/v4';
@@ -29,6 +35,8 @@ import NotFound from './pages/NotFound';
 import Auth from './pages/Auth/Auth';
 
 import ThemeProvider from './theme/ThemeProvider';
+
+import { ScrollToTop } from './utils/routerUtils';
 
 const routes = [{
   exact: true,
@@ -95,6 +103,7 @@ const RouteWithSubRoutes = (route) => (
 const App = (props) => (
   <ThemeProvider>
     <Router>
+      <ScrollToTop />
       <Header />
 
       <Switch>

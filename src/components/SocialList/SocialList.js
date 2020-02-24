@@ -28,20 +28,34 @@ const SocialList = (props) => {
   const classes = useStyles(props);
 
   const fetchSocialIcon = (socialMedia) => {
+    let svgSrc = null;
+
     switch(socialMedia) {
       case 'facebook':
-        return <StyledSvg src={FacebookIcon} className={classes.root} />;
+        svgSrc = FacebookIcon;
+        break;
+
       case 'github':
-        return <StyledSvg src={GitHubIcon} className={classes.root} />;
+        svgSrc = GitHubIcon;
+        break;
+
       case 'instagram':
-        return <StyledSvg src={InstagramIcon} className={classes.root} />;
+        svgSrc = InstagramIcon;
+        break;
+
       case 'linkedin':
-        return <StyledSvg src={LinkedInIcon} className={classes.root} />;
+        svgSrc = LinkedInIcon;
+        break;
+
       case 'twitter':
-        return <StyledSvg src={TwitterIcon} className={classes.root} />;
+        svgSrc = TwitterIcon;
+        break;
+
       default:
         return;
     }
+
+    return <StyledSvg src={svgSrc} className={`icon ${classes.root}`} />;
   };
 
   return (

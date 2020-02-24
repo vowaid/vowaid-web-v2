@@ -29,7 +29,7 @@ const ContactPage = () => (
       <Article>
         <Section>
           <header>
-            <ReactSVG src={Envelope} />
+            <ReactSVG className='icon' src={Envelope} />
             <H2>General Inquiries:</H2>
           </header>
 
@@ -42,7 +42,7 @@ const ContactPage = () => (
 
         <Section>
           <header>
-            <ReactSVG src={Phone} />
+            <ReactSVG className='icon' src={Phone} />
             <H2>Phone:</H2>
           </header>
 
@@ -55,7 +55,7 @@ const ContactPage = () => (
 
         <Section>
           <header>
-            <ReactSVG src={MapMarker} />
+            <ReactSVG className='icon' src={MapMarker} />
             <Typography component='h2' variant='h3'>Address:</Typography>
           </header>
 

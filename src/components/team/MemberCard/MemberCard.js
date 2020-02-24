@@ -56,7 +56,7 @@ MemberCard.defaultProps = {
 
 const StyledMemberCard = styled(Card)`
   display: flex;
-  height: ${pxToEm(200)};
+  min-height: ${pxToEm(200)};
   margin-bottom: ${gutter.XXL};
   min-width: ${pxToEm(525)};
   overflow: hidden;
@@ -76,9 +76,8 @@ const StyledMemberCard = styled(Card)`
     }
   }
 
-  button {
-    margin-bottom: ${pxToEm(20)};
-    padding: ${gutter.S} ${gutter.M};
+  a {
+    margin-bottom: ${gutter.M};
   }
 
   .card--content {

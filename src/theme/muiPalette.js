@@ -21,6 +21,12 @@ const getPalette = (type = 'light') => ({
   // two indexes within its tonal palette.
   // E.g., shift from Red 500 to Red 300 or Red 700.
   tonalOffset: 0.2,
+  text: {
+    primary: vowaidColors.fontColor[type],
+    // secondary: "rgba(0, 0, 0, 0.54)"
+    // disabled: "rgba(0, 0, 0, 0.38)"
+    // hint: "rgba(0, 0, 0, 0.38)"
+  },
 });
 
 export {

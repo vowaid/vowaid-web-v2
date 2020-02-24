@@ -58,22 +58,35 @@ const ServiceFlag = ({ service }) => {
    * Description.
    */
   const fetchBranchImage = () => {
+    let svgSrc = null;
+
     switch (service.branch.toLowerCase()) {
       case 'marine corps':
-        return <ReactSVG src={MarineCorpsIcon} className='logo' />;
+        svgSrc = MarineCorpsIcon;
+        break;
+
       case 'navy':
-        return <ReactSVG src={NavyIcon} className='logo' />;
+        svgSrc = NavyIcon;
+        break;
+
       case 'army':
-        return <ReactSVG src={ArmyIcon} className='logo' />;
+        svgSrc = ArmyIcon;
+        break;
+
       case 'coast guard':
-        return <ReactSVG src={CoastGuardIcon} className='logo' />;
+        svgSrc = CoastGuardIcon;
+        break;
+
       case 'air force':
-        return <ReactSVG src={AirForceIcon} className='logo' />;
+        svgSrc = AirForceIcon;
+        break;
+
       case 'homeland security':
-        return;
       default:
         return;
     }
+
+    return <ReactSVG className='logo' src={svgSrc} />;
   }
 
   React.useEffect(() => {

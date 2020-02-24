@@ -63,26 +63,6 @@ const teamMembers = [
     bio: () => (null),
   },
   {
-    id: '74dee288-941b-4ee4-80b6-b493c0f3e88b',
-    name: 'Jacob Taylor',
-    email: 'jacob@vowaidfoundation.org',
-    title: {
-      full: 'President',
-      abbr: '',
-    },
-    social: {
-      linkedin: 'https://www.linkedin.com/in/jacobtaylorgroup/',
-      instagram: 'https://www.instagram.com/jacobtaylorman/',
-      twitter: 'https://twitter.com/jacobtaylorman/',
-    },
-    service: {
-      branch: 'Air Force',
-      status: 'veteran',
-    },
-    image: JacobTaylorPhoto,
-    bio: () => (null),
-  },
-  {
     id: '019d1ead-54ef-4f4b-a63d-e20b9c55b056',
     name: 'Lisa Hemmie',
     email: 'lisa@vowaidfoundation.org',
@@ -118,24 +98,6 @@ const teamMembers = [
     ),
   },
   {
-    id: '94de5018-82a3-4377-bf4a-42d9a18b169d',
-    name: 'Candy Brazil',
-    email: 'candy@vowaidfoundation.org',
-    title: {
-      full: 'Chief Financial Officer',
-      abbr: 'CFO',
-    },
-    social: {
-      linkedin: 'https://www.linkedin.com/in/candybrazil/',
-    },
-    service: {
-      branch: '',
-      status: '',
-    },
-    image: CandyBrazilPhoto,
-    bio: () => (null),
-  },
-  {
     id: 'f5d6c6a4-c268-4b48-a7b8-3f030b22e63a',
     name: 'Holly Springsteen',
     email: 'holly@vowaidfoundation.org',
@@ -167,11 +129,29 @@ const teamMembers = [
     ),
   },
   {
+    id: '94de5018-82a3-4377-bf4a-42d9a18b169d',
+    name: 'Candy Brazil',
+    email: 'candy@vowaidfoundation.org',
+    title: {
+      full: 'Chief Financial Officer',
+      abbr: 'CFO',
+    },
+    social: {
+      linkedin: 'https://www.linkedin.com/in/candybrazil/',
+    },
+    service: {
+      branch: '',
+      status: '',
+    },
+    image: CandyBrazilPhoto,
+    bio: () => (null),
+  },
+  {
     id: '5240e765-acac-4560-accc-34673bf1a197',
     name: 'Hunter Nunnery',
     email: 'hunter@vowaidfoundation.org ',
     title: {
-      full: 'Web Developer',
+      full: 'Jr. Web Developer',
       abbr: '',
     },
     social: {
@@ -231,7 +211,7 @@ const teamMembers = [
     name: 'Austin Thomas',
     email: 'austin@vowaidfoundation.org',
     title: {
-      full: 'Head of Photography',
+      full: 'Photographer',
       abbr: '',
     },
     social: {
@@ -250,6 +230,26 @@ const teamMembers = [
           <P>Sergeant 1st Class Thomas&#39;s military education includes, Fire Finder Radar School, Fort Sill Oklahoma; Basic Multimedia Illustrators Course, the Digital Multimedia Course and the Visual Information Management Course, Fort Meade, Maryland; US Army Recruiter School, Fort Knox Kentucky; Warrior Leader Course, Fort Bliss, Texas; Advanced Leaders Course and Senior Leader Course, Fort Meade, Maryland. Sergeant 1st Class Thomas&#39;s awards include: Meritorious Service Medal; Army Commendation Medal (5th award); Army Achievement Medal (3 rd award); Good Conduct Medal (5th award); National Defense Medal; (2 bronze devices) Southwest Asia Service Medal (3 bronze devices); Global War on Terrorism Expeditionary Medal; Global War on Terrorism Service Medal; Afghanistan Campaign Medal; NCO Professional Development Ribbon (3th device); Overseas Service Ribbon; Humanitarian Service Medal; Saudi Arabia Kuwait Liberation Medal; and Kuwait Liberation Medal. Sergeant 1st Class Thomas has also been awarded the Bronze Instructor Badge, Recruiter Badge. He holds an Associates Degree in Computer Animation from the Art Institute of Seattle and is in the process of enrolling in the New York Film Academy of Los Angeles&#39;s Bachelors Degree program for Film and Television with an emphasis on Directing and Cinematography.</P>
       </>
     ),
+  },
+  {
+    id: '74dee288-941b-4ee4-80b6-b493c0f3e88b',
+    name: 'Jacob Taylor',
+    email: 'jacob@vowaidfoundation.org',
+    title: {
+      full: 'Public Relations',
+      abbr: '',
+    },
+    social: {
+      linkedin: 'https://www.linkedin.com/in/jacobtaylorgroup/',
+      instagram: 'https://www.instagram.com/jacobtaylorman/',
+      twitter: 'https://twitter.com/jacobtaylorman/',
+    },
+    service: {
+      branch: 'Air Force',
+      status: 'veteran',
+    },
+    image: JacobTaylorPhoto,
+    bio: () => (null),
   },
 ];
 

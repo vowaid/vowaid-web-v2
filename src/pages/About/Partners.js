@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button } from '@material-ui/core';
+import { Button, Card } from '@material-ui/core';
 import { ReactSVG } from 'react-svg';
 import { H2, P, Content, Link, Seo, PartnersHero } from '../../components';
 
@@ -40,7 +40,7 @@ const PartnersPage = () => (
             component={Link}
             href='https://darkbladesystems.com/'
             target='_blank'
-          >Visit Site <Svg src={ForwardArrow} /></Button>
+          >Visit Site <Svg className='icon' src={ForwardArrow} /></Button>
         </Partner>
       </PartnersList>
     </Content>
@@ -53,8 +53,9 @@ const PartnersList = styled.article`
   justify-content: space-around;
 `;
 
-const Partner = styled.section`
+const Partner = styled(Card)`
   margin: ${gutter.XXL} 0;
+  padding: ${gutter.M};
   width: 45vw;
 
   header {

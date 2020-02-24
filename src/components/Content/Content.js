@@ -10,7 +10,7 @@ const Content = muiStyled('article')(({ theme }) => ({
     color: vowaidColors.fontColor[theme.palette.type],
   },
 
-  '& svg *': {
+  '& .icon svg *': {
     fill: vowaidColors.fontColor[theme.palette.type],
   }
 }), {

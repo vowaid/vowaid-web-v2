@@ -9,7 +9,7 @@ import Logo from '../../../assets/svg/logo.svg';
 import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';
 
-import BbbSeal from '../../../assets/images/bbb-charity-seal.png';
+// import BbbSeal from '../../../assets/images/bbb-charity-seal.png';
 import CharityNavigatorSeal from '../../../assets/images/charity-navigator.png';
 import GuideStarSeal from '../../../assets/images/guidestar-seal-gold.png';
 
@@ -17,6 +17,7 @@ import GuideStarSeal from '../../../assets/images/guidestar-seal-gold.png';
  * Global application footer.
  *
  * TODO: Break this apart into separate components.
+ * TODO: Add BBB once registered.
  *
  * @param {string} props.className A string of the class names passed to the footer.
  */
@@ -129,14 +130,14 @@ const Footer = ({ className }) => (
             <img src={GuideStarSeal} alt='Guide Star' />
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             href='https://www.bbb.org/'
             target='_blank'
           >
             <img src={BbbSeal} alt='Better Business Bureau' />
           </Link>
-        </li>
+        </li> */}
       </CharityList>
     </LinkSection>
   </footer>
