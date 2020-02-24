@@ -32,7 +32,7 @@ const ServicesPage = () => (
 
         <SignIn>
           <P variant='body1'>Already signed up with us?</P>
-          <Link underline='hover' to="/">Sign In Here</Link>
+          <Link underline='hover' to="/signin">Sign In Here</Link>
         </SignIn>
 
         <H3>Don’t see what you’re looking for? Please reach out to us.</H3>
