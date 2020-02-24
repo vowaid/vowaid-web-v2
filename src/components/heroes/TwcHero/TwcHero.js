@@ -6,7 +6,7 @@ import { H1, P, CoverImage } from '../../index';
 import { createTransitionForProperties, gutter, pxToEm, hexToRgb } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';
 
-import Image from 'assets/images/covers/veterans.jpg';
+import Image from '../../../assets/images/covers/veterans.jpg';
 
 const sectionHeight = pxToEm(400);
 
