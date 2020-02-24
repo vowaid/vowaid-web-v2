@@ -5,12 +5,11 @@
   "license": "LicenseRef-LICENSE",
   "description": "The Veterans of War Aid Foundation (VOW AID) creates, unites, and supports businesses that fight for American combat veterans and uses contacts and revenues to deliver targeted assistance to American Heroes in need.",
   "contributors": [
-    "Holly Springsteen <holly@vowaidfoundation.org>",
-    "Hunter Nunnery <hunter@vowaidfoundation.org> (https://www.codehunter.io/)"
+    "Holly Springsteen <holly@vowaidfoundation.org>"
   ],
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run predeploy && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
