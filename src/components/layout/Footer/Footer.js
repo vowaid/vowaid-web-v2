@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { ReactSVG } from 'react-svg';
 
-import { Typography } from '@material-ui/core';
 import { P, Link, SocialList } from '../../index';
 import Logo from '../../../assets/svg/logo.svg';
 
@@ -84,8 +83,6 @@ const Footer = ({ className }) => (
              underline='hover'
             >Donate</Link>
           </li>
-        </ul>
-        <ul>
           <li>
             <Link
              to='/sitemap.xml'
@@ -98,12 +95,11 @@ const Footer = ({ className }) => (
       </FooterNav>
 
       <CharityInfo>
-        <Typography component='small'>
-          <Typography component='span'>&copy;2019 Veterans of War Aid Foundation</Typography>
-          <Typography component='span'>Charity #3729691</Typography>
-          <Typography component='span'>EIN #: 47-2465494</Typography>
-        </Typography>
+        <P>&copy;2019&nbsp;Veterans&nbsp;of&nbsp;War&nbsp;Aid&nbsp;Foundation</P>
+        <P>Charity&nbsp;#:&nbsp;3729691</P>
+        <P>EIN&nbsp;#:&nbsp;47-2465494</P>
       </CharityInfo>
+
     </CenterSection>
 
     <LinkSection>
@@ -165,18 +161,11 @@ const StyledFooter = styled(Footer)`
       nav {
         justify-content: flex-end;
       }
-
-      small {
-        display: block;
-        text-align: right;
-      }
     }
 
     section:last-child {
       flex: 3;
-      flex-direction: row;
       height: auto;
-      margin-top: ${gutter.XXL};
       padding: 0;
     }
   }
@@ -184,7 +173,6 @@ const StyledFooter = styled(Footer)`
   @media only screen and (max-width: 750px) {
     section {
       flex: 3;
-      margin-top: ${gutter.XXL};
     }
 
     section:first-child {
@@ -193,8 +181,6 @@ const StyledFooter = styled(Footer)`
     }
 
     section:nth-child(2) {
-      padding: 0 3.3333vw;
-
       nav {
         justify-content: space-between;
       }
@@ -203,11 +189,34 @@ const StyledFooter = styled(Footer)`
         text-align: center;
       }
     }
+
+    section:nth-child(3) {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: ${gutter.L};
+      width: 100%;
+
+      .social-list {
+        li:not(:last-child) {
+          margin-right: ${gutter.L};
+        }
+
+        svg {
+          height: ${gutter.L};
+        }
+      }
+    }
   }
 
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 533px) {
     section:nth-child(2) {
-      padding: 0;
+      margin-top: ${gutter.L};
+      padding: 0 ${gutter.M};
+      justify-content: flex-start;
+
+      nav {
+        margin-bottom: ${gutter.L};
+      }
     }
   }
 `;
@@ -215,7 +224,7 @@ const StyledFooter = styled(Footer)`
 const Section = styled.section`
   display: flex;
   flex-direction: column;
-  height: ${pxToEm(230)};
+  max-height: ${pxToEm(230)};
   justify-content: space-between;
 `;
 
@@ -239,6 +248,7 @@ const Address = styled.address`
 const CenterSection = styled(Section)`
   flex-grow: 1;
   padding: 0 ${gutter.XXL};
+  min-width: ${pxToEm(350)};
 `;
 
 const FooterNav = styled.nav`
@@ -267,12 +277,15 @@ const FooterNav = styled.nav`
 `;
 
 const CharityInfo = styled.div`
-  span {
-    margin-right: ${gutter.S};
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  p {
     white-space: nowrap;
 
-    &:last-child {
-      margin-right: 0;
+    &:not(:last-child) {
+      margin-right: 1em;
     }
   }
 `;
@@ -283,14 +296,10 @@ const LinkSection = styled(Section)`
   }
 
   .social-list {
-    width: 100%;
+    width: auto;
 
-    li {
+    li:not(:last-child) {
       margin-right: 2.7vw;
-
-      &:last-child {
-        margin-right: 0;
-      }
     }
 
     svg {

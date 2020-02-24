@@ -25,12 +25,16 @@ const Link = React.forwardRef((props, ref) => {
 const StyledLink = styled(Link)(({ theme }) => {
   const mode = theme.palette.type;
   const palette = mode === 'dark' ? 'light' : 'main';
+  console.log(theme.palette);
 
   return {
-    color: theme.palette.text.primary,
     fontSize: theme.typography.fontSize,
     position: 'relative',
     textDecoration: 'none',
+
+    '&[underline="hover"], &.MuiLink-underlineHover': {
+      color: theme.palette.text.primary,
+    },
 
     '&::after': {
       content: '""',

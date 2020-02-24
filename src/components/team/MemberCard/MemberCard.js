@@ -8,7 +8,6 @@ import { Button, Card } from '@material-ui/core';
 import { H1, H2, Link, SocialList, ServiceFlag } from '../../index';
 
 import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
-import { vowaidColors } from '../../../styles/colors';
 
 /**
  * React component for the application global header. The header transitions between the "full"
@@ -84,18 +83,6 @@ const StyledMemberCard = styled(Card)`
     padding: ${gutter.XS} ${gutter.L};
     position: relative;
     width: 60%;
-
-    &:after {
-      border-color: transparent transparent ${vowaidColors.white} transparent;
-      border-style: solid;
-      border-width: 0 0 ${pxToEm(200)} ${gutter.XXL};
-      content: '';
-      height: 0;
-      left: -${gutter.XXL};
-      position: absolute;
-      top: 0;
-      width: 0;
-    }
 
     h1,
     h2 {
