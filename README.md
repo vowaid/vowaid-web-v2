@@ -1,5 +1,7 @@
 # Veterans of War Aid Foundation
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1e25da59-51d7-4d88-97ca-9aad9e7f1991/deploy-status)](https://app.netlify.com/sites/vowaid-v2/deploys)
+
 ## Mission
 
 The Veterans of War Aid Foundation (VOWAID) creates, unites, and supports businesses that fight for American combat veterans and uses contacts and revenues to deliver targeted assistance to American Heroes in need.
