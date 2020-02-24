@@ -27,20 +27,24 @@ const Img = styled.img`
  * @param {} props.imageHeight
  * @param {} props.src
  */
-const CoverImage = ({ alt, imageHeight, loading, src, ...rest }) => (
-  <ImageContainer
-    className='image--container'
-    imageHeight={imageHeight}
-  >
-    <Img
-      alt={alt}
+const CoverImage = (props) => {
+  const { alt, imageHeight, loading, src, ...others } = props;
+
+  return (
+    <ImageContainer
+      className='image--container'
       imageHeight={imageHeight}
-      loading={loading}
-      src={src}
-      {...rest}
-    />
-  </ImageContainer>
-);
+    >
+      <Img
+        alt={alt}
+        imageHeight={imageHeight}
+        loading={loading}
+        src={src}
+        {...others}
+      />
+    </ImageContainer>
+  );
+};
 
 CoverImage.defaultProps = {
   alt: '',
