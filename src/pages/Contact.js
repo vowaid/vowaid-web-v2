@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { ReactSVG } from 'react-svg';
-import { H1, H2, P, Link, Content, Seo, Banner, ContactForm } from '../components';
+import { Button, H1, H2, P, Link, Content, Seo, Banner, ContactForm } from '../components';
 
 import MapMarker from '../assets/icons/google/map-placeholder.svg';
 import Phone from '../assets/icons/google/phone-call-button.svg';
@@ -74,7 +74,6 @@ const ContactPage = () => (
         <Typography component='p' variant='body1'>Or, find your answers here:</Typography>
 
         <Button
-          className='MuiToolbar-regular'
           color='default'
           variant='text'
           component={Link}

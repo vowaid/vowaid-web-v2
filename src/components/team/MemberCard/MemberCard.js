@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 import isEmpty from 'lodash/isEmpty';
 
-import { Button, Card } from '@material-ui/core';
-import { H1, H2, Link, SocialList, ServiceFlag } from '../../index';
+import { Card } from '@material-ui/core';
+import { Button, H1, H2, Link, SocialList, ServiceFlag } from '../../index';
 
 import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
 

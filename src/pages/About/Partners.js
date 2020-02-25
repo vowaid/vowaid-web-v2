@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button, Card } from '@material-ui/core';
+import { Card } from '@material-ui/core';
 import { ReactSVG } from 'react-svg';
-import { H2, P, Content, Link, Seo, PartnersHero } from '../../components';
+import { Button, H2, P, Content, Link, Seo, PartnersHero } from '../../components';
 
 import ForwardArrow from '../../assets/icons/google/forward-arrow.svg';
 import DarkBladeLogo from '../../assets/images/partners/DarkBladeLogo_400.png';

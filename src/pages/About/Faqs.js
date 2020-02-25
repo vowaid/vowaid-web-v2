@@ -74,13 +74,6 @@ const FaqList = styled.ol`
     ul {
       list-style: initial;
       padding-left: ${gutter.M};
-    }
-
-    h2 {
-      margin-bottom: ${gutter.M};
-    }
-
-    ul {
       margin: 2ex 0;
 
       &:last-child {
@@ -88,12 +81,20 @@ const FaqList = styled.ol`
       }
     }
 
+    h2 {
+      margin-bottom: ${gutter.M};
+    }
+
     @media only screen and (max-width: 1150px) {
-      width: 80vw;
+      width: 80%;
     }
 
     @media only screen and (max-width: 800px) {
-      width: 90vw;
+      width: 90%;
+    }
+
+    @media only screen and (max-width: 700px) {
+      width: 100%;
     }
   }
 `;

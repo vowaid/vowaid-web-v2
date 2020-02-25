@@ -4,8 +4,8 @@ import isEmpty from 'lodash/isEmpty';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 
-import { Button, TextField } from '@material-ui/core';
-import { H1, P, Link } from '../../index';
+import { TextField } from '@material-ui/core';
+import { Button, H1, P, Link } from '../../index';
 
 import { gutter } from '../../../styles/utils';
 
@@ -132,7 +132,6 @@ const SignInForm = (props) => {
               </section>
 
               <Button
-                className='MuiToolbar-regular'
                 color='primary'
                 disabled={isSubmitting}
                 variant='contained'
@@ -149,7 +148,6 @@ const SignInForm = (props) => {
         <P>Not a member?</P>
 
         <Button
-          className='MuiToolbar-regular'
           color='primary'
           variant='outlined'
           component={Link}

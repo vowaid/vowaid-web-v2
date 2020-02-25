@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import isEmpty from 'lodash/isEmpty';
 import queryString from 'query-string';
 
-import { Button } from '@material-ui/core';
-import { H1, H2, P, Link, Content, Seo, SocialList } from '../../../components';
+import { Button, H1, H2, P, Link, Content, Seo, SocialList } from '../../../components';
 
 import { teamMembers } from '../../../data/teamData';
 

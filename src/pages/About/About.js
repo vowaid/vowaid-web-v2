@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import uuidv4 from 'uuid/v4';
 
-import { Button } from '@material-ui/core';
 import {
+  Button,
   Seo,
   Banner,
   AboutHero,
@@ -38,7 +38,6 @@ const AboutPage = (props) => (
 
         <LinkGroup>
           <Button
-            className='MuiToolbar-regular'
             variant='contained'
             color='primary'
             component={Link}
@@ -46,7 +45,6 @@ const AboutPage = (props) => (
           >Our Team</Button>
 
           <Button
-            className='MuiToolbar-regular'
             variant='contained'
             color='secondary'
             component={Link}
@@ -54,7 +52,6 @@ const AboutPage = (props) => (
           >Our Services</Button>
 
           <Button
-            className='MuiToolbar-regular'
             variant='contained'
             color='primary'
             component={Link}

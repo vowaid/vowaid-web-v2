@@ -53,7 +53,7 @@ const StyledBanner = styled.article`
     }
   }
 `;
-
+console.log(Button);
 const ColoredButton = withStyles((theme) => {
   const color = theme.palette.getContrastText(vowaidColors.red.default);
 
@@ -87,7 +87,6 @@ const Banner = ({ background, color }) => {
       </section>
 
       <ColoredButton
-        className='MuiToolbar-regular'
         variant='outlined'
         component={Link}
         to='/signup'

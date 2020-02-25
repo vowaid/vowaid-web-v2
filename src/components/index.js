@@ -21,6 +21,7 @@ export { default as ContactForm } from './forms/ContactForm/ContactForm';
 // export { default as Input } from './forms/Input/Input';
 export { default as Select } from './forms/Select/Select';
 // export { default as TextArea } from './forms/TextArea/TextArea';
+export { default as Button } from './forms/Button/Button';
 
 // Heroes
 export { default as AboutHero } from './heroes/AboutHero/AboutHero';

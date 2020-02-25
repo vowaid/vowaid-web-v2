@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Formik } from 'formik';
-import { Button } from '@material-ui/core';
-import { H1, P, Link, Select } from '../../index';
+import { Button, H1, P, Link, Select } from '../../index';
 
 import { createTransitionForProperties, gutter, hexToRgb, pxToEm } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';

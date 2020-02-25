@@ -2,8 +2,8 @@ import React from 'react';
 import { styled as muiStyled } from '@material-ui/core/styles';
 import styled from 'styled-components';
 
-import { Button, ButtonGroup } from '@material-ui/core';
-import { Link } from '../../index';
+import { ButtonGroup } from '@material-ui/core';
+import { Button, Link } from '../../index';
 
 // import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
 
@@ -19,27 +19,23 @@ const NavList = ({ className }) => (
   <StyledNav>
     <StyledButtonGroup className={className} variant='text'>
       <Button
-        className='MuiToolbar-regular'
         component={Link}
         to='/about'
         format='nav'
       >About</Button>
 
       <Button
-        className='MuiToolbar-regular'
         component={Link}
         to='/services'
         format='nav'
       >Services</Button>
 
       <Button
-        className='MuiToolbar-regular'
         color='secondary'
         variant='contained'
       >Donate</Button>
 
       <Button
-        className='MuiToolbar-regular'
         component={Link}
         to='/signin'
         format='nav'

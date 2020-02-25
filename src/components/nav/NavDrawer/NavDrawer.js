@@ -1,9 +1,9 @@
 import React from 'react';
 import { styled } from '@material-ui/core/styles';
 
-import { Button, Divider, Drawer, List, ListItem } from '@material-ui/core';
+import { Divider, Drawer, List, ListItem } from '@material-ui/core';
 import { ArrowBackIos, Menu } from '@material-ui/icons';
-import { Link } from '../../index';
+import { Button, Link } from '../../index';
 
 const StyledDrawer = styled(Drawer)`
   .MuiDrawer-paperAnchorLeft {
@@ -93,7 +93,6 @@ const NavDrawer = (props) => {
 
           <ListOption>
             <Button
-              className='MuiToolbar-regular'
               color='secondary'
               variant='contained'
             >Donate</Button>
@@ -101,7 +100,6 @@ const NavDrawer = (props) => {
 
           <ListOption>
             <Button
-              className='MuiToolbar-regular'
               component={Link}
               to='/signin'
               type='nav'

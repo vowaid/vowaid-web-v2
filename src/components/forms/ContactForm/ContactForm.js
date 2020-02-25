@@ -5,8 +5,8 @@ import isEmpty from 'lodash/isEmpty'
 import * as Yup from 'yup';
 
 import { Formik, Field, ErrorMessage } from 'formik';
-import { Button, TextField } from '@material-ui/core';
-import { Select } from '../../index';
+import { TextField } from '@material-ui/core';
+import { Button, Select } from '../../index';
 
 import { gutter } from '../../../styles/utils';
 
@@ -247,7 +247,6 @@ const ContactForm = (props) => {
           </section>
 
           <Button
-            className='MuiToolbar-regular'
             color='primary'
             variant='contained'
             disabled={isSubmitting || isValidating}

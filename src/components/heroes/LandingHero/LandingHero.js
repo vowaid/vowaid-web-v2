@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button, useMediaQuery } from '@material-ui/core';
-import { H1, P, Link } from '../../index';
+import { useMediaQuery } from '@material-ui/core';
+import { Button, H1, P, Link } from '../../index';
 
 import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';
@@ -33,7 +33,6 @@ const LandingHero = () => {
 
         <ButtonGroup>
           <Button
-            className='MuiToolbar-regular'
             color={(prefersDarkMode) ? 'default' : 'primary'}
             variant='outlined'
             component={StyledLink}
@@ -41,7 +40,6 @@ const LandingHero = () => {
           >Learn&nbsp;More</Button>
 
           <Button
-            className='MuiToolbar-regular'
             color='secondary'
             variant='contained'
             component={StyledLink}

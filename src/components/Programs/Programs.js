@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
-import { H2, Link } from '../index';
+import { Button, H2, Link } from '../index';
 
 import { gutter } from '../../styles/utils';
 import { vowaidColors } from '../../styles/colors';
@@ -21,7 +20,6 @@ const Programs = () => {
         <H2 variant='h4'>Transition Assistance Resources</H2>
 
         <Button
-          className='MuiToolbar-regular'
           variant='contained'
           color='secondary'
           component={Link}
@@ -33,7 +31,6 @@ const Programs = () => {
         <H2 variant='h4'>Domestic Violence Recovery Support</H2>
 
         <Button
-          className='MuiToolbar-regular'
           variant='contained'
           color='primary'
           component={Link}
