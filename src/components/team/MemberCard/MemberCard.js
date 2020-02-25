@@ -55,9 +55,9 @@ MemberCard.defaultProps = {
 
 const StyledMemberCard = styled(Card)`
   display: flex;
+  max-width: 100%;
   min-height: ${pxToEm(200)};
   margin-bottom: ${gutter.XXL};
-  min-width: ${pxToEm(525)};
   overflow: hidden;
   position: relative;
   width: calc((100vw - ${pxToEm(150)}) / 2);
@@ -108,6 +108,28 @@ const StyledMemberCard = styled(Card)`
 
   @media only screen and (max-width: 1150px) {
     width: calc(100vw - ${pxToEm(100)});
+  }
+
+  @media only screen and (max-width: 600px) {
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: ${pxToEm(300)};
+
+    .card--image {
+      height: ${pxToEm(300)};
+      width: ${pxToEm(300)};
+    }
+
+    .card--content {
+      width: 100%;
+    }
+
+    .card--flag {
+      opacity: 0;
+      visibility: hidden;
+    }
   }
 `;
 
