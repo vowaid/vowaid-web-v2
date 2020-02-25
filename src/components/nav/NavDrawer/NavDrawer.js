@@ -1,15 +1,15 @@
 import React from 'react';
-import { styled } from '@material-ui/core/styles';
+import styled from 'styled-components';
 
-import { Divider, Drawer, List, ListItem } from '@material-ui/core';
+import { Divider, SwipeableDrawer, List, ListItem } from '@material-ui/core';
 import { ArrowBackIos, Menu } from '@material-ui/icons';
 import { Button, Link } from '../../index';
 
-const StyledDrawer = styled(Drawer)`
-  .MuiDrawer-paperAnchorLeft {
-    max-width: 500px;
-    width: 80%;
-  }
+import { gutter } from '../../../styles/utils';
+
+const StyledDrawer = styled(SwipeableDrawer)`
+  max-width: 500px;
+  width: 80%;
 `;
 
 const StyledList = styled(List)`
@@ -22,12 +22,16 @@ const StyledList = styled(List)`
   hr {
     width: 100%;
   }
+
+  li {
+    padding: 0;
+  }
 `;
 
 const CloseItem = styled(ListItem)`
   align-items: center;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 `;
 
 const ListOption = styled(ListItem)`
@@ -36,21 +40,17 @@ const ListOption = styled(ListItem)`
   flex-direction: column;
   justify-content: center;
 
-  &.left {
-    button {
-      text-align: left;
-    }
-  }
-
   a {
-    display: inline-block;
-    height: 100%;
+    display: block;
+    min-height: 44px;
+    padding: ${gutter.L} ${gutter.XXL};
     width: 100%;
   }
 
-  button {
-    min-height: 44px;
-    width: 80%;
+  &.left {
+    a {
+      text-align: left;
+    }
   }
 `;
 
@@ -65,47 +65,48 @@ const NavDrawer = (props) => {
     <>
       <Button onClick={toggleDrawer}><Menu /></Button>
 
-      <StyledDrawer open={open} onClose={toggleDrawer}>
-        <StyledList component="nav">
-          <CloseItem>
-            <Button onClick={toggleDrawer}><ArrowBackIos /></Button>
-          </CloseItem>
+      <StyledDrawer anchor='right' open={open} onClose={toggleDrawer}>
+        <nav>
+          <StyledList>
+            <CloseItem>
+              <Button onClick={toggleDrawer}><ArrowBackIos /></Button>
+            </CloseItem>
 
-          <Divider />
+            <Divider />
 
-          <ListOption className='left'>
-            <Button
-              variant='text'
-              component={Link}
-              to='/about'
-              type='nav'
-            >About</Button>
-          </ListOption>
+            <ListOption className='left'>
+              <Button
+                variant='text'
+                component={Link}
+                to='/about'
+              >About</Button>
+            </ListOption>
 
-          <ListOption className='left'>
-            <Button
-              variant='text'
-              component={Link}
-              to='/services'
-              type='nav'
-            >Services</Button>
-          </ListOption>
+            <ListOption className='left'>
+              <Button
+                variant='text'
+                component={Link}
+                to='/services'
+              >Services</Button>
+            </ListOption>
 
-          <ListOption>
-            <Button
-              color='secondary'
-              variant='contained'
-            >Donate</Button>
-          </ListOption>
+            <ListOption>
+              <Button
+                color='secondary'
+                variant='contained'
+                component={Link}
+                to='/donate'
+              >Donate</Button>
+            </ListOption>
 
-          <ListOption>
-            <Button
-              component={Link}
-              to='/signin'
-              type='nav'
-            >Sign&nbsp;In</Button>
-          </ListOption>
-        </StyledList>
+            <ListOption>
+              <Button
+                component={Link}
+                to='/signin'
+              >Sign&nbsp;In</Button>
+            </ListOption>
+          </StyledList>
+        </nav>
       </StyledDrawer>
     </>
   );
