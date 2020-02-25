@@ -101,7 +101,7 @@ const StyledMemberCard = styled(Card)`
   }
 
   .card--image {
-    height: ${pxToEm(200)};
+    height: 100%;
     object-fit: cover;
     width: ${pxToEm(200)};
   }

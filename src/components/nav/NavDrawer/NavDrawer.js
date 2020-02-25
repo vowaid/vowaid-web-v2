@@ -7,11 +7,6 @@ import { Button, Link } from '../../index';
 
 import { gutter } from '../../../styles/utils';
 
-const StyledDrawer = styled(SwipeableDrawer)`
-  max-width: 500px;
-  width: 80%;
-`;
-
 const StyledList = styled(List)`
   align-items: center;
   display: flex;
@@ -65,7 +60,7 @@ const NavDrawer = (props) => {
     <>
       <Button onClick={toggleDrawer}><Menu /></Button>
 
-      <StyledDrawer anchor='right' open={open} onClose={toggleDrawer}>
+      <SwipeableDrawer anchor='right' open={open} onClose={toggleDrawer}>
         <nav>
           <StyledList>
             <CloseItem>
@@ -107,7 +102,7 @@ const NavDrawer = (props) => {
             </ListOption>
           </StyledList>
         </nav>
-      </StyledDrawer>
+      </SwipeableDrawer>
     </>
   );
 };

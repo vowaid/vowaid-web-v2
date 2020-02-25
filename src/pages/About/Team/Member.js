@@ -113,6 +113,10 @@ const Aside = styled.aside`
 
     .social-list {
       justify-content: center;
+
+      li:not(:last-child) {
+        margin-right: ${gutter.M};
+      }
     }
   }
 `;

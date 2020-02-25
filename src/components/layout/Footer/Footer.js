@@ -147,6 +147,10 @@ const StyledFooter = styled(Footer)`
   justify-content: space-between;
   padding: ${gutter.XXL} 3.5vw;
 
+  a {
+    color: ${vowaidColors.grayscale[90]} !important;
+  }
+
   @media only screen and (max-width: 1050px) {
     flex-wrap: wrap;
 
