@@ -48,14 +48,14 @@ const ProgramsList = styled.ul`
   ${({ mode }) => `
     padding: ${gutter.XXL} 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 
     > li {
       background: ${(mode === 'light') ? vowaidColors.grayscale[75] : vowaidColors.grayscale[30]};
       color: ${vowaidColors.fontColor[mode]};
-      padding: ${gutter.XXL};
+      padding: ${gutter.XXL} ${gutter.XL};
       text-align: center;
-      width: 35vw;
+      width: 48%;
 
       a {
         margin: ${gutter.L} auto 0;
@@ -63,25 +63,12 @@ const ProgramsList = styled.ul`
       }
     }
 
-    @media only screen and (max-width: 1000px) {
+    @media only screen and (max-width: 800px) {
       flex-wrap: wrap;
 
-      > div {
-        width: 60vw;
-
-        &:not(:last-child) {
-          margin-bottom: ${gutter.XL};
-        }
-      }
-    }
-
-    @media only screen and (max-width: 800px) {
-      > div {
-        width: 90vw;
-
-        a {
-          padding: ${gutter.M} ${gutter.XL};
-        }
+      > li {
+        margin-bottom: ${gutter.M};
+        width: 100%;
       }
     }
   `}
