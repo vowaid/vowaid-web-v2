@@ -70,8 +70,6 @@ const Header = (props) => {
         <AppBar color='default'>
           <StyledToolbar>
             <LeftContainer>
-              {displayMobile && <NavDrawer />}
-
               <H1>
                 <Link to='/'>
                   <StyledReactSVG src={(!prefersDarkMode) ? VowaidLogo : VowaidLogoLight} />
@@ -81,6 +79,7 @@ const Header = (props) => {
             </LeftContainer>
 
             {!displayMobile && <NavList />}
+            {displayMobile && <NavDrawer />}
           </StyledToolbar>
         </AppBar>
       </HideOnScroll>
