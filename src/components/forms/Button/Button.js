@@ -25,7 +25,7 @@ SiteButton.propTypes = {
 };
 
 SiteButton.defaultProps = {
-  classNAme: 'MuiToolbar-regular',
+  className: 'MuiToolbar-regular',
 };
 
 export default SiteButton;

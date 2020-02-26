@@ -1,66 +1,80 @@
 import React from 'react';
 import styled from 'styled-components';
+import { styled as muiStyled } from '@material-ui/core/styles';
+import isEmpty from 'lodash/isEmpty';
 
-import { Formik } from 'formik';
-import { Button, H1, P, Link, Select } from '../../index';
+import { Formik, Field, ErrorMessage } from 'formik';
+import { Checkbox, List, ListItem, ListItemIcon, ListItemText, TextField } from '@material-ui/core';
+import { Button, H1, P, Link, Select, Wrapper } from '../../index';
 
-import { createTransitionForProperties, gutter, hexToRgb, pxToEm } from '../../../styles/utils';
-import { vowaidColors } from '../../../styles/colors';
+import { gutter } from '../../../styles/utils';
+// import { vowaidColors } from '../../../styles/colors';
 
-import { Options } from '../../../utils/enums/dateEnums';
+import { branchFormOptions, buildRankFormOptions } from '../../../utils/enums/militaryEnums';
+// import { Options } from '../../../utils/enums/dateEnums';
+
+import SignUpSchema from '../../../utils/schemas/signUpSchema';
+
+const initialValues = {
+  name: '',
+  dob: '',
+  email: '',
+  phone: '',
+
+  branch: '',
+  rank: '',
+  discharge: '',
+  serviceDates: '',
+
+  programs: [],
+
+  username: '',
+  password: '',
+};
 
 const Form = styled.form`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  padding: ${gutter.XXL};
-  padding-bottom: ${gutter.L};
+  padding: ${gutter.XXL} 0;
+  width: 100%;
+`;
 
-  > * {
-    width: 70%;
-  }
-
-  header {
-    margin-bottom: ${gutter.XXL};
-  }
-
-  .input-group {
-    margin-bottom: ${gutter.M};
-  }
-
-  > section {
-    margin-bottom: ${gutter.L};
-  }
-
-  ul {
-    list-style: initial;
+const QualsList = styled(List)`
+  &.quals-list {
     padding-left: ${gutter.M};
 
     li {
       margin-bottom: ${gutter.M};
     }
   }
+`;
 
-  input {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid ${vowaidColors.black};
-    box-shadow: inset 0 0 0 0 rgba(${hexToRgb(vowaidColors.blue[100])}, 0);
-    height: ${pxToEm(45)};
-    outline: none;
-    padding: ${gutter.XS} ${gutter.M};
-    position: relative;
+const InputGroup = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: ${gutter.L};
+
+  &.input-group--textarea {
+    margin-top: ${gutter.XL};
+  }
+
+  > * {
     width: 100%;
-    ${createTransitionForProperties(['border-bottom', 'padding'])};
 
-    &:focus {
-      border-bottom: 3px solid ${vowaidColors.blue[100]};
-      padding-bottom: calc(${gutter.XS} - ${pxToEm(3)});
+    &:not(:first-child) {
+      margin-left: ${gutter.L};
     }
   }
 `;
 
-const InputGroup = styled.div``;
+const Feedback = muiStyled('small')(({ theme }) => {
+  const paletteColor = (theme.palette.type === 'dark') ? 'light' : 'dark';
+
+  return {
+    color: theme.palette.error[paletteColor],
+    display: 'inline-block',
+  };
+}, {
+  withTheme: true,
+});
 
 
 /**
@@ -69,6 +83,10 @@ const InputGroup = styled.div``;
  * @class
  */
 const SignUpForm = (props) => {
+  const initRanks = buildRankFormOptions();
+  const [ranks, setRanks] = React.useState(initRanks);
+  const [qualChecked, setQualChecked] = React.useState([]);
+
   /**
    * Description.
    *
@@ -82,270 +100,353 @@ const SignUpForm = (props) => {
     }, 1000);
   }
 
+  /**
+   * Description.
+   *
+   * @param {} values
+   */
+  const validateForm = (values) => {
+    let errors = {};
+    const keys = Object.keys(initialValues);
+
+    for (let index = 0; index < keys.length; index++) {
+      const key = keys[index];
+
+      if (isEmpty(values[key])) {
+        errors[key] = 'Required'
+      }
+    }
+
+    if (!errors.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = 'Invalid email address';
+    }
+
+    return errors;
+  }
+
+  /**
+   * Description.
+   *
+   * @param {number} value Description.
+   */
+  const handleToggle = (value) => (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+
+    const currentIndex = qualChecked.indexOf(value);
+    const newChecked = [...qualChecked];
+
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+
+    setQualChecked(newChecked);
+  };
+
   return (
-    <Formik
-      initialValues={{
-        name: '',
-        dob: '',
-        branch: '',
-        serviceDates: '',
+    <Wrapper>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={SignUpSchema}
+        validate={validateForm}
+        validateOnBlur
+        enableReinitialize
+        validateOnChange={false}
+        onSubmit={onFormSubmit}
+      >
+        {({
+          errors,
+          handleBlur,
+          handleChange,
+          handleSubmit,
+          isSubmitting,
+          isValidating,
+          setFieldTouched,
+          setFieldValue,
+          submitForm,
+          touched,
+          values,
+        }) => (
+          <Form onSubmit={props.handleSubmit}>
+            <header>
+              <H1>Sign In</H1>
+            </header>
 
-        program: '',
-
-        email: '',
-        phone: '',
-
-        username: '',
-        password: '',
-      }}
-      onSubmit={onFormSubmit}
-      render={(props) => (
-        <Form onSubmit={props.handleSubmit}>
-          <header>
-            <H1>Sign In</H1>
-          </header>
-
-          <section>
-            <InputGroup className='input-group'>
-              <label
-                name='First Name'
-                placeholder='First Name'
-              >
-                <span>First Name</span>
-                <input
-                  type='text'
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.name}
-                  name='name'
+            <section>
+              <InputGroup className='input-group'>
+                <Field
+                  component={TextField}
+                  name='First Name'
+                  id='first-name'
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  label='First Name'
                   placeholder='First Name'
-                />
-                {props.errors.name && <div id="feedback">{props.errors.name}</div>}
-              </label>
-
-              <label
-                name='Last Name'
-                placeholder='Last Name'
-              >
-                <span>Last Name</span>
-                <input
+                  required
                   type='text'
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.name}
-                  name='name'
+                  value={values.name}
+                />
+                {(touched.firstName && errors.firstName) && <Feedback><ErrorMessage name='name' /></Feedback>}
+
+                <Field
+                  component={TextField}
+                  name='Last Name'
+                  id='last-name'
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  label='Last Name'
                   placeholder='Last Name'
-                />
-                {props.errors.name && <div id="feedback">{props.errors.name}</div>}
-              </label>
-            </InputGroup>
-
-            <InputGroup className='input-group'>
-              <label
-                name='Branch of Service'
-                placeholder='Branch of Service'
-              >
-                <span>Branch of Service</span>
-
-                <input
+                  required
                   type='text'
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.branch}
-                  name='branch'
-                  placeholder='Branch of Service'
+                  value={values.name}
                 />
-                {props.errors.branch && <div id="feedback">{props.errors.branch}</div>}
-              </label>
-            </InputGroup>
+                {(touched.lastName && errors.lastName) && <Feedback><ErrorMessage name='name' /></Feedback>}
+              </InputGroup>
 
-            <InputGroup className='input-group'>
-              <label
-                name='Dates of Service'
-                placeholder='Dates of Service'
-              >
-                <span>Dates of Service</span>
+              <InputGroup>
+                {/* TODO: Add DOB */}
+              </InputGroup>
+            </section>
 
-                <div>
-                  <Select
-                    options={Options.MONTHS}
-                    name='months'
-                  />
-
-                  <Select
-                    options={Options.YEARS}
-                    name='months'
-                  />
-                </div>
-
-                {props.errors.serviceDates && <div id="feedback">{props.errors.serviceDates}</div>}
-              </label>
-            </InputGroup>
-          </section>
-
-          <section>
-            <InputGroup className='input-group'>
-              <label
-                name='Program of Interest'
-                placeholder='Program of Interest'
-              >
-                <span>Program of Interest</span>
-                <input
-                  type='text'
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.program}
-                  name='program'
-                  placeholder='Program of Interest'
-                />
-                {props.errors.program && <div id="feedback">{props.errors.program}</div>}
-              </label>
-            </InputGroup>
-
-            <InputGroup className='input-group'>
-              <label
-                name='Qualifications'
-                placeholder='Qualifications'
-              >
-                <span>Qualifications</span>
-
-                <ul>
-                  <li>
-                    <P>DD-214 with an honorable discharge (must be able to provide a copy of DD-214)</P>
-                  </li>
-
-                  <li>
-                    <P>Be enrolled in VA healthcare (must be able to provide a copy of VA card)</P>
-                    <P>or</P>
-                    <P>Be active duty and with no disciplinary action pending (must be able to provide a copy of Leave and Earning Statement)</P>
-                </li>
-
-                  <li>
-                    <P>Be in the process of transitioning out of active duty service (must be able to provide a one paragraph statement of plan of transition out of service)</P>
-                  </li>
-
-                  <li>
-                    <P>Military Spouse (must be able to provide a copy of military spouse ID)</P>
-                  </li>
-
-                  <li>
-                    <P>Military child or dependent (must be able to provide a copy of dependent ID)</P>
-                  </li>
-
-                  <li>
-                    <P>All ID's must be current and not expired. Please block out Social Security numbers.</P>
-                  </li>
-                </ul>
-              </label>
-            </InputGroup>
-          </section>
-
-          <section>
-            <InputGroup className='input-group'>
-              <label
-                name='Email'
-                placeholder='Email'
-              >
-                <span>Email</span>
-                <input
-                  type='text'
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.email}
+            <section>
+              <InputGroup>
+                <Field
+                  component={TextField}
                   name='email'
-                  placeholder='Email'
+                  id='email'
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  label='Email'
+                  placeholder='email'
+                  required
+                  type='email'
+                  value={values.email}
                 />
-                {props.errors.email && <div id="feedback">{props.errors.email}</div>}
-              </label>
-            </InputGroup>
+                {(touched.email && errors.email) && <Feedback><ErrorMessage name='email' /></Feedback>}
+              </InputGroup>
 
-            <InputGroup className='input-group'>
-              <label
-                name='Phone'
-                placeholder='Phone'
-              >
-                <span>Phone</span>
-                <input
-                  type='phone'
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.phone}
+              <InputGroup>
+                <Field
+                  component={TextField}
                   name='phone'
-                  placeholder='Phone'
+                  id='phone'
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  label='Phone'
+                  placeholder='phone'
+                  required
+                  type='tel'
+                  value={values.phone}
                 />
-                {props.errors.phone && <div id="feedback">{props.errors.phone}</div>}
-              </label>
-            </InputGroup>
+                {(touched.phone && errors.phone) && <Feedback><ErrorMessage name='phone' /></Feedback>}
+              </InputGroup>
+            </section>
 
-            <InputGroup className='input-group'>
-              <label
-                name='Date of Birth'
-                placeholder='Date of Birth'
-              >
-                <span>Date of Birth</span>
-                <input
-                  type='date'
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.dob}
-                  name='dob'
-                  placeholder='Date of Birth'
+            <section>
+              <InputGroup>
+                <Select
+                  name='branch'
+                  id='branch'
+                  onBlur={() => setFieldTouched('branch', true)}
+                  onChange={value => {
+                    const newRanks = buildRankFormOptions(value);
+                    setRanks(newRanks);
+                    setFieldValue('branch', value);
+                  }}
+                  options={branchFormOptions()}
+                  label='Branch'
+                  placeholder='branch'
+                  required
+                  value={values.branch}
                 />
-                {props.errors.dob && <div id="feedback">{props.errors.dob}</div>}
-              </label>
-            </InputGroup>
-          </section>
+                {(touched.branch && errors.branch) && <Feedback><ErrorMessage name='branch' /></Feedback>}
+              </InputGroup>
 
-          <section>
-            <InputGroup className='input-group'>
-              <label
-                name='Username'
-                placeholder='Username'
-              >
-                <span>Username</span>
-                <input
-                  type='text'
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.username}
-                  name='username'
-                  placeholder='Username'
+              <InputGroup>
+                <Select
+                  name='rank'
+                  id='rank'
+                  onBlur={() => setFieldTouched('rank', true)}
+                  onChange={(value) => setFieldValue('rank', value)}
+                  options={ranks}
+                  label='Rank'
+                  placeholder='rank'
+                  required
+                  value={values.rank}
                 />
-                {props.errors.username && <div id="feedback">{props.errors.username}</div>}
-              </label>
-            </InputGroup>
+                {(touched.rank && errors.rank) && <Feedback><ErrorMessage name='rank' /></Feedback>}
+              </InputGroup>
 
-            <InputGroup className='input-group'>
-              <label
-                name='Password'
-                placeholder='Password'
-              >
-                <span>Password</span>
-                <input
-                  type='password'
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.password}
-                  name='password'
-                  placeholder='Password'
+              <InputGroup>
+                <Select
+                  name='discharge'
+                  id='discharge'
+                  onBlur={() => setFieldTouched('discharge', true)}
+                  onChange={value => setFieldValue('discharge', value)}
+                  options={[
+                    { value: 'Not Applicable', label: 'N/A'},
+                    { value: 'honorable', label: 'Honorable' },
+                    { value: 'general', label: 'General' },
+                    { value: 'other than honorable conditions', label: 'Other Than Honorable Conditions' },
+                    { value: 'dishonorable', label: 'Dishonorable' },
+                    { value: 'officer', label: 'Officer' },
+                    { value: 'entry level separation', label: 'Entry Level Separation' },
+                  ]}
+                  label='Discharge'
+                  placeholder='discharge'
+                  required
+                  value={values.discharge}
                 />
-                {props.errors.password && <div id="feedback">{props.errors.password}</div>}
-              </label>
-            </InputGroup>
-          </section>
+                {(touched.discharge && errors.discharge) && <Feedback><ErrorMessage name='discharge' /></Feedback>}
+              </InputGroup>
 
-          <Button
-            color='primary'
-            variant='contained'
-            type='submit'
-            component={Link}
-            to='/signin'
-          >
-            Sign In
-          </Button>
-        </Form>
-      )}
-    />
+              <InputGroup>
+                {/* TODO: Add serviceDateStart */}
+              </InputGroup>
+
+              <InputGroup>
+                {/* TODO: Add endActiveService */}
+              </InputGroup>
+
+              <InputGroup>
+                {/* TODO: Add dischargeDate */}
+              </InputGroup>
+            </section>
+
+            <section>
+              <InputGroup>
+                {/* TODO: Add DOB */}
+              </InputGroup>
+
+              <InputGroup className='input-group'>
+                <label
+                  name='Qualifications'
+                  placeholder='Qualifications'
+                >
+                  <span>Qualifications</span>
+
+                  <QualsList className='quals-list'>
+                    <ListItem button onClick={handleToggle(0)}>
+                      <ListItemIcon>
+                        <Checkbox
+                          edge="start"
+                          checked={qualChecked.indexOf(0) !== -1}
+                          tabIndex={-1}
+                          disableRipple
+                          inputProps={{ 'aria-labelledby': 'checkbox-list-label-0' }}
+                        />
+                      </ListItemIcon>
+                      <ListItemText>
+                        <P>DD-214 with an honorable discharge (must be able to provide a copy of DD-214)</P>
+                      </ListItemText>
+                    </ListItem>
+
+                    <ListItem button onClick={handleToggle(1)}>
+                      <ListItemIcon>
+                        <Checkbox
+                          edge="start"
+                          checked={qualChecked.indexOf(1) !== -1}
+                          tabIndex={-1}
+                          disableRipple
+                          inputProps={{ 'aria-labelledby': 'checkbox-list-label-1' }}
+                        />
+                      </ListItemIcon>
+                      <ListItemText>
+                        <P paragraph>Be enrolled in VA healthcare (must be able to provide a copy of VA card)</P>
+                        <P paragraph>or</P>
+                        <P>Be active duty and with no disciplinary action pending (must be able to provide a copy of Leave and Earning Statement)</P>
+                      </ListItemText>
+                    </ListItem>
+
+                    <ListItem button onClick={handleToggle(2)}>
+                      <ListItemIcon>
+                        <Checkbox
+                          edge="start"
+                          checked={qualChecked.indexOf(2) !== -1}
+                          tabIndex={-1}
+                          disableRipple
+                          inputProps={{ 'aria-labelledby': 'checkbox-list-label-3' }}
+                        />
+                      </ListItemIcon>
+                      <ListItemText>
+                        <P>Be in the process of transitioning out of active duty service (must be able to provide a one paragraph statement of plan of transition out of service)</P>
+                      </ListItemText>
+                    </ListItem>
+
+                    <ListItem button onClick={handleToggle(3)}>
+                      <ListItemIcon>
+                        <Checkbox
+                          edge="start"
+                          checked={qualChecked.indexOf(3) !== -1}
+                          tabIndex={-1}
+                          disableRipple
+                          inputProps={{ 'aria-labelledby': 'checkbox-list-label-3' }}
+                        />
+                      </ListItemIcon>
+                      <ListItemText>
+                        <P>Military Spouse (must be able to provide a copy of military spouse ID)</P>
+                      </ListItemText>
+                    </ListItem>
+
+                    <ListItem button onClick={handleToggle(4)}>
+                      <ListItemIcon>
+                        <Checkbox
+                          edge="start"
+                          checked={qualChecked.indexOf(4) !== -1}
+                          tabIndex={-1}
+                          disableRipple
+                          inputProps={{ 'aria-labelledby': 'checkbox-list-label-4' }}
+                        />
+                      </ListItemIcon>
+                      <ListItemText>
+                        <P>Military child or dependent (must be able to provide a copy of dependent ID)</P>
+                      </ListItemText>
+                    </ListItem>
+
+                    <ListItem button onClick={handleToggle(5)}>
+                      <ListItemIcon>
+                        <Checkbox
+                          edge="start"
+                          checked={qualChecked.indexOf(5) !== -1}
+                          tabIndex={-1}
+                          disableRipple
+                          inputProps={{ 'aria-labelledby': 'checkbox-list-label-5' }}
+                        />
+                      </ListItemIcon>
+                      <ListItemText>
+                        <P>All ID's must be current and not expired. Please block out Social Security numbers.</P>
+                      </ListItemText>
+                    </ListItem>
+                  </QualsList>
+                </label>
+              </InputGroup>
+            </section>
+
+            <section>
+              <InputGroup>
+                {/* TODO: Add username */}
+              </InputGroup>
+
+              <InputGroup>
+                {/* TODO: Add password */}
+              </InputGroup>
+            </section>
+
+            <Button
+              color='primary'
+              variant='contained'
+              type='submit'
+              component={Link}
+              to='/signin'
+            >
+              Sign In
+            </Button>
+          </Form>
+        )}
+      </Formik>
+    </Wrapper>
   );
 };
 

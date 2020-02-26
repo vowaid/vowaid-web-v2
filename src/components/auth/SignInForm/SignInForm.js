@@ -72,7 +72,6 @@ const SignInForm = (props) => {
 
   return (
     <>
-      {console.log(props)}
       <Formik
         initialValues={initialValues}
         onSubmit={onFormSubmit}
@@ -85,11 +84,6 @@ const SignInForm = (props) => {
         render={(props) => {
           const usernameError = (!isEmpty(props.touched) && props.touched.username && props.values.username === '');
           const passwordError = (!isEmpty(props.touched) && props.touched.password && props.values.password === '');
-
-          // TODO: With wifi look up validation on Formik
-          console.log(props);
-          console.log('username', usernameError, props.touched.username);
-          console.log('password', passwordError);
 
           return (
             <Form onSubmit={props.handleSubmit}>

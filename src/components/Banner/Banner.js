@@ -53,7 +53,7 @@ const StyledBanner = styled.article`
     }
   }
 `;
-console.log(Button);
+
 const ColoredButton = withStyles((theme) => {
   const color = theme.palette.getContrastText(vowaidColors.red.default);
 

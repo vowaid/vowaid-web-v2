@@ -19,14 +19,9 @@ const BioPage = (props) => {
 
   React.useEffect(() => {
     const query = queryString.parse(props.location.search);
-    console.log('props.location.search', props.location.search);
-    console.log('query', query);
-
     const teamMember = teamMembers.filter((member) => (
       member.id === query.id
     ))[0];
-
-    console.log(teamMember);
 
     setTeamMember(teamMember);
   }, [teamMember, props.location.search]);

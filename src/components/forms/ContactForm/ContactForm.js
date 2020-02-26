@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { styled as muiStyled } from '@material-ui/core/styles';
 import isEmpty from 'lodash/isEmpty'
-import * as Yup from 'yup';
 
 import { Formik, Field, ErrorMessage } from 'formik';
 import { TextField } from '@material-ui/core';
@@ -10,8 +9,9 @@ import { Button, Select } from '../../index';
 
 import { gutter } from '../../../styles/utils';
 
-import { PhoneRegExp } from '../../../utils/enums/regExEnums';
 import { branchFormOptions, buildRankFormOptions } from '../../../utils/enums/militaryEnums';
+
+import ContactSchema from '../../../utils/schemas/contactSchema';
 
 const initialValues = {
   name: '',
@@ -23,36 +23,32 @@ const initialValues = {
   message: '',
 };
 
-const ContactSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, 'Too Short')
-    .max(50, 'Too Long')
-    .required('Required'),
-  email: Yup.string()
-    .min(2, 'Too Short')
-    .email('Invalid Email')
-    .required('Required'),
-  phone: Yup.string()
-    .matches(PhoneRegExp, 'Invalid Phone Number')
-    .min(2, 'Too Short')
-    .max(50, 'Too Long')
-    .required('Required'),
-  branch: Yup.string()
-    .min(2, 'Too Short')
-    .max(50, 'Too Long')
-    .required('Required'),
-  rank: Yup.string()
-    .min(2, 'Too Short')
-    .max(50, 'Too Long')
-    .required('Required'),
-  discharge: Yup.string()
-    .min(2, 'Too Short')
-    .max(50, 'Too Long')
-    .required('Required'),
-  message: Yup.string()
-    .min(2, 'Too Short')
-    .max(50, 'Too Long')
-    .required('Required'),
+const Form = styled.form`
+  margin: ${gutter.XXL} auto;
+  width: 100%;
+`;
+
+const InputGroup = styled.div`
+  margin-bottom: ${gutter.L};
+
+  &.input-group--textarea {
+    margin-top: ${gutter.XL};
+  }
+
+  > * {
+    width: 100%;
+  }
+`;
+
+const Feedback = muiStyled('small')(({ theme }) => {
+  const paletteColor = (theme.palette.type === 'dark') ? 'light' : 'dark';
+
+  return {
+    color: theme.palette.error[paletteColor],
+    display: 'inline-block',
+  };
+}, {
+  withTheme: true,
 });
 
 /**
@@ -132,7 +128,7 @@ const ContactForm = (props) => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 label='Name'
-                placeholder='name'
+                placeholder='Name'
                 required
                 type='text'
                 value={values.name}
@@ -260,33 +256,5 @@ const ContactForm = (props) => {
     </Formik>
   );
 };
-
-const Form = styled.form`
-  margin: ${gutter.XXL} auto;
-  width: 90%;
-`;
-
-const InputGroup = styled.div`
-  margin-bottom: ${gutter.L};
-
-  &.input-group--textarea {
-    margin-top: ${gutter.XL};
-  }
-
-  > * {
-    width: 100%;
-  }
-`;
-
-const Feedback = muiStyled('small')(({ theme }) => {
-  const paletteColor = (theme.palette.type === 'dark') ? 'light' : 'dark';
-
-  return {
-    color: theme.palette.error[paletteColor],
-    display: 'inline-block',
-  };
-}, {
-  withTheme: true,
-});
 
 export default ContactForm;

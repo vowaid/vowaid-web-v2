@@ -25,7 +25,6 @@ const Link = React.forwardRef((props, ref) => {
 const StyledLink = styled(Link)(({ theme }) => {
   const mode = theme.palette.type;
   const palette = mode === 'dark' ? 'light' : 'main';
-  console.log(theme.palette);
 
   return {
     fontSize: theme.typography.fontSize,
