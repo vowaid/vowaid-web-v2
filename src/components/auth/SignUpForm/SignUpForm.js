@@ -2,8 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { styled as muiStyled } from '@material-ui/core/styles';
 import isEmpty from 'lodash/isEmpty';
+import DateFnsUtils from '@date-io/date-fns';
 
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { Formik, Field, ErrorMessage } from 'formik';
+import { DatePicker } from 'material-ui-formik-components/DatePicker'
 import { Checkbox, List, ListItem, ListItemIcon, ListItemText, TextField } from '@material-ui/core';
 import { Button, H1, P, Link, Select, Wrapper } from '../../index';
 
@@ -206,7 +209,40 @@ const SignUpForm = (props) => {
               </InputGroup>
 
               <InputGroup>
-                {/* TODO: Add DOB */}
+                {/* <Field
+                  component={DatePicker}
+                  name='Date of Birth'
+                  id='last-name'
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  label='Date of Birth'
+                  placeholder='Date of Birth'
+                  required
+                  type='date'
+                  value={values.dob}
+                /> */}
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                  <Field
+                    clearable
+                    component={DatePicker}
+                    disableFuture
+                    format="MM/dd/yyyy"
+                    id='last-name'
+                    label='Date of Birth'
+                    margin="normal"
+                    name='Date of Birth'
+                    onBlur={handleBlur}
+                    onChange={(value) => {
+                      setFieldValue('dob', value);
+                    }}
+                    openTo='year'
+                    placeholder='Date of Birth'
+                    required
+                    value={values.dob}
+                    variant="inline"
+                  />
+                </MuiPickersUtilsProvider>
+                {(touched.lastName && errors.lastName) && <Feedback><ErrorMessage name='dob' /></Feedback>}
               </InputGroup>
             </section>
 
