@@ -44,6 +44,10 @@ const Form = styled.form`
 
   fieldset {
     padding: 0;
+
+    legend {
+      padding-top: ${gutter.L};
+    }
   }
 `;
 

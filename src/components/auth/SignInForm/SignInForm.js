@@ -1,36 +1,57 @@
 import React from 'react';
 import styled from 'styled-components';
 import isEmpty from 'lodash/isEmpty';
-import * as Yup from 'yup';
-import { Formik } from 'formik';
 
+import { Formik, Field, ErrorMessage } from 'formik';
 import { TextField } from '@material-ui/core';
-import { Button, H1, P, Link } from '../../index';
+import { Button, H1, P, Link, Wrapper } from '../../index';
+import { Feedback, InputGroup } from '../../forms/Styled/Styled';
+
+import Password from '../../forms/Password/Password';
 
 import { gutter } from '../../../styles/utils';
 
+import SignUpSchema from '../../../utils/schemas/signUpSchema';
+
 const initialValues = {
+  firstName: '',
+  lastName: '',
+  dob: null,
+
+  email: '',
+  phone: '',
+
+  branch: '',
+  rank: '',
+  discharge: '',
+  serviceDates: '',
+
+  quals: [],
+  programs: [],
+
   username: '',
   password: '',
 };
 
-const ContactSchema = Yup.object().shape({
-  email: Yup.string()
-    .min(2, 'Too Short')
-    .email('Invalid email')
-    .required('Required'),
-  password: Yup.string()
-    .min(2, 'Too Short')
-    .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
-    .required('Required'),
-});
+const Form = styled.form`
+  padding: ${gutter.XXL} 0;
+  width: 100%;
+
+  fieldset {
+    padding: 0;
+
+    legend {
+      padding-top: ${gutter.L};
+    }
+  }
+`;
 
 /**
- * Description.
+ * General Modal container component for the application.
+ *
+ * @class
  */
 const SignInForm = (props) => {
-  const [isSubmitting] = React.useState(false);
-
   /**
    * Description.
    *
@@ -50,145 +71,93 @@ const SignInForm = (props) => {
    * @param {} values
    */
   const validateForm = (values) => {
-    if (isSubmitting) {
-      let errors = {};
-      const keys = Object.keys(initialValues);
+    let errors = {};
+    const keys = Object.keys(initialValues);
 
-      for (let index = 0; index < keys.length; index++) {
-        const key = keys[index];
+    for (let index = 0; index < keys.length; index++) {
+      const key = keys[index];
 
-        if (isEmpty(values[key])) {
-          errors[key] = 'Required'
-        }
+      if (isEmpty(values[key])) {
+        errors[key] = 'Required'
       }
-
-      if (!errors.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-        errors.email = 'Invalid email address';
-      }
-
-      return errors;
     }
-  }
+
+    if (!errors.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = 'Invalid email address';
+    }
+
+    return errors;
+  };
 
   return (
-    <>
+    <Wrapper>
       <Formik
         initialValues={initialValues}
-        onSubmit={onFormSubmit}
-
-        validationSchema={ContactSchema}
+        validationSchema={SignUpSchema}
         validate={validateForm}
-        validateOnBlur={false}
+        validateOnBlur
+        enableReinitialize
         validateOnChange={false}
+        onSubmit={onFormSubmit}
+      >
+        {({
+          errors,
+          handleBlur,
+          handleChange,
+          handleSubmit,
+          isSubmitting,
+          isValidating,
+          setFieldTouched,
+          setFieldValue,
+          submitForm,
+          touched,
+          values,
+        }) => (
+          <Form onSubmit={props.handleSubmit}>
+            <header>
+              <H1>Sign In</H1>
 
-        render={(props) => {
-          const usernameError = (!isEmpty(props.touched) && props.touched.username && props.values.username === '');
-          const passwordError = (!isEmpty(props.touched) && props.touched.password && props.values.password === '');
+              <P>Not a member? <Link to='/signup'>Sign Up</Link></P>
+            </header>
 
-          return (
-            <Form onSubmit={props.handleSubmit}>
-              <header>
-                <H1>Sign In</H1>
-              </header>
+            <InputGroup className='input-group'>
+              <Field
+                component={TextField}
+                name='Username'
+                id='username'
+                onBlur={handleBlur}
+                onChange={handleChange}
+                label='Username'
+                placeholder='Username'
+                required
+                type='text'
+                value={values.username}
+              />
+              {(touched.username && errors.username) && <Feedback><ErrorMessage name='username' /></Feedback>}
+            </InputGroup>
 
-              <section>
-                <UsernameGroup className='input-group'>
-                  <TextField
-                    type='text'
-                    onChange={props.handleChange}
-                    onBlur={props.handleBlur}
-                    value={props.values.username}
-                    name='username'
-                    placeholder='email / username'
-                    label='email / username'
-                    error={usernameError}
-                    helperText={props.errors.username}
-                  />
-                  {props.errors.username && <div id="feedback">{props.errors.username}</div>}
-                </UsernameGroup>
+            <Password
+              onBlur={handleBlur}
+              onChange={handleChange}
+              required
+              showError={(touched.password && errors.password)}
+              value={values.password}
+            />
 
-                <PasswordGroup className='input-group'>
-                  <TextField
-                    type='password'
-                    onChange={props.handleChange}
-                    onBlur={props.handleBlur}
-                    value={props.values.password}
-                    name='password'
-                    placeholder='password'
-                    label='password'
-                    error={passwordError}
-                    helperText={props.errors.password}
-                  />
-                  {props.errors.password && <div id="feedback">{props.errors.password}</div>}
-
-                  <Link to='/auth/help'>Forgot Password</Link>
-                </PasswordGroup>
-              </section>
-
-              <Button
-                color='primary'
-                disabled={isSubmitting}
-                variant='contained'
-                type='submit'
-              >
-                Sign In
-              </Button>
-            </Form>
-          )
-        }}
-      />
-
-      <SignUp>
-        <P>Not a member?</P>
-
-        <Button
-          color='primary'
-          variant='outlined'
-          component={Link}
-          to='/signup'
-        >Sign&nbsp;Up</Button>
-      </SignUp>
-    </>
+            <Button
+              color='primary'
+              variant='contained'
+              type='submit'
+              component={Link}
+              to='/signin'
+            >
+              Submit
+            </Button>
+          </Form>
+        )}
+      </Formik>
+    </Wrapper>
   );
 };
-
-const Form = styled.form`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  padding: ${gutter.XXL};
-  padding-bottom: ${gutter.L};
-
-  > * {
-    width: 70%;
-  }
-
-  header {
-    margin-bottom: ${gutter.XXL};
-  }
-`;
-
-const UsernameGroup = styled.div``;
-const PasswordGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  a {
-    display: inline-block;
-    margin: ${gutter.XS} 0 0 auto;
-  }
-`;
-
-const SignUp = styled.section`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: ${gutter.XXL};
-
-  a {
-    margin-top: ${gutter.S};
-  }
-`;
 
 export default SignInForm;
