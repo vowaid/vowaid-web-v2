@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { styled as muiStyled } from '@material-ui/core/styles';
 import isEmpty from 'lodash/isEmpty';
-import DateFnsUtils from '@date-io/date-fns';
 
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { Formik, Field, ErrorMessage } from 'formik';
-import { DatePicker } from 'material-ui-formik-components/DatePicker'
 import { Checkbox, List, ListItem, ListItemIcon, ListItemText, TextField } from '@material-ui/core';
 import { Button, H1, P, Link, Select, Wrapper } from '../../index';
+import { Feedback, InputGroup } from '../../forms/Styled/Styled';
+
+import DatePicker from '../../forms/DatePicker/DatePicker';
+import Password from '../../forms/Password/Password';
 
 import { gutter } from '../../../styles/utils';
 // import { vowaidColors } from '../../../styles/colors';
@@ -20,7 +20,7 @@ import SignUpSchema from '../../../utils/schemas/signUpSchema';
 
 const initialValues = {
   name: '',
-  dob: '',
+  dob: null,
   email: '',
   phone: '',
 
@@ -38,6 +38,10 @@ const initialValues = {
 const Form = styled.form`
   padding: ${gutter.XXL} 0;
   width: 100%;
+
+  fieldset {
+    padding: 0;
+  }
 `;
 
 const QualsList = styled(List)`
@@ -50,36 +54,6 @@ const QualsList = styled(List)`
   }
 `;
 
-const InputGroup = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: ${gutter.L};
-
-  &.input-group--textarea {
-    margin-top: ${gutter.XL};
-  }
-
-  > * {
-    width: 100%;
-
-    &:not(:first-child) {
-      margin-left: ${gutter.L};
-    }
-  }
-`;
-
-const Feedback = muiStyled('small')(({ theme }) => {
-  const paletteColor = (theme.palette.type === 'dark') ? 'light' : 'dark';
-
-  return {
-    color: theme.palette.error[paletteColor],
-    display: 'inline-block',
-  };
-}, {
-  withTheme: true,
-});
-
-
 /**
  * General Modal container component for the application.
  *
@@ -89,6 +63,7 @@ const SignUpForm = (props) => {
   const initRanks = buildRankFormOptions();
   const [ranks, setRanks] = React.useState(initRanks);
   const [qualChecked, setQualChecked] = React.useState([]);
+
 
   /**
    * Description.
@@ -174,10 +149,11 @@ const SignUpForm = (props) => {
         }) => (
           <Form onSubmit={props.handleSubmit}>
             <header>
-              <H1>Sign In</H1>
+              <H1>Sign Up</H1>
             </header>
 
-            <section>
+            <fieldset>
+              <legend>Personal Info</legend>
               <InputGroup className='input-group'>
                 <Field
                   component={TextField}
@@ -192,7 +168,9 @@ const SignUpForm = (props) => {
                   value={values.name}
                 />
                 {(touched.firstName && errors.firstName) && <Feedback><ErrorMessage name='name' /></Feedback>}
+              </InputGroup>
 
+              <InputGroup className='input-group'>
                 <Field
                   component={TextField}
                   name='Last Name'
@@ -208,45 +186,25 @@ const SignUpForm = (props) => {
                 {(touched.lastName && errors.lastName) && <Feedback><ErrorMessage name='name' /></Feedback>}
               </InputGroup>
 
-              <InputGroup>
-                {/* <Field
-                  component={DatePicker}
-                  name='Date of Birth'
-                  id='last-name'
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  label='Date of Birth'
-                  placeholder='Date of Birth'
-                  required
-                  type='date'
-                  value={values.dob}
-                /> */}
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                  <Field
-                    clearable
-                    component={DatePicker}
-                    disableFuture
-                    format="MM/dd/yyyy"
-                    id='last-name'
-                    label='Date of Birth'
-                    margin="normal"
-                    name='Date of Birth'
-                    onBlur={handleBlur}
-                    onChange={(value) => {
-                      setFieldValue('dob', value);
-                    }}
-                    openTo='year'
-                    placeholder='Date of Birth'
-                    required
-                    value={values.dob}
-                    variant="inline"
-                  />
-                </MuiPickersUtilsProvider>
-                {(touched.lastName && errors.lastName) && <Feedback><ErrorMessage name='dob' /></Feedback>}
-              </InputGroup>
-            </section>
+              <DatePicker
+                disableFuture
+                id='dob'
+                label='Date of Birth'
+                name='Date of Birth'
+                onBlur={handleBlur}
+                onChange={(value) => {
+                  setFieldValue('dob', value);
+                }}
+                placeholder='Date of Birth'
+                required
+                showError={(touched.dob && errors.dob)}
+                value={values.dob}
+                variant='inline'
+              />
+            </fieldset>
 
-            <section>
+            <fieldset>
+              <legend>Contact</legend>
               <InputGroup>
                 <Field
                   component={TextField}
@@ -278,9 +236,10 @@ const SignUpForm = (props) => {
                 />
                 {(touched.phone && errors.phone) && <Feedback><ErrorMessage name='phone' /></Feedback>}
               </InputGroup>
-            </section>
+            </fieldset>
 
-            <section>
+            <fieldset>
+              <legend>Service Info</legend>
               <InputGroup>
                 <Select
                   name='branch'
@@ -338,23 +297,57 @@ const SignUpForm = (props) => {
                 {(touched.discharge && errors.discharge) && <Feedback><ErrorMessage name='discharge' /></Feedback>}
               </InputGroup>
 
-              <InputGroup>
-                {/* TODO: Add serviceDateStart */}
-              </InputGroup>
+              <DatePicker
+                disableFuture
+                id='serviceDateStart'
+                label='serviceDateStart'
+                name='serviceDateStart'
+                onBlur={handleBlur}
+                onChange={(value) => {
+                  setFieldValue('serviceDateStart', value);
+                }}
+                placeholder='serviceDateStart'
+                required
+                showError={(touched.serviceDateStart && errors.serviceDateStart)}
+                value={values.serviceDateStart}
+                variant='inline'
+              />
 
-              <InputGroup>
-                {/* TODO: Add endActiveService */}
-              </InputGroup>
+              <DatePicker
+                disableFuture
+                id='endActiveService'
+                label='endActiveService'
+                name='endActiveService'
+                onBlur={handleBlur}
+                onChange={(value) => {
+                  setFieldValue('endActiveService', value);
+                }}
+                placeholder='endActiveService'
+                required
+                showError={(touched.endActiveService && errors.endActiveService)}
+                value={values.endActiveService}
+                variant='inline'
+              />
 
-              <InputGroup>
-                {/* TODO: Add dischargeDate */}
-              </InputGroup>
-            </section>
+              <DatePicker
+                disableFuture
+                id='dischargeDate'
+                label='dischargeDate'
+                name='dischargeDate'
+                onBlur={handleBlur}
+                onChange={(value) => {
+                  setFieldValue('dischargeDate', value);
+                }}
+                placeholder='dischargeDate'
+                required
+                showError={(touched.dischargeDate && errors.dischargeDate)}
+                value={values.dischargeDate}
+                variant='inline'
+              />
+            </fieldset>
 
-            <section>
-              <InputGroup>
-                {/* TODO: Add DOB */}
-              </InputGroup>
+            <fieldset>
+              <legend>VOWAID</legend>
 
               <InputGroup className='input-group'>
                 <label
@@ -458,17 +451,34 @@ const SignUpForm = (props) => {
                   </QualsList>
                 </label>
               </InputGroup>
-            </section>
+            </fieldset>
 
-            <section>
-              <InputGroup>
-                {/* TODO: Add username */}
+            <fieldset>
+              <legend>Auth</legend>
+              <InputGroup className='input-group'>
+                <Field
+                  component={TextField}
+                  name='Username'
+                  id='username'
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  label='Username'
+                  placeholder='Username'
+                  required
+                  type='text'
+                  value={values.username}
+                />
+                {(touched.username && errors.username) && <Feedback><ErrorMessage name='username' /></Feedback>}
               </InputGroup>
 
-              <InputGroup>
-                {/* TODO: Add password */}
-              </InputGroup>
-            </section>
+              <Password
+                onBlur={handleBlur}
+                onChange={handleChange}
+                required
+                showError={(touched.password && errors.password)}
+                value={values.password}
+              />
+            </fieldset>
 
             <Button
               color='primary'
