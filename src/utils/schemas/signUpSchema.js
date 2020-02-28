@@ -5,13 +5,11 @@ import SchemaFields from './schemaFields';
 export default Yup.object().shape({
   name: SchemaFields.name
     .required('Required'),
-  dob: SchemaFields.dob
-    .required('Required'),
+  dob: SchemaFields.dob,
 
   email: SchemaFields.email
     .required('Required'),
-  phone: SchemaFields.phone
-    .required('Required'),
+  phone: SchemaFields.phone,
 
   branch: SchemaFields.branch
     .required('Required'),

@@ -19,8 +19,10 @@ import { branchFormOptions, buildRankFormOptions } from '../../../utils/enums/mi
 import SignUpSchema from '../../../utils/schemas/signUpSchema';
 
 const initialValues = {
-  name: '',
+  firstName: '',
+  lastName: '',
   dob: null,
+
   email: '',
   phone: '',
 
@@ -29,6 +31,7 @@ const initialValues = {
   discharge: '',
   serviceDates: '',
 
+  quals: [],
   programs: [],
 
   username: '',
@@ -160,32 +163,32 @@ const SignUpForm = (props) => {
                 <Field
                   component={TextField}
                   name='First Name'
-                  id='first-name'
+                  id='firstName'
                   onBlur={handleBlur}
                   onChange={handleChange}
                   label='First Name'
                   placeholder='First Name'
                   required
                   type='text'
-                  value={values.name}
+                  value={values.firstName}
                 />
-                {(touched.firstName && errors.firstName) && <Feedback><ErrorMessage name='name' /></Feedback>}
+                {(touched.firstName && errors.firstName) && <Feedback><ErrorMessage name='firstName' /></Feedback>}
               </InputGroup>
 
               <InputGroup className='input-group'>
                 <Field
                   component={TextField}
                   name='Last Name'
-                  id='last-name'
+                  id='lastName'
                   onBlur={handleBlur}
                   onChange={handleChange}
                   label='Last Name'
                   placeholder='Last Name'
                   required
                   type='text'
-                  value={values.name}
+                  value={values.lastName}
                 />
-                {(touched.lastName && errors.lastName) && <Feedback><ErrorMessage name='name' /></Feedback>}
+                {(touched.lastName && errors.lastName) && <Feedback><ErrorMessage name='lastName' /></Feedback>}
               </InputGroup>
 
               <DatePicker
@@ -193,12 +196,10 @@ const SignUpForm = (props) => {
                 id='dob'
                 label='Date of Birth'
                 name='Date of Birth'
-                onBlur={handleBlur}
                 onChange={(value) => {
                   setFieldValue('dob', value);
                 }}
                 placeholder='Date of Birth'
-                required
                 showError={(touched.dob && errors.dob)}
                 value={values.dob}
                 variant='inline'
@@ -228,11 +229,9 @@ const SignUpForm = (props) => {
                   component={TextField}
                   name='phone'
                   id='phone'
-                  onBlur={handleBlur}
                   onChange={handleChange}
                   label='Phone'
                   placeholder='phone'
-                  required
                   type='tel'
                   value={values.phone}
                 />
@@ -304,12 +303,10 @@ const SignUpForm = (props) => {
                 id='serviceDateStart'
                 label='serviceDateStart'
                 name='serviceDateStart'
-                onBlur={handleBlur}
                 onChange={(value) => {
                   setFieldValue('serviceDateStart', value);
                 }}
                 placeholder='serviceDateStart'
-                required
                 showError={(touched.serviceDateStart && errors.serviceDateStart)}
                 value={values.serviceDateStart}
                 variant='inline'
@@ -320,12 +317,10 @@ const SignUpForm = (props) => {
                 id='endActiveService'
                 label='endActiveService'
                 name='endActiveService'
-                onBlur={handleBlur}
                 onChange={(value) => {
                   setFieldValue('endActiveService', value);
                 }}
                 placeholder='endActiveService'
-                required
                 showError={(touched.endActiveService && errors.endActiveService)}
                 value={values.endActiveService}
                 variant='inline'
@@ -336,12 +331,10 @@ const SignUpForm = (props) => {
                 id='dischargeDate'
                 label='dischargeDate'
                 name='dischargeDate'
-                onBlur={handleBlur}
                 onChange={(value) => {
                   setFieldValue('dischargeDate', value);
                 }}
                 placeholder='dischargeDate'
-                required
                 showError={(touched.dischargeDate && errors.dischargeDate)}
                 value={values.dischargeDate}
                 variant='inline'
@@ -351,7 +344,7 @@ const SignUpForm = (props) => {
             <fieldset>
               <legend>Qualifications</legend>
 
-                <InputGroup>
+              <InputGroup>
                 <QualsList className='quals-list'>
                   <ListItem button onClick={handleToggle(0)}>
                     <ListItemIcon>

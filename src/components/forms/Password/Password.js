@@ -31,6 +31,7 @@ const Password = ({ showError, ...others }) => {
   return (
     <InputGroup className='input-group'>
       <Field
+        {...others}
         endAdornment={
           <InputAdornment position="end">
             <IconButton
@@ -43,7 +44,6 @@ const Password = ({ showError, ...others }) => {
           </InputAdornment>
         }
         type={(showPassword) ? 'text' : 'password'}
-        {...others}
       />
       {(showError) && <Feedback><ErrorMessage name='password' /></Feedback>}
     </InputGroup>
