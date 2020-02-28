@@ -150,6 +150,8 @@ const SignUpForm = (props) => {
           <Form onSubmit={props.handleSubmit}>
             <header>
               <H1>Sign Up</H1>
+
+              <P>Already a member? <Link to='/signin'>Sign In</Link></P>
             </header>
 
             <fieldset>
@@ -347,109 +349,89 @@ const SignUpForm = (props) => {
             </fieldset>
 
             <fieldset>
-              <legend>VOWAID</legend>
+              <legend>Qualifications</legend>
 
-              <InputGroup className='input-group'>
-                <label
-                  name='Qualifications'
-                  placeholder='Qualifications'
-                >
-                  <span>Qualifications</span>
+                <InputGroup>
+                <QualsList className='quals-list'>
+                  <ListItem button onClick={handleToggle(0)}>
+                    <ListItemIcon>
+                      <Checkbox
+                        edge="start"
+                        checked={qualChecked.indexOf(0) !== -1}
+                        tabIndex={-1}
+                        disableRipple
+                        inputProps={{ 'aria-labelledby': 'checkbox-list-label-0' }}
+                      />
+                    </ListItemIcon>
+                    <ListItemText>
+                      <P>DD-214 with an honorable discharge (must be able to provide a copy of DD-214)</P>
+                    </ListItemText>
+                  </ListItem>
 
-                  <QualsList className='quals-list'>
-                    <ListItem button onClick={handleToggle(0)}>
-                      <ListItemIcon>
-                        <Checkbox
-                          edge="start"
-                          checked={qualChecked.indexOf(0) !== -1}
-                          tabIndex={-1}
-                          disableRipple
-                          inputProps={{ 'aria-labelledby': 'checkbox-list-label-0' }}
-                        />
-                      </ListItemIcon>
-                      <ListItemText>
-                        <P>DD-214 with an honorable discharge (must be able to provide a copy of DD-214)</P>
-                      </ListItemText>
-                    </ListItem>
+                  <ListItem button onClick={handleToggle(1)}>
+                    <ListItemIcon>
+                      <Checkbox
+                        edge="start"
+                        checked={qualChecked.indexOf(1) !== -1}
+                        tabIndex={-1}
+                        disableRipple
+                        inputProps={{ 'aria-labelledby': 'checkbox-list-label-1' }}
+                      />
+                    </ListItemIcon>
+                    <ListItemText>
+                      <P paragraph>Be enrolled in VA healthcare (must be able to provide a copy of VA card)</P>
+                      <P paragraph>or</P>
+                      <P>Be active duty and with no disciplinary action pending (must be able to provide a copy of Leave and Earning Statement)</P>
+                    </ListItemText>
+                  </ListItem>
 
-                    <ListItem button onClick={handleToggle(1)}>
-                      <ListItemIcon>
-                        <Checkbox
-                          edge="start"
-                          checked={qualChecked.indexOf(1) !== -1}
-                          tabIndex={-1}
-                          disableRipple
-                          inputProps={{ 'aria-labelledby': 'checkbox-list-label-1' }}
-                        />
-                      </ListItemIcon>
-                      <ListItemText>
-                        <P paragraph>Be enrolled in VA healthcare (must be able to provide a copy of VA card)</P>
-                        <P paragraph>or</P>
-                        <P>Be active duty and with no disciplinary action pending (must be able to provide a copy of Leave and Earning Statement)</P>
-                      </ListItemText>
-                    </ListItem>
+                  <ListItem button onClick={handleToggle(2)}>
+                    <ListItemIcon>
+                      <Checkbox
+                        edge="start"
+                        checked={qualChecked.indexOf(2) !== -1}
+                        tabIndex={-1}
+                        disableRipple
+                        inputProps={{ 'aria-labelledby': 'checkbox-list-label-3' }}
+                      />
+                    </ListItemIcon>
+                    <ListItemText>
+                      <P>Be in the process of transitioning out of active duty service (must be able to provide a one paragraph statement of plan of transition out of service)</P>
+                    </ListItemText>
+                  </ListItem>
 
-                    <ListItem button onClick={handleToggle(2)}>
-                      <ListItemIcon>
-                        <Checkbox
-                          edge="start"
-                          checked={qualChecked.indexOf(2) !== -1}
-                          tabIndex={-1}
-                          disableRipple
-                          inputProps={{ 'aria-labelledby': 'checkbox-list-label-3' }}
-                        />
-                      </ListItemIcon>
-                      <ListItemText>
-                        <P>Be in the process of transitioning out of active duty service (must be able to provide a one paragraph statement of plan of transition out of service)</P>
-                      </ListItemText>
-                    </ListItem>
+                  <ListItem button onClick={handleToggle(3)}>
+                    <ListItemIcon>
+                      <Checkbox
+                        edge="start"
+                        checked={qualChecked.indexOf(3) !== -1}
+                        tabIndex={-1}
+                        disableRipple
+                        inputProps={{ 'aria-labelledby': 'checkbox-list-label-3' }}
+                      />
+                    </ListItemIcon>
+                    <ListItemText>
+                      <P>Military Spouse (must be able to provide a copy of military spouse ID)</P>
+                    </ListItemText>
+                  </ListItem>
 
-                    <ListItem button onClick={handleToggle(3)}>
-                      <ListItemIcon>
-                        <Checkbox
-                          edge="start"
-                          checked={qualChecked.indexOf(3) !== -1}
-                          tabIndex={-1}
-                          disableRipple
-                          inputProps={{ 'aria-labelledby': 'checkbox-list-label-3' }}
-                        />
-                      </ListItemIcon>
-                      <ListItemText>
-                        <P>Military Spouse (must be able to provide a copy of military spouse ID)</P>
-                      </ListItemText>
-                    </ListItem>
+                  <ListItem button onClick={handleToggle(4)}>
+                    <ListItemIcon>
+                      <Checkbox
+                        edge="start"
+                        checked={qualChecked.indexOf(4) !== -1}
+                        tabIndex={-1}
+                        disableRipple
+                        inputProps={{ 'aria-labelledby': 'checkbox-list-label-4' }}
+                      />
+                    </ListItemIcon>
+                    <ListItemText>
+                      <P>Military child or dependent (must be able to provide a copy of dependent ID)</P>
+                    </ListItemText>
+                  </ListItem>
+                </QualsList>
 
-                    <ListItem button onClick={handleToggle(4)}>
-                      <ListItemIcon>
-                        <Checkbox
-                          edge="start"
-                          checked={qualChecked.indexOf(4) !== -1}
-                          tabIndex={-1}
-                          disableRipple
-                          inputProps={{ 'aria-labelledby': 'checkbox-list-label-4' }}
-                        />
-                      </ListItemIcon>
-                      <ListItemText>
-                        <P>Military child or dependent (must be able to provide a copy of dependent ID)</P>
-                      </ListItemText>
-                    </ListItem>
-
-                    <ListItem button onClick={handleToggle(5)}>
-                      <ListItemIcon>
-                        <Checkbox
-                          edge="start"
-                          checked={qualChecked.indexOf(5) !== -1}
-                          tabIndex={-1}
-                          disableRipple
-                          inputProps={{ 'aria-labelledby': 'checkbox-list-label-5' }}
-                        />
-                      </ListItemIcon>
-                      <ListItemText>
-                        <P>All ID's must be current and not expired. Please block out Social Security numbers.</P>
-                      </ListItemText>
-                    </ListItem>
-                  </QualsList>
-                </label>
+                <P><em>* All ID's must be current and not expired. Please block out Social Security numbers.</em></P>
               </InputGroup>
             </fieldset>
 
@@ -487,7 +469,7 @@ const SignUpForm = (props) => {
               component={Link}
               to='/signin'
             >
-              Sign In
+              Submit
             </Button>
           </Form>
         )}
