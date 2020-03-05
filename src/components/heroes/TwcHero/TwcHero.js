@@ -34,6 +34,7 @@ const StyledHero = styled.article`
   height: ${sectionHeight};
   overflow: hidden;
   position: relative;
+  z-index: 1;
 `;
 
 const Overlay = styled.section`

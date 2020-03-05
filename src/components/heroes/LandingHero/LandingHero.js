@@ -58,6 +58,7 @@ const StyledHero = styled.article`
   min-height: ${pxToEm(500)};
   overflow: hidden;
   position: relative;
+  z-index: 1;
 `;
 
 const RightPanel = styled.section`

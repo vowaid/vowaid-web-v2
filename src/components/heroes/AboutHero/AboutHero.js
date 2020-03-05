@@ -42,6 +42,7 @@ const StyledHero = muiStyled('article')({
   height: sectionHeight,
   overflow: 'hidden',
   position: 'relative',
+  zIndex: '1',
 });
 
 const Overlay = muiStyled('section')({

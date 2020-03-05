@@ -3,7 +3,7 @@ import React from 'react';
 import { P } from '../components/Typography/Typography';
 
 import AustinThomasPhoto from '../assets/images/team/austinThomas.jpg';
-import BritneyGrouxPhoto from '../assets/images/team/britneyGroux.jpeg';
+import BritneyGrouxPhoto from '../assets/images/team/britneyGroux.jpg';
 import CandyBrazilPhoto from '../assets/images/team/candyBrazil.jpg';
 import HunterNunneryPhoto from '../assets/images/team/hunterNunnery.jpg';
 import JacobTaylorPhoto from '../assets/images/team/jacobTaylor.jpg';
