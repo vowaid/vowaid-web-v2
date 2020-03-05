@@ -7,11 +7,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import uuid from 'uuid/v4';
+import styled from 'styled-components';
 
 import './styles';
 
-import Header from './components/layout/Header/Header';
-import Footer from './components/layout/Footer/Footer';
+import { Header, Footer, Wrapper } from './components';
 
 import NotFound from './pages/NotFound';
 
@@ -20,6 +20,18 @@ import ThemeProvider from './theme/ThemeProvider';
 import { ScrollToTop } from './utils/routerUtils';
 
 import routes from './routes/routes';
+
+const FlexWrapper = styled(Wrapper)`
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+
+  > * {
+    flex: 1;
+  }
+`;
 
 /**
  * A special wrapper for <Route> that knows how to handle "sub"-routes by passing them in a `routes`
@@ -39,19 +51,21 @@ const App = (props) => (
   <ThemeProvider>
     <Router>
       <ScrollToTop />
-      <Header />
+      <FlexWrapper>
+        <Header />
 
-      <Switch>
-        {routes.map((route) => (
-          <RouteWithSubRoutes key={uuid()} {...route} />
-        ))}
+        <Switch>
+          {routes.map((route) => (
+            <RouteWithSubRoutes key={uuid()} {...route} />
+          ))}
 
-        <Route path="*">
-          <NotFound />
-        </Route>
-      </Switch>
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
 
-      <Footer />
+        <Footer />
+      </FlexWrapper>
     </Router>
   </ThemeProvider>
 );

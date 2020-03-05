@@ -14,21 +14,6 @@ import { gutter } from '../../../styles/utils';
 import SignUpSchema from '../../../utils/schemas/signUpSchema';
 
 const initialValues = {
-  firstName: '',
-  lastName: '',
-  dob: null,
-
-  email: '',
-  phone: '',
-
-  branch: '',
-  rank: '',
-  discharge: '',
-  serviceDates: '',
-
-  quals: [],
-  programs: [],
-
   username: '',
   password: '',
 };
@@ -91,6 +76,12 @@ const SignInForm = (props) => {
 
   return (
     <Wrapper>
+      <header>
+        <H1>Sign In</H1>
+
+        <P>Not a member? <Link to='/signup'>Sign Up</Link></P>
+      </header>
+
       <Formik
         initialValues={initialValues}
         validationSchema={SignUpSchema}
@@ -114,12 +105,6 @@ const SignInForm = (props) => {
           values,
         }) => (
           <Form onSubmit={props.handleSubmit}>
-            <header>
-              <H1>Sign In</H1>
-
-              <P>Not a member? <Link to='/signup'>Sign Up</Link></P>
-            </header>
-
             <InputGroup className='input-group'>
               <Field
                 component={TextField}
@@ -151,7 +136,7 @@ const SignInForm = (props) => {
               component={Link}
               to='/signin'
             >
-              Submit
+              Sign In
             </Button>
           </Form>
         )}

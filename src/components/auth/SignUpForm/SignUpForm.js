@@ -132,6 +132,11 @@ const SignUpForm = (props) => {
 
   return (
     <Wrapper>
+      <header>
+        <H1>Sign Up</H1>
+
+        <P>Already a member? <Link to='/signin'>Sign In</Link></P>
+      </header>
       <Formik
         initialValues={initialValues}
         validationSchema={SignUpSchema}
@@ -155,12 +160,6 @@ const SignUpForm = (props) => {
           values,
         }) => (
           <Form onSubmit={props.handleSubmit}>
-            <header>
-              <H1>Sign Up</H1>
-
-              <P>Already a member? <Link to='/signin'>Sign In</Link></P>
-            </header>
-
             <fieldset>
               <legend>Personal Info</legend>
               <InputGroup className='input-group'>
