@@ -85,6 +85,14 @@ const NavDrawer = (props) => {
               >Services</Button>
             </ListOption>
 
+            <ListOption className='left'>
+              <Button
+                variant='text'
+                component={Link}
+                to='/store'
+              >Store</Button>
+            </ListOption>
+
             <ListOption>
               <Button
                 color='secondary'

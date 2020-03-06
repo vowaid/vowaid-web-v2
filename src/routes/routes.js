@@ -14,9 +14,11 @@ import Swc from '../pages/Services/Swc';
 import Twc from '../pages/Services/Twc';
 
 import Contact from '../pages/Contact';
-// import Donate from '../pages/Donate';
 import Landing from '../pages/Landing';
 import Auth from '../pages/Auth/Auth';
+
+import Store from '../pages/Store';
+import Donate from '../pages/Donate';
 
 const routes = [{
   exact: true,
@@ -64,6 +66,12 @@ const routes = [{
 }, {
   path: '/signup',
   component: Auth,
+}, {
+  path: '/donate',
+  component: Donate,
+}, {
+  path: '/store',
+  component: Store,
 }];
 
 export default routes;

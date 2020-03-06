@@ -26,6 +26,12 @@ const NavList = ({ className }) => (
 
       <Button
         className='MuiToolbar-regular'
+        component={Link}
+        to='/store'
+      >Store</Button>
+
+      <Button
+        className='MuiToolbar-regular'
         color='secondary'
         variant='contained'
         component={Link}
@@ -38,6 +44,13 @@ const NavList = ({ className }) => (
         to='/signin'
       >Sign&nbsp;In</Button>
     </ButtonGroup>
+
+    <Button className='snipcart-checkout'>
+      <span className='snipcart-summary snipcart-summary-empty'>
+        {/* <v-icon className='primary--text navbar-icons'>fas fa-shopping-cart</v-icon> */}
+        <span className='snipcart-total-price nav-text primary--text'></span>
+      </span>
+    </Button>
   </StyledNav>
 );
 
