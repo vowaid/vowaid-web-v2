@@ -26,7 +26,7 @@ const FlexWrapper = styled(Wrapper)`
   flex-direction: column;
   margin: 0;
   min-height: 100vh;
-  padding: 0;
+  padding: 0 !important;
 
   > * {
     flex: 1;

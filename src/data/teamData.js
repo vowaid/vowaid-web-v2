@@ -118,13 +118,19 @@ const teamMembers = [
     image: HollySpringsteenPhoto,
     bio: () => (
       <>
-        <P>Born and raised in New York, Holly comes with the never slow down determined attitude that everyone knows and loves ... maybe. Holly joined the Marine Corps at 18 and spent 5 years serving on active duty. During which time, she was afforded many fantastic opportunities, such as leading approximately 120 Marines across several divisions to prepare equipment for the 2011 Tōhoku earthquake relief missions.</P>
+        <p>Leader ... Developer ... Polymath ... and so much more</p>
 
-        <P>After the military Holly began work as a designer and photographer for several years having been published in What Digital Camera as well as several smaller publications. After building her first website for a client her passion for web and technology was sparked. Holly enrolled at Full Sail University, where she began her journey towards getting a degree in Web Design and Development.</P>
+        <p>Born and raised in New York, Holly comes with the never slow down determined attitude. Holly joined the Marine Corps at 18, serving her country for 5 years. During which time, she was afforded many fantastic opportunities, such as leading approximately 120 Marines to prepare and react to the 2011 Tōhoku earthquake relief missions.</p>
 
-        <P>During her tenure as a Software Engineer, Holly has worked with several start-ups as well as fortune 10 companies. Having worked with such companies as IBM, Accenture, ExxonMobil, Circle Financial, and Cox Enterprises Holly brings years of expertise.</P>
+        <p>After the military Holly spent time working as a designer and photographer for several years having been published in What Digital Camera as well as several smaller publications. During this time she really began to hone her skillsets and broaden into additional verticals.</p>
 
-        <P>Other than her "normal" work duties, Holly also contributes her time heavily toward eduction. Currently serving on the advisory board for Full Sail University and previously The Iron Yard Holly stays up-to-date with the latest industry trends so as to best advise curriculum. Additionally, she has taught and continuously mentors students from The University of Texas at Austin.</P>
+        <p>After a request from a client to build a website, an entirely new concept for her at the time, Holly began digging in and learning the basics on how to accomplish this task. She was able to put together a basic site. This journey intrigued an interest and passion like never before. Two weeks later, Holly was at Full Sail University, where she began her journey towards getting her degree in Web Design and Development.</p>
+
+        <p>From there Holly has continued to work within design as well as development on an ongoing basis. Working with companies such as IBM, Fjord, Accenture, ExxonMobil, Frontier Communications, Cox, and several others Holly has always strived to bridge the gap between design and development. Her passion for quality interfaces and experiences has led to innovations and developments that have re-shaped multi-million dollar industries.</p>
+
+        <p>Other than her contributions in the work-force Holly is passionate about giving back and sharing her knowledge with those around her. Having served on advisory boards for Full Sail University as well as The Iron Yard she strives to aim educational opportunities in the right direction for the largest impact on students. Not one to lead from the outside alone Holly has also spent time teaching at The Coding Bootcamp at The University of Texas at Austin. During her time as an instructor Holly contributed to changing the lives of her students through rapid education and career growth assistance.</p>
+
+        <p>Holly is a passionate and empowering individual that strives to not only better herself but also those around her.</p>
       </>
     ),
   },
