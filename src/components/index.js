@@ -24,7 +24,6 @@ export { default as Button } from './forms/Button/Button';
 export { default as DatePicker } from './forms/DatePicker/DatePicker';
 
 export { default as ContactForm } from './forms/ContactForm/ContactForm';
-export { default as DonateForm } from './forms/DonateForm/DonateForm';
 
 // Heroes
 export { default as AboutHero } from './heroes/AboutHero/AboutHero';

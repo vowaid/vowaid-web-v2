@@ -30,3 +30,7 @@ input,
 select {
   font-family: inherit;
 }
+
+.snip-layout.snip-active {
+  z-index: 2000;
+}

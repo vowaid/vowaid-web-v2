@@ -118,7 +118,7 @@ const teamMembers = [
     image: HollySpringsteenPhoto,
     bio: () => (
       <>
-        <p>Leader ... Developer ... Polymath ... and so much more</p>
+        <p>Leader ... Developer ... Polymath</p>
 
         <p>Born and raised in New York, Holly comes with the never slow down determined attitude. Holly joined the Marine Corps at 18, serving her country for 5 years. During which time, she was afforded many fantastic opportunities, such as leading approximately 120 Marines to prepare and react to the 2011 Tōhoku earthquake relief missions.</p>
 

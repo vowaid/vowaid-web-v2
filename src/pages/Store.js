@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     gridRowGap: gutter.M,
     padding: `${gutter.XXL} ${gutter.M}`,
 
-    '@media only screen and (max-width: 1200px)': {
+    '@media only screen and (max-width: 1300px)': {
       gridTemplateColumns: '1fr 1fr 1fr',
     },
 
@@ -31,8 +31,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   media: {
-    height: 300,
-    transition: 'opacity 0.3s ease',
+    height: '300px',
     backgroundSize: 'contain',
   },
   content: {
@@ -62,29 +61,9 @@ const Store = (props) => {
           return (
             <Card>
               <CardMedia
-                alt={storeItem.name}
                 className={classes.media}
-                height={400}
                 image={storeItem.images[0]}
                 title={storeItem.name}
-                onMouseEnter={(event) => {
-                  if (storeItem.images.length > 1) {
-                    event.target.style.opacity = 0;
-                    setTimeout((target) => {
-                      target.style.backgroundImage = `url("${storeItem.images[1]}")`;
-                      target.style.opacity = 1;
-                    }, 150, event.target);
-                  }
-                }}
-                onMouseLeave={(event) => {
-                  if (event.target.style.backgroundImage !== `url("${storeItem.images[0]}")`) {
-                    event.target.style.opacity = 0;
-                    setTimeout((target) => {
-                      target.style.backgroundImage = `url("${storeItem.images[0]}")`;
-                      target.style.opacity = 1;
-                    }, 180, event.target);
-                  }
-                }}
               />
 
               <CardContent className={classes.content}>
@@ -94,9 +73,17 @@ const Store = (props) => {
               <CardActions disableSpacing className={classes.actions}>
                 <P>${storeItem.price}</P>
                 <Button
-                  variant="contained"
-                  color="primary"
+                  variant='contained'
+                  color='primary'
                   endIcon={<AddShoppingCartIcon />}
+                  className='snipcart-add-item'
+                  data-item-id={storeItem.id}
+                  data-item-name={storeItem.name}
+                  data-item-price={storeItem.price}
+                  data-item-image={storeItem.images[0]}
+                  data-item-url='/products.json'
+                  data-item-description={storeItem.description}
+                  data-item-categories={storeItem.type}
                 >
                   Add to Cart
                 </Button>
