@@ -1,8 +1,37 @@
 import React from 'react';
 
-import { Button, ButtonGroup } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Button, ButtonGroup, TextField } from '@material-ui/core';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { H1, H2, H3, P, Seo } from '../components';
+
+import { gutter, pxToEm } from '../styles/utils';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: gutter.XXL,
+  },
+  header: {
+    marginBottom: gutter.L,
+  },
+  buttonGroup: {
+    margin: `${gutter.L} 0`,
+  },
+  custom: {
+    alignContent: 'center',
+    alignItems: 'center',
+    display: 'flex',
+    margin: `${gutter.L} 0`,
+
+    '& p': {
+      marginRight: gutter.S,
+    },
+
+    '& span': {
+      marginRight: pxToEm(5),
+    },
+  }
+}));
 
 /**
  * Description.
@@ -10,15 +39,7 @@ import { H1, H2, H3, P, Seo } from '../components';
 const DonatePage = () => {
   const [donationValue, setDonationValue] = React.useState(0);
   const donationAmounts = [25, 50, 100, 150, 250];
-
-  // {
-  //   id: '0025D',
-  //   images: [],
-  //   type: 'donation',
-  //   name: "Donate $25",
-  //   price: "25.00",
-  //   description: "$25 Donation to VOWAID Foundation",
-  // }
+  const classes = useStyles();
 
   const generateId = (donationAmount) => {
     let id = donationAmount;
@@ -34,34 +55,47 @@ const DonatePage = () => {
     id += 'D';
 
     return id;
-  }
+  };
+
+  const handleChange = (event) => {
+    setDonationValue(event.target.value);
+  };
 
   return (
-    <main>
+    <main className={classes.root}>
       <Seo title='Donate' />
 
-      <header>
-        <H1>Donate</H1>
-        <H2>Change lives with your gift!</H2>
+      <header className={classes.header}>
+        <H1 paragraph>Donate</H1>
+        <H2 paragraph>Change lives with your gift!</H2>
 
         <P>Your donation supports our mission to help Veterans in need.</P>
       </header>
 
       <section>
-        <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
-          {donationAmounts.map((donationAmount) => (
-            <Button
-              variant='contained'
-              color='primary'
-              onClick={(event) => {
-                event.preventDefault();
-                setDonationValue(donationAmount)
-              }}
-            >${donationAmount}</Button>
-          ))}
-        </ButtonGroup>
+        <div className={classes.buttonGroup}>
+          <H3 paragraph>Choose your donation</H3>
+          <ButtonGroup variant='contained' color='default' aria-label='contained primary button group'>
+            {donationAmounts.map((donationAmount) => (
+              <Button
+                className='MuiToolbar-regular'
+                variant='outlined'
+                color='deault'
+                onClick={(event) => {
+                  event.preventDefault();
+                  setDonationValue(donationAmount)
+                }}
+              >${donationAmount}</Button>
+            ))}
+          </ButtonGroup>
+        </div>
 
-        <H3>Your Donation: ${donationValue}</H3>
+        <div className={classes.custom}>
+          <P>Or enter your donation:</P>
+
+          <span>$</span>
+          <TextField onChange={handleChange} type='number' value={donationValue} />
+        </div>
 
         <Button
           variant='contained'
