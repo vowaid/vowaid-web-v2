@@ -36,7 +36,7 @@ const teamMembers = [
     image: AliceWardPhoto,
     bio: () => (
       <>
-        <P>}Throughout my career, I have built a well-earned reputation as an innovative leader who is driven by the challenges of directing complex high profile operations in fast-paced, multi-faceted settings, undeterred by obstacles, and committed to furthering standards of operational excellence.  I have also shown to be an accomplished Veteran advocate, negotiator, problem solver, marketer and planner, with exceptional energy and the ability to build and solidify professional and personal relationships.</P>
+        <P>Throughout my career, I have built a well-earned reputation as an innovative leader who is driven by the challenges of directing complex high profile operations in fast-paced, multi-faceted settings, undeterred by obstacles, and committed to furthering standards of operational excellence.  I have also shown to be an accomplished Veteran advocate, negotiator, problem solver, marketer and planner, with exceptional energy and the ability to build and solidify professional and personal relationships.</P>
 
         <P>I am proud United States Marine Corps Veteran and the founder of a successful 501 c 3 charity called Veterans of War Aid Foundation (VOWAID).  I love being a VETPRENEUR and leaving a life changing legacy behind.  I am a person of high standards, integrity and committed to excellent service.</P>
 
@@ -118,19 +118,19 @@ const teamMembers = [
     image: HollySpringsteenPhoto,
     bio: () => (
       <>
-        <p>Leader ... Developer ... Polymath</p>
+        <P>Leader ... Developer ... Polymath</P>
 
-        <p>Born and raised in New York, Holly comes with the never slow down determined attitude. Holly joined the Marine Corps at 18, serving her country for 5 years. During which time, she was afforded many fantastic opportunities, such as leading approximately 120 Marines to prepare and react to the 2011 Tōhoku earthquake relief missions.</p>
+        <P>Born and raised in New York, Holly comes with the never slow down determined attitude. Holly joined the Marine Corps at 18, serving her country for 5 years. During which time, she was afforded many fantastic opportunities, such as leading approximately 120 Marines to prepare and react to the 2011 Tōhoku earthquake relief missions.</P>
 
-        <p>After the military Holly spent time working as a designer and photographer for several years having been published in What Digital Camera as well as several smaller publications. During this time she really began to hone her skillsets and broaden into additional verticals.</p>
+        <P>After the military Holly spent time working as a designer and photographer for several years having been published in What Digital Camera as well as several smaller publications. During this time she really began to hone her skillsets and broaden into additional verticals.</P>
 
-        <p>After a request from a client to build a website, an entirely new concept for her at the time, Holly began digging in and learning the basics on how to accomplish this task. She was able to put together a basic site. This journey intrigued an interest and passion like never before. Two weeks later, Holly was at Full Sail University, where she began her journey towards getting her degree in Web Design and Development.</p>
+        <P>After a request from a client to build a website, an entirely new concept for her at the time, Holly began digging in and learning the basics on how to accomplish this task. She was able to put together a basic site. This journey intrigued an interest and passion like never before. Two weeks later, Holly was at Full Sail University, where she began her journey towards getting her degree in Web Design and Development.</P>
 
-        <p>From there Holly has continued to work within design as well as development on an ongoing basis. Working with companies such as IBM, Fjord, Accenture, ExxonMobil, Frontier Communications, Cox, and several others Holly has always strived to bridge the gap between design and development. Her passion for quality interfaces and experiences has led to innovations and developments that have re-shaped multi-million dollar industries.</p>
+        <P>From there Holly has continued to work within design as well as development on an ongoing basis. Working with companies such as IBM, Fjord, Accenture, ExxonMobil, Frontier Communications, Cox, and several others Holly has always strived to bridge the gap between design and development. Her passion for quality interfaces and experiences has led to innovations and developments that have re-shaped multi-million dollar industries.</P>
 
-        <p>Other than her contributions in the work-force Holly is passionate about giving back and sharing her knowledge with those around her. Having served on advisory boards for Full Sail University as well as The Iron Yard she strives to aim educational opportunities in the right direction for the largest impact on students. Not one to lead from the outside alone Holly has also spent time teaching at The Coding Bootcamp at The University of Texas at Austin. During her time as an instructor Holly contributed to changing the lives of her students through rapid education and career growth assistance.</p>
+        <P>Other than her contributions in the work-force Holly is passionate about giving back and sharing her knowledge with those around her. Having served on advisory boards for Full Sail University as well as The Iron Yard she strives to aim educational opportunities in the right direction for the largest impact on students. Not one to lead from the outside alone Holly has also spent time teaching at The Coding Bootcamp at The University of Texas at Austin. During her time as an instructor Holly contributed to changing the lives of her students through rapid education and career growth assistance.</P>
 
-        <p>Holly is a passionate and empowering individual that strives to not only better herself but also those around her.</p>
+        <P>Holly is a passionate and empowering individual that strives to not only better herself but also those around her.</P>
       </>
     ),
   },

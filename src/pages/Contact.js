@@ -48,9 +48,9 @@ const ContactPage = () => (
 
           <Link
             className='font-size--4'
-            href='tel:781-486-3408'
+            href='tel:781-606-1737'
             underline='hover'
-          >(781) 486-3408</Link>
+          >(781) 606-1737</Link>
         </Section>
 
         <Section>
