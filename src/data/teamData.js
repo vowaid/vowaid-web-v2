@@ -120,9 +120,9 @@ const teamMembers = [
       <>
         <P>Leader ... Developer ... Polymath</P>
 
-        <P>Born and raised in New York, Holly comes with the never slow down determined attitude. Holly joined the Marine Corps at 18, serving her country for 5 years. During which time, she was afforded many fantastic opportunities, such as leading approximately 120 Marines to prepare and react to the 2011 Tōhoku earthquake relief missions.</P>
+        <P>Born and raised in New York, Holly comes with that determined, never slow down attitude. Holly joined the United States Marine Corps at 18, serving her country for 5 years. During which time, she was afforded many incredible, awe-inspiring, humbling opportunities. One such opportunity was leading approximately 120 Marines to respond to the 2011 Tōhoku earthquake and prepare relief mission essential equipment.</P>
 
-        <P>After the military Holly spent time working as a designer and photographer for several years having been published in What Digital Camera as well as several smaller publications. During this time she really began to hone her skillsets and broaden into additional verticals.</P>
+        <P>After the military Holly spent time working as a designer and photographer for several years having been published in What Digital Camera as well as several smaller publications. During this time she really began to hone her skill sets and broaden into additional verticals.</P>
 
         <P>After a request from a client to build a website, an entirely new concept for her at the time, Holly began digging in and learning the basics on how to accomplish this task. She was able to put together a basic site. This journey intrigued an interest and passion like never before. Two weeks later, Holly was at Full Sail University, where she began her journey towards getting her degree in Web Design and Development.</P>
 
