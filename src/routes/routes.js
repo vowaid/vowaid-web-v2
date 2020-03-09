@@ -23,13 +23,20 @@ import Donate from '../pages/Donate';
 /**
  * TODO:
  *  - Add Auth
+ *  - Add Legal Pages
 {
   path: '/signin',
   component: Auth,
 }, {
   path: '/signup',
   component: Auth,
-},
+}, {
+  path: '/legal/privacy',
+  component: Privacy,
+}, {
+  path: '/legal/terms',
+  component: Terms,
+}
  */
 const routes = [{
   exact: true,
