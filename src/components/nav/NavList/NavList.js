@@ -1,91 +1,97 @@
 import React from 'react';
-import { ReactSVG } from 'react-svg';
-import styled from 'styled-components';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { ButtonGroup } from '@material-ui/core';
+import { ShoppingCart } from '@material-ui/icons';
 import { Button, Link } from '../../index';
 
-import ShoppingBag from '../../../assets/icons/google/shopping-bag.svg';
+import { pxToEm } from '../../../styles/utils';
 
-const StyledNav = styled.nav`
-  height: 100%;
+const useStyles = makeStyles(theme => ({
+  nav: {
+    height: '100%',
 
-  a {
-    align-content: center;
-    align-items: center;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    box-sizing: border-box;
-    display: inline-flex;
-    justify-content: center;
-    height: 100%;
+    '& a': {
+      alignContent: 'center',
+      alignItems: 'center',
+      border: 'none',
+      borderRadius: '0',
+      boxShadow: 'none',
+      boxSizing: 'border-box',
+      display: 'inline-flex',
+      justifyContent: 'center',
+      height: '100%',
+    },
+  },
+  cartButton: {
+    minWidth: `calc(${pxToEm(44)} + 4em)`,
+    position: 'relative',
+
+    '&> *': {
+      position: 'absolute',
+    },
+
+    '&> .snipcart-items-count': {
+      left: pxToEm(5),
+    },
+
+    '& svg': {
+      height: pxToEm(44),
+      width: 'auto',
+    },
   }
-`;
-
-const CartButton = styled(Button)`
-  position: relative;
-
-  > * {
-    position: absolute;
-  }
-
-  > .cart-icon {
-    left: 5px;
-  }
-
-  svg {
-    height: 44px;
-    width: auto;
-  }
-`;
+}));
 
 /**
  * Description.
  *
  * @param {} props.className
  */
-const NavList = ({ className }) => (
-  <StyledNav className='MuiToolbar-regular'>
-    <ButtonGroup className={`${className} MuiToolbar-regular`} variant='text'>
-      <Button
-        className='MuiToolbar-regular'
-        component={Link}
-        to='/about'
-      >About</Button>
+const NavList = ({ className }) => {
+  const classes = useStyles();
 
-      <Button
-        className='MuiToolbar-regular'
-        component={Link}
-        to='/services'
-      >Services</Button>
+  return (
+    <nav className={`${classes.nav} MuiToolbar-regular`}>
+      <ButtonGroup className={`${className} MuiToolbar-regular`} variant='text'>
+        <Button
+          className='MuiToolbar-regular'
+          component={Link}
+          to='/about'
+        >About</Button>
 
-      <Button
-        className='MuiToolbar-regular'
-        component={Link}
-        to='/store'
-      >Store</Button>
+        <Button
+          className='MuiToolbar-regular'
+          component={Link}
+          to='/services'
+        >Services</Button>
 
-      <Button
-        className='MuiToolbar-regular'
-        color='secondary'
-        variant='contained'
-        component={Link}
-        to='/donate'
-      >Donate</Button>
+        <Button
+          className='MuiToolbar-regular'
+          component={Link}
+          to='/store'
+        >Store</Button>
 
-      <Button
-        className='MuiToolbar-regular'
-        component={Link}
-        to='/signin'
-      >Sign&nbsp;In</Button>
+        <Button
+          className='MuiToolbar-regular'
+          color='secondary'
+          variant='contained'
+          component={Link}
+          to='/donate'
+        >Donate</Button>
 
-      <CartButton className='snipcart-checkout'>
-        <ReactSVG className='cart-icon' src={ShoppingBag} />
-        <span className='snipcart-items-count'>0</span>
-      </CartButton>
-    </ButtonGroup>
-  </StyledNav>
-);
+        <Button
+          className='MuiToolbar-regular'
+          component={Link}
+          to='/signin'
+        >Sign&nbsp;In</Button>
+
+        <Button className={`${classes.cartButton} snipcart-checkout`}>
+          <ShoppingCart />
+          <span className='snipcart-items-count'>0</span>
+        </Button>
+      </ButtonGroup>
+    </nav>
+  );
+};
 
 export default NavList;

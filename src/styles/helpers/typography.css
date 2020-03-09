@@ -92,3 +92,11 @@ p+p {
 a {
   font-size: inherit;
 }
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}

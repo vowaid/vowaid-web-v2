@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import isEmpty from 'lodash/isEmpty';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { Formik, Field, ErrorMessage } from 'formik';
 import { TextField } from '@material-ui/core';
@@ -18,18 +18,20 @@ const initialValues = {
   password: '',
 };
 
-const Form = styled.form`
-  padding: ${gutter.XXL} 0;
-  width: 100%;
+const useStyles = makeStyles(theme => ({
+  root: {
+    paddingBottom: gutter.XXL,
+    paddingTop: gutter.XXL,
 
-  fieldset {
-    padding: 0;
-
-    legend {
-      padding-top: ${gutter.L};
+    '& a': {
+      color: 'inherit',
     }
-  }
-`;
+  },
+  form: {
+    padding: `${gutter.XXL} 0`,
+    width: '100%',
+  },
+}));
 
 /**
  * General Modal container component for the application.
@@ -37,6 +39,8 @@ const Form = styled.form`
  * @class
  */
 const SignInForm = (props) => {
+  const classes = useStyles();
+
   /**
    * Description.
    *
@@ -75,11 +79,11 @@ const SignInForm = (props) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper className={classes.root}>
       <header>
         <H1>Sign In</H1>
 
-        <P>Not a member? <Link to='/signup'>Sign Up</Link></P>
+        <P>Not a member? <Link to='/signup' underline='hover'>Sign Up</Link></P>
       </header>
 
       <Formik
@@ -104,7 +108,7 @@ const SignInForm = (props) => {
           touched,
           values,
         }) => (
-          <Form onSubmit={props.handleSubmit}>
+          <form className={classes.form} onSubmit={props.handleSubmit}>
             <InputGroup className='input-group'>
               <Field
                 component={TextField}
@@ -138,7 +142,7 @@ const SignInForm = (props) => {
             >
               Sign In
             </Button>
-          </Form>
+          </form>
         )}
       </Formik>
     </Wrapper>

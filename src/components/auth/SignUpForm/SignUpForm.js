@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import isEmpty from 'lodash/isEmpty';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { Formik, Field, ErrorMessage } from 'formik';
 import { Checkbox, List, ListItem, ListItemIcon, ListItemText, TextField } from '@material-ui/core';
@@ -11,10 +11,8 @@ import DatePicker from '../../forms/DatePicker/DatePicker';
 import Password from '../../forms/Password/Password';
 
 import { gutter } from '../../../styles/utils';
-// import { vowaidColors } from '../../../styles/colors';
 
 import { branchFormOptions, buildRankFormOptions } from '../../../utils/enums/militaryEnums';
-// import { Options } from '../../../utils/enums/dateEnums';
 
 import SignUpSchema from '../../../utils/schemas/signUpSchema';
 
@@ -38,28 +36,35 @@ const initialValues = {
   password: '',
 };
 
-const Form = styled.form`
-  padding: ${gutter.XXL} 0;
-  width: 100%;
+const useStyles = makeStyles(theme => ({
+  root: {
+    paddingBottom: gutter.XXL,
+    paddingTop: gutter.XXL,
 
-  fieldset {
-    padding: 0;
-
-    legend {
-      padding-top: ${gutter.L};
+    '& a': {
+      color: 'inherit',
     }
-  }
-`;
+  },
+  form: {
+    padding: `${gutter.XXL} 0`,
+    width: '100%',
 
-const QualsList = styled(List)`
-  &.quals-list {
-    padding-left: ${gutter.M};
+    '& fieldset': {
+      padding: '0',
 
-    li {
-      margin-bottom: ${gutter.M};
-    }
-  }
-`;
+      '& legend': {
+        'paddingTop': gutter.L,
+      },
+    },
+  },
+  qualsList: {
+    paddingLeft: gutter.M,
+
+    '& li': {
+      marginBottom: gutter.M,
+    },
+  },
+}));
 
 /**
  * General Modal container component for the application.
@@ -67,6 +72,7 @@ const QualsList = styled(List)`
  * @class
  */
 const SignUpForm = (props) => {
+  const classes = useStyles();
   const initRanks = buildRankFormOptions();
   const [ranks, setRanks] = React.useState(initRanks);
   const [qualChecked, setQualChecked] = React.useState([]);
@@ -131,12 +137,13 @@ const SignUpForm = (props) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper className={classes.root}>
       <header>
-        <H1>Sign Up</H1>
+        <H1 paragraph>Sign Up</H1>
 
-        <P>Already a member? <Link to='/signin'>Sign In</Link></P>
+        <P>Already a member? <Link to='/signin' underline='hover'>Sign In</Link></P>
       </header>
+
       <Formik
         initialValues={initialValues}
         validationSchema={SignUpSchema}
@@ -159,7 +166,7 @@ const SignUpForm = (props) => {
           touched,
           values,
         }) => (
-          <Form onSubmit={props.handleSubmit}>
+          <form className={classes.form} onSubmit={props.handleSubmit}>
             <fieldset>
               <legend>Personal Info</legend>
               <InputGroup className='input-group'>
@@ -348,7 +355,7 @@ const SignUpForm = (props) => {
               <legend>Qualifications</legend>
 
               <InputGroup>
-                <QualsList className='quals-list'>
+                <List className={classes.qualsList}>
                   <ListItem button onClick={handleToggle(0)}>
                     <ListItemIcon>
                       <Checkbox
@@ -425,7 +432,7 @@ const SignUpForm = (props) => {
                       <P>Military child or dependent (must be able to provide a copy of dependent ID)</P>
                     </ListItemText>
                   </ListItem>
-                </QualsList>
+                </List>
 
                 <P><em>* All ID's must be current and not expired. Please block out Social Security numbers.</em></P>
               </InputGroup>
@@ -467,7 +474,7 @@ const SignUpForm = (props) => {
             >
               Submit
             </Button>
-          </Form>
+          </form>
         )}
       </Formik>
     </Wrapper>

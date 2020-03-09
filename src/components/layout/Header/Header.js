@@ -62,7 +62,7 @@ const LeftContainer = styled.div`
 
 const Header = (props) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const displayMobile = useMediaQuery('(max-width:700px)');
+  const displayMobile = useMediaQuery('(max-width: 750px)');
 
   return (
     <>

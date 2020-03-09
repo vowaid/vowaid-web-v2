@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { makeStyles } from '@material-ui/core/styles';
+
 import { Button, P , Link, Seo, TwcHero, Banner, Wrapper } from '../../components';
 
 import { gutter } from '../../styles/utils';
