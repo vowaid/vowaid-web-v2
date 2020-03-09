@@ -15,7 +15,7 @@ import Twc from '../pages/Services/Twc';
 
 import Contact from '../pages/Contact';
 import Landing from '../pages/Landing';
-import Auth from '../pages/Auth/Auth';
+// import Auth from '../pages/Auth/Auth';
 
 import Store from '../pages/Store';
 import Donate from '../pages/Donate';
