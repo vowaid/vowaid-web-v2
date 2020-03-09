@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   form: {
-    padding: `${gutter.XXL} 0`,
+    marginTop: gutter.L,
     width: '100%',
   },
 }));
@@ -81,7 +81,7 @@ const SignInForm = (props) => {
   return (
     <Wrapper className={classes.root}>
       <header>
-        <H1>Sign In</H1>
+        <H1 paragraph>Sign In</H1>
 
         <P>Not a member? <Link to='/signup' underline='hover'>Sign Up</Link></P>
       </header>

@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   form: {
-    padding: `${gutter.XXL} 0`,
+    marginTop: gutter.L,
     width: '100%',
 
     '& fieldset': {

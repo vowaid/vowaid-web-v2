@@ -7,10 +7,11 @@ import { Content, SignInForm, SignUpForm, Seo } from '../../components';
  */
 const Auth = (props) => {
   const isSignIn = props.location.pathname.includes('signin');
+  const title = (isSignIn) ? 'Sign In' : 'Sign Up';
 
   return (
     <main>
-      <Seo title='Sign In' />
+      <Seo title={title} />
 
       <Content>
         {(isSignIn) ? <SignInForm /> : <SignUpForm />}
