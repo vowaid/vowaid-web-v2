@@ -1,15 +1,16 @@
 import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, ButtonGroup, TextField } from '@material-ui/core';
+import { ButtonGroup, TextField } from '@material-ui/core';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import { H1, H2, H3, P, Seo } from '../components';
+import { Button, H1, H2, H3, P, Seo, Wrapper } from '../components';
 
 import { gutter, pxToEm } from '../styles/utils';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: gutter.XXL,
+    paddingBottom: gutter.XXL,
+    paddingTop: gutter.XXL,
   },
   header: {
     marginBottom: gutter.L,
@@ -65,52 +66,53 @@ const DonatePage = () => {
     <main className={classes.root}>
       <Seo title='Donate' />
 
-      <header className={classes.header}>
-        <H1 paragraph>Donate</H1>
-        <H2 paragraph>Change lives with your gift!</H2>
+      <Wrapper>
+        <header className={classes.header}>
+          <H1 paragraph>Donate</H1>
+          <H2 paragraph>Change lives with your gift!</H2>
 
-        <P>Your donation supports our mission to help Veterans in need.</P>
-      </header>
+          <P>Your donation supports our mission to help Veterans in need.</P>
+        </header>
 
-      <section>
-        <div className={classes.buttonGroup}>
-          <H3 paragraph>Choose your donation</H3>
-          <ButtonGroup variant='contained' color='default' aria-label='contained primary button group'>
-            {donationAmounts.map((donationAmount) => (
-              <Button
-                className='MuiToolbar-regular'
-                variant='outlined'
-                color='deault'
-                onClick={(event) => {
-                  event.preventDefault();
-                  setDonationValue(donationAmount)
-                }}
-              >${donationAmount}</Button>
-            ))}
-          </ButtonGroup>
-        </div>
+        <section>
+          <div className={classes.buttonGroup}>
+            <H3 paragraph>Choose your donation</H3>
+            <ButtonGroup variant='contained' color='default' aria-label='contained primary button group'>
+              {donationAmounts.map((donationAmount) => (
+                <Button
+                  variant='outlined'
+                  color='deault'
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setDonationValue(donationAmount)
+                  }}
+                >${donationAmount}</Button>
+              ))}
+            </ButtonGroup>
+          </div>
 
-        <div className={classes.custom}>
-          <P>Or enter your donation:</P>
+          <div className={classes.custom}>
+            <P>Or enter your donation:</P>
 
-          <span>$</span>
-          <TextField onChange={handleChange} type='number' value={donationValue} />
-        </div>
+            <span>$</span>
+            <TextField onChange={handleChange} type='number' value={donationValue} />
+          </div>
 
-        <Button
-          variant='contained'
-          color='primary'
-          className='snipcart-add-item'
-          endIcon={<AddShoppingCartIcon />}
-          data-item-id={generateId(donationValue)}
-          data-item-name={`Donate $${donationValue}`}
-          data-item-price={`${donationValue}.00`}
-          data-item-url='/products.json'
-          data-item-description={`Donate $${donationValue}`}
-          data-item-categories={'donation'}
-          disabled={donationValue === 0}
-        >Donate ${donationValue}</Button>
-      </section>
+          <Button
+            variant='contained'
+            color='primary'
+            className='snipcart-add-item'
+            endIcon={<AddShoppingCartIcon />}
+            data-item-id={generateId(donationValue)}
+            data-item-name={`Donate $${donationValue}`}
+            data-item-price={`${donationValue}.00`}
+            data-item-url='/products.json'
+            data-item-description={`Donate $${donationValue}`}
+            data-item-categories={'donation'}
+            disabled={donationValue === 0}
+          >Donate ${donationValue}</Button>
+        </section>
+      </Wrapper>
     </main>
   );
 };

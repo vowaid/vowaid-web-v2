@@ -83,14 +83,6 @@ const Footer = ({ className }) => (
              underline='hover'
             >Donate</Link>
           </li>
-          <li>
-            <Link
-             to='/sitemap.xml'
-             underline='hover'
-            >
-              <small>Sitemap</small>
-            </Link>
-          </li>
         </ul>
       </FooterNav>
 
