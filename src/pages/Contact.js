@@ -35,9 +35,9 @@ const ContactPage = () => (
 
           <Link
             className='font-size--4'
-            href='mailto:contact@vowaidfoundation.org'
+            href='mailto:contact@vowaid.org'
             underline='hover'
-          >contact@vowaidfoundation.org</Link>
+          >contact@vowaid.org</Link>
         </Section>
 
         <Section>

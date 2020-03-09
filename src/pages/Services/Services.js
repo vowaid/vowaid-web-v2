@@ -40,7 +40,7 @@ const ServicesPage = () => (
         <ContactInfo>
           <li>
             <P variant='h5'>Send us an email</P>
-            <Link underline='hover' href='mailto:contact@vowaidfoundation.org'>contact@vowaidfoundation.org</Link>
+            <Link underline='hover' href='mailto:contact@vowaid.org'>contact@vowaid.org</Link>
           </li>
 
           <li>

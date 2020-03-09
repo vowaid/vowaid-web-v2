@@ -15,9 +15,9 @@ import { Helmet } from 'react-helmet';
 const SEO = ({ description, lang, meta, keywords, title, viewport }) => {
   const defaultSiteMetadata = {
     title: 'Veterans of War Aid Foundation',
-    description: 'The Veterans of War Aid Foundation (VOWAID) creates, unites, and supports businesses that fight for American combat veterans and uses contacts and revenues to deliver targeted assistance to American Heroes in need.',
+    description: 'The Veterans of War Aid Foundation (VOWAID) delivers targeted assistance to American Heroes in need.',
     author: '@vowaid',
-    siteUrl: `https://www.vowaidfoundation.com`,
+    siteUrl: `https://www.vowaid.org`,
     viewport: 'width=device-width, initial-scale=1.0'
   };
 

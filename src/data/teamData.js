@@ -19,7 +19,7 @@ const teamMembers = [
   {
     id: 'fe1774f0-5ef1-4bde-b496-c2708129e414',
     name: 'Alice Ward',
-    email: 'alice@vowaidfoundation.org',
+    email: 'alice@vowaid.org',
     title: {
       full: 'Founder / Director',
       abbr: '',
@@ -47,7 +47,7 @@ const teamMembers = [
   {
     id: 'e281ab2c-46a3-4be0-a85a-f0d55c3c1de3',
     name: 'Nate Acevedo',
-    email: 'naceacevedo@vowaidfoundation.org',
+    email: 'naceacevedo@vowaid.org',
     title: {
       full: 'Chief Executive Officer',
       abbr: 'CEO',
@@ -65,7 +65,7 @@ const teamMembers = [
   {
     id: '019d1ead-54ef-4f4b-a63d-e20b9c55b056',
     name: 'Lisa Hemmie',
-    email: 'lisa@vowaidfoundation.org',
+    email: 'lisa@vowaid.org',
     title: {
       full: 'Chief Operating Officer',
       abbr: 'COO',
@@ -100,7 +100,7 @@ const teamMembers = [
   {
     id: 'f5d6c6a4-c268-4b48-a7b8-3f030b22e63a',
     name: 'Holly Springsteen',
-    email: 'holly@vowaidfoundation.org',
+    email: 'holly@vowaid.org',
     title: {
       full: 'Chief Technology Officer',
       abbr: 'CTO',
@@ -137,7 +137,7 @@ const teamMembers = [
   {
     id: '94de5018-82a3-4377-bf4a-42d9a18b169d',
     name: 'Candy Brazil',
-    email: 'candy@vowaidfoundation.org',
+    email: 'candy@vowaid.org',
     title: {
       full: 'Chief Financial Officer',
       abbr: 'CFO',
@@ -155,7 +155,7 @@ const teamMembers = [
   {
     id: '5240e765-acac-4560-accc-34673bf1a197',
     name: 'Hunter Nunnery',
-    email: 'hunter@vowaidfoundation.org ',
+    email: 'hunter@vowaid.org ',
     title: {
       full: 'Jr. Web Developer',
       abbr: '',
@@ -215,7 +215,7 @@ const teamMembers = [
   {
     id: 'e5e73b8a-7c57-445d-98c4-0a27c526f707',
     name: 'Austin Thomas',
-    email: 'austin@vowaidfoundation.org',
+    email: 'austin@vowaid.org',
     title: {
       full: 'Photographer',
       abbr: '',
@@ -240,7 +240,7 @@ const teamMembers = [
   {
     id: '74dee288-941b-4ee4-80b6-b493c0f3e88b',
     name: 'Jacob Taylor',
-    email: 'jacob@vowaidfoundation.org',
+    email: 'jacob@vowaid.org',
     title: {
       full: 'Public Relations',
       abbr: '',
