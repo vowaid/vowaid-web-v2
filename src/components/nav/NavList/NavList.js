@@ -22,24 +22,25 @@ const useStyles = makeStyles(theme => ({
       justifyContent: 'center',
       height: '100%',
     },
+
+    '& button:last-of-type': {
+      minWidth: `calc(${pxToEm(44)} + 5em)`,
+      position: 'relative',
+
+      '&> *': {
+        position: 'absolute',
+      },
+
+      '&> .snipcart-items-count': {
+        left: pxToEm(5),
+      },
+
+      '& svg': {
+        height: pxToEm(44),
+        width: 'auto',
+      },
+    }
   },
-  cartButton: {
-    minWidth: `calc(${pxToEm(44)} + 5em)`,
-    position: 'relative',
-
-    '&> *': {
-      position: 'absolute',
-    },
-
-    '&> .snipcart-items-count': {
-      left: pxToEm(5),
-    },
-
-    '& svg': {
-      height: pxToEm(44),
-      width: 'auto',
-    },
-  }
 }));
 
 /**
@@ -85,9 +86,9 @@ const NavList = ({ className }) => {
           to='/signin'
         >Sign&nbsp;In</Button> */}
 
-        <Button className={`${classes.cartButton} snipcart-checkout`}>
+
+        <Button className='snipcart-checkout'>
           <ShoppingCart />
-          <span className='snipcart-items-count'>0</span>
         </Button>
       </ButtonGroup>
     </nav>

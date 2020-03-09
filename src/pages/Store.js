@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'uuid/v4';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Card, CardMedia, CardContent, CardActions } from '@material-ui/core';
@@ -59,7 +60,7 @@ const Store = (props) => {
           }
 
           return (
-            <Card>
+            <Card key={uuid()}>
               <CardMedia
                 className={classes.media}
                 image={storeItem.images[0]}

@@ -9,10 +9,10 @@ const SiteButton = ({ className, ...others }) => {
     let newClassName = className || '';
 
     if (!newClassName.includes(toolbarClass)) {
-      newClassName += toolbarClass;
+      newClassName += ` ${toolbarClass} `;
     }
 
-    return newClassName;
+    return newClassName.trim();
   };
 
   return (
