@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Typography } from '@material-ui/core';
-import { H1, H2, H3, P, Content, Link, Seo, Banner, Programs, ServicesHero } from '../../components';
+import { H1, H2, H3, P, Wrapper, Link, Seo, Banner, Programs, ServicesHero } from '../../components';
 
 import { gutter } from '../../styles/utils';
 import { vowaidColors } from '../../styles/colors';
@@ -19,7 +19,7 @@ const ServicesPage = () => (
 
     <ServicesHero />
 
-    <Content>
+    <Wrapper>
       <Programs />
 
       <Contact>
@@ -30,10 +30,10 @@ const ServicesPage = () => (
 
         <P variant='h4'>Take a look at our veteran support clubs above, and get the right support for you.</P>
 
-        <SignIn>
+        {/* <SignIn>
           <P variant='body1'>Already signed up with us?</P>
           <Link underline='hover' to="/signin">Sign In Here</Link>
-        </SignIn>
+        </SignIn> */}
 
         <H3>Don’t see what you’re looking for? Please reach out to us.</H3>
 
@@ -49,7 +49,7 @@ const ServicesPage = () => (
           </li>
         </ContactInfo>
       </Contact>
-    </Content>
+    </Wrapper>
 
     <Banner background={vowaidColors.blue.default} />
   </main>
@@ -68,13 +68,13 @@ const Contact = styled.section`
   }
 `;
 
-const SignIn = styled.div`
-  padding: ${gutter.XXL} 0;
+// const SignIn = styled.div`
+//   padding: ${gutter.XXL} 0;
 
-  p {
-    margin-bottom: ${gutter.S};
-  }
-`;
+//   p {
+//     margin-bottom: ${gutter.S};
+//   }
+// `;
 
 const ContactInfo = styled.ul`
   display: flex;

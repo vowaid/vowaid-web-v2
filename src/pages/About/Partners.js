@@ -74,6 +74,10 @@ const Partner = styled(Card)`
     }
   }
 
+  a {
+    color: inherit;
+  }
+
   @media only screen and (max-width: 800px) {
     width: 90vw;
   }

@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   cartButton: {
-    minWidth: `calc(${pxToEm(44)} + 4em)`,
+    minWidth: `calc(${pxToEm(44)} + 5em)`,
 
     '& svg': {
       height: pxToEm(44),
@@ -116,12 +116,12 @@ const NavDrawer = (props) => {
               >Donate</Button>
             </ListItem>
 
-            <ListItem className={classes.listOption}>
+            {/* <ListItem className={classes.listOption}>
               <Button
                 component={Link}
                 to='/signin'
               >Sign&nbsp;In</Button>
-            </ListItem>
+            </ListItem> */}
           </List>
         </nav>
       </SwipeableDrawer>

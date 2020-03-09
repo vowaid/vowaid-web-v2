@@ -50,6 +50,7 @@ const StyledToolbar = styled(Toolbar)`
   align-items: center;
   display: flex;
   justify-content: space-between;
+  padding-right: 0 !important;
 `;
 
 const LeftContainer = styled.div`

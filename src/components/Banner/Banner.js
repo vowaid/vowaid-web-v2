@@ -89,8 +89,8 @@ const Banner = ({ background, color }) => {
       <ColoredButton
         variant='outlined'
         component={Link}
-        to='/signup'
-      >Sign&nbsp;Up</ColoredButton>
+        to='/contact'
+      >Contact Us</ColoredButton>
     </StyledBanner>
   );
 };

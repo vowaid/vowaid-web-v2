@@ -20,6 +20,17 @@ import Auth from '../pages/Auth/Auth';
 import Store from '../pages/Store';
 import Donate from '../pages/Donate';
 
+/**
+ * TODO:
+ *  - Add Auth
+{
+  path: '/signin',
+  component: Auth,
+}, {
+  path: '/signup',
+  component: Auth,
+},
+ */
 const routes = [{
   exact: true,
   path: '/',
@@ -60,12 +71,6 @@ const routes = [{
   exact: true,
   path: '/contact',
   component: Contact,
-}, {
-  path: '/signin',
-  component: Auth,
-}, {
-  path: '/signup',
-  component: Auth,
 }, {
   path: '/donate',
   component: Donate,

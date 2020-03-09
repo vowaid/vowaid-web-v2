@@ -30,7 +30,7 @@ const TwcPage = () => {
 
           <P paragraph><strong>Want to be part of our Transitioning Warrior Club?</strong></P>
 
-          <Button variant='contained' color='default' to='/signup' component={Link}>Sign Up</Button>
+          <Button variant='contained' color='default' to='/contact' component={Link}>Contact Us</Button>
         </section>
       </Wrapper>
 

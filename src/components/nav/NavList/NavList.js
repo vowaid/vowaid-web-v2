@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   cartButton: {
-    minWidth: `calc(${pxToEm(44)} + 4em)`,
+    minWidth: `calc(${pxToEm(44)} + 5em)`,
     position: 'relative',
 
     '&> *': {
@@ -79,11 +79,11 @@ const NavList = ({ className }) => {
           to='/donate'
         >Donate</Button>
 
-        <Button
+        {/* <Button
           className='MuiToolbar-regular'
           component={Link}
           to='/signin'
-        >Sign&nbsp;In</Button>
+        >Sign&nbsp;In</Button> */}
 
         <Button className={`${classes.cartButton} snipcart-checkout`}>
           <ShoppingCart />
