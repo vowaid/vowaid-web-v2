@@ -59,14 +59,18 @@ const NavDrawer = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
-  const toggleDrawer = () => {
-    setOpen(!open);
+  const toggleDrawer = (isOpen) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setOpen(isOpen);
   }
 
   return (
     <>
       <ButtonGroup>
-        <Button variant='text' onClick={toggleDrawer}><Menu /></Button>
+        <Button variant='text' onClick={toggleDrawer(true)}><Menu /></Button>
 
         <Button variant='text' className={`${classes.cartButton} snipcart-checkout`}>
           <ShoppingCart />
@@ -74,16 +78,16 @@ const NavDrawer = (props) => {
         </Button>
       </ButtonGroup>
 
-      <SwipeableDrawer anchor='right' open={open} onClose={toggleDrawer}>
+      <SwipeableDrawer anchor='right' open={open} onClose={toggleDrawer(false)} variant='temporary'>
         <nav>
           <List className={classes.list}>
-            <ListItem className={classes.closeItem}>
-              <Button onClick={toggleDrawer}><ArrowBackIos /></Button>
+            <ListItem className={classes.closeItem} onClick={toggleDrawer(false)}>
+              <Button><ArrowBackIos /></Button>
             </ListItem>
 
             <Divider />
 
-            <ListItem className={`${classes.listOption} left`}>
+            <ListItem className={`${classes.listOption} left`} onClick={toggleDrawer(false)}>
               <Button
                 variant='text'
                 component={Link}
@@ -91,7 +95,7 @@ const NavDrawer = (props) => {
               >About</Button>
             </ListItem>
 
-            <ListItem className={`${classes.listOption} left`}>
+            <ListItem className={`${classes.listOption} left`} onClick={toggleDrawer(false)}>
               <Button
                 variant='text'
                 component={Link}
@@ -99,7 +103,7 @@ const NavDrawer = (props) => {
               >Services</Button>
             </ListItem>
 
-            <ListItem className={`${classes.listOption} left`}>
+            <ListItem className={`${classes.listOption} left`} onClick={toggleDrawer(false)}>
               <Button
                 variant='text'
                 component={Link}
@@ -107,7 +111,7 @@ const NavDrawer = (props) => {
               >Store</Button>
             </ListItem>
 
-            <ListItem className={classes.listOption}>
+            <ListItem className={classes.listOption} onClick={toggleDrawer(false)}>
               <Button
                 color='secondary'
                 variant='contained'
@@ -116,7 +120,7 @@ const NavDrawer = (props) => {
               >Donate</Button>
             </ListItem>
 
-            {/* <ListItem className={classes.listOption}>
+            {/* <ListItem className={classes.listOption} onClick={toggleDrawer(false)}>
               <Button
                 component={Link}
                 to='/signin'

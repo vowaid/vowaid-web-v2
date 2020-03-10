@@ -93,10 +93,23 @@ const AboutSection = styled(Wrapper)`
 
 const LinkGroup = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 
   > a:not(:last-child) {
     margin-right: 5vw;
+  }
+
+  @media only screen and (max-width: 800px) {
+    margin-bottom: ${gutter.L};
+
+    > a {
+      width: 100%;
+
+      &:not(:last-child) {
+        margin: 0 0 ${gutter.M};
+      }
+    }
   }
 `;
 

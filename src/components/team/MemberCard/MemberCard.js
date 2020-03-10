@@ -115,11 +115,11 @@ const StyledMemberCard = styled(Card)`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: ${pxToEm(300)};
+    width: 90vw;
 
     .card--image {
-      height: ${pxToEm(300)};
-      width: ${pxToEm(300)};
+      height: auto;
+      width: 100%;
     }
 
     .card--content {

@@ -96,9 +96,10 @@ const Footer = ({ className }) => (
 
     <LinkSection>
       <SocialList socialLinks={{
-        facebook: '',
-        instagram: '',
-        twitter: '',
+        facebook: 'https://www.facebook.com/vowaid/',
+        instagram: 'https://www.instagram.com/vow_aid/',
+        twitter: 'https://twitter.com/vow_aid',
+        github: 'https://github.com/vowaid',
       }} />
 
       <CharityList>

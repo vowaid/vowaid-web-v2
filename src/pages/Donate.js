@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
  * Description.
  */
 const DonatePage = () => {
-  const [donationValue, setDonationValue] = React.useState(0);
+  const [donationValue, setDonationValue] = React.useState('0');
   const donationAmounts = [25, 50, 100, 150, 250];
   const classes = useStyles();
 
@@ -61,6 +61,8 @@ const DonatePage = () => {
   const handleChange = (event) => {
     setDonationValue(event.target.value);
   };
+
+  const donationDisabled = donationValue.toString() === '' || donationValue.toString() === '0';
 
   return (
     <main className={classes.root}>
@@ -95,7 +97,16 @@ const DonatePage = () => {
             <P>Or enter your donation:</P>
 
             <span>$</span>
-            <TextField onChange={handleChange} type='number' value={donationValue} />
+            <TextField
+              onChange={handleChange}
+              type='number'
+              value={donationValue}
+              onBlur={(event) => {
+                if (event.target.value === '') {
+                  setDonationValue('0');
+                }
+              }}
+            />
           </div>
 
           <Button
@@ -109,8 +120,8 @@ const DonatePage = () => {
             data-item-url='/products.json'
             data-item-description={`Donate $${donationValue}`}
             data-item-categories={'donation'}
-            disabled={donationValue === 0}
-          >Donate ${donationValue}</Button>
+            disabled={donationDisabled}
+          >Donate ${donationValue || '0'}</Button>
         </section>
       </Wrapper>
     </main>
