@@ -58,19 +58,29 @@ const NavList = ({ className }) => {
           className='MuiToolbar-regular'
           component={Link}
           to='/about'
+          format='nav'
         >About</Button>
 
         <Button
           className='MuiToolbar-regular'
           component={Link}
           to='/services'
+          format='nav'
         >Services</Button>
 
         <Button
           className='MuiToolbar-regular'
           component={Link}
           to='/store'
+          format='nav'
         >Store</Button>
+
+        <Button
+          className='MuiToolbar-regular'
+          component={Link}
+          to='/contact'
+          format='nav'
+        >Contact</Button>
 
         <Button
           className='MuiToolbar-regular'
@@ -78,6 +88,7 @@ const NavList = ({ className }) => {
           variant='contained'
           component={Link}
           to='/donate'
+          format='nav'
         >Donate</Button>
 
         {/* <Button

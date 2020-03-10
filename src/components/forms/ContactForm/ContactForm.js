@@ -118,7 +118,18 @@ const ContactForm = (props) => {
         touched,
         values,
       }) => (
-        <Form onSubmit={handleSubmit}>
+        <Form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+        >
+          {/* NETLIFY FORM NAME */}
+          <input type="hidden" name="form-name" value="contact" />
+          {/* NETLIFY BOT FIELD */}
+          <input type="text" name="bot-field" class="hidden" />
+
           <section>
             <InputGroup>
               <Field

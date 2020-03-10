@@ -91,6 +91,7 @@ const NavDrawer = (props) => {
                 variant='text'
                 component={Link}
                 to='/about'
+                format='nav'
               >About</Button>
             </ListItem>
 
@@ -99,6 +100,7 @@ const NavDrawer = (props) => {
                 variant='text'
                 component={Link}
                 to='/services'
+                format='nav'
               >Services</Button>
             </ListItem>
 
@@ -107,7 +109,17 @@ const NavDrawer = (props) => {
                 variant='text'
                 component={Link}
                 to='/store'
+                format='nav'
               >Store</Button>
+            </ListItem>
+
+            <ListItem className={`${classes.listOption} left`} onClick={toggleDrawer(false)}>
+              <Button
+                variant='text'
+                component={Link}
+                to='/contact'
+                format='nav'
+              >Contact</Button>
             </ListItem>
 
             <ListItem className={classes.listOption} onClick={toggleDrawer(false)}>
@@ -116,6 +128,7 @@ const NavDrawer = (props) => {
                 variant='contained'
                 component={Link}
                 to='/donate'
+                format='nav'
               >Donate</Button>
             </ListItem>
 
@@ -123,6 +136,7 @@ const NavDrawer = (props) => {
               <Button
                 component={Link}
                 to='/signin'
+                format='nav'
               >Sign&nbsp;In</Button>
             </ListItem> */}
           </List>
