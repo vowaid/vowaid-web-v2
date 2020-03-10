@@ -74,7 +74,6 @@ const NavDrawer = (props) => {
 
         <Button variant='text' className={`${classes.cartButton} snipcart-checkout`}>
           <ShoppingCart />
-          <span className='snipcart-items-count'>0</span>
         </Button>
       </ButtonGroup>
 
