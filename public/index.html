@@ -33,6 +33,20 @@
   </head>
 
   <body>
+    <form data-netlify="true" data-netlify-recaptcha="true" hidden name="contact" netlify-honeypot="bot-field">
+      <input name="bot-field" type="hidden" />
+
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+
+      <input type="text" name="branch_of_service" />
+      <input type="text" name="rank" />
+      <input type="text" name="discharge_type" />
+
+      <textarea name="message"></textarea>
+    </form>
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

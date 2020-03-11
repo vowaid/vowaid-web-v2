@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { styled as muiStyled } from '@material-ui/core/styles';
-import isEmpty from 'lodash/isEmpty'
+import isEmpty from 'lodash/isEmpty';
+import qs from 'qs';
+import axios from 'axios';
 
 import { Formik, Field, ErrorMessage } from 'formik';
 import { TextField } from '@material-ui/core';
@@ -64,11 +66,37 @@ const ContactForm = (props) => {
    * @param {} values
    * @param {} actions
    */
-  const onFormSubmit = (values, actions) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
+  const onFormSubmit = async (values, actions) => {
+    // setTimeout(() => {
+    //   alert(JSON.stringify(values, null, 2));
+    //   actions.setSubmitting(false);
+    // }, 1000);
+
+    const data = {
+      'form-name': 'contact',
+      ...values,
+    };
+
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: qs.stringify(data),
+      url: '/'
+    };
+
+    console.log(data, options);
+
+    try {
+      await axios(options);
       actions.setSubmitting(false);
-    }, 1000);
+      // setMsgSent(true);
+      // formReset();
+      console.log('success');
+    } catch (error) {
+      // setErrMsg(e.message);
+      console.error(error);
+      actions.setSubmitting(false);
+    }
   }
 
   /**
@@ -119,16 +147,18 @@ const ContactForm = (props) => {
         values,
       }) => (
         <Form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
+          name='contact'
+          method='POST'
+          data-netlify='true'
+          data-netlify-honeypot='bot-field'
+          netlify="true"
+          netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
         >
           {/* NETLIFY FORM NAME */}
-          <input type="hidden" name="form-name" value="contact" />
+          <Field type='hidden' name='form-name' value='contact' />
           {/* NETLIFY BOT FIELD */}
-          <input type="text" name="bot-field" class="hidden" />
+          <Field type='hidden' name='bot-field' />
 
           <section>
             <InputGroup>
