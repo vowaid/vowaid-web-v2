@@ -51,7 +51,7 @@ const LandingHero = () => {
   );
 };
 
-const sectionHeight = '50vh';
+const sectionHeight = '60vh';
 
 const StyledHero = styled.article`
   height: ${sectionHeight};
