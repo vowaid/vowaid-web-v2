@@ -33,16 +33,18 @@
   </head>
 
   <body>
-    <form data-netlify="true" data-netlify-recaptcha="true" hidden name="contact" netlify-honeypot="bot-field">
+    <!-- A little help for the Netlify post-processing bots -->
+    <form data-netlify="true" hidden name="contact" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="Contact Form" />
       <input name="bot-field" type="hidden" />
 
       <input type="text" name="name" />
       <input type="email" name="email" />
       <input type="tel" name="phone" />
 
-      <input type="text" name="branch_of_service" />
-      <input type="text" name="rank" />
-      <input type="text" name="discharge_type" />
+      <select name="branch_of_service"></select>
+      <select name="rank"></select>
+      <select name="discharge_type"></select>
 
       <textarea name="message"></textarea>
     </form>

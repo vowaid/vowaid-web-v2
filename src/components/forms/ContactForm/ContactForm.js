@@ -147,7 +147,7 @@ const ContactForm = (props) => {
         values,
       }) => (
         <Form
-          name='contact'
+          name='Contact Form'
           method='POST'
           data-netlify='true'
           data-netlify-honeypot='bot-field'
@@ -156,7 +156,7 @@ const ContactForm = (props) => {
           onSubmit={handleSubmit}
         >
           {/* NETLIFY FORM NAME */}
-          <Field type='hidden' name='form-name' value='contact' />
+          <Field type='hidden' name='form-name' value='Contact Form' />
           {/* NETLIFY BOT FIELD */}
           <Field type='hidden' name='bot-field' />
 
