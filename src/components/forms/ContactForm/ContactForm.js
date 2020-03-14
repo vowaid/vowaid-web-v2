@@ -67,13 +67,8 @@ const ContactForm = (props) => {
    * @param {} actions
    */
   const onFormSubmit = async (values, actions) => {
-    // setTimeout(() => {
-    //   alert(JSON.stringify(values, null, 2));
-    //   actions.setSubmitting(false);
-    // }, 1000);
-
     const data = {
-      'form-name': 'contact',
+      'form-name': 'Contact Form',
       ...values,
     };
 
@@ -81,21 +76,19 @@ const ContactForm = (props) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: qs.stringify(data),
-      url: '/'
+      url: props.location.pathname
     };
-
-    console.log(data, options);
 
     try {
       await axios(options);
       actions.setSubmitting(false);
-      // setMsgSent(true);
-      // formReset();
-      console.log('success');
+      actions.resetForm({});
+      actions.setStatus({ success: true });
     } catch (error) {
       // setErrMsg(e.message);
-      console.error(error);
+      actions.setStatus({success: false});
       actions.setSubmitting(false);
+      actions.setErrors({submit: error.message});
     }
   }
 
@@ -142,6 +135,7 @@ const ContactForm = (props) => {
         isValidating,
         setFieldTouched,
         setFieldValue,
+        status,
         submitForm,
         touched,
         values,
@@ -154,6 +148,8 @@ const ContactForm = (props) => {
           netlify="true"
           netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
+          success={!!status && !!status.success}
+          error={!!errors.submit}
         >
           {/* NETLIFY FORM NAME */}
           <Field type='hidden' name='form-name' value='Contact Form' />
