@@ -76,7 +76,7 @@ const ContactForm = (props) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: qs.stringify(data),
-      url: props.location.pathname
+      url: '/',
     };
 
     try {
@@ -85,7 +85,6 @@ const ContactForm = (props) => {
       actions.resetForm({});
       actions.setStatus({ success: true });
     } catch (error) {
-      // setErrMsg(e.message);
       actions.setStatus({success: false});
       actions.setSubmitting(false);
       actions.setErrors({submit: error.message});
