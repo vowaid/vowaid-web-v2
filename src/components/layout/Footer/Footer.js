@@ -12,6 +12,8 @@ import { vowaidColors } from '../../../styles/colors';
 import CharityNavigatorSeal from '../../../assets/images/charity-navigator.png';
 import GuideStarSeal from '../../../assets/images/guidestar-seal-gold.png';
 
+import VowaidData, { SocialLinks } from '../../../data/vowaidData';
+
 /**
  * Global application footer.
  *
@@ -26,10 +28,10 @@ const Footer = ({ className }) => (
       <FooterLogo src={Logo} />
 
       <Address>
-        <Link href='tel:+7816061737'>781.606.1737</Link>
+        <Link href={`tel:${VowaidData.PHONE}`}>{VowaidData.PHONE}</Link>
 
-        <P>2307 S. Rural Road</P>
-        <P>Tempe, Arizona 85282</P>
+        <P>{VowaidData.ADDRESS_1}</P>
+        <P>{VowaidData.CITY}, {VowaidData.STATE} {VowaidData.ZIP}</P>
       </Address>
     </Section>
 
@@ -96,10 +98,10 @@ const Footer = ({ className }) => (
 
     <LinkSection>
       <SocialList socialLinks={{
-        facebook: 'https://www.facebook.com/vowaid/',
-        instagram: 'https://www.instagram.com/vow_aid/',
-        twitter: 'https://twitter.com/vow_aid',
-        github: 'https://github.com/vowaid',
+        facebook: SocialLinks.FACEBOOK,
+        instagram: SocialLinks.INSTAGRAM,
+        twitter: SocialLinks.TWITTER,
+        github: SocialLinks.GITHUB,
       }} />
 
       <CharityList>

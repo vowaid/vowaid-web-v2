@@ -7,6 +7,8 @@ import { H1, H2, H3, P, Wrapper, Link, Seo, Banner, Programs, ServicesHero } fro
 import { gutter } from '../../styles/utils';
 import { vowaidColors } from '../../styles/colors';
 
+import VowaidData from '../../data/vowaidData';
+
 /**
  * Description.
  */
@@ -40,12 +42,12 @@ const ServicesPage = () => (
         <ContactInfo>
           <li>
             <P variant='h5'>Send us an email</P>
-            <Link underline='hover' href='mailto:contact@vowaid.org'>contact@vowaid.org</Link>
+            <Link underline='hover' href={`mailto:${VowaidData.EMAIL}`}>{VowaidData.EMAIL}</Link>
           </li>
 
           <li>
             <Typography variant='h5' component='p'>Give us a ring</Typography>
-            <Link underline='hover' href='tel:7816061737'>781.606.1737</Link>
+            <Link underline='hover' href={`tel:${VowaidData.PHONE}`}>{VowaidData.PHONE}</Link>
           </li>
         </ContactInfo>
       </Contact>
