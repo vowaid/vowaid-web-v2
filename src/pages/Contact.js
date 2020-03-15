@@ -11,6 +11,8 @@ import Envelope from '../assets/icons/google/envelope-email-symbol.svg';
 
 import { createTransitionForProperties, gutter } from '../styles/utils';
 
+import VowaidData from '../data/vowaidData';
+
 /**
  * Description.
  */
@@ -35,9 +37,9 @@ const ContactPage = () => (
 
           <Link
             className='font-size--4'
-            href='mailto:contact@vowaid.org'
+            href={`mailto:${VowaidData.EMAIL}`}
             underline='hover'
-          >contact@vowaid.org</Link>
+          >{VowaidData.EMAIL}</Link>
         </Section>
 
         <Section>
@@ -48,9 +50,9 @@ const ContactPage = () => (
 
           <Link
             className='font-size--4'
-            href='tel:781-606-1737'
+            href={`tel:${VowaidData.PHONE}`}
             underline='hover'
-          >(781) 606-1737</Link>
+          >{VowaidData.PHONE}</Link>
         </Section>
 
         <Section>
@@ -60,8 +62,8 @@ const ContactPage = () => (
           </header>
 
           <address className='font-size--4'>
-            <span>2307 S. Rural Road</span>
-            <span>Tempe, Arizona 85282</span>
+            <P>{VowaidData.ADDRESS_1}</P>
+            <P>{VowaidData.CITY}, {VowaidData.STATE} {VowaidData.ZIP}</P>
           </address>
         </Section>
       </Article>
