@@ -5,6 +5,7 @@
 [![GitHub version](https://badge.fury.io/gh/vowaid%2Fvowaid-web-v2.svg)](https://badge.fury.io/gh/vowaid%2Fvowaid-web-v2)
 [![Coverage Status](https://coveralls.io/repos/github/vowaid/vowaid-web-v2/badge.svg)](https://coveralls.io/github/vowaid/vowaid-web-v2)
 [![Known Vulnerabilities](https://snyk.io/test/github/dwyl/hapi-auth-jwt2/badge.svg?targetFile=package.json)](https://snyk.io/test/github/vowaid/vowaid-web-v2?targetFile=package.json)
+[![Code Climate](https://codeclimate.com/github/vowaid/vowaid-web-v2/badges/gpa.svg)](https://codeclimate.com/github/vowaid/vowaid-web-v2)
 
 [![Dependency Status](https://david-dm.org/vowaid/vowaid-web-v2.svg)](https://david-dm.org/vowaid/vowaid-web-v2)
 [![devDependency Status](https://david-dm.org/vowaid/vowaid-web-v2/dev-status.svg)](https://david-dm.org/vowaid/vowaid-web-v2#info=devDependencies)
