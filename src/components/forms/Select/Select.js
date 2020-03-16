@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 import isEqual from 'lodash/isEqual';
 
@@ -13,7 +14,7 @@ import { chance } from '../../../utils/generators';
  * @param {} props
  */
 const SelectInput = (props) => {
-  const { options, onChange, required, value, ...others } = props;
+  const { options, onChange, label, required, value, ...others } = props;
   const id = `${chance.className()}-select`;
   const [selectOptions, setOptions] = React.useState(options);
   const [selectValue, setValue] = React.useState(value);
@@ -43,7 +44,7 @@ const SelectInput = (props) => {
 
   return (
     <FormControl required={required}>
-      <InputLabel id={id}>{props.label}</InputLabel>
+      <InputLabel id={id}>{label}</InputLabel>
       <Field
         as='select'
         component={Select}
@@ -59,6 +60,22 @@ const SelectInput = (props) => {
       </Field>
     </FormControl>
   );
+};
+
+SelectInput.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.object),
+  onChange: PropTypes.func,
+  label: PropTypes.string,
+  required: PropTypes.bool,
+  value: PropTypes.string,
+};
+
+SelectInput.defaultProps = {
+  options: [],
+  onChange: () => {},
+  label: '',
+  required: false,
+  value: '',
 };
 
 export default SelectInput;

@@ -1,9 +1,14 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router';
 import { render } from '@testing-library/react';
 import Footer from './Footer';
 
 describe('Footer Tests', () => {
   it('should render without errors with default props', () => {
-    render(<Footer />);
+    render(
+      <MemoryRouter>
+        <Footer />
+      </MemoryRouter>
+    );
   });
 });

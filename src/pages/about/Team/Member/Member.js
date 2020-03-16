@@ -18,13 +18,13 @@ const BioPage = (props) => {
   const [teamMember, setTeamMember] = React.useState({});
 
   React.useEffect(() => {
-    const query = queryString.parse(props.location.search);
+    const query = queryString.parse(window.location.search);
     const teamMember = teamMembers.filter((member) => (
       member.id === query.id
     ))[0];
 
     setTeamMember(teamMember);
-  }, [teamMember, props.location.search]);
+  }, [teamMember, window.location.search]);
 
   return (!isEmpty(teamMember)) ? (
     <main>
