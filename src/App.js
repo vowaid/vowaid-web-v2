@@ -13,7 +13,7 @@ import './styles';
 
 import { Header, Footer, Wrapper } from './components';
 
-import NotFound from './pages/NotFound';
+import { NotFound } from './pages';
 
 import ThemeProvider from './theme/ThemeProvider';
 
