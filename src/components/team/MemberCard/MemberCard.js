@@ -16,34 +16,40 @@ import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/u
  *
  * @class
  */
-const MemberCard = ({ teamMember }) => (
-  <StyledMemberCard>
-    <img
-      className="card--image"
-      src={teamMember.image}
-      alt={teamMember.name}
-    />
+const MemberCard = ({ teamMember }) => {
+  const { bio,branch, image, name, title, id, social, service } = teamMember;
+  let isDisabled = (bio !== undefined) ? isEmpty(bio()) : true;
+  const isServiceMember = (!isEmpty(branch));
 
-    <section className="card--content">
-      <header>
-        <H1>{teamMember.name}</H1>
-        <H2>{teamMember.title.full}</H2>
-      </header>
+  return (
+    <StyledMemberCard>
+      <img
+        className="card--image"
+        src={image}
+        alt={name}
+      />
 
-      <Button
-        variant='contained'
-        color='secondary'
-        disabled={isEmpty(teamMember.bio())}
-        component={Link}
-        to={`/about/team/member?id=${teamMember.id}`}
-      >Read Bio</Button>
+      <section className="card--content">
+        <header>
+          <H1>{name}</H1>
+          <H2>{title?.full}</H2>
+        </header>
 
-      <SocialList socialLinks={teamMember.social} />
-    </section>
+        <Button
+          variant='contained'
+          color='secondary'
+          disabled={isDisabled}
+          component={Link}
+          to={`/about/team/member?id=${id}`}
+        >Read Bio</Button>
 
-    {(!isEmpty(teamMember.service.branch)) && <ServiceFlag service={teamMember.service} />}
-  </StyledMemberCard>
-);
+        <SocialList socialLinks={social} />
+      </section>
+
+      {(isServiceMember) ? <ServiceFlag service={service} /> : null}
+    </StyledMemberCard>
+  );
+};
 
 MemberCard.propTypes = {
   teamMember: PropTypes.objectOf(PropTypes.any).isRequired,

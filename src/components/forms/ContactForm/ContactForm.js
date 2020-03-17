@@ -4,6 +4,7 @@ import { styled as muiStyled } from '@material-ui/core/styles';
 import isEmpty from 'lodash/isEmpty';
 import qs from 'qs';
 import axios from 'axios';
+import uuid from 'uuid/v4';
 
 import { Formik, Field, ErrorMessage } from 'formik';
 import { Collapse, TextField } from '@material-ui/core';
@@ -12,18 +13,9 @@ import { Button, H3, P, Select } from '../../index';
 import { gutter } from '../../../styles/utils';
 
 import { branchFormOptions, buildRankFormOptions } from '../../../utils/enums/militaryEnums';
+import { contactFormValues, FieldTypes, formFields } from '../../../utils/enums/formEnums';
 
 import ContactSchema from '../../../utils/schemas/contactSchema';
-
-const initialValues = {
-  name: '',
-  email: '',
-  phone: '',
-  branch: '',
-  rank: '',
-  discharge: '',
-  message: '',
-};
 
 const Form = styled.form`
   width: 100%;
@@ -121,7 +113,7 @@ const ContactForm = (props) => {
    */
   const validateForm = (values) => {
     let errors = {};
-    const keys = Object.keys(initialValues);
+    const keys = Object.keys(contactFormValues);
 
     for (let index = 0; index < keys.length; index++) {
       const key = keys[index];
@@ -137,6 +129,51 @@ const ContactForm = (props) => {
 
     return errors;
   }
+
+  /**
+   * Description.
+   *
+   * TODO:
+   *   - Create build for Select
+   *   - Create build for Textarea
+   *
+   * @param {} formikProps The props returned from Formik.
+   */
+  const buildFormFields = ({ errors, handleBlur, handleChange, touched, values }) => (
+    <>
+      {Object.keys(contactFormValues).map((contactFormKey) => {
+        const formField = formFields[contactFormKey];
+
+        switch (formField.type) {
+          case FieldTypes.SELECT: {
+            return null;
+          }
+          case FieldTypes.TEXTAREA: {
+            return null;
+          }
+          default: {
+            return (
+              <InputGroup key={uuid()}>
+                <Field
+                  component={formField.component}
+                  name={formField.name}
+                  id={formField.name}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  label={formField.label}
+                  placeholder={formField.label}
+                  required
+                  type={formField.type}
+                  value={values[formField.name]}
+                />
+                {(touched[formField.name] && errors[formField.name]) && <Feedback><ErrorMessage name={formField.name} /></Feedback>}
+              </InputGroup>
+            );
+          }
+        };
+      })}
+    </>
+  );
 
   const showSuccess = displayMessage === 'success';
   // const showError = displayMessage === 'error';
@@ -155,7 +192,7 @@ const ContactForm = (props) => {
 
       <Collapsable in={showForm}>
         <Formik
-          initialValues={initialValues}
+          initialValues={contactFormValues}
           validationSchema={ContactSchema}
           validate={validateForm}
           validateOnBlur
@@ -163,170 +200,128 @@ const ContactForm = (props) => {
           validateOnChange={false}
           onSubmit={onFormSubmit}
         >
-          {({
-            errors,
-            handleBlur,
-            handleChange,
-            handleSubmit,
-            isSubmitting,
-            isValidating,
-            setFieldTouched,
-            setFieldValue,
-            status,
-            submitForm,
-            touched,
-            values,
-          }) => (
-            <Form
-              name='Contact Form'
-              method='POST'
-              data-netlify='true'
-              data-netlify-honeypot='bot-field'
-              netlify="true"
-              netlify-honeypot="bot-field"
-              onSubmit={handleSubmit}
-              success={!!status && !!status.success}
-              error={!!errors.submit}
-            >
-              {/* NETLIFY FORM NAME */}
-              <Field type='hidden' name='form-name' value='Contact Form' />
-              {/* NETLIFY BOT FIELD */}
-              <Field type='hidden' name='bot-field' />
+          {(formikProps) => {
+            const {
+              errors,
+              handleBlur,
+              handleChange,
+              handleSubmit,
+              isSubmitting,
+              isValidating,
+              setFieldTouched,
+              setFieldValue,
+              status,
+              submitForm,
+              touched,
+              values,
+            } = formikProps;
 
-              <section>
-                <InputGroup>
-                  <Field
-                    component={TextField}
-                    name='name'
-                    id='name'
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    label='Name'
-                    placeholder='Name'
-                    required
-                    type='text'
-                    value={values.name}
-                  />
-                  {(touched.name && errors.name) && <Feedback><ErrorMessage name='name' /></Feedback>}
-                </InputGroup>
+            return (
+              <Form
+                name='Contact Form'
+                method='POST'
+                data-netlify='true'
+                data-netlify-honeypot='bot-field'
+                netlify="true"
+                netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                success={!!status && !!status.success}
+                error={!!errors.submit}
+              >
+                {/* NETLIFY FORM NAME */}
+                <Field type='hidden' name='form-name' value='Contact Form' />
+                {/* NETLIFY BOT FIELD */}
+                <Field type='hidden' name='bot-field' />
 
-                <InputGroup>
-                  <Field
-                    component={TextField}
-                    name='email'
-                    id='email'
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    label='Email'
-                    placeholder='email'
-                    required
-                    type='email'
-                    value={values.email}
-                  />
-                  {(touched.email && errors.email) && <Feedback><ErrorMessage name='email' /></Feedback>}
-                </InputGroup>
+                <section>
+                  {buildFormFields(formikProps)}
 
-                <InputGroup>
-                  <Field
-                    component={TextField}
-                    name='phone'
-                    id='phone'
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    label='Phone'
-                    placeholder='phone'
-                    required
-                    type='tel'
-                    value={values.phone}
-                  />
-                  {(touched.phone && errors.phone) && <Feedback><ErrorMessage name='phone' /></Feedback>}
-                </InputGroup>
+                  <InputGroup>
+                    <Select
+                      name='branch'
+                      id='branch'
+                      onBlur={() => setFieldTouched('branch', true)}
+                      onChange={value => {
+                        const newRanks = buildRankFormOptions(value);
+                        setRanks(newRanks);
+                        setFieldValue('branch', value);
+                      }}
+                      options={branchFormOptions()}
+                      label='Branch'
+                      placeholder='branch'
+                      required
+                      value={values.branch}
+                    />
+                    {(touched.branch && errors.branch) && <Feedback><ErrorMessage name='branch' /></Feedback>}
+                  </InputGroup>
 
-                <InputGroup>
-                  <Select
-                    name='branch'
-                    id='branch'
-                    onBlur={() => setFieldTouched('branch', true)}
-                    onChange={value => {
-                      const newRanks = buildRankFormOptions(value);
-                      setRanks(newRanks);
-                      setFieldValue('branch', value);
-                    }}
-                    options={branchFormOptions()}
-                    label='Branch'
-                    placeholder='branch'
-                    required
-                    value={values.branch}
-                  />
-                  {(touched.branch && errors.branch) && <Feedback><ErrorMessage name='branch' /></Feedback>}
-                </InputGroup>
+                  <InputGroup>
+                    <Select
+                      name='rank'
+                      id='rank'
+                      onBlur={() => setFieldTouched('rank', true)}
+                      onChange={(value) => setFieldValue('rank', value)}
+                      options={ranks}
+                      label='Rank'
+                      placeholder='rank'
+                      required
+                      value={values.rank}
+                    />
+                    {(touched.rank && errors.rank) && <Feedback><ErrorMessage name='rank' /></Feedback>}
+                  </InputGroup>
 
-                <InputGroup>
-                  <Select
-                    name='rank'
-                    id='rank'
-                    onBlur={() => setFieldTouched('rank', true)}
-                    onChange={(value) => setFieldValue('rank', value)}
-                    options={ranks}
-                    label='Rank'
-                    placeholder='rank'
-                    required
-                    value={values.rank}
-                  />
-                  {(touched.rank && errors.rank) && <Feedback><ErrorMessage name='rank' /></Feedback>}
-                </InputGroup>
+                  <InputGroup>
+                    <Select
+                      name='discharge'
+                      id='discharge'
+                      onBlur={() => setFieldTouched('discharge', true)}
+                      onChange={value => setFieldValue('discharge', value)}
+                      options={[
+                        { value: 'Not Applicable', label: 'N/A'},
+                        { value: 'honorable', label: 'Honorable' },
+                        { value: 'general', label: 'General' },
+                        { value: 'other than honorable conditions', label: 'Other Than Honorable Conditions' },
+                        { value: 'dishonorable', label: 'Dishonorable' },
+                        { value: 'officer', label: 'Officer' },
+                        { value: 'entry level separation', label: 'Entry Level Separation' },
+                      ]}
+                      label='Discharge'
+                      placeholder='discharge'
+                      required
+                      value={values.discharge}
+                    />
+                    {(touched.discharge && errors.discharge) && <Feedback><ErrorMessage name='discharge' /></Feedback>}
+                  </InputGroup>
 
-                <InputGroup>
-                  <Select
-                    name='discharge'
-                    id='discharge'
-                    onBlur={() => setFieldTouched('discharge', true)}
-                    onChange={value => setFieldValue('discharge', value)}
-                    options={[
-                      { value: 'Not Applicable', label: 'N/A'},
-                      { value: 'honorable', label: 'Honorable' },
-                      { value: 'general', label: 'General' },
-                      { value: 'other than honorable conditions', label: 'Other Than Honorable Conditions' },
-                      { value: 'dishonorable', label: 'Dishonorable' },
-                      { value: 'officer', label: 'Officer' },
-                      { value: 'entry level separation', label: 'Entry Level Separation' },
-                    ]}
-                    label='Discharge'
-                    placeholder='discharge'
-                    required
-                    value={values.discharge}
-                  />
-                  {(touched.discharge && errors.discharge) && <Feedback><ErrorMessage name='discharge' /></Feedback>}
-                </InputGroup>
+                  <InputGroup className='input-group--textarea'>
+                    <Field
+                      component={TextField}
+                      multiline
+                      name='message'
+                      id='message'
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      label='Message'
+                      placeholder='message'
+                      required
+                      value={values.message}
+                    />
+                    {(touched.message && errors.message) && <Feedback><ErrorMessage name='message' /></Feedback>}
+                  </InputGroup>
+                </section>
 
-                <InputGroup className='input-group--textarea'>
-                  <Field
-                    component={TextField}
-                    multiline
-                    name='message'
-                    id='message'
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    label='Message'
-                    placeholder='message'
-                    required
-                    value={values.message}
-                  />
-                  {(touched.message && errors.message) && <Feedback><ErrorMessage name='message' /></Feedback>}
-                </InputGroup>
-              </section>
-
-              <Button
-                color='primary'
-                variant='contained'
-                disabled={isSubmitting || isValidating}
-                onClick={() => {
-                  submitForm();
-                }}
-                type='submit'
-              >Submit</Button>
-            </Form>
-          )}
+                <Button
+                  color='primary'
+                  variant='contained'
+                  disabled={isSubmitting || isValidating}
+                  onClick={() => {
+                    submitForm();
+                  }}
+                  type='submit'
+                >Submit</Button>
+              </Form>
+            );
+          }}
         </Formik>
       </Collapsable>
     </>

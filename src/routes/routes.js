@@ -1,24 +1,21 @@
-import About from '../pages/About/About';
-import Faqs from '../pages/About/Faqs';
-import Partners from '../pages/About/Partners';
-import Team from '../pages/About/Team/Team';
-import TeamMember from '../pages/About/Team/Member';
-
-// import Events from '../pages/Events';
-
-// import Privacy from '../pages/Legal/Privacy';
-// import Terms from '../pages/Legal/Terms';
-
-import Services from '../pages/Services/Services';
-import Swc from '../pages/Services/Swc';
-import Twc from '../pages/Services/Twc';
-
-import Contact from '../pages/Contact';
-import Landing from '../pages/Landing';
-// import Auth from '../pages/Auth/Auth';
-
-import Store from '../pages/Store';
-import Donate from '../pages/Donate';
+import {
+  // Auth,
+  // Events,
+  // Privacy,
+  // Terms,
+  About,
+  Contact,
+  Donate,
+  Faqs,
+  Landing,
+  Partners,
+  Services,
+  Store,
+  Swc,
+  Team,
+  Member,
+  Twc,
+} from '../pages';
 
 /**
  * TODO:
@@ -57,7 +54,7 @@ const routes = [{
 }, {
   exact: true,
   path: '/about/team/member',
-  component: TeamMember,
+  component: Member,
 }, {
   exact: true,
   path: '/about/partners',

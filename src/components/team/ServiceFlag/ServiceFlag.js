@@ -28,7 +28,7 @@ const ServiceFlag = ({ service }) => {
   const setServiceFlag = () => {
     let background;
 
-    switch (service.branch.toLowerCase()) {
+    switch (service.branch?.toLowerCase()) {
       case 'marine corps':
         background = serviceColors.marineCorps.red;
         break;
@@ -60,7 +60,7 @@ const ServiceFlag = ({ service }) => {
   const fetchBranchImage = () => {
     let svgSrc = null;
 
-    switch (service.branch.toLowerCase()) {
+    switch (service.branch?.toLowerCase()) {
       case 'marine corps':
         svgSrc = MarineCorpsIcon;
         break;
@@ -93,7 +93,7 @@ const ServiceFlag = ({ service }) => {
     setServiceFlag();
   });
 
-  const status = service.status.charAt(0).toUpperCase() + service.status.slice(1);
+  const status = service.status?.charAt(0).toUpperCase() + service.status?.slice(1);
   const serviceString = `United States ${service.branch} (${status})`;
 
   return (
