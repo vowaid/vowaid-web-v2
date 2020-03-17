@@ -34,3 +34,16 @@ select {
 .snip-layout.snip-active {
   z-index: 2000;
 }
+
+/* Animations */
+@-webkit-keyframes stroke {
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
