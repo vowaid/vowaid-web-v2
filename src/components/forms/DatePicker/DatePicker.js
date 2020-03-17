@@ -12,7 +12,7 @@ const DatePicker = ({ showError, ...others }) => (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Field {...others} />
     </MuiPickersUtilsProvider>
-    {(showError) && <Feedback><ErrorMessage name='dob' /></Feedback>}
+    {(showError) ? <Feedback><ErrorMessage name='dob' /></Feedback> : null}
   </InputGroup>
 );
 
@@ -24,6 +24,7 @@ DatePicker.propTypes = {
   label: Proptypes.string,
   margin: Proptypes.string,
   name: Proptypes.string,
+  onChange: Proptypes.func,
   openTo: Proptypes.string,
   placeholder: Proptypes.string,
   required: Proptypes.bool,
@@ -36,10 +37,11 @@ DatePicker.defaultProps = {
   component: MuiDatePicker,
   disableFuture: false,
   format: 'MM/dd/yyyy',
-  id: '',
-  label: '',
+  id: 'date-picker',
+  label: 'Date Picker',
   margin: 'normal',
-  name: '',
+  name: 'Date Picker',
+  onChange: () => {},
   openTo: 'year',
   placeholder: '',
   required: false,
