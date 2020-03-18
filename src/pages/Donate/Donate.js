@@ -8,6 +8,8 @@ import { Button, H1, H2, H3, P, Seo, Wrapper } from '../../components';
 
 import { gutter, pxToEm } from '../../styles/utils';
 
+import { generateDonationId } from '../../utils/snipcartUtils';
+
 const useStyles = makeStyles(theme => ({
   root: {
     paddingBottom: gutter.XXL,
@@ -42,22 +44,6 @@ const DonatePage = () => {
   const [donationValue, setDonationValue] = React.useState('0');
   const donationAmounts = [25, 50, 100, 150, 250];
   const classes = useStyles();
-
-  const generateId = (donationAmount) => {
-    let id = donationAmount;
-
-    if (donationAmount.length === 3) {
-      id = `0${donationAmount}`;
-    } else if (donationAmount.length === 2) {
-      id = `00${donationAmount}`;
-    } else if (donationAmount.length === 1) {
-      id = `000${donationAmount}`;
-    }
-
-    id += 'D';
-
-    return id;
-  };
 
   const handleChange = (event) => {
     setDonationValue(event.target.value);
@@ -116,7 +102,7 @@ const DonatePage = () => {
             color='primary'
             className='snipcart-add-item'
             endIcon={<AddShoppingCartIcon />}
-            data-item-id={generateId(donationValue)}
+            data-item-id={generateDonationId(donationValue)}
             data-item-name={`Donate $${donationValue}`}
             data-item-price={`${donationValue}.00`}
             data-item-url='/products.json'
