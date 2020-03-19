@@ -1,4 +1,4 @@
-# Veterans of War Aid Foundation
+# Veterans of War Aid Foundation ![Twitter Follow](https://img.shields.io/twitter/follow/vow_aid?label=Follow&style=social)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1e25da59-51d7-4d88-97ca-9aad9e7f1991/deploy-status)](https://app.netlify.com/sites/vowaid-v2/deploys)
 
