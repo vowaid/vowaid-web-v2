@@ -2,13 +2,13 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1e25da59-51d7-4d88-97ca-9aad9e7f1991/deploy-status)](https://app.netlify.com/sites/vowaid-v2/deploys)
 
+[![Code Climate](https://codeclimate.com/github/vowaid/vowaid-web-v2/badges/gpa.svg)](https://codeclimate.com/github/vowaid/vowaid-web-v2)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4bcc43a8e645e93a2aa5/test_coverage)](https://codeclimate.com/github/vowaid/vowaid-web-v2/test_coverage)
+
 [![GitHub version](https://badge.fury.io/gh/vowaid%2Fvowaid-web-v2.svg)](https://badge.fury.io/gh/vowaid%2Fvowaid-web-v2)
 [![Known Vulnerabilities](https://snyk.io/test/github/dwyl/hapi-auth-jwt2/badge.svg?targetFile=package.json)](https://snyk.io/test/github/vowaid/vowaid-web-v2?targetFile=package.json)
 [![Dependency Status](https://david-dm.org/vowaid/vowaid-web-v2.svg)](https://david-dm.org/vowaid/vowaid-web-v2)
 [![devDependency Status](https://david-dm.org/vowaid/vowaid-web-v2/dev-status.svg)](https://david-dm.org/vowaid/vowaid-web-v2#info=devDependencies)
-
-[![Code Climate](https://codeclimate.com/github/vowaid/vowaid-web-v2/badges/gpa.svg)](https://codeclimate.com/github/vowaid/vowaid-web-v2)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/4bcc43a8e645e93a2aa5/test_coverage)](https://codeclimate.com/github/vowaid/vowaid-web-v2/test_coverage)
 
 ## Mission
 
