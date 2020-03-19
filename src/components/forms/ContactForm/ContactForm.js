@@ -1,14 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
-import { styled as muiStyled } from '@material-ui/core/styles';
 import isEmpty from 'lodash/isEmpty';
 import qs from 'qs';
 import axios from 'axios';
 import uuid from 'uuid/v4';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { Formik, Field, ErrorMessage } from 'formik';
 import { Collapse, TextField } from '@material-ui/core';
-import { Button, H3, P, Select } from '../../index';
+import { Button, H3, Feedback, Form, InputGroup, P, Select } from '../../index';
 
 import { gutter } from '../../../styles/utils';
 
@@ -17,43 +16,18 @@ import { contactFormValues, FieldTypes, formFields } from '../../../utils/enums/
 
 import ContactSchema from '../../../utils/schemas/contactSchema';
 
-const Form = styled.form`
-  width: 100%;
-`;
+const useStyles = makeStyles(theme => ({
+  collapsable: {
+    margin: `${gutter.XXL} auto`,
+    width: '100%',
+    transition: 'margin 0.3s ease, transform 0.3s ease',
 
-const Collapsable = styled(Collapse)`
-  margin: ${gutter.XXL} auto;
-  width: 100%;
-  transition: margin 0.3s ease, transform 0.3s ease;
-
-  &[class*="hidden"] {
-    margin: 0;
-    transform: scaleY(0);
-  }
-`;
-
-const InputGroup = styled.div`
-  margin-bottom: ${gutter.L};
-
-  &.input-group--textarea {
-    margin-top: ${gutter.XL};
-  }
-
-  > * {
-    width: 100%;
-  }
-`;
-
-const Feedback = muiStyled('small')(({ theme }) => {
-  const paletteColor = (theme.palette.type === 'dark') ? 'light' : 'dark';
-
-  return {
-    color: theme.palette.error[paletteColor],
-    display: 'inline-block',
-  };
-}, {
-  withTheme: true,
-});
+    '&[class*="hidden"]': {
+      margin: '0',
+      transform: 'scaleY(0)',
+    },
+  },
+}));
 
 /**
  * Description.
@@ -62,6 +36,7 @@ const ContactForm = (props) => {
   const initRanks = buildRankFormOptions();
   const [ranks, setRanks] = React.useState(initRanks);
   const [displayMessage, setDisplayMessage] = React.useState('');
+  const classes = useStyles();
 
   const onSuccess = (actions) => {
     actions.setSubmitting(false);
@@ -181,16 +156,16 @@ const ContactForm = (props) => {
 
   return (
     <>
-      <Collapsable in={showSuccess}>
+      <Collapse className={classes.collapsable} in={showSuccess}>
         <H3>Thanks for Reaching Out!</H3>
         <P>Someone from our team will be in touch soon.</P>
-      </Collapsable>
+      </Collapse>
 
-      {/* <Collapsable in={showError}>
+      {/* <Collapse className={classes.collapsable} in={showError}>
         <p>Error</p>
-      </Collapsable> */}
+      </Collapse> */}
 
-      <Collapsable in={showForm}>
+      <Collapse className={classes.collapsable} in={showForm}>
         <Formik
           initialValues={contactFormValues}
           validationSchema={ContactSchema}
@@ -210,7 +185,6 @@ const ContactForm = (props) => {
               isValidating,
               setFieldTouched,
               setFieldValue,
-              status,
               submitForm,
               touched,
               values,
@@ -218,6 +192,7 @@ const ContactForm = (props) => {
 
             return (
               <Form
+                className={classes.form}
                 name='Contact Form'
                 method='POST'
                 data-netlify='true'
@@ -225,8 +200,6 @@ const ContactForm = (props) => {
                 netlify="true"
                 netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
-                success={!!status && !!status.success}
-                error={!!errors.submit}
               >
                 {/* NETLIFY FORM NAME */}
                 <Field type='hidden' name='form-name' value='Contact Form' />
@@ -293,7 +266,7 @@ const ContactForm = (props) => {
                     {(touched.discharge && errors.discharge) && <Feedback><ErrorMessage name='discharge' /></Feedback>}
                   </InputGroup>
 
-                  <InputGroup className='input-group--textarea'>
+                  <InputGroup>
                     <Field
                       component={TextField}
                       multiline
@@ -323,7 +296,7 @@ const ContactForm = (props) => {
             );
           }}
         </Formik>
-      </Collapsable>
+      </Collapse>
     </>
   );
 };
