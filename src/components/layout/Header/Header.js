@@ -63,7 +63,8 @@ const LeftContainer = styled.div`
 
 const Header = (props) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const displayMobile = useMediaQuery('(max-width: 750px)');
+  const displayTablet = useMediaQuery('(max-width: 750px)');
+  const displayMobile = useMediaQuery('(max-width: 500px)');
 
   return (
     <>
@@ -79,8 +80,7 @@ const Header = (props) => {
               </H1>
             </LeftContainer>
 
-            {!displayMobile && <NavList />}
-            {displayMobile && <NavDrawer />}
+            {(displayTablet) ? <NavDrawer isMobile={displayMobile} /> : <NavList />}
           </StyledToolbar>
         </AppBar>
       </HideOnScroll>

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { ButtonGroup, Divider, SwipeableDrawer, List, ListItem } from '@material-ui/core';
@@ -61,7 +62,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const NavDrawer = (props) => {
+const NavDrawer = ({ isMobile, ...others }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -71,19 +72,30 @@ const NavDrawer = (props) => {
     }
 
     setOpen(isOpen);
-  }
+  };
 
   return (
     <>
-      <ButtonGroup classNAme={classes.navButtons}>
+      <ButtonGroup className={classes.navButtons}>
         <Button className={classes.navButton} variant='text' onClick={toggleDrawer(true)}><Menu /></Button>
+
+        {(!isMobile) ? (
+          <Button
+            className='MuiToolbar-regular'
+            color='secondary'
+            variant='contained'
+            component={Link}
+            to='/donate'
+            format='nav'
+          >Donate</Button>
+        ) : null}
 
         <Button variant='text' className={`${classes.navButton} snipcart-checkout`}>
           <ShoppingCart />
         </Button>
       </ButtonGroup>
 
-      <SwipeableDrawer anchor='right' open={open} onClose={toggleDrawer(false)} variant='temporary'>
+      <SwipeableDrawer anchor='right' open={open} onOpen={() => {}} onClose={toggleDrawer(false)} variant='temporary'>
         <nav>
           <List className={classes.list}>
             <ListItem className={classes.closeItem} onClick={toggleDrawer(false)}>
@@ -150,6 +162,14 @@ const NavDrawer = (props) => {
       </SwipeableDrawer>
     </>
   );
+};
+
+NavDrawer.propTypes = {
+  isMobile: PropTypes.bool,
+};
+
+NavDrawer.defaultProps = {
+  isMobile: false,
 };
 
 export default NavDrawer;
