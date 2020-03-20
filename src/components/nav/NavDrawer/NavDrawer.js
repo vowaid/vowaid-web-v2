@@ -37,6 +37,7 @@ const useStyles = makeStyles(theme => ({
     '& a': {
       display: 'block',
       minHeight: pxToEm(44),
+      minWidth: pxToEm(44),
       padding: `${gutter.L} ${gutter.XXL}`,
       width: '100%',
     },
@@ -44,14 +45,19 @@ const useStyles = makeStyles(theme => ({
     '&.left a': {
       textAlign: 'left',
     },
-  },
-  cartButton: {
-    minWidth: `calc(${pxToEm(44)} + 5em)`,
 
     '& svg': {
       height: pxToEm(44),
       width: 'auto',
     },
+  },
+  navButtons: {
+    height: '100%',
+  },
+  navButton: {
+    minHeight: pxToEm(64),
+    minWidth: pxToEm(64),
+    height: '100%',
   }
 }));
 
@@ -69,10 +75,10 @@ const NavDrawer = (props) => {
 
   return (
     <>
-      <ButtonGroup>
-        <Button variant='text' onClick={toggleDrawer(true)}><Menu /></Button>
+      <ButtonGroup classNAme={classes.navButtons}>
+        <Button className={classes.navButton} variant='text' onClick={toggleDrawer(true)}><Menu /></Button>
 
-        <Button variant='text' className={`${classes.cartButton} snipcart-checkout`}>
+        <Button variant='text' className={`${classes.navButton} snipcart-checkout`}>
           <ShoppingCart />
         </Button>
       </ButtonGroup>
