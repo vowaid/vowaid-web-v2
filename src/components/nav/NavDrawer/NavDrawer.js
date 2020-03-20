@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
     minHeight: pxToEm(64),
     minWidth: pxToEm(64),
     height: '100%',
-  }
+  },
 }));
 
 const NavDrawer = (props) => {

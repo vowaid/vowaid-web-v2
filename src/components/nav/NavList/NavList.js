@@ -22,25 +22,12 @@ const useStyles = makeStyles(theme => ({
       justifyContent: 'center',
       height: '100%',
     },
-
-    '& button:last-of-type': {
-      minWidth: `calc(${pxToEm(44)} + 5em)`,
-      position: 'relative',
-
-      '&> *': {
-        position: 'absolute',
-      },
-
-      '&> .snipcart-items-count': {
-        left: pxToEm(5),
-      },
-
-      '& svg': {
-        height: pxToEm(44),
-        width: 'auto',
-      },
-    }
   },
+  navButton: {
+    minHeight: pxToEm(64),
+    minWidth: pxToEm(64),
+    height: '100%',
+  }
 }));
 
 /**
@@ -98,7 +85,7 @@ const NavList = ({ className }) => {
         >Sign&nbsp;In</Button> */}
 
 
-        <Button className='snipcart-checkout'>
+        <Button className={`${classes.navButton} snipcart-checkout`}>
           <ShoppingCart />
         </Button>
       </ButtonGroup>
