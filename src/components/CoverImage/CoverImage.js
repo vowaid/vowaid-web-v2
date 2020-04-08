@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import Image from '../Image/Image';
+
 import { pxToEm } from '../../styles/utils';
 
 const ImageContainer = styled.div`
@@ -13,7 +15,7 @@ const ImageContainer = styled.div`
   z-index: -1;
 `;
 
-const Img = styled.img`
+const StyledImg = styled(({ imageHeight, ...rest }) => <Image {...rest} />)`
   height: ${(props) => (props.imageHeight)};
   min-height: ${pxToEm(500)};
   object-fit: cover;
@@ -35,11 +37,12 @@ const CoverImage = (props) => {
       className='image--container'
       imageHeight={imageHeight}
     >
-      <Img
+      <StyledImg
         alt={alt}
         imageHeight={imageHeight}
         loading={loading}
         src={src}
+        skeleton={{ height: 500, width: '100%' }}
         {...others}
       />
     </ImageContainer>

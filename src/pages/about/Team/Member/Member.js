@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import isEmpty from 'lodash/isEmpty';
 import queryString from 'query-string';
 
-import { Button, H1, H2, P, Link, Content, Seo, SocialList } from '../../../../components';
+import { Button, H1, H2, Image, P, Link, Content, Seo, SocialList } from '../../../../components';
 
 import { teamMembers } from '../../../../data/teamData';
 
@@ -36,9 +36,10 @@ const BioPage = (props) => {
 
       <FlexContainer>
         <Aside>
-          <img
+          <Image
             src={teamMember.image}
             alt={teamMember.name}
+            skeleton={{ height: 300, width: 300 }}
           />
 
           <SocialList socialLinks={teamMember.social} />

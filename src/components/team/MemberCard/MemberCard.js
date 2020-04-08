@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 
 import { Card } from '@material-ui/core';
-import { Button, H1, H2, Link, SocialList, ServiceFlag } from '../../index';
+import { Image, Button, H1, H2, Link, SocialList, ServiceFlag } from '../../index';
 
 import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
 
@@ -23,10 +23,11 @@ const MemberCard = ({ teamMember }) => {
 
   return (
     <StyledMemberCard>
-      <img
+      <Image
         className="card--image"
         src={image}
         alt={name}
+        skeleton={{ height: 222, width: 200 }}
       />
 
       <section className="card--content">

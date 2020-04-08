@@ -2,6 +2,7 @@
 export { default as Banner } from './Banner/Banner';
 export { default as Content } from './Content/Content';
 export { default as CoverImage } from './CoverImage/CoverImage';
+export { default as Image } from './Image/Image';
 export { default as Link } from './Link/Link';
 export { default as Programs } from './Programs/Programs';
 export { default as Seo } from './Seo/Seo';

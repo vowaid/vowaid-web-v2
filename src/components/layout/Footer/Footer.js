@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ReactSVG } from 'react-svg';
 
-import { P, Link, SocialList } from '../../index';
+import { Image, P, Link, SocialList } from '../../index';
 import Logo from '../../../assets/svg/logo.svg';
 
 import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
@@ -110,7 +110,7 @@ const Footer = ({ className }) => (
             href='https://www.charitynavigator.org/index.cfm?bay=search.profile&ein=472465494'
             target='_blank'
           >
-            <img src={CharityNavigatorSeal} alt='Charity Navigator' />
+            <Image src={CharityNavigatorSeal} alt='Charity Navigator' skeleton={{ height: 70, width: 70 }} />
           </Link>
         </li>
         <li>
@@ -118,7 +118,7 @@ const Footer = ({ className }) => (
             href='https://www.guidestar.org/profile/47-2465494'
             target='_blank'
           >
-            <img src={GuideStarSeal} alt='Guide Star' />
+            <Image src={GuideStarSeal} alt='Guide Star' skeleton={{ height: 70, width: 70 }} />
           </Link>
         </li>
         {/* <li>
@@ -126,7 +126,7 @@ const Footer = ({ className }) => (
             href='https://www.bbb.org/'
             target='_blank'
           >
-            <img src={BbbSeal} alt='Better Business Bureau' />
+            <Image src={BbbSeal} alt='Better Business Bureau' skeleton={{ height: 70, width: 70 }} />
           </Link>
         </li> */}
       </CharityList>

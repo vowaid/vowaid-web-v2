@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Card } from '@material-ui/core';
 import { ReactSVG } from 'react-svg';
-import { Button, H2, P, Content, Link, Seo, PartnersHero } from '../../../components';
+import { Button, H2, Image, P, Content, Link, Seo, PartnersHero } from '../../../components';
 
 import ForwardArrow from '../../../assets/icons/google/forward-arrow.svg';
 import DarkBladeLogo from '../../../assets/images/partners/DarkBladeLogo_400.png';
@@ -23,7 +23,7 @@ const PartnersPage = () => (
       <PartnersList>
         <Partner>
           <header>
-            <img src={DarkBladeLogo} alt='Darkblade Systems Logo' />
+            <Image src={DarkBladeLogo} alt='Darkblade Systems Logo' skeleton={{ height: 150, width: 600 }} />
             <H2>Darkblade Systems Corporation</H2>
           </header>
 
