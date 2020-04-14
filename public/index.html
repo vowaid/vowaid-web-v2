@@ -24,8 +24,8 @@
 
     <title>Veterans of War Aid Foundation</title>
 
+    <!-- Required for Snipcart -->
     <link rel="stylesheet" href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" />
-
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart"
@@ -47,7 +47,10 @@
   </head>
 
   <body>
-    <!-- A little help for the Netlify post-processing bots -->
+    <!--
+      Forms required for Netlify post-processing bots.
+      https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
+    -->
     <form data-netlify="true" hidden name="Contact Form" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="Contact Form" />
       <input name="bot-field" type="hidden" />
@@ -64,17 +67,8 @@
     </form>
 
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 
 </html>

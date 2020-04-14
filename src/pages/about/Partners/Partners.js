@@ -40,6 +40,7 @@ const PartnersPage = () => (
             component={Link}
             href='https://darkbladesystems.com/'
             target='_blank'
+            rel='noreferrer noopener'
           >Visit Site <Svg className='icon' src={ForwardArrow} /></Button>
         </Partner>
       </PartnersList>

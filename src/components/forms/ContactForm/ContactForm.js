@@ -65,7 +65,7 @@ const ContactForm = (props) => {
     };
 
     // Short-circut the axios call for localhost and force success
-    if (window.location.host.includes('localhost')) {
+    if (window.location.host.includes('localhost') || process.env.NODE_ENV !== 'production') {
       onSuccess(actions);
       return;
     }

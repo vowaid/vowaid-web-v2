@@ -68,8 +68,10 @@ const SocialList = (props) => {
           <Link
             href={socialLinks[socialMedia]}
             target='_blank'
+            rel='noreferrer noopener'
           >
             {fetchSocialIcon(socialMedia)}
+            <span className='sr-only'>{`Open ${socialMedia} profile`}</span>
           </Link>
         </li>
       ))}

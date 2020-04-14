@@ -109,24 +109,30 @@ const Footer = ({ className }) => (
           <Link
             href='https://www.charitynavigator.org/index.cfm?bay=search.profile&ein=472465494'
             target='_blank'
+            rel='noreferrer noopener'
           >
             <Image src={CharityNavigatorSeal} alt='Charity Navigator' skeleton={{ height: 70, width: 70 }} />
+            <span className='sr-only'>Open Charity Navigator profile</span>
           </Link>
         </li>
         <li>
           <Link
             href='https://www.guidestar.org/profile/47-2465494'
             target='_blank'
+            rel='noreferrer noopener'
           >
             <Image src={GuideStarSeal} alt='Guide Star' skeleton={{ height: 70, width: 70 }} />
+            <span className='sr-only'>Open Guide Star profile</span>
           </Link>
         </li>
         {/* <li>
           <Link
             href='https://www.bbb.org/'
             target='_blank'
+            rel='noreferrer noopener'
           >
             <Image src={BbbSeal} alt='Better Business Bureau' skeleton={{ height: 70, width: 70 }} />
+            <span className='sr-only'>Open Better Business Bureau profile</span>
           </Link>
         </li> */}
       </CharityList>
