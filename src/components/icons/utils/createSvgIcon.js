@@ -4,7 +4,7 @@ import SvgIcon from '../../SvgIcon/SvgIcon';
 const createSvgIcon = (path, displayName) => {
     const Component = React.memo(
         React.forwardRef((props, ref) => (
-            <SvgIcon ref={ref} {...props}>
+            <SvgIcon ref={ref} {...props} className={`icon-svg ${props.className}`}>
                 {path}
             </SvgIcon>
         ))

@@ -1,7 +1,7 @@
 import React from 'react';
 import createSvgIcon from '../utils/createSvgIcon';
 
-const source = ({ light }) => (
+const source = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 96">
     <g fill="none">
       <g fill="#AA2531" transform="translate(58 61)">

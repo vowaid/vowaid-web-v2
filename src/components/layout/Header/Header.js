@@ -2,12 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { ReactSVG } from 'react-svg';
 import { AppBar, Slide, Toolbar, useScrollTrigger, useMediaQuery } from '@material-ui/core';
 import { H1, Link, NavList, NavDrawer } from '../../index';
-
-// import VowaidLogo from '../../../assets/svg/logo-horizontal-header.svg';
-// import VowaidLogoLight from '../../../assets/svg/logo-horizontal-header-light.svg';
 
 import VowaidLogo from '../../icons/vowaid/LogoHorizontalHeader';
 import VowaidLogoLight from '../../icons/vowaid/LogoHorizontalHeaderLight';
@@ -76,7 +72,6 @@ const Header = (props) => {
             <LeftContainer>
               <H1>
                 <StyledHomeLinkLogo to='/'>
-                  {/* <StyledReactSVG src={(!prefersDarkMode) ? VowaidLogo : VowaidLogoLight} /> */}
                   {(!prefersDarkMode) ? <VowaidLogo /> : <VowaidLogoLight />}
                   <span className='noshow'>Veterans of War Aid Foundation</span>
                 </StyledHomeLinkLogo>

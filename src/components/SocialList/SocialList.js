@@ -4,17 +4,16 @@ import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import uuidv4 from 'uuid/v4';
 
-import { ReactSVG } from 'react-svg';
 import { Link } from '../index';
 
 import { createTransitionForProperties, gutter } from '../../styles/utils';
 import { vowaidColors } from '../../styles/colors';
 
-import FacebookIcon from '../../assets/icons/social/facebook.svg';
-import GitHubIcon from '../../assets/icons/social/github-logo.svg';
-import InstagramIcon from '../../assets/icons/social/instagram.svg';
-import LinkedInIcon from '../../assets/icons/social/linkedin-logo.svg';
-import TwitterIcon from '../../assets/icons/social/twitter.svg';
+import FacebookIcon from '../icons/social/Facebook.js';
+import GitHubIcon from '../icons/social/GitHubLogo.js';
+import InstagramIcon from '../icons/social/Instagram.js';
+import LinkedInIcon from '../icons/social/LinkedInLogo.js';
+import TwitterIcon from '../icons/social/Twitter.js';
 
 /**
  * React component for the application global header. The header transitions between the 'full'
@@ -28,34 +27,25 @@ const SocialList = (props) => {
   const classes = useStyles(props);
 
   const fetchSocialIcon = (socialMedia) => {
-    let svgSrc = null;
-
     switch(socialMedia) {
       case 'facebook':
-        svgSrc = FacebookIcon;
-        break;
+        return <FacebookIcon className={`icon ${classes.root}`} />;
 
       case 'github':
-        svgSrc = GitHubIcon;
-        break;
+        return <GitHubIcon className={`icon ${classes.root}`} />;
 
       case 'instagram':
-        svgSrc = InstagramIcon;
-        break;
+        return <InstagramIcon className={`icon ${classes.root}`} />;
 
       case 'linkedin':
-        svgSrc = LinkedInIcon;
-        break;
+        return <LinkedInIcon className={`icon ${classes.root}`} />;
 
       case 'twitter':
-        svgSrc = TwitterIcon;
-        break;
+        return <TwitterIcon className={`icon ${classes.root}`} />;
 
       default:
         return;
     }
-
-    return <StyledSvg src={svgSrc} className={`icon ${classes.root}`} />;
   };
 
   return (
@@ -65,14 +55,14 @@ const SocialList = (props) => {
     >
       {Object.keys(socialLinks).map((socialMedia) => (
         <li className={socialMedia} key={uuidv4()}>
-          <Link
+          <StyledSvgLink
             href={socialLinks[socialMedia]}
             target='_blank'
             rel='noreferrer noopener'
           >
             {fetchSocialIcon(socialMedia)}
             <span className='sr-only'>{`Open ${socialMedia} profile`}</span>
-          </Link>
+          </StyledSvgLink>
         </li>
       ))}
     </StyledSocialList>
@@ -111,8 +101,8 @@ const StyledSocialList = styled.ul`
   }
 `;
 
-const StyledSvg = styled(ReactSVG)`
-  .injected-svg {
+const StyledSvgLink = styled(Link)`
+  svg {
     height: ${gutter.L};
     width: auto;
     ${createTransitionForProperties(['fill'])};
@@ -125,7 +115,7 @@ const StyledSvg = styled(ReactSVG)`
 
 const useStyles = makeStyles((theme) => ({
   root: (props) => ({
-    '& .injected-svg:not(:hover) *': {
+    '&.icon:not(:hover) *': {
       fill: vowaidColors.fontColor[theme.palette.type],
     }
   }),
