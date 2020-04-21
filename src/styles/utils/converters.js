@@ -51,8 +51,23 @@ const hexToRgb = (hex) => (
   Color(hex).rgb().array().join(', ')
 );
 
+/**
+ * Take in a number or string and return the value as a px.
+ *
+ * @param {number|string} number The number attempting to be converted to px value.
+ * @return {string} Returns the px value based on the number received.
+ */
+const numToPx = (number) => {
+  if (typeof number === 'number') {
+      return `${number}px`;
+  }
+
+  return number;
+};
+
 export {
   hexToRgb,
+  numToPx,
   pxToEm,
   truncateText,
 };
