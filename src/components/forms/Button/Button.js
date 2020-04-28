@@ -1,22 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { Button } from '@material-ui/core';
 
-const SiteButton = ({ className, ...others }) => {
-  const setClassName = () => {
-    const toolbarClass = 'MuiToolbar-regular';
-    let newClassName = className || '';
+const useStyles = makeStyles(theme => ({
+  root: {
+    fontWeight: 700,
+    letterSpacing: 1.25,
+    textTransform: 'capitalize',
+  },
+}));
 
-    if (!newClassName.includes(toolbarClass)) {
-      newClassName += ` ${toolbarClass} `;
+const SiteButton = ({ className, ...others }) => {
+  const classes = useStyles();
+
+  const setButtonClassName = () => {
+    const toolbarClass = 'MuiToolbar-regular';
+    let buttonClassName = classes.root;
+
+    // Add any user specified classes
+    if (className) {
+      buttonClassName += ` ${className}`;
     }
 
-    return newClassName.trim();
+    // Ensure all buttons have the toolbar class (match height)
+    if (!buttonClassName.includes(toolbarClass)) {
+      buttonClassName += ` ${toolbarClass} `;
+    }
+
+    return buttonClassName.trim();
   };
 
   return (
-    <Button className={setClassName()} {...others} />
+    <Button className={setButtonClassName()} {...others} />
   );
 };
 

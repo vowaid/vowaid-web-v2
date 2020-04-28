@@ -9,11 +9,11 @@ import { Link } from '../index';
 import { createTransitionForProperties, gutter } from '../../styles/utils';
 import { vowaidColors } from '../../styles/colors';
 
-import FacebookIcon from '../icons/social/Facebook.js';
-import GitHubIcon from '../icons/social/GitHubLogo.js';
-import InstagramIcon from '../icons/social/Instagram.js';
-import LinkedInIcon from '../icons/social/LinkedInLogo.js';
-import TwitterIcon from '../icons/social/Twitter.js';
+import FacebookIcon from '../icons/social/Facebook';
+import GitHubIcon from '../icons/social/GitHubLogo';
+import InstagramIcon from '../icons/social/Instagram';
+import LinkedInIcon from '../icons/social/LinkedInLogo';
+import TwitterIcon from '../icons/social/Twitter';
 
 /**
  * React component for the application global header. The header transitions between the 'full'
