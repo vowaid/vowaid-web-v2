@@ -150,13 +150,13 @@ const NavDrawer = ({ isMobile, ...others }) => {
               >Donate</Button>
             </ListItem>
 
-            <ListItem className={classes.listOption} onClick={toggleDrawer(false)}>
+            {/* <ListItem className={classes.listOption} onClick={toggleDrawer(false)}>
               <Button
                 component={Link}
                 to='/signin'
                 format='nav'
               >Sign&nbsp;In</Button>
-            </ListItem>
+            </ListItem> */}
           </List>
         </nav>
       </SwipeableDrawer>

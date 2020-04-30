@@ -1,5 +1,5 @@
 import {
-  Auth,
+  // Auth,
   // Events,
   // Privacy,
   // Terms,
@@ -20,6 +20,13 @@ import {
 /**
  * TODO:
  *  - Add Auth
+{
+  path: '/signin',
+  component: Auth,
+}, {
+  path: '/signup',
+  component: Auth,
+}
  *  - Add Legal Pages
 {
   path: '/legal/privacy',
@@ -75,12 +82,6 @@ const routes = [{
 }, {
   path: '/store',
   component: Store,
-}, {
-  path: '/signin',
-  component: Auth,
-}, {
-  path: '/signup',
-  component: Auth,
 }];
 
 export default routes;
