@@ -42,7 +42,7 @@ const MemberCard = ({ teamMember }) => {
           disabled={isDisabled}
           component={Link}
           to={`/about/team/member?id=${id}`}
-        >Read Bio</Button>
+        >Read Bio<span className='sr-only'> for {name}</span></Button>
 
         <SocialList socialLinks={social} />
       </section>

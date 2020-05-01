@@ -60,7 +60,13 @@ const teamMembers = [
       status: 'active',
     },
     image: NateAcevedoPhoto,
-    bio: () => (null),
+    bio: () => (
+      <>
+        <P>Nathaniel Acevedo, a New York native enlisted in the Marine Corps in 1997 and has served almost 23 years as an active duty Chief Warrant Officer Four, Signals Intelligence and Electronic Warfare Officer. Through his career Nate has been assigned across the nation, to include oversees deployments and multiple combat tours. In his current military assignment, Nate serves as the Operations Officer for Company H, Marine Cryptologic Support Battalion, San Antonio. Nate is presently assigned as the Deputy Chief, Digital Crime Division, National Security Agency (NSA)-Texas, San Antonio. As a team member of the NSA, he serves as a Leadership Development Champion, member of the Hispanic/Latin American Employee Resource Group, and NSA Professional Mentor to the University of Texas San Antonio (Society of Hispanic Professional Engineers).</P>
+
+        <P>Nate holds an MS in Cybersecurity, BS in Criminal Justice/Homeland Security, and additional industry certifications. Nate considers himself a philanthropist and dedicates himself to veterans and their families as the Chief Executive Officer for the Veterans of War Aid Foundation.</P>
+      </>
+    ),
   },
   {
     id: '019d1ead-54ef-4f4b-a63d-e20b9c55b056',
@@ -83,7 +89,7 @@ const teamMembers = [
     image: LisaHemmiePhoto,
     bio: () => (
       <>
-        <P>}Having studied Advertising and Marketing at Eastern Michigan University, Lisa started her professional career as a Media Assistant at Heil Brice Retail Advertising. Quickly proving her worth, Lisa was reappointed to Account Manager at the same firm, where she was responsible for an annual budget of over $10 million. She excelled in this role because of her extraordinary communication skills, collaborating and coordinating with many other teams to achieve everyone's goals.</P>
+        <P>Having studied Advertising and Marketing at Eastern Michigan University, Lisa started her professional career as a Media Assistant at Heil Brice Retail Advertising. Quickly proving her worth, Lisa was reappointed to Account Manager at the same firm, where she was responsible for an annual budget of over $10 million. She excelled in this role because of her extraordinary communication skills, collaborating and coordinating with many other teams to achieve everyone's goals.</P>
 
         <P>Always on the lookout for new and exciting opportunities, Lisa moved to ABC Disney radio where she was responsible for introducing radio advertising concepts to both advertising agencies and local clients. While apart of ABC Disney radio she maintained one of the highest average unit sale rates on her team, organized massive event promotions for large clients including McDonalds and TCF Bank, and she developed several successful campaigns for clients with limited budgets to ensure that they could meet their targets and achieve their goals.</P>
 
