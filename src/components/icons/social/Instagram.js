@@ -5,22 +5,22 @@ const source = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 552 552">
     <defs>
       <linearGradient id="instagram-a" x1="50%" x2="50%" y1="99.709%" y2=".777%">
-        <stop offset="0%" stop-color="#E09B3D"/>
-        <stop offset="30%" stop-color="#C74C4D"/>
-        <stop offset="60%" stop-color="#C21975"/>
-        <stop offset="100%" stop-color="#7024C4"/>
+        <stop offset="0%" stopColor="#E09B3D"/>
+        <stop offset="30%" stopColor="#C74C4D"/>
+        <stop offset="60%" stopColor="#C21975"/>
+        <stop offset="100%" stopColor="#7024C4"/>
       </linearGradient>
       <linearGradient id="instagram-b" x1="50%" x2="50%" y1="146.099%" y2="-45.16%">
-        <stop offset="0%" stop-color="#E09B3D"/>
-        <stop offset="30%" stop-color="#C74C4D"/>
-        <stop offset="60%" stop-color="#C21975"/>
-        <stop offset="100%" stop-color="#7024C4"/>
+        <stop offset="0%" stopColor="#E09B3D"/>
+        <stop offset="30%" stopColor="#C74C4D"/>
+        <stop offset="60%" stopColor="#C21975"/>
+        <stop offset="100%" stopColor="#7024C4"/>
       </linearGradient>
       <linearGradient id="instagram-c" x1="50%" x2="50%" y1="658.141%" y2="-140.029%">
-        <stop offset="0%" stop-color="#E09B3D"/>
-        <stop offset="30%" stop-color="#C74C4D"/>
-        <stop offset="60%" stop-color="#C21975"/>
-        <stop offset="100%" stop-color="#7024C4"/>
+        <stop offset="0%" stopColor="#E09B3D"/>
+        <stop offset="30%" stopColor="#C74C4D"/>
+        <stop offset="60%" stopColor="#C21975"/>
+        <stop offset="100%" stopColor="#7024C4"/>
       </linearGradient>
     </defs>
     <g fill="none">
