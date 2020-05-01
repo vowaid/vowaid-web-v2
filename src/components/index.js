@@ -29,6 +29,7 @@ export { default as ContactForm } from './forms/ContactForm/ContactForm';
 
 // Heroes
 export { default as AboutHero } from './heroes/AboutHero/AboutHero';
+export { default as DonateHero } from './heroes/DonateHero/DonateHero';
 export { default as LandingHero } from './heroes/LandingHero/LandingHero';
 export { default as PartnersHero } from './heroes/PartnersHero/PartnersHero';
 export { default as ServicesHero } from './heroes/ServicesHero/ServicesHero';

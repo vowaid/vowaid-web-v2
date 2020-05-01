@@ -20,14 +20,15 @@ import {
 /**
  * TODO:
  *  - Add Auth
- *  - Add Legal Pages
 {
   path: '/signin',
   component: Auth,
 }, {
   path: '/signup',
   component: Auth,
-}, {
+}
+ *  - Add Legal Pages
+{
   path: '/legal/privacy',
   component: Privacy,
 }, {

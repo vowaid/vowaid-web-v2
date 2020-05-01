@@ -2,19 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { ReactSVG } from 'react-svg';
 import { AppBar, Slide, Toolbar, useScrollTrigger, useMediaQuery } from '@material-ui/core';
 import { H1, Link, NavList, NavDrawer } from '../../index';
-import VowaidLogo from '../../../assets/svg/logo-horizontal-header.svg';
-import VowaidLogoLight from '../../../assets/svg/logo-horizontal-header-light.svg';
 
-const StyledReactSVG = styled(ReactSVG)`
-  > * {
-    align-content: center;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-  }
+import VowaidLogo from '../../icons/vowaid/LogoHorizontalHeader';
+import VowaidLogoLight from '../../icons/vowaid/LogoHorizontalHeaderLight';
+
+const StyledHomeLinkLogo = styled(Link)`
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 
   svg {
     height: 50px;
@@ -73,10 +71,12 @@ const Header = (props) => {
           <StyledToolbar>
             <LeftContainer>
               <H1>
-                <Link to='/'>
-                  <StyledReactSVG src={(!prefersDarkMode) ? VowaidLogo : VowaidLogoLight} />
+                <StyledHomeLinkLogo to='/'>
+                  {(!prefersDarkMode) ? <VowaidLogo /> : <VowaidLogoLight />}
                   <span className='noshow'>Veterans of War Aid Foundation</span>
-                </Link>
+                </StyledHomeLinkLogo>
+
+                <span className='sr-only'>Veterans of War Aid Foundation</span>
               </H1>
             </LeftContainer>
 

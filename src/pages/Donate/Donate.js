@@ -4,7 +4,7 @@ import uuid from 'uuid/v4';
 import { makeStyles } from '@material-ui/core/styles';
 import { ButtonGroup, TextField } from '@material-ui/core';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import { Button, H1, H2, H3, P, Seo, Wrapper } from '../../components';
+import { Button, DonateHero, H3, P, Seo, Content, Wrapper } from '../../components';
 
 import { gutter, pxToEm } from '../../styles/utils';
 
@@ -13,7 +13,6 @@ import { generateDonationId } from '../../utils/snipcartUtils';
 const useStyles = makeStyles(theme => ({
   root: {
     paddingBottom: gutter.XXL,
-    paddingTop: gutter.XXL,
   },
   header: {
     marginBottom: gutter.L,
@@ -41,8 +40,8 @@ const useStyles = makeStyles(theme => ({
  * Description.
  */
 const DonatePage = () => {
-  const [donationValue, setDonationValue] = React.useState('0');
   const donationAmounts = [25, 50, 100, 150, 250];
+  const [donationValue, setDonationValue] = React.useState(donationAmounts[0]);
   const classes = useStyles();
 
   const handleChange = (event) => {
@@ -55,21 +54,16 @@ const DonatePage = () => {
     <main className={classes.root}>
       <Seo title='Donate' />
 
-      <Wrapper>
-        <header className={classes.header}>
-          <H1 paragraph>Donate</H1>
-          <H2 paragraph>Change lives with your gift!</H2>
+      <Content>
+        <DonateHero />
 
-          <P>Your donation supports our mission to help Veterans in need.</P>
-        </header>
-
-        <section>
+        <Wrapper>
           <div className={classes.buttonGroup}>
             <H3 paragraph>Choose your donation</H3>
             <ButtonGroup variant='contained' color='default' aria-label='contained primary button group'>
               {donationAmounts.map((donationAmount) => (
                 <Button
-                  variant='outlined'
+                  variant={(donationValue === donationAmount) ? 'contained' : 'outlined'}
                   color='default'
                   onClick={(event) => {
                     event.preventDefault();
@@ -110,8 +104,8 @@ const DonatePage = () => {
             data-item-categories={'donation'}
             disabled={donationDisabled}
           >Donate ${donationValue || '0'}</Button>
-        </section>
-      </Wrapper>
+        </Wrapper>
+      </Content>
     </main>
   );
 };

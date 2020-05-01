@@ -65,7 +65,7 @@ const ContactForm = (props) => {
     };
 
     // Short-circut the axios call for localhost and force success
-    if (window.location.host.includes('localhost')) {
+    if (window.location.host.includes('localhost') || process.env.NODE_ENV !== 'production') {
       onSuccess(actions);
       return;
     }
@@ -120,15 +120,14 @@ const ContactForm = (props) => {
         const formField = formFields[contactFormKey];
 
         switch (formField.type) {
-          case FieldTypes.SELECT: {
-            return null;
-          }
+          case FieldTypes.SELECT:
           case FieldTypes.TEXTAREA: {
             return null;
           }
           default: {
             return (
               <InputGroup key={uuid()}>
+                <label className='sr-only' htmlFor={formField.name}>{formField.name}</label>
                 <Field
                   component={formField.component}
                   name={formField.name}
@@ -141,7 +140,9 @@ const ContactForm = (props) => {
                   type={formField.type}
                   value={values[formField.name]}
                 />
-                {(touched[formField.name] && errors[formField.name]) && <Feedback><ErrorMessage name={formField.name} /></Feedback>}
+                {(touched[formField.name] && errors[formField.name]) ? (
+                  <Feedback><ErrorMessage name={formField.name} /></Feedback>
+                ) : null}
               </InputGroup>
             );
           }
@@ -210,6 +211,7 @@ const ContactForm = (props) => {
                   {buildFormFields(formikProps)}
 
                   <InputGroup>
+                    <label className='sr-only' htmlFor='branch'>Branch</label>
                     <Select
                       name='branch'
                       id='branch'
@@ -229,6 +231,7 @@ const ContactForm = (props) => {
                   </InputGroup>
 
                   <InputGroup>
+                    <label className='sr-only' htmlFor='rank'>Rank</label>
                     <Select
                       name='rank'
                       id='rank'
@@ -244,6 +247,7 @@ const ContactForm = (props) => {
                   </InputGroup>
 
                   <InputGroup>
+                    <label className='sr-only' htmlFor='discharge'>Discharge</label>
                     <Select
                       name='discharge'
                       id='discharge'
@@ -267,6 +271,7 @@ const ContactForm = (props) => {
                   </InputGroup>
 
                   <InputGroup>
+                    <label className='sr-only' htmlFor='message'>Message</label>
                     <Field
                       component={TextField}
                       multiline

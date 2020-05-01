@@ -52,7 +52,7 @@ const Store = (props) => {
   const classes = useStyles();
 
   return (
-    <article>
+    <main>
       <section className={classes.cardList}>
         {storeItems.map((storeItem) => {
           if (storeItem.type === 'donation') {
@@ -93,7 +93,7 @@ const Store = (props) => {
           );
         })}
       </section>
-    </article>
+    </main>
   );
 };
 

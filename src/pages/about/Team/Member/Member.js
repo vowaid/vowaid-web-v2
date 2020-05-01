@@ -9,6 +9,12 @@ import { teamMembers } from '../../../../data/teamData';
 
 import { gutter, pxToEm } from '../../../../styles/utils';
 
+import AirForceIcon from '../../../../components/icons/military/AirForce';
+import ArmyIcon from '../../../../components/icons/military/Army';
+import CoastGuardIcon from '../../../../components/icons/military/CoastGuard';
+import MarineCorpsIcon from '../../../../components/icons/military/MarineCorps';
+import NavyIcon from '../../../../components/icons/military/Navy';
+
 /**
  * Description.
  *
@@ -27,6 +33,32 @@ const BioPage = (props) => {
     setTeamMember(updatedTeamMember);
   }, [teamMember, props.location]);
 
+  const fetchBranchImage = () => {
+    const iconSize = 75;
+    const iconTitle = `${teamMember.service.branch} (${teamMember.service.status})`;
+
+    switch (teamMember.service.branch?.toLowerCase()) {
+      case 'marine corps':
+        return <MarineCorpsIcon size={iconSize} title={iconTitle} />;
+
+      case 'navy':
+        return <NavyIcon size={iconSize} title={iconTitle} />;
+
+      case 'army':
+        return <ArmyIcon size={iconSize} title={iconTitle} />;
+
+      case 'coast guard':
+        return <CoastGuardIcon size={iconSize} title={iconTitle} />;
+
+      case 'air force':
+        return <AirForceIcon size={iconSize} title={iconTitle} />;
+
+      case 'homeland security':
+      default:
+        return null;
+    }
+  }
+
   return (!isEmpty(teamMember)) ? (
     <main>
       <Seo
@@ -44,9 +76,16 @@ const BioPage = (props) => {
 
           <SocialList socialLinks={teamMember.social} />
 
-          <P>
+          <P paragraph>
             <Link href={`mailto:${teamMember.email}`} underline='hover'>{teamMember.email}</Link>
           </P>
+
+          {(teamMember.service.branch !== '') ? (
+            <div>
+              {fetchBranchImage()}
+              <span className='sr-only'>{teamMember.service.branch} ({teamMember.service.status})</span>
+            </div>
+          ) : null}
         </Aside>
 
         <MemberInfo>

@@ -39,7 +39,7 @@ const NavList = ({ className }) => {
   const classes = useStyles();
 
   return (
-    <nav className={`${classes.nav} MuiToolbar-regular`}>
+    <nav className={`${classes.nav} MuiToolbar-regular`} aria-label='navigation'>
       <ButtonGroup className={`${className} MuiToolbar-regular`} variant='text'>
         <Button
           className='MuiToolbar-regular'
@@ -84,9 +84,9 @@ const NavList = ({ className }) => {
           to='/signin'
         >Sign&nbsp;In</Button> */}
 
-
         <Button className={`${classes.navButton} snipcart-checkout`}>
           <ShoppingCart />
+          <span className='sr-only'>Shopping Cart</span>
         </Button>
       </ButtonGroup>
     </nav>

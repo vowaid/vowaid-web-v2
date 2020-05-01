@@ -1,5 +1,7 @@
 import React from 'react';
 import isEmpty from 'lodash/isEmpty';
+import qs from 'qs';
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { Formik, Field, ErrorMessage } from 'formik';
@@ -41,17 +43,44 @@ const useStyles = makeStyles(theme => ({
 const SignInForm = (props) => {
   const classes = useStyles();
 
+  const onSuccess = (actions) => {
+    actions.setSubmitting(false);
+    actions.resetForm({});
+    actions.setStatus({ success: true });
+  }
+
   /**
    * Description.
    *
    * @param {} values
    * @param {} actions
    */
-  const onFormSubmit = (values, actions) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
+  const onFormSubmit = async (values, actions) => {
+    const data = {
+      'form-name': 'Sign In Form',
+      ...values,
+    };
+
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: qs.stringify(data),
+      url: window.location.pathname,
+    };
+
+    if (window.location.host.includes('localhost') || process.env.NODE_ENV !== 'production') {
+      onSuccess(actions);
+      return;
+    }
+
+    try {
+      await axios(options);
+      onSuccess(actions);
+    } catch (error) {
+      actions.setStatus({success: false});
       actions.setSubmitting(false);
-    }, 1000);
+      actions.setErrors({submit: error.message});
+    }
   };
 
   /**
