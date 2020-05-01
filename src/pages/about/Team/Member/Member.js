@@ -34,21 +34,24 @@ const BioPage = (props) => {
   }, [teamMember, props.location]);
 
   const fetchBranchImage = () => {
+    const iconSize = 75;
+    const iconTitle = `${teamMember.service.branch} (${teamMember.service.status})`;
+
     switch (teamMember.service.branch?.toLowerCase()) {
       case 'marine corps':
-        return <MarineCorpsIcon size={75} />;
+        return <MarineCorpsIcon size={iconSize} title={iconTitle} />;
 
       case 'navy':
-        return <NavyIcon size={75} />;
+        return <NavyIcon size={iconSize} title={iconTitle} />;
 
       case 'army':
-        return <ArmyIcon size={75} />;
+        return <ArmyIcon size={iconSize} title={iconTitle} />;
 
       case 'coast guard':
-        return <CoastGuardIcon size={75} />;
+        return <CoastGuardIcon size={iconSize} title={iconTitle} />;
 
       case 'air force':
-        return <AirForceIcon size={75} />;
+        return <AirForceIcon size={iconSize} title={iconTitle} />;
 
       case 'homeland security':
       default:
@@ -77,7 +80,10 @@ const BioPage = (props) => {
             <Link href={`mailto:${teamMember.email}`} underline='hover'>{teamMember.email}</Link>
           </P>
 
-          {fetchBranchImage()}
+          <div>
+            {fetchBranchImage()}
+            <span className='sr-only'>{teamMember.service.branch} ({teamMember.service.status})</span>
+          </div>
         </Aside>
 
         <MemberInfo>
