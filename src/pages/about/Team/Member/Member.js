@@ -80,10 +80,12 @@ const BioPage = (props) => {
             <Link href={`mailto:${teamMember.email}`} underline='hover'>{teamMember.email}</Link>
           </P>
 
-          <div>
-            {fetchBranchImage()}
-            <span className='sr-only'>{teamMember.service.branch} ({teamMember.service.status})</span>
-          </div>
+          {(teamMember.service.branch !== '') ? (
+            <div>
+              {fetchBranchImage()}
+              <span className='sr-only'>{teamMember.service.branch} ({teamMember.service.status})</span>
+            </div>
+          ) : null}
         </Aside>
 
         <MemberInfo>
