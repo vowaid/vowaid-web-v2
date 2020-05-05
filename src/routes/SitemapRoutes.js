@@ -33,15 +33,15 @@ const routePaths = [{
   exact: true,
   path: '/contact',
 }, {
-  path: '/signin',
+  path: '/donate',
 }, {
-  path: '/signup',
+  path: '/store',
 }];
 
 const SitemapRoutes = (props) => (
   <Route>
     {routePaths.map((route) => (
-      <Route path={route.path} exact={exact} />
+      <Route path={route.path} exact={route.exact} key={route.path} />
     ))}
   </Route>
 )
