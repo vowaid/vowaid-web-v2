@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { H1, P, CoverImage } from '../../index';
 
+import { transformMission } from '../utils/heroUtils';
 import { createTransitionForProperties, gutter, hexToRgb, pxToEm } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';
 
@@ -15,13 +16,9 @@ const sectionHeight = pxToEm(300);
  */
 const PartnersHero = () => {
   React.useEffect(() => {
-    window.addEventListener('scroll', () => {
-      // higher number for more zoom
-      const scale = window.scrollY * .0001 + 1;
-      const translate = (window.scrollY * .2 + 1) * -1; // Title speed
+    window.addEventListener('scroll', transformMission);
 
-      document.querySelector('.hero--mission').style.transform = `scale(${scale}) translateY(${translate}px)`;
-    });
+    return window.removeEventListener('scroll', transformMission);
   });
 
   return (

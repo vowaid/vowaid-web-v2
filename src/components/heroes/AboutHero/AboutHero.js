@@ -4,6 +4,7 @@ import { styled as muiStyled } from '@material-ui/core/styles';
 
 import { H1, P, CoverImage } from '../../index';
 
+import { transformMission } from '../utils/heroUtils';
 import { gutter, pxToEm } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';
 
@@ -18,13 +19,9 @@ const sectionHeight = pxToEm(500);
  */
 const Hero = () => {
   React.useEffect(() => {
-    window.addEventListener('scroll', () => {
-      // higher number for more zoom
-      const scale = window.scrollY * .0001 + 1;
-      const translate = (window.scrollY * .2 + 1) * -1; // Title speed
+    window.addEventListener('scroll', transformMission);
 
-      document.querySelector('.hero--mission').style.transform = `scale(${scale}) translateY(${translate}px)`;
-    });
+    return window.removeEventListener('scroll', transformMission);
   });
 
   return (
