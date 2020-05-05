@@ -3,10 +3,10 @@ require("babel-register")({
 });
 
 const Sitemap = require("react-router-sitemap").default;
-const router = require("./src/routes/SitemapRoutes").default;
+const router = require("./src/routes/SitemapRoutes").default();
 
 const generateSitemap = () => {
-  const base = 'https://www.vowaid.org';
+  const base = 'http://vowaid.org';
 
   return (
     new Sitemap(router)

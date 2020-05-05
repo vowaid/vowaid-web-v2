@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url> <loc>https://www.vowaid.org/</loc> </url>
+<url> <loc>http://vowaid.org/</loc> </url>
+<url> <loc>http://vowaid.org/</loc> </url>
+<url> <loc>http://vowaid.org/about</loc> </url>
+<url> <loc>http://vowaid.org/about/faqs</loc> </url>
+<url> <loc>http://vowaid.org/about/team</loc> </url>
+<url> <loc>http://vowaid.org/about/team/member</loc> </url>
+<url> <loc>http://vowaid.org/about/partners</loc> </url>
+<url> <loc>http://vowaid.org/services</loc> </url>
+<url> <loc>http://vowaid.org/services/twc</loc> </url>
+<url> <loc>http://vowaid.org/services/swc</loc> </url>
+<url> <loc>http://vowaid.org/contact</loc> </url>
+<url> <loc>http://vowaid.org/donate</loc> </url>
+<url> <loc>http://vowaid.org/store</loc> </url>
 </urlset>
