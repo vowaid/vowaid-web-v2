@@ -28,26 +28,27 @@ const Hero = () => {
   });
 
   return (
-  <StyledHero>
-    <CoverImage
-      alt='American Flags'
-      imageHeight={sectionHeight}
-      src={Image}
-    />
+    <StyledHero>
+      <CoverImage
+        alt='American Flags'
+        imageHeight={sectionHeight}
+        src={Image}
+      />
 
-    <Overlay className="hero--overlay">
-      <Mission className="hero--mission">
-        <header>
-          <H1>Who We Are</H1>
-        </header>
+      <Overlay className="hero--overlay">
+        <Mission className="hero--mission">
+          <header>
+            <H1>Who We Are</H1>
+          </header>
 
-        <P variant='h5'>A nonprofit founded by U.S. Service Members. We understand the needs of transitioning warriors. Dedicated to helping socially responsible businesses team up with combat veterans in order to promote stability, growth, and self-empowerment.</P>
+          <P variant='h5'>A nonprofit founded by U.S. Service Members. We understand the needs of transitioning warriors. Dedicated to helping socially responsible businesses team up with combat veterans in order to promote stability, growth, and self-empowerment.</P>
 
-        <P variant='h5'>We create opportunities for assistance and we maximize these opportunities at every step of the process.</P>
-      </Mission>
-    </Overlay>
-  </StyledHero>
-);};
+          <P variant='h5'>We create opportunities for assistance and we maximize these opportunities at every step of the process.</P>
+        </Mission>
+      </Overlay>
+    </StyledHero>
+  );
+};
 
 const StyledHero = muiStyled('article')({
   height: sectionHeight,
