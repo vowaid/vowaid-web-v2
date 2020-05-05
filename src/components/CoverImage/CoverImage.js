@@ -32,6 +32,15 @@ const StyledImg = styled(({ imageHeight, ...rest }) => <Image {...rest} />)`
 const CoverImage = (props) => {
   const { alt, imageHeight, loading, src, ...others } = props;
 
+  React.useEffect(() => {
+    window.addEventListener('scroll', () => {
+      // higher number for more zoom
+      const scale = window.scrollY * .0004 + 1;
+
+      document.querySelector('.image--container').style.transform = `scale(${scale})`;
+    });
+  });
+
   return (
     <ImageContainer
       className='image--container'

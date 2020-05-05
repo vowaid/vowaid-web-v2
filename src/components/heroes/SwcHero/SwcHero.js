@@ -13,22 +13,34 @@ const sectionHeight = pxToEm(400);
 /**
  * Description.
  */
-const Hero = () => (
-  <StyledHero>
-    <CoverImage
-      alt='Background Image'
-      imageHeight={sectionHeight}
-      src={Image}
-    />
+const Hero = () => {
+  React.useEffect(() => {
+    window.addEventListener('scroll', () => {
+      // higher number for more zoom
+      const scale = window.scrollY * .0001 + 1;
+      const translate = (window.scrollY * .2 + 1) * -1; // Title speed
 
-    <Overlay>
-      <Mission>
-        <H1>Survivor Warrior Club</H1>
-        <P className='font-size--3'>Recover. Transition. Thrive. We focus on innovative and effective programs that make a difference.</P>
-      </Mission>
-    </Overlay>
-  </StyledHero>
-);
+      document.querySelector('.hero--mission').style.transform = `scale(${scale}) translate(${translate}px, ${translate}px)`;
+    });
+  });
+
+  return (
+    <StyledHero>
+      <CoverImage
+        alt='Background Image'
+        imageHeight={sectionHeight}
+        src={Image}
+      />
+
+      <Overlay className="hero--overlay">
+        <Mission className="hero--mission">
+          <H1>Survivor Warrior Club</H1>
+          <P className='font-size--3'>Recover. Transition. Thrive. We focus on innovative and effective programs that make a difference.</P>
+        </Mission>
+      </Overlay>
+    </StyledHero>
+  );
+};
 
 const StyledHero = styled.article`
   height: ${sectionHeight};

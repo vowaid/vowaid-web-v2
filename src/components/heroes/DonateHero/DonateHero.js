@@ -13,24 +13,36 @@ const sectionHeight = pxToEm(300);
 /**
  * Description.
  */
-const Hero = () => (
-  <StyledHero>
-    <CoverImage
-      alt='Lisa Briefs the Oscars'
-      imageHeight={sectionHeight}
-      src={Image}
-    />
+const Hero = () => {
+  React.useEffect(() => {
+    window.addEventListener('scroll', () => {
+      // higher number for more zoom
+      const scale = window.scrollY * .0001 + 1;
+      const translate = (window.scrollY * .2 + 1) * -1; // Title speed
 
-    <Overlay>
-      <Mission>
-        <H1>Donate</H1>
-        <H2 paragraph>Change lives with your gift!</H2>
+      document.querySelector('.hero--mission').style.transform = `scale(${scale}) translate(${translate}px, ${translate}px)`;
+    });
+  });
 
-        <P>Your donation supports our mission to help Veterans in need.</P>
-      </Mission>
-    </Overlay>
-  </StyledHero>
-);
+  return (
+    <StyledHero>
+      <CoverImage
+        alt='Lisa Briefs the Oscars'
+        imageHeight={sectionHeight}
+        src={Image}
+      />
+
+      <Overlay className="hero--overlay">
+        <Mission className="hero--mission">
+          <H1>Donate</H1>
+          <H2 paragraph>Change lives with your gift!</H2>
+
+          <P>Your donation supports our mission to help Veterans in need.</P>
+        </Mission>
+      </Overlay>
+    </StyledHero>
+  );
+};
 
 const StyledHero = styled.article`
   height: ${sectionHeight};

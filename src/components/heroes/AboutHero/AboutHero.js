@@ -16,27 +16,39 @@ const sectionHeight = pxToEm(500);
  *
  * @param {} props
  */
-const Hero = () => (
-  <StyledHero>
-    <CoverImage
-      alt='American Flags'
-      imageHeight={sectionHeight}
-      src={Image}
-    />
+const Hero = () => {
+  React.useEffect(() => {
+    window.addEventListener('scroll', () => {
+      // higher number for more zoom
+      const scale = window.scrollY * .0001 + 1;
+      const translate = (window.scrollY * .2 + 1) * -1; // Title speed
 
-    <Overlay>
-      <Mission>
-        <header>
-          <H1>Who We Are</H1>
-        </header>
+      document.querySelector('.hero--mission').style.transform = `scale(${scale}) translate(${translate}px, ${translate}px)`;
+    });
+  });
 
-        <P variant='h5'>A nonprofit founded by U.S. Service Members. We understand the needs of transitioning warriors. Dedicated to helping socially responsible businesses team up with combat veterans in order to promote stability, growth, and self-empowerment.</P>
+  return (
+    <StyledHero>
+      <CoverImage
+        alt='American Flags'
+        imageHeight={sectionHeight}
+        src={Image}
+      />
 
-        <P variant='h5'>We create opportunities for assistance and we maximize these opportunities at every step of the process.</P>
-      </Mission>
-    </Overlay>
-  </StyledHero>
-);
+      <Overlay className="hero--overlay">
+        <Mission className="hero--mission">
+          <header>
+            <H1>Who We Are</H1>
+          </header>
+
+          <P variant='h5'>A nonprofit founded by U.S. Service Members. We understand the needs of transitioning warriors. Dedicated to helping socially responsible businesses team up with combat veterans in order to promote stability, growth, and self-empowerment.</P>
+
+          <P variant='h5'>We create opportunities for assistance and we maximize these opportunities at every step of the process.</P>
+        </Mission>
+      </Overlay>
+    </StyledHero>
+  );
+};
 
 const StyledHero = muiStyled('article')({
   height: sectionHeight,

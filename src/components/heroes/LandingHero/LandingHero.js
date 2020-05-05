@@ -17,6 +17,16 @@ import Image from '../../../assets/images/covers/DSC01178.jpg';
 const LandingHero = () => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
+  React.useEffect(() => {
+    window.addEventListener('scroll', () => {
+      // higher number for more zoom
+      const scale = window.scrollY * .0001 + 1;
+      const translate = (window.scrollY * .2 + 1) * -1; // Title speed
+
+      document.querySelector('.hero--mission').style.transform = `scale(${scale}) translate(${translate}px, ${translate}px)`;
+    });
+  });
+
   return (
     <StyledHero>
       <CoverImage
@@ -26,7 +36,7 @@ const LandingHero = () => {
       />
 
       <RightPanel prefersDarkMode={prefersDarkMode}>
-        <Mission>
+        <Mission className="hero--mission">
           <H1>Our Mission</H1>
           <P variant='h5'>The Veterans of War Aid Foundation (VOWAID) creates, unites, and supports businesses that fight for American combat veterans and uses contacts and revenues to deliver targeted assistance to American Heroes in need.</P>
         </Mission>

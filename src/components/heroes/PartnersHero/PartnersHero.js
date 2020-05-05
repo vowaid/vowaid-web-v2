@@ -13,22 +13,34 @@ const sectionHeight = pxToEm(300);
 /**
  * Description.
  */
-const PartnersHero = () => (
-  <StyledHero>
-    <CoverImage
-      alt='Partnership'
-      imageHeight={sectionHeight}
-      src={Image}
-    />
+const PartnersHero = () => {
+  React.useEffect(() => {
+    window.addEventListener('scroll', () => {
+      // higher number for more zoom
+      const scale = window.scrollY * .0001 + 1;
+      const translate = (window.scrollY * .2 + 1) * -1; // Title speed
 
-    <Overlay>
-      <Mission>
-        <H1>Our Partners</H1>
-        <P variant='h4'>Our partners are our lifeblood.</P>
-      </Mission>
-    </Overlay>
-  </StyledHero>
-);
+      document.querySelector('.hero--mission').style.transform = `scale(${scale}) translate(${translate}px, ${translate}px)`;
+    });
+  });
+
+  return (
+    <StyledHero>
+      <CoverImage
+        alt='Partnership'
+        imageHeight={sectionHeight}
+        src={Image}
+      />
+
+      <Overlay className="hero--overlay">
+        <Mission className="hero--mission">
+          <H1>Our Partners</H1>
+          <P variant='h4'>Our partners are our lifeblood.</P>
+        </Mission>
+      </Overlay>
+    </StyledHero>
+  );
+};
 
 const StyledHero = styled.article`
   height: ${sectionHeight};
