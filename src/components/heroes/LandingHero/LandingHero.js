@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useMediaQuery } from '@material-ui/core';
 import { Button, H1, P, Link } from '../../index';
 
+import { transformMission } from '../utils/heroUtils';
 import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
 import { vowaidColors } from '../../../styles/colors';
 
@@ -18,13 +19,9 @@ const LandingHero = () => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   React.useEffect(() => {
-    window.addEventListener('scroll', () => {
-      // higher number for more zoom
-      const scale = window.scrollY * .0001 + 1;
-      const translate = (window.scrollY * .2 + 1) * -1; // Title speed
+    window.addEventListener('scroll', transformMission);
 
-      document.querySelector('.hero--mission').style.transform = `scale(${scale}) translateY(${translate}px)`;
-    });
+    return window.removeEventListener('scroll', transformMission);
   });
 
   return (
