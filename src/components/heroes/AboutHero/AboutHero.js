@@ -16,7 +16,18 @@ const sectionHeight = pxToEm(500);
  *
  * @param {} props
  */
-const Hero = () => (
+const Hero = () => {
+  React.useEffect(() => {
+    window.addEventListener('scroll', () => {
+      // higher number for more zoom
+      const scale = window.scrollY * .0001 + 1;
+      const translate = (window.scrollY * .2 + 1) * -1; // Title speed
+
+      document.querySelector('.hero--mission').style.transform = `scale(${scale}) translate(${translate}px, ${translate}px)`;
+    });
+  });
+
+  return (
   <StyledHero>
     <CoverImage
       alt='American Flags'
@@ -24,8 +35,8 @@ const Hero = () => (
       src={Image}
     />
 
-    <Overlay>
-      <Mission>
+    <Overlay className="hero--overlay">
+      <Mission className="hero--mission">
         <header>
           <H1>Who We Are</H1>
         </header>
@@ -36,7 +47,7 @@ const Hero = () => (
       </Mission>
     </Overlay>
   </StyledHero>
-);
+);};
 
 const StyledHero = muiStyled('article')({
   height: sectionHeight,
