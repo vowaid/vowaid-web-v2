@@ -106,7 +106,7 @@ const DonatePage = () => {
             data-item-id={generateDonationId(donationValue)}
             data-item-name={`Donate $${donationValue}`}
             data-item-price={donationValue}
-            data-item-url='https://raw.githubusercontent.com/vowaid/vowaid-web-v2/master/src/data/donations.json'
+            data-item-url='/donations.json'
             data-item-description={`Donate $${donationValue}`}
             data-item-categories='donation'
             disabled={donationDisabled}
