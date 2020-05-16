@@ -108,7 +108,7 @@ const DonatePage = () => {
             data-item-price={donationValue}
             data-item-url='/donations.json'
             data-item-description={`Donate $${donationValue}`}
-            data-item-categories={'donation'}
+            data-item-categories='donation'
             disabled={donationDisabled}
           >Donate ${donationValue || '0'}</Button>
         </Wrapper>
