@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import isEmpty from 'lodash/isEmpty';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 import { H1, H2, Seo, Banner, Wrapper } from '../../../components';
 

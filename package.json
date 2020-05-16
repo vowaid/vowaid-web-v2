@@ -96,6 +96,6 @@
     "normalize.css": "^8.0.1",
     "prettier": "^1.19.1",
     "react-axe": "^3.4.1",
-    "uuid": "^7.0.2"
+    "uuid": "^8.0.0"
   }
 }

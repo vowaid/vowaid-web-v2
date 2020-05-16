@@ -1,5 +1,5 @@
 import React from 'react';
-import uuid from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Card, CardMedia, CardContent, CardActions } from '@material-ui/core';

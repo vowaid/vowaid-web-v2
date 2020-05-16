@@ -39,6 +39,7 @@ export { default as TwcHero } from './heroes/TwcHero/TwcHero';
 // Layout
 export { default as Footer } from './layout/Footer/Footer';
 export { default as Header } from './layout/Header/Header';
+export { default as Page } from './layout/Page/Page';
 
 // Nav
 export { default as NavDrawer } from './nav/NavDrawer/NavDrawer';
