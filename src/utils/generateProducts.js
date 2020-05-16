@@ -25,7 +25,6 @@ const generateDonations = () => {
 
     donationItems.push({
       id,
-      images: [],
       type: 'donation',
       name: `Donate $${price}`,
       price: price,
