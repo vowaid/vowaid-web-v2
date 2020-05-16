@@ -1,9 +1,3 @@
-/**
- * The main application where the theme and router are instantiated.
- *
- * TODO: Add restored scroll.
- * TODO: Add animated transition between pages.
- */
 import React from 'react';
 import styled from 'styled-components';
 
