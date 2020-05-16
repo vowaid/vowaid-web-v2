@@ -2,7 +2,7 @@ import React from 'react';
 import isEmpty from 'lodash/isEmpty';
 import qs from 'qs';
 import axios from 'axios';
-import uuid from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { Formik, Field, ErrorMessage } from 'formik';
