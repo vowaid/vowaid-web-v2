@@ -27,9 +27,9 @@ const generateDonations = () => {
       id,
       images: [],
       type: 'donation',
-      name: `Donate $${id}`,
-      price: `${id}.00`,
-      description: `$${id} Donation to VOWAID Foundation`,
+      name: `Donate $${price}`,
+      price: `${price}.00`,
+      description: `$${price} Donation to VOWAID Foundation`,
     });
   }
 
