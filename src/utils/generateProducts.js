@@ -30,6 +30,7 @@ const generateDonations = () => {
       name: `Donate $${price}`,
       price: price,
       description: `$${price} Donation to VOWAID Foundation`,
+      url: 'https://vowaid.org/donations.json',
     });
   }
 
