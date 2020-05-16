@@ -82,7 +82,14 @@ const DonatePage = () => {
             <TextField
               onChange={handleChange}
               type='number'
+              min='0'
+              step='1'
               value={donationValue}
+              onKeyDown={(event) => {
+                if (event.key === '.' || event.key === ',') {
+                  event.preventDefault();
+                }
+              }}
               onBlur={(event) => {
                 if (event.target.value === '') {
                   setDonationValue('0');
@@ -99,7 +106,7 @@ const DonatePage = () => {
             data-item-id={generateDonationId(donationValue)}
             data-item-name={`Donate $${donationValue}`}
             data-item-price={`${donationValue}.00`}
-            data-item-url='/products.json'
+            data-item-url='/donations.json'
             data-item-description={`Donate $${donationValue}`}
             data-item-categories={'donation'}
             disabled={donationDisabled}
