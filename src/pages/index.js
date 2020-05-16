@@ -16,6 +16,10 @@ export { default as Services } from './services/Services/Services';
 export { default as Swc } from './services/Swc/Swc';
 export { default as Twc } from './services/Twc/Twc';
 
+// Store
+export { default as Store } from './Store/Store';
+export { ProductsJson, DonationsJson } from './storeJson/storeJson';
+
 // General Pages
 export { default as Auth } from './Auth/Auth';
 export { default as Contact } from './Contact/Contact';
@@ -23,4 +27,3 @@ export { default as Donate } from './Donate/Donate';
 export { default as Events } from './Events/Events';
 export { default as Landing } from './Landing/Landing';
 export { default as NotFound } from './NotFound/NotFound';
-export { default as Store } from './Store/Store';

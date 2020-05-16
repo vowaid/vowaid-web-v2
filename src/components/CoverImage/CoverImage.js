@@ -37,7 +37,11 @@ const CoverImage = (props) => {
       // higher number for more zoom
       const scale = window.scrollY * .0004 + 1;
 
-      document.querySelector('.image--container').style.transform = `scale(${scale})`;
+      const imageContainer = document.querySelector('.image--container');
+
+      if (imageContainer) {
+        imageContainer.style.transform = `scale(${scale})`;
+      }
     });
   });
 

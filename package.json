@@ -15,7 +15,8 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "sitemap": "babel-node ./sitemapGenerator.js",
-    "predeploy": "npm run sitemap"
+    "predeploy": "npm run sitemap",
+    "generateDonationsJson": "node ./src/utils/generateProducts.js"
   },
   "repository": {
     "type": "git",
@@ -66,6 +67,7 @@
     "react-helmet": "^5.2.1",
     "react-html-parser": "^2.0.2",
     "react-image": "^2.4.0",
+    "react-json-view": "^1.19.1",
     "react-router-dom": "^5.1.2",
     "react-router-sitemap": "^1.2.0",
     "react-scripts": "^3.4.0",
