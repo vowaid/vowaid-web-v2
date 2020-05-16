@@ -8,7 +8,7 @@
     "name": "26XX SIGINT/EW Challenge Coin",
     "price": 25.00,
     "description": "Full color, 26XX Skull and Secret Squirrel",
-    "url": "https://vowaid.org/donations.json"
+    "url": "https://vowaid.org/products.json"
   },
 
   {
@@ -20,7 +20,7 @@
     "name": "2621 Pin",
     "price": 10.00,
     "description": "2621 Pin",
-    "url": "https://vowaid.org/donations.json"
+    "url": "https://vowaid.org/products.json"
   },
   {
     "id": "2641P",
@@ -31,7 +31,7 @@
     "name": "2641 Pin",
     "price": 10.00,
     "description": "2641 Pin",
-    "url": "https://vowaid.org/donations.json"
+    "url": "https://vowaid.org/products.json"
   },
   {
     "id": "2651P",
@@ -42,7 +42,7 @@
     "name": "2651 Pin",
     "price": 10.00,
     "description": "2651 Pin",
-    "url": "https://vowaid.org/donations.json"
+    "url": "https://vowaid.org/products.json"
   },
   {
     "id": "0001P",
@@ -53,7 +53,7 @@
     "name": "VOWAID Pin",
     "price": 20.00,
     "description": "White VOWAID Pin",
-    "url": "https://vowaid.org/donations.json"
+    "url": "https://vowaid.org/products.json"
   },
 
   {
@@ -65,7 +65,7 @@
     "name": "26XX Decal",
     "price": 10.00,
     "description": "26XX Decal",
-    "url": "https://vowaid.org/donations.json"
+    "url": "https://vowaid.org/products.json"
   },
   {
     "id": "2651D",
@@ -76,7 +76,7 @@
     "name": "2651 Decal",
     "price": 10.00,
     "description": "2651 Decal",
-    "url": "https://vowaid.org/donations.json"
+    "url": "https://vowaid.org/products.json"
   },
   {
     "id": "2602D",
@@ -87,7 +87,7 @@
     "name": "2602 Decal",
     "price": 10.00,
     "description": "2602 Decal",
-    "url": "https://vowaid.org/donations.json"
+    "url": "https://vowaid.org/products.json"
   },
 
   {
@@ -99,7 +99,7 @@
     "name": "2629 Decal",
     "price": 10.00,
     "description": "2629 Decal",
-    "url": "https://vowaid.org/donations.json"
+    "url": "https://vowaid.org/products.json"
   },
   {
     "id": "267XD",
@@ -110,7 +110,7 @@
     "name": "267X Decal",
     "price": 10.00,
     "description": "267X Decal",
-    "url": "https://vowaid.org/donations.json"
+    "url": "https://vowaid.org/products.json"
   },
   {
     "id": "2691D",
@@ -121,6 +121,6 @@
     "name": "2691 Decal",
     "price": 10.00,
     "description": "2691 Decal",
-    "url": "https://vowaid.org/donations.json"
+    "url": "https://vowaid.org/products.json"
   }
 ]
