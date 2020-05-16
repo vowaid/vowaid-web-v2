@@ -105,7 +105,7 @@ const DonatePage = () => {
             endIcon={<AddShoppingCartIcon />}
             data-item-id={generateDonationId(donationValue)}
             data-item-name={`Donate $${donationValue}`}
-            data-item-price={`${donationValue}.00`}
+            data-item-price={donationValue}
             data-item-url='/donations.json'
             data-item-description={`Donate $${donationValue}`}
             data-item-categories={'donation'}
