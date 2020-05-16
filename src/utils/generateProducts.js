@@ -25,11 +25,11 @@ const generateDonations = () => {
 
     donationItems.push({
       id,
-      type: 'donation',
+      categories: 'donation',
       name: `Donate $${price}`,
       price: price,
       description: `$${price} Donation to VOWAID Foundation`,
-      url: 'https://vowaid.org/donations.json',
+      url: '/donations.json',
     });
   }
 

@@ -22,6 +22,7 @@ export { default as SignUpForm } from './auth/SignUpForm/SignUpForm';
 export { default as Select } from './forms/Select/Select';
 // export { default as TextArea } from './forms/TextArea/TextArea';
 export { default as Button } from './forms/Button/Button';
+export { default as BuyButton } from './forms/BuyButton/BuyButton';
 export { default as DatePicker } from './forms/DatePicker/DatePicker';
 export { Form, Feedback, InputGroup } from './forms/Styled/Styled';
 
