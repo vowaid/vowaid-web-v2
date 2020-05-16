@@ -2,9 +2,8 @@ import React from 'react';
 import { v4 as uuid } from 'uuid';
 
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Card, CardMedia, CardContent, CardActions } from '@material-ui/core';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import { H4, P } from '../../components';
+import { Card, CardMedia, CardContent, CardActions } from '@material-ui/core';
+import { BuyButton, H4, P } from '../../components';
 
 import { gutter } from '../../styles/utils';
 
@@ -73,21 +72,9 @@ const Store = (props) => {
 
               <CardActions disableSpacing className={classes.actions}>
                 <P>${storeItem.price}</P>
-                <Button
-                  variant='contained'
-                  color='primary'
-                  endIcon={<AddShoppingCartIcon />}
-                  className='snipcart-add-item'
-                  data-item-id={storeItem.id}
-                  data-item-name={storeItem.name}
-                  data-item-price={storeItem.price}
-                  data-item-image={storeItem.images[0]}
-                  data-item-url='/products.json'
-                  data-item-description={storeItem.description}
-                  data-item-categories={storeItem.type}
-                >
-                  Add to Cart
-                </Button>
+                <BuyButton item={storeItem}>
+                  Add&nbsp;<span className='sr-only'>{storeItem.name}&nbsp;</span>to&nbsp;Cart
+                </BuyButton>
               </CardActions>
             </Card>
           );

@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid';
 import { makeStyles } from '@material-ui/core/styles';
 import { ButtonGroup, TextField } from '@material-ui/core';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import { Button, DonateHero, H3, P, Seo, Content, Wrapper } from '../../components';
+import { Button, BuyButton, DonateHero, H3, P, Seo, Content, Wrapper } from '../../components';
 
 import { gutter, pxToEm } from '../../styles/utils';
 
@@ -70,7 +70,9 @@ const DonatePage = () => {
                     setDonationValue(donationAmount)
                   }}
                   key={uuid()}
-                >${donationAmount}</Button>
+                >
+                  ${donationAmount}
+                </Button>
               ))}
             </ButtonGroup>
           </div>
@@ -98,19 +100,23 @@ const DonatePage = () => {
             />
           </div>
 
-          <Button
+          <BuyButton
             variant='contained'
             color='primary'
             className='snipcart-add-item'
             endIcon={<AddShoppingCartIcon />}
-            data-item-id={generateDonationId(donationValue)}
-            data-item-name={`Donate $${donationValue}`}
-            data-item-price={donationValue}
-            data-item-url='/donations.json'
-            data-item-description={`Donate $${donationValue}`}
-            data-item-categories='donation'
+            item={{
+              id: generateDonationId(donationValue),
+              name: `Donate $${donationValue}`,
+              price: donationValue,
+              url: '/donations.json',
+              description: `Donate $${donationValue}`,
+              categories: 'donation',
+            }}
             disabled={donationDisabled}
-          >Donate ${donationValue || '0'}</Button>
+          >
+            Donate ${donationValue || '0'}
+          </BuyButton>
         </Wrapper>
       </Content>
     </main>
