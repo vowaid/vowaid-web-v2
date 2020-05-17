@@ -8,7 +8,7 @@ const BuyButton = React.memo(({ children, item, ...rest }) => {
     const dataProps = {};
 
     Object.keys(item).forEach((key) => {
-      let value = item[key];
+      let value = Number(item[key]);
 
       if (key === 'price') {
         value = value.toFixed(2);

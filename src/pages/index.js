@@ -18,7 +18,6 @@ export { default as Twc } from './services/Twc/Twc';
 
 // Store
 export { default as Store } from './Store/Store';
-export { ProductsJson, DonationsJson } from './storeJson/storeJson';
 
 // General Pages
 export { default as Auth } from './Auth/Auth';
