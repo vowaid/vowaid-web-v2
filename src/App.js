@@ -19,31 +19,17 @@ import routes from './routes/routes';
  * A special wrapper for <Route> that knows how to handle "sub"-routes by passing them in a `routes`
  * prop to the component it renders.
  */
-const RouteWithSubRoutes = (route) => {
-  if (route.path.includes('.json')) {
-    return (
-      <Route
-        path={route.path}
-        render={props => (
-          // pass the sub-routes down to keep nesting
-          <route.component {...props} routes={route.routes} />
-        )}
-      />
-    );
-  }
-
-  return (
-    <Page>
-      <Route
-        path={route.path}
-        render={props => (
-          // pass the sub-routes down to keep nesting
-          <route.component {...props} routes={route.routes} />
-        )}
-      />
-    </Page>
-  );
-};
+const RouteWithSubRoutes = (route) => (
+  <Page>
+    <Route
+      path={route.path}
+      render={props => (
+        // pass the sub-routes down to keep nesting
+        <route.component {...props} routes={route.routes} />
+      )}
+    />
+  </Page>
+);
 
 const App = (props) => (
   <Router>
