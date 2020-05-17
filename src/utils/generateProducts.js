@@ -39,4 +39,4 @@ const generateDonations = () => {
 const donationItems = generateDonations();
 const products = JSON.stringify(donationItems, null, 2);
 
-fs.writeFileSync('./src/data/donations.json', products);
+fs.writeFileSync('./public/donations.json', products);
