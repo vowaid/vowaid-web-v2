@@ -6,12 +6,10 @@ import {
   About,
   Contact,
   Donate,
-  DonationsJson,
   Faqs,
   Landing,
   Member,
   Partners,
-  ProductsJson,
   Services,
   Store,
   Swc,
@@ -84,14 +82,6 @@ const routes = [{
 }, {
   path: '/store',
   component: Store,
-}, {
-  exact: true,
-  path: '/products.json',
-  component: ProductsJson,
-}, {
-  exact: true,
-  path: '/donations.json',
-  component: DonationsJson,
 }];
 
 export default routes;
