@@ -7,7 +7,7 @@ const SocialLinks = {
 
 const VowaidData = {
   EMAIL: 'contact@vowaid.org',
-  PHONE: '781.606.1737',
+  PHONE: '(617) 752-1217',
   ADDRESS_1: '2307 S. Rural Road',
   CITY: 'Tempe',
   STATE: 'Arizona',
