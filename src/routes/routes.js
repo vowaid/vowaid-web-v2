@@ -11,7 +11,6 @@ import {
   Member,
   Partners,
   Services,
-  Store,
   Swc,
   Team,
   Twc,
@@ -79,9 +78,5 @@ const routes = [{
 }, {
   path: '/donate',
   component: Donate,
-}, {
-  path: '/store',
-  component: Store,
-}];
 
 export default routes;
