@@ -126,15 +126,6 @@ const NavDrawer = ({ isMobile, ...others }) => {
               <Button
                 variant='text'
                 component={Link}
-                to='/store'
-                format='nav'
-              >Store</Button>
-            </ListItem>
-
-            <ListItem className={`${classes.listOption} left`} onClick={toggleDrawer(false)}>
-              <Button
-                variant='text'
-                component={Link}
                 to='/contact'
                 format='nav'
               >Contact</Button>
