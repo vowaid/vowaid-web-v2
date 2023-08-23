@@ -58,13 +58,6 @@ const NavList = ({ className }) => {
         <Button
           className='MuiToolbar-regular'
           component={Link}
-          to='/store'
-          format='nav'
-        >Store</Button>
-
-        <Button
-          className='MuiToolbar-regular'
-          component={Link}
           to='/contact'
           format='nav'
         >Contact</Button>
