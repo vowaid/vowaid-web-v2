@@ -16,9 +16,6 @@ export { default as Services } from './services/Services/Services';
 export { default as Swc } from './services/Swc/Swc';
 export { default as Twc } from './services/Twc/Twc';
 
-// Store
-export { default as Store } from './Store/Store';
-
 // General Pages
 export { default as Auth } from './Auth/Auth';
 export { default as Contact } from './Contact/Contact';
