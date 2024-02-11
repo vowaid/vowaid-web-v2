@@ -1,34 +1,45 @@
-import React from 'react';
-import styled from 'styled-components';
-import isEmpty from 'lodash/isEmpty';
-import queryString from 'query-string';
+import React from "react";
+import styled from "styled-components";
+import isEmpty from "lodash/isEmpty";
+import queryString from "query-string";
 
-import { Button, H1, H2, Image, P, Link, Content, Seo, SocialList } from '../../../../components';
+import {
+  Button,
+  H1,
+  H2,
+  H3,
+  Image,
+  P,
+  Link,
+  Content,
+  Seo,
+  SocialList
+} from "../../../../components";
 
-import { teamMembers } from '../../../../data/teamData';
+import { teamMembers } from "../../../../data/teamData";
 
-import { gutter, pxToEm } from '../../../../styles/utils';
+import { gutter, pxToEm } from "../../../../styles/utils";
 
-import AirForceIcon from '../../../../components/icons/military/AirForce';
-import ArmyIcon from '../../../../components/icons/military/Army';
-import CoastGuardIcon from '../../../../components/icons/military/CoastGuard';
-import MarineCorpsIcon from '../../../../components/icons/military/MarineCorps';
-import NavyIcon from '../../../../components/icons/military/Navy';
+import AirForceIcon from "../../../../components/icons/military/AirForce";
+import ArmyIcon from "../../../../components/icons/military/Army";
+import CoastGuardIcon from "../../../../components/icons/military/CoastGuard";
+import MarineCorpsIcon from "../../../../components/icons/military/MarineCorps";
+import NavyIcon from "../../../../components/icons/military/Navy";
 
 /**
  * Description.
  *
  * @class
  */
-const BioPage = (props) => {
+const BioPage = props => {
   const [teamMember, setTeamMember] = React.useState({});
 
   React.useEffect(() => {
-    const search = props.location?.search || '';
+    const search = props.location?.search || "";
     const query = queryString.parse(search);
-    const updatedTeamMember = teamMembers.filter((member) => (
-      member.id === query.id
-    ))[0];
+    const updatedTeamMember = teamMembers.filter(
+      member => member.id === query.id
+    )[0];
 
     setTeamMember(updatedTeamMember);
   }, [teamMember, props.location]);
@@ -38,31 +49,31 @@ const BioPage = (props) => {
     const iconTitle = `${teamMember.service.branch} (${teamMember.service.status})`;
 
     switch (teamMember.service.branch?.toLowerCase()) {
-      case 'marine corps':
+      case "marine corps":
         return <MarineCorpsIcon size={iconSize} title={iconTitle} />;
 
-      case 'navy':
+      case "navy":
         return <NavyIcon size={iconSize} title={iconTitle} />;
 
-      case 'army':
+      case "army":
         return <ArmyIcon size={iconSize} title={iconTitle} />;
 
-      case 'coast guard':
+      case "coast guard":
         return <CoastGuardIcon size={iconSize} title={iconTitle} />;
 
-      case 'air force':
+      case "air force":
         return <AirForceIcon size={iconSize} title={iconTitle} />;
 
-      case 'homeland security':
+      case "homeland security":
       default:
         return null;
     }
-  }
+  };
 
-  return (!isEmpty(teamMember)) ? (
+  return !isEmpty(teamMember) ? (
     <main>
       <Seo
-        keywords={['vowaid', 'veteran', 'nonprofit', 'charity', 'react']}
+        keywords={["vowaid", "veteran", "nonprofit", "charity", "react"]}
         title={`Team: ${teamMember.name}`}
       />
 
@@ -77,13 +88,17 @@ const BioPage = (props) => {
           <SocialList socialLinks={teamMember.social} />
 
           <P paragraph>
-            <Link href={`mailto:${teamMember.email}`} underline='hover'>{teamMember.email}</Link>
+            <Link href={`mailto:${teamMember.email}`} underline="hover">
+              {teamMember.email}
+            </Link>
           </P>
 
-          {(teamMember.service.branch !== '') ? (
+          {teamMember.service.branch !== "" ? (
             <div>
               {fetchBranchImage()}
-              <span className='sr-only'>{teamMember.service.branch} ({teamMember.service.status})</span>
+              <span className="sr-only">
+                {teamMember.service.branch} ({teamMember.service.status})
+              </span>
             </div>
           ) : null}
         </Aside>
@@ -91,20 +106,29 @@ const BioPage = (props) => {
         <MemberInfo>
           <header>
             <H1>{teamMember.name}</H1>
-            <H2>{teamMember.title?.full} {(!isEmpty(teamMember.title?.abbr)) && `(${teamMember.title?.abbr})`}</H2>
+            <H2>
+              {teamMember.title?.full}{" "}
+              {!isEmpty(teamMember.title?.abbr) &&
+                `(${teamMember.title?.abbr})`}
+            </H2>
+            <H3>
+              <em>{teamMember.title?.status}</em>
+            </H3>
           </header>
 
           {teamMember.bio()}
 
-          <Button variant='outlined' component={Link} to='/about/team'>Back To Team</Button>
+          <Button variant="outlined" component={Link} to="/about/team">
+            Back To Team
+          </Button>
         </MemberInfo>
       </FlexContainer>
     </main>
   ) : (
     <main>
       <Seo
-        keywords={['vowaid', 'veteran', 'nonprofit', 'charity', 'react']}
-        title={'Team: '}
+        keywords={["vowaid", "veteran", "nonprofit", "charity", "react"]}
+        title={"Team: "}
       />
 
       <FlexContainer>

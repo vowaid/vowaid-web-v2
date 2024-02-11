@@ -1,13 +1,26 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
-import isEmpty from 'lodash/isEmpty';
+import isEmpty from "lodash/isEmpty";
 
-import { Card } from '@material-ui/core';
-import { Image, Button, H1, H2, Link, SocialList, ServiceFlag } from '../../index';
+import { Card } from "@material-ui/core";
+import {
+  Image,
+  Button,
+  H1,
+  H2,
+  H3,
+  Link,
+  SocialList,
+  ServiceFlag
+} from "../../index";
 
-import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/utils';
+import {
+  createTransitionForProperties,
+  gutter,
+  pxToEm
+} from "../../../styles/utils";
 
 /**
  * React component for the application global header. The header transitions between the "full"
@@ -17,9 +30,9 @@ import { createTransitionForProperties, gutter, pxToEm } from '../../../styles/u
  * @class
  */
 const MemberCard = ({ teamMember }) => {
-  const { bio,branch, image, name, title, id, social, service } = teamMember;
-  let isDisabled = (bio !== undefined) ? isEmpty(bio()) : true;
-  const isServiceMember = (!isEmpty(branch));
+  const { bio, branch, image, name, title, id, social, service } = teamMember;
+  let isDisabled = bio !== undefined ? isEmpty(bio()) : true;
+  const isServiceMember = !isEmpty(branch);
 
   return (
     <StyledMemberCard>
@@ -34,30 +47,35 @@ const MemberCard = ({ teamMember }) => {
         <header>
           <H1>{name}</H1>
           <H2>{title?.full}</H2>
+          <H3>
+            <em>{title?.status}</em>
+          </H3>
         </header>
 
         <Button
-          variant='contained'
-          color='secondary'
+          variant="contained"
+          color="secondary"
           disabled={isDisabled}
           component={Link}
           to={`/about/team/member?id=${id}`}
-        >Read Bio<span className='sr-only'> for {name}</span></Button>
+        >
+          Read Bio<span className="sr-only"> for {name}</span>
+        </Button>
 
         <SocialList socialLinks={social} />
       </section>
 
-      {(isServiceMember) ? <ServiceFlag service={service} /> : null}
+      {isServiceMember ? <ServiceFlag service={service} /> : null}
     </StyledMemberCard>
   );
 };
 
 MemberCard.propTypes = {
-  teamMember: PropTypes.objectOf(PropTypes.any).isRequired,
+  teamMember: PropTypes.objectOf(PropTypes.any).isRequired
 };
 
 MemberCard.defaultProps = {
-  teamMember: {},
+  teamMember: {}
 };
 
 const StyledMemberCard = styled(Card)`
@@ -68,7 +86,7 @@ const StyledMemberCard = styled(Card)`
   overflow: hidden;
   position: relative;
   width: calc((100vw - ${pxToEm(150)}) / 2);
-  ${createTransitionForProperties(['width'])};
+  ${createTransitionForProperties(["width"])};
 
   &.active {
     height: auto;
@@ -103,6 +121,11 @@ const StyledMemberCard = styled(Card)`
 
     h2 {
       font-size: 1.25em;
+      margin-bottom: ${gutter.XS};
+    }
+
+    h3 {
+      font-size: 1em;
       margin-bottom: ${gutter.XS};
     }
   }

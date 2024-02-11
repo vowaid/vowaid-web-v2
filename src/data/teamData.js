@@ -17,6 +17,7 @@ const teamMembers = [
     title: {
       full: 'Founder / Director',
       abbr: '',
+      status: 'Volunteer',
     },
     social: {
       linkedin: 'https://www.linkedin.com/in/Alice-ward-a675a288/',
@@ -45,6 +46,7 @@ const teamMembers = [
     title: {
       full: 'Chief Operating Officer',
       abbr: 'COO',
+      status: 'Volunteer',
     },
     social: {
       linkedin: 'https://www.linkedin.com/in/lisa-hemmie-zorn-027aa427/',
@@ -80,6 +82,7 @@ const teamMembers = [
     title: {
       full: 'Chief Technology Officer',
       abbr: 'CTO',
+      status: 'Volunteer',
     },
     social: {
       linkedin: 'https://www.instagram.com/hollyos7/',
