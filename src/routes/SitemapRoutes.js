@@ -34,6 +34,8 @@ const routePaths = [{
   path: '/contact',
 }, {
   path: '/donate',
+}, {
+  path: '/store',
 }];
 
 const SitemapRoutes = (props) => (

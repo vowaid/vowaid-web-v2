@@ -16,6 +16,25 @@ import {
   Twc,
 } from '../pages';
 
+/**
+ * TODO:
+ *  - Add Auth
+{
+  path: '/signin',
+  component: Auth,
+}, {
+  path: '/signup',
+  component: Auth,
+}
+ *  - Add Legal Pages
+{
+  path: '/legal/privacy',
+  component: Privacy,
+}, {
+  path: '/legal/terms',
+  component: Terms,
+}
+ */
 const routes = [{
   exact: true,
   path: '/',
@@ -59,6 +78,5 @@ const routes = [{
 }, {
   path: '/donate',
   component: Donate,
-}];
 
 export default routes;
