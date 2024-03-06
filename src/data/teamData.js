@@ -4,7 +4,6 @@ import { P } from '../components/Typography/Typography';
 
 import LisaHemmiePhoto from '../assets/images/team/lisaHemmie.jpg';
 import AliceWardPhoto from '../assets/images/team/aliceWard.jpg';
-import HollySpringsteenPhoto from '../assets/images/team/hollySpringsteen.jpg';
 
 // const malePlaceholder = 'https://www.openreality.co.uk/wp-content/uploads/2019/04/Male-Placeholder-Headshot.jpg';
 // const femalePlaceholder = 'https://www.openreality.co.uk/wp-content/uploads/2019/04/Female-Placeholder-Headshot.jpg';
@@ -15,7 +14,7 @@ const teamMembers = [
     name: 'Alice Ward',
     email: 'alice@vowaid.org',
     title: {
-      full: 'Founder / Director',
+      full: 'Founder / Director (Volunteer)',
       abbr: '',
     },
     social: {
@@ -43,7 +42,7 @@ const teamMembers = [
     name: 'Lisa Hemmie',
     email: 'lisa@vowaid.org',
     title: {
-      full: 'Chief Operating Officer',
+      full: 'Chief Operating Officer (Volunteer)',
       abbr: 'COO',
     },
     social: {
@@ -70,41 +69,6 @@ const teamMembers = [
         <P paragraph>Constantly looking for opportunities to help those in need, Lisa discovered the Veterans of War Aid Foundation. A veteran herself, Lisa understood the struggles of veterans and felt compelled to get involved with the Veterans of War Aid Foundation to help provide her fellow countrymen with the help they need to prosper and survive their unique challenges.</P>
 
         <P>In 2012, Lisa earned the title of Mrs. Michigan which gave her an even larger platform to bring attention to the charitable causes she was passionate about. As an advocate for charity work and an experienced mentor, Lisa believes she can be a highly productive member of the team to help the organization achieve their goals promptly and completely.</P>
-      </>
-    ),
-  },
-  {
-    id: 'f5d6c6a4-c268-4b48-a7b8-3f030b22e63a',
-    name: 'Holly Springsteen',
-    email: 'holly@vowaid.org',
-    title: {
-      full: 'Chief Technology Officer',
-      abbr: 'CTO',
-    },
-    social: {
-      linkedin: 'https://www.instagram.com/hollyos7/',
-      instagram: 'https://www.instagram.com/hollyos7/',
-      twitter: 'https://twitter.com/hollyos7',
-      github: 'https://github.com/hollyos',
-    },
-    service: {
-      branch: 'Marine Corps',
-      status: 'veteran',
-    },
-    image: HollySpringsteenPhoto,
-    bio: () => (
-      <>
-        <P paragraph>Born and raised in New York, Holly comes with that determined, never slow down attitude. Holly joined the United States Marine Corps at 18, serving her country for 5 years. During which time, she was afforded many incredible, awe-inspiring, humbling opportunities. One such opportunity was leading approximately 120 Marines to respond to the 2011 Tōhoku earthquake and prepare relief mission essential equipment.</P>
-
-        <P paragraph>After the military Holly spent time working as a designer and photographer for several years having been published in What Digital Camera as well as several smaller publications. During this time she really began to hone her skill sets and broaden into additional verticals.</P>
-
-        <P paragraph>After a request from a client to build a website, an entirely new concept for her at the time, Holly began digging in and learning the basics on how to accomplish this task. She was able to put together a basic site. This journey intrigued an interest and passion like never before. Two weeks later, Holly was at Full Sail University, where she began her journey towards getting her degree in Web Design and Development.</P>
-
-        <P paragraph>From there Holly has continued to work within design as well as development on an ongoing basis. Working with companies such as IBM, Fjord, Accenture, ExxonMobil, Frontier Communications, Cox, and several others Holly has always strived to bridge the gap between design and development. Her passion for quality interfaces and experiences has led to innovations and developments that have re-shaped multi-million dollar industries.</P>
-
-        <P paragraph>Other than her contributions in the work-force Holly is passionate about giving back and sharing her knowledge with those around her. Having served on advisory boards for Full Sail University as well as The Iron Yard she strives to aim educational opportunities in the right direction for the largest impact on students. Not one to lead from the outside alone Holly has also spent time teaching at The Coding Bootcamp at The University of Texas at Austin. During her time as an instructor Holly contributed to changing the lives of her students through rapid education and career growth assistance.</P>
-
-        <P>Holly is a passionate and empowering individual that strives to not only better herself but also those around her.</P>
       </>
     ),
   },
